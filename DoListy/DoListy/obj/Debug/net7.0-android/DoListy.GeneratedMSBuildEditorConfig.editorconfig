@@ -12,33 +12,33 @@ build_property.EnableSingleFileAnalyzer = true
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = DoListy
-build_property.ProjectDir = D:\IT008\DoListy\DoListy\DoListy\
+build_property.ProjectDir = D:\hk1 năm 2\LTTQ\Dolisty\DoListy\DoListy\
 
-[D:/IT008/DoListy/DoListy/DoListy/App.xaml]
+[D:/hk1 năm 2/LTTQ/Dolisty/DoListy/DoListy/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[D:/IT008/DoListy/DoListy/DoListy/AppShell.xaml]
+[D:/hk1 năm 2/LTTQ/Dolisty/DoListy/DoListy/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[D:/IT008/DoListy/DoListy/DoListy/MainPage.xaml]
+[D:/hk1 năm 2/LTTQ/Dolisty/DoListy/DoListy/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[D:/IT008/DoListy/DoListy/DoListy/Resources/Styles/Colors.xaml]
+[D:/hk1 năm 2/LTTQ/Dolisty/DoListy/DoListy/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[D:/IT008/DoListy/DoListy/DoListy/Resources/Styles/Styles.xaml]
+[D:/hk1 năm 2/LTTQ/Dolisty/DoListy/DoListy/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
