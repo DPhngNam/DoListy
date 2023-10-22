@@ -5,8 +5,18 @@
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:local="clr-namespace:DoListy">
 
+    <!--
     <scheduler:SfScheduler>
         
     </scheduler:SfScheduler>
-
+    <Grid>
+        <Frame BackgroundColor="{DynamicResource dayBoxViewColor}" CornerRadius="10" WidthRequest="150" HeightRequest="500">
+            <StackLayout Orientation="Vertical">
+                <Label Text="Hello"/>
+                <Label Text="I'm Tri"/>
+            </StackLayout>
+        </Frame>
+    </Grid>
+    -->
+    <Button Style="{DynamicResource navButtonStyle}" Text="Button"/>
 </ContentPage>

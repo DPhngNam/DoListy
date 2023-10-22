@@ -9,6 +9,157 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
+            <!-- Color Definations-->
+            <Color x:Key="appBgColor">#DCD6F7</Color>
+            <Color x:Key="navBgColor">#F4EEFF</Color>
+            <Color x:Key="navButtonBgColor">#424874</Color>
+            <Color x:Key="selectedNavButtonBgColor">#A6B1E1</Color>
+            <Color x:Key="settingButtonBgColor">#DCD6F7</Color>
+            <Color x:Key="navSearchBarBgColor">#DCD6F7</Color>
+            <Color x:Key="dayFrameBgColor">#424874</Color>
+            <Color x:Key="pomoButtonBgColor">#6EA4DD</Color>
+            <Color x:Key="taskFrameBgColor">#F4EEFF</Color>
+            <Color x:Key="taskItemButtonBgColor">#424874</Color>
+            <!-- Font Definations-->
+            <OnPlatform x:TypeArguments="x:String" x:Key="mainFontfamily">
+                <On Platform="UWP" Value="OpenSansRegular"/>
+                <On Platform="macOS" Value="OpenSansRegular"/>
+            </OnPlatform>
+
+            <x:Double x:Key="navButtonFontSize">17</x:Double>
+            <x:Double x:Key="settingButtonFontSize">17</x:Double>
+            <x:Double x:Key="navSearchBarFontSize">15</x:Double>
+            <x:Double x:Key="pomoButtonFontSize">17</x:Double>
+            <x:Double x:Key="numberdayP1LabelFontSize">28</x:Double>
+            <x:Double x:Key="dayP1LabelFontSize">18</x:Double>
+            <x:Double x:Key="dayFrameHeaderLabelFontSize">23</x:Double>
+            <x:Double x:Key="taskTitleLabelFontSize">18</x:Double>
+            <x:Double x:Key="taskDateLabelFontSize">14</x:Double>
+            <x:Double x:Key="taskDetailsNameLabelFontSize">17</x:Double>
+            <x:Double x:Key="taskDetailsInfoLabelFontSize">17</x:Double>
+            <x:Double x:Key="weatherNameLabelFontSize">17</x:Double>
+            <x:Double x:Key="weatherInfoLabelFontSize">17</x:Double>
+            <x:Double x:Key="taskFrameHeaderLabelFontSize">18</x:Double>
+            <x:Double x:Key="taskItemButtonFontSize">17</x:Double>
+            <x:Double x:Key="dayP3LabelFontSize">18</x:Double>
+            <x:Double x:Key="dateLabelFontSize">30</x:Double>
+            <!-- Style Definations-->
+            <Style x:Key="navButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource navButtonBgColor}"/>
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource navButtonFontSize}"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="selectedNavButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource selectedNavButtonBgColor}"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+                <Setter Property="FontSize" Value="{StaticResource navButtonFontSize}"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="navSearchBarStyle" TargetType="SearchBar">
+                <Setter Property="BackgroundColor" Value="{StaticResource navSearchBarBgColor}"/>
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource navSearchBarFontSize}"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="numberdayP1LabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource numberdayP1LabelFontSize}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="dayP1LabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource dayP1LabelFontSize}"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="pomoButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource pomoButtonBgColor}"/>
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="17"/>
+                <Setter Property="TextColor" Value="{StaticResource pomoButtonBgColor}"/>
+            </Style>
+            <Style x:Key="dayFrameStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}"/>
+                <!--<Setter Property="CornerRadius"-->
+            </Style>
+            <Style x:Key="dayFrameHeaderLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource dayFrameHeaderLabelFontSize}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="taskTitleLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource taskTitleLabelFontSize}"/>
+                <Setter Property="TextColor" Value="White"/>
+
+            </Style>
+            <Style x:Key="taskDateLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource taskDateLabelFontSize}"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="taskDetailsNameLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource taskDetailsNameLabelFontSize}"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="taskDetailsInfoLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource taskDetailsInfoLabelFontSize}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="weatherNameLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource weatherNameLabelFontSize}"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="weatherInfoLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource weatherInfoLabelFontSize}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="dayFrameSliderStyle" TargetType="Slider">
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <Style x:Key="taskFrameStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource taskFrameBgColor}"/>
+                <!--<Setter Property="CornerRadius"-->
+
+            </Style>
+            <Style x:Key="taskFrameHeaderLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource taskFrameHeaderLabelFontSize}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="taskFrameSliderStyle" TargetType="Slider">
+                <Setter Property="BackgroundColor" Value="DarkGray"/>
+            </Style>
+            <Style x:Key="taskItemButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource taskItemButtonBgColor}"/>
+                <Setter Property="FontSize" Value="{StaticResource taskItemButtonFontSize}"/>
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="dayP3LabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="{StaticResource dayP3LabelFontSize}"/>
+            </Style>
+            <Style x:Key="dateLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
+                <Setter Property="FontSize" Value="{StaticResource dateLabelFontSize}"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
