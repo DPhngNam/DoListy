@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\IT008\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {}
+    "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {}
   },
   "projects": {
-    "D:\\IT008\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {
+    "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\IT008\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
+        "projectUniqueName": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
         "projectName": "DoListy",
-        "projectPath": "D:\\IT008\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
-        "packagesPath": "C:\\Users\\pnam2\\.nuget\\packages\\",
-        "outputPath": "D:\\IT008\\DoListy\\DoListy\\DoListy\\obj\\",
+        "projectPath": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
+        "packagesPath": "C:\\Users\\thinh\\.nuget\\packages\\",
+        "outputPath": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
-          "D:\\IDE\\Visual Studio\\Loca\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\pnam2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -97,6 +97,10 @@
             "Syncfusion.Maui.Scheduler": {
               "target": "Package",
               "version": "[23.1.41, )"
+            },
+            "XCalendar.Maui": {
+              "target": "Package",
+              "version": "[4.5.2, )"
             },
             "Xamarin.Android.Glide": {
               "target": "Package",
@@ -223,6 +227,10 @@
             "Syncfusion.Maui.Scheduler": {
               "target": "Package",
               "version": "[23.1.41, )"
+            },
+            "XCalendar.Maui": {
+              "target": "Package",
+              "version": "[4.5.2, )"
             }
           },
           "imports": [
@@ -294,6 +302,10 @@
             "Syncfusion.Maui.Scheduler": {
               "target": "Package",
               "version": "[23.1.41, )"
+            },
+            "XCalendar.Maui": {
+              "target": "Package",
+              "version": "[4.5.2, )"
             }
           },
           "imports": [
@@ -376,6 +388,10 @@
             "Syncfusion.Maui.Scheduler": {
               "target": "Package",
               "version": "[23.1.41, )"
+            },
+            "XCalendar.Maui": {
+              "target": "Package",
+              "version": "[4.5.2, )"
             }
           },
           "imports": [
