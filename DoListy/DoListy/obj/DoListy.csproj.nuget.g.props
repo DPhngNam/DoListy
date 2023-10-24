@@ -5,16 +5,11 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-<<<<<<< HEAD
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\thinh\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
-=======
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\duong\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
->>>>>>> 2ed4f6ac2ade2e3aee86656a9dddffd7c2311a3c
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.5.0</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.7.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-<<<<<<< HEAD
     <SourceRoot Include="C:\Users\thinh\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
@@ -24,16 +19,5 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net7.0-windows10.0.19041.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_WindowsAppSDK Condition=" '$(PkgMicrosoft_WindowsAppSDK)' == '' ">C:\Users\thinh\.nuget\packages\microsoft.windowsappsdk\1.2.221209.1</PkgMicrosoft_WindowsAppSDK>
-=======
-    <SourceRoot Include="C:\Users\duong\.nuget\packages\" />
-    <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
-  </ItemGroup>
-  <ImportGroup Condition=" '$(TargetFramework)' == 'net7.0-windows10.0.19041.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\microsoft.windows.sdk.buildtools\10.0.22621.755\build\Microsoft.Windows.SDK.BuildTools.props" Condition="Exists('C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\microsoft.windows.sdk.buildtools\10.0.22621.755\build\Microsoft.Windows.SDK.BuildTools.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.windowsappsdk\1.2.221209.1\buildTransitive\Microsoft.WindowsAppSDK.props" Condition="Exists('$(NuGetPackageRoot)microsoft.windowsappsdk\1.2.221209.1\buildTransitive\Microsoft.WindowsAppSDK.props')" />
-  </ImportGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net7.0-windows10.0.19041.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgMicrosoft_WindowsAppSDK Condition=" '$(PkgMicrosoft_WindowsAppSDK)' == '' ">C:\Users\duong\.nuget\packages\microsoft.windowsappsdk\1.2.221209.1</PkgMicrosoft_WindowsAppSDK>
->>>>>>> 2ed4f6ac2ade2e3aee86656a9dddffd7c2311a3c
   </PropertyGroup>
 </Project>

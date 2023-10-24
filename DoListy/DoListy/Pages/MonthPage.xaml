@@ -6,8 +6,18 @@
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title="MonthPage">
     <!--Page cua Vinh Thinh-->
-    <Grid>
-
-        <Label Text="This is the month view"/>
+    <Grid BackgroundColor="{StaticResource appBgColor}" 
+        RowDefinitions="*"
+          ColumnDefinitions="*,200">
+        <scheduler:SfScheduler 
+            Grid.Column="0"
+            Grid.Row="0"
+            View="Month">
+            
+        </scheduler:SfScheduler>
+        <ListView Grid.Row="0"
+                  Grid.Column="1">
+            
+        </ListView>
     </Grid>
 </ContentPage>
