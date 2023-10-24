@@ -3,9 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DoListy.Pages.MonthPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
+             xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title="MonthPage">
+    <!--Page cua Vinh Thinh-->
     <Grid>
 
-        <Label Text="Month"/>
+        <Label Text="This is the month view"/>
     </Grid>
 </ContentPage>

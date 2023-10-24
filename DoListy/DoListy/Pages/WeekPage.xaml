@@ -3,9 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DoListy.Pages.WeekPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
+             xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title="WeekPage">
+    <!--Page cua Huu Thinh-->
     <Grid>
 
-        <Label Text="Week"/>
+        <Label Text="This is the week view"/>
     </Grid>
 </ContentPage>

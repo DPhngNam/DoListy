@@ -63,6 +63,11 @@
                 <Setter Property="FontSize" Value="{StaticResource navSearchBarFontSize}"/>
                 <Setter Property="TextColor" Value="Black"/>
             </Style>
+            <!-- Nay` la ten ngay`, vi du Mon 23, Tue 24 a, luc dau Tri nham` nen lam no la Label, 
+            nhung nghi lai thi ten ngay` sau nay se phai xu li su kien,
+            nen kh the la Label duoc, no co the nam san trong Scheduler, Calendar, hoac phai tao rieng Button, khi vao lam thi moi biet duoc,
+            lam bang cach nao mien sao la chuyen tu ngay nay qua ngay khac, week nay sang week khac,.. la duoc a, quan trong la thiet ke cho giong Canva nha ae
+            khong giong duoc thi ae bao lai trong gr nha
             <Style x:Key="numberdayP1LabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontSize" Value="{StaticResource numberdayP1LabelFontSize}"/>
@@ -74,6 +79,7 @@
                 <Setter Property="FontSize" Value="{StaticResource dayP1LabelFontSize}"/>
                 <Setter Property="TextColor" Value="Black"/>
             </Style>
+            -->
             <Style x:Key="pomoButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource pomoButtonBgColor}"/>
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
@@ -147,11 +153,13 @@
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="TextColor" Value="White"/>
             </Style>
+            <!-- cai nay cung tuong tu dayP1, keo len tren de coi comment tren dayP1 nha
             <Style x:Key="dayP3LabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="FontSize" Value="{StaticResource dayP3LabelFontSize}"/>
             </Style>
+            -->
             <Style x:Key="dateLabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontSize" Value="{StaticResource dateLabelFontSize}"/>
