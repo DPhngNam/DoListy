@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "WkZcBzuAPmPgXnXfrR2XT0lDi2HbOE6QXHcasM2ttuW9nuXvirHywCLr1Np6Q1FfGNfVNLpRHu71lSPE8ztZZA==",
   "success": true,
   "projectFilePath": "D:\\hk1 năm 2\\LTTQ\\Dolisty\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
+=======
+  "dgSpecHash": "Ln8mV0Sj9O0DhpGi4wtN12FErYK0ybh35D4BfC3hUAB/nkS4MfeGr4YNoSfrw7Do5BHkFcrO4MDOe0xePc3RpQ==",
+  "success": true,
+  "projectFilePath": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
+>>>>>>> 0cdef197885f8a308ad2b8a33a8fecf8eafe732e
   "expectedPackageFiles": [
     "C:\\Users\\thinh\\.nuget\\packages\\googlegson\\2.9.1.1\\googlegson.2.9.1.1.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
@@ -15,8 +21,13 @@
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.graphics.win2d\\1.0.5.1\\microsoft.graphics.win2d.1.0.5.1.nupkg.sha512",
+<<<<<<< HEAD
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.maui.graphics\\7.0.96\\microsoft.maui.graphics.7.0.96.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.maui.graphics.win2d.winui.desktop\\7.0.96\\microsoft.maui.graphics.win2d.winui.desktop.7.0.96.nupkg.sha512",
+=======
+    "C:\\Users\\thinh\\.nuget\\packages\\microsoft.maui.graphics\\7.0.92\\microsoft.maui.graphics.7.0.92.nupkg.sha512",
+    "C:\\Users\\thinh\\.nuget\\packages\\microsoft.maui.graphics.win2d.winui.desktop\\7.0.92\\microsoft.maui.graphics.win2d.winui.desktop.7.0.92.nupkg.sha512",
+>>>>>>> 0cdef197885f8a308ad2b8a33a8fecf8eafe732e
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.22621.756\\microsoft.windows.sdk.buildtools.10.0.22621.756.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.windowsappsdk\\1.2.221209.1\\microsoft.windowsappsdk.1.2.221209.1.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.licensing\\23.1.41\\syncfusion.licensing.23.1.41.nupkg.sha512",
@@ -107,9 +118,15 @@
     "C:\\Users\\thinh\\.nuget\\packages\\xcalendar.core\\4.5.2\\xcalendar.core.4.5.2.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\xcalendar.maui\\4.5.2\\xcalendar.maui.4.5.2.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.29\\microsoft.windows.sdk.net.ref.10.0.19041.29.nupkg.sha512",
+<<<<<<< HEAD
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.12\\microsoft.aspnetcore.app.runtime.win-x64.7.0.12.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.12\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.12.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\7.0.12\\microsoft.netcore.app.runtime.win-x64.7.0.12.nupkg.sha512"
+=======
+    "C:\\Users\\thinh\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.11\\microsoft.aspnetcore.app.runtime.win-x64.7.0.11.nupkg.sha512",
+    "C:\\Users\\thinh\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.11\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.11.nupkg.sha512",
+    "C:\\Users\\thinh\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\7.0.11\\microsoft.netcore.app.runtime.win-x64.7.0.11.nupkg.sha512"
+>>>>>>> 0cdef197885f8a308ad2b8a33a8fecf8eafe732e
   ],
   "logs": []
 }

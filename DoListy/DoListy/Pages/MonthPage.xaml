@@ -4,6 +4,7 @@
              x:Class="DoListy.Pages.MonthPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             xmlns:local="clr-namespace:DoListy.ControlViewModel"
              Title="MonthPage"
              >
     <!--Page cua Vinh Thinh-->
@@ -22,28 +23,48 @@
     
     <Grid BackgroundColor="{StaticResource appBgColor}" 
         RowDefinitions="*"
-        ColumnDefinitions="*,auto">
+        ColumnDefinitions="3*,*"
+        >
 
-        <scheduler:SfScheduler TodayHighlightBrush="Orange" CellBorderBrush="Black" SelectedCellBackground="Gray"
-        Grid.Column="0"
-        Grid.Row="0"
-        x:Name="Scheduler"
-        ShowWeekNumber="True"
-        View="Month"
-        AllowViewNavigation="True">
+            <Frame BorderColor="#808080" Padding="0,0,0,0" BackgroundColor="WhiteSmoke"  CornerRadius="1">
+            <scheduler:SfScheduler TodayHighlightBrush="Orange" CellBorderBrush="Black" SelectedCellBackground="Gray"
+                x:Name="Scheduler"
+                Grid.Column="0" Grid.Row="0"
+                ShowWeekNumber="True"
+                View="Month"
+                AllowViewNavigation="True"
+                AppointmentsSource="{Binding AppointmentEvents}"
+                >
+                <scheduler:SfScheduler.AppointmentMapping>
+                    <scheduler:SchedulerAppointmentMapping Subject="Name"
+                                                           StartTime="EventStart"
+                                                           EndTime="EventEnd"
+                                                           Background="Color">
 
-            <scheduler:SfScheduler.MonthView>
-                <scheduler:SchedulerMonthView CellStyle="{StaticResource monthCellStyle}" AppointmentDisplayMode="Indicator" >
-                    <scheduler:SchedulerMonthView.ViewHeaderSettings>
+                    </scheduler:SchedulerAppointmentMapping>
+                </scheduler:SfScheduler.AppointmentMapping>
+                <scheduler:SfScheduler.BindingContext>
+                    <local:ControlViewModel></local:ControlViewModel>
+                </scheduler:SfScheduler.BindingContext>
+                <scheduler:SfScheduler.MonthView>
+                    <scheduler:SchedulerMonthView CellStyle="{StaticResource monthCellStyle}" AppointmentDisplayMode="Text" >
+                        <scheduler:SchedulerMonthView.ViewHeaderSettings>
                                 <scheduler:SchedulerViewHeaderSettings Height="20" DateTextStyle="{StaticResource dayFrameHeaderLabelFontSize}" />
-                    </scheduler:SchedulerMonthView.ViewHeaderSettings>
-                </scheduler:SchedulerMonthView>
-            </scheduler:SfScheduler.MonthView>
-            
-    </scheduler:SfScheduler>
-    <ListView Grid.Row="0"
-              Grid.Column="1">
-        
-    </ListView>
+                            </scheduler:SchedulerMonthView.ViewHeaderSettings>
+                        </scheduler:SchedulerMonthView>
+                </scheduler:SfScheduler.MonthView>
+                
+            </scheduler:SfScheduler>
+            </Frame>
+        <Frame  BackgroundColor="{StaticResource navBgColor}"
+                Margin="25"
+                Grid.Row="0"
+                Grid.Column="1">
+            <VerticalStackLayout>
+                <ListView>
+                    
+                </ListView>
+            </VerticalStackLayout>
+        </Frame>
 </Grid>
 </ContentPage>
