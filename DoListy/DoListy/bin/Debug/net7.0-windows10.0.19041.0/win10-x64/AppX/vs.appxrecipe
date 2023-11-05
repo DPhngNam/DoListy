@@ -10,14 +10,14 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>4e630478-8ea9-4b17-b6eb-f389f6acb5fc</PackageIdentityName>
     <PackageIdentityPublisher>CN=User Name</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>false</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
+    <LayoutDir>C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
     <RegisteredManifestChecksum>E53092FB8F4C19CC588EC43C5E9C0C4F2310F2CE7714A1B8B1B42B9A6B7BA31A</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>4e630478-8ea9-4b17-b6eb-f389f6acb5fc_1.0.0.1_x64__9zz4h110yvjzm</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>4e630478-8ea9-4b17-b6eb-f389f6acb5fc_9zz4h110yvjzm!App</RegisteredUserModeAppID>
@@ -26,32 +26,32 @@
     <RegisteredVersion>1.0.0.1</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-11-05T16:30:38.766</Modified>
+      <Modified>2023-11-05T16:39:21.413</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-11-05T15:55:05.826</Modified>
+      <Modified>2023-11-05T16:39:21.177</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.runtimeconfig.json">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.runtimeconfig.json">
       <PackagePath>DoListy.runtimeconfig.json</PackagePath>
-      <Modified>2023-11-05T15:55:05.543</Modified>
+      <Modified>2023-11-05T16:38:19.408</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.dll">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.dll">
       <PackagePath>DoListy.dll</PackagePath>
-      <Modified>2023-11-05T16:30:37.373</Modified>
+      <Modified>2023-11-05T16:39:20.212</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>DoListy.exe</PackagePath>
-      <Modified>2023-11-05T16:30:37.437</Modified>
+      <Modified>2023-11-05T16:39:20.275</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.deps.json">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.deps.json">
       <PackagePath>DoListy.deps.json</PackagePath>
-      <Modified>2023-11-05T15:55:05.433</Modified>
+      <Modified>2023-11-05T16:38:19.291</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\pnam2\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.11\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -961,241 +961,241 @@
       <PackagePath>Microsoft.Maui.pri</PackagePath>
       <Modified>2023-06-30T09:50:38.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\Resources\Raw\AboutAssets.txt">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
-      <Modified>2023-11-05T15:54:34.543</Modified>
+      <Modified>2023-11-05T16:37:27.881</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.074</Modified>
+      <Modified>2023-11-05T16:37:30.804</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
       <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.074</Modified>
+      <Modified>2023-11-05T16:37:30.804</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
       <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.074</Modified>
+      <Modified>2023-11-05T16:37:30.804</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
       <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.074</Modified>
+      <Modified>2023-11-05T16:37:30.804</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
       <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.074</Modified>
+      <Modified>2023-11-05T16:37:30.804</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
       <PackagePath>OpenSans-Regular.ttf</PackagePath>
-      <Modified>2023-11-05T15:54:37.043</Modified>
+      <Modified>2023-11-05T16:37:30.773</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
       <PackagePath>OpenSans-Semibold.ttf</PackagePath>
-      <Modified>2023-11-05T15:54:37.043</Modified>
+      <Modified>2023-11-05T16:37:30.776</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
-      <Modified>2023-11-05T15:54:37.043</Modified>
+      <Modified>2023-11-05T16:37:30.776</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.043</Modified>
+      <Modified>2023-11-05T16:37:30.776</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.043</Modified>
+      <Modified>2023-11-05T16:37:30.776</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.043</Modified>
+      <Modified>2023-11-05T16:37:30.776</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.043</Modified>
+      <Modified>2023-11-05T16:37:30.776</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.043</Modified>
+      <Modified>2023-11-05T16:37:30.781</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.782</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.782</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.782</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.782</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.782</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.782</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.784</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.784</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
       <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
       <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
       <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
       <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
       <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.785</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.794</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.794</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.794</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.794</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.796</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.796</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.058</Modified>
+      <Modified>2023-11-05T16:37:30.797</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.071</Modified>
+      <Modified>2023-11-05T16:37:30.798</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.071</Modified>
+      <Modified>2023-11-05T16:37:30.798</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.071</Modified>
+      <Modified>2023-11-05T16:37:30.800</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.071</Modified>
+      <Modified>2023-11-05T16:37:30.800</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
       <PackagePath>dotnet_bot.scale-125.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.071</Modified>
+      <Modified>2023-11-05T16:37:30.801</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
       <PackagePath>dotnet_bot.scale-150.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.071</Modified>
+      <Modified>2023-11-05T16:37:30.802</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
       <PackagePath>dotnet_bot.scale-200.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.071</Modified>
+      <Modified>2023-11-05T16:37:30.803</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\pnam2\Source\Repos\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
-      <Modified>2023-11-05T15:54:37.074</Modified>
+      <Modified>2023-11-05T16:37:30.804</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

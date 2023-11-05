@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FU1AjrXo9Gq+LDhGL+MW5fMxhC6X3k996sPqCu6A/qpys8hdU6Z5TiJNNvzbl4K7PZuoKo/e7Vhs6scB/R15Hg==",
+  "dgSpecHash": "PRV9sfEp5AtP0lddn3HQl7Xxs1l9Efk/WL6oSgSGKYG30RSsT3GR3MlLYw2V8/vWnOWwsNtldIZZbgYT0Gj7FA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pnam2\\source\\repos\\New folder\\DoListy\\DoListy\\DoListy.csproj",
+  "projectFilePath": "C:\\Users\\pnam2\\Source\\Repos\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pnam2\\.nuget\\packages\\googlegson\\2.9.1.1\\googlegson.2.9.1.1.nupkg.sha512",
     "C:\\Users\\pnam2\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
@@ -111,12 +111,5 @@
     "C:\\Users\\pnam2\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.11\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.11.nupkg.sha512",
     "C:\\Users\\pnam2\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\7.0.11\\microsoft.netcore.app.runtime.win-x64.7.0.11.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\pnam2\\source\\repos\\New folder\\DoListy\\DoListy\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

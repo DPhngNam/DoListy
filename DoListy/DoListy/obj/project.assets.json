@@ -26912,11 +26912,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pnam2\\source\\repos\\New folder\\DoListy\\DoListy\\DoListy.csproj",
+      "projectUniqueName": "C:\\Users\\pnam2\\Source\\Repos\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
       "projectName": "DoListy",
-      "projectPath": "C:\\Users\\pnam2\\source\\repos\\New folder\\DoListy\\DoListy\\DoListy.csproj",
+      "projectPath": "C:\\Users\\pnam2\\Source\\Repos\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
       "packagesPath": "C:\\Users\\pnam2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pnam2\\source\\repos\\New folder\\DoListy\\DoListy\\obj\\",
+      "outputPath": "C:\\Users\\pnam2\\Source\\Repos\\DoListy\\DoListy\\DoListy\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
@@ -27371,13 +27371,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\pnam2\\source\\repos\\New folder\\DoListy\\DoListy\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
