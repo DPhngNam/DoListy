@@ -6,11 +6,24 @@
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title="">
     <Grid RowDefinitions="*" ColumnDefinitions="*">
-        <control:SfCalendar BackgroundColor="{StaticResource appBgColor}" View="Year" AllowViewNavigation="False">
+        <control:SfCalendar BackgroundColor="{StaticResource appBgColor}" 
+                            View="Year" 
+                            AllowViewNavigation="False">
             <control:SfCalendar.YearView>
-                <control:CalendarYearView >
+                
+                <control:CalendarYearView>
                     
+                    <control:CalendarYearView.CellTemplate>
+                        <DataTemplate>
+                            <control:SfCalendar View="Month"> <!-- qua la thong minh -->
+
+                            </control:SfCalendar>
+                        </DataTemplate>
+                        
+                    </control:CalendarYearView.CellTemplate>
+
                 </control:CalendarYearView>
+                
             </control:SfCalendar.YearView>
         </control:SfCalendar>
     </Grid>
