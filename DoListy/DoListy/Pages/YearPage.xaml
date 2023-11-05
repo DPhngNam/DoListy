@@ -4,9 +4,27 @@
              x:Class="DoListy.Pages.YearPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
-             Title="YearPage">
-    <Grid>
+             Title="">
+    <Grid RowDefinitions="*" ColumnDefinitions="*">
+        <control:SfCalendar BackgroundColor="{StaticResource appBgColor}" 
+                            View="Year" 
+                            AllowViewNavigation="False">
+            <control:SfCalendar.YearView>
+                
+                <control:CalendarYearView>
+                    
+                    <control:CalendarYearView.CellTemplate>
+                        <DataTemplate>
+                            <control:SfCalendar View="Month"> <!-- qua la thong minh -->
 
-        <Label Text="Year"/>
+                            </control:SfCalendar>
+                        </DataTemplate>
+                        
+                    </control:CalendarYearView.CellTemplate>
+
+                </control:CalendarYearView>
+                
+            </control:SfCalendar.YearView>
+        </control:SfCalendar>
     </Grid>
 </ContentPage>

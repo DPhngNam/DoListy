@@ -26906,24 +26906,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thinh\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\pnam2\\.nuget\\packages\\": {},
+    "D:\\IDE\\Visual Studio\\Loca\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
+      "projectUniqueName": "C:\\Users\\pnam2\\Source\\Repos\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
       "projectName": "DoListy",
-      "projectPath": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
-      "packagesPath": "C:\\Users\\thinh\\.nuget\\packages\\",
-      "outputPath": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\obj\\",
+      "projectPath": "C:\\Users\\pnam2\\Source\\Repos\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
+      "packagesPath": "C:\\Users\\pnam2\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pnam2\\Source\\Repos\\DoListy\\DoListy\\DoListy\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\IDE\\Visual Studio\\Loca\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\thinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pnam2\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -27371,13 +27371,5 @@
         "#import": []
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
