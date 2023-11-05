@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-11-05T16:05:33.795</Modified>
+      <Modified>2023-11-05T16:30:38.766</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.dll">
       <PackagePath>DoListy.dll</PackagePath>
-      <Modified>2023-11-05T16:05:32.724</Modified>
+      <Modified>2023-11-05T16:30:37.373</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>DoListy.exe</PackagePath>
-      <Modified>2023-11-05T16:05:32.788</Modified>
+      <Modified>2023-11-05T16:30:37.437</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.deps.json">
       <PackagePath>DoListy.deps.json</PackagePath>

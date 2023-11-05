@@ -7,7 +7,7 @@
              Title="DayPage">
     <!-- Page cua Nam-->
     <ContentPage.Resources>
-        <Color x:Key="HeaderColor">#424874</Color>
+        
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="Black" />
 
 
