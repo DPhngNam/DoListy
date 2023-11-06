@@ -8,63 +8,63 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DoListy
-build_property.ProjectDir = D:\DoLisTy\DoListy\DoListy\DoListy\
+build_property.ProjectDir = C:\Users\duong\DoListy\DoListy\DoListy\
 
-[D:/DoLisTy/DoListy/DoListy/DoListy/App.xaml]
+[C:/Users/duong/DoListy/DoListy/DoListy/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[D:/DoLisTy/DoListy/DoListy/DoListy/AppShell.xaml]
+[C:/Users/duong/DoListy/DoListy/DoListy/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[D:/DoLisTy/DoListy/DoListy/DoListy/MainPage.xaml]
+[C:/Users/duong/DoListy/DoListy/DoListy/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[D:/DoLisTy/DoListy/DoListy/DoListy/Pages/DayPage.xaml]
+[C:/Users/duong/DoListy/DoListy/DoListy/Pages/DayPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.DayPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\DayPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\DayPage.xaml
 
-[D:/DoLisTy/DoListy/DoListy/DoListy/Pages/MonthPage.xaml]
+[C:/Users/duong/DoListy/DoListy/DoListy/Pages/MonthPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.MonthPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\MonthPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\MonthPage.xaml
 
-[D:/DoLisTy/DoListy/DoListy/DoListy/Pages/PomodoroPage.xaml]
+[C:/Users/duong/DoListy/DoListy/DoListy/Pages/PomodoroPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.PomodoroPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\PomodoroPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\PomodoroPage.xaml
 
-[D:/DoLisTy/DoListy/DoListy/DoListy/Pages/WeekPage.xaml]
+[C:/Users/duong/DoListy/DoListy/DoListy/Pages/WeekPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.WeekPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\WeekPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\WeekPage.xaml
 
-[D:/DoLisTy/DoListy/DoListy/DoListy/Pages/YearPage.xaml]
+[C:/Users/duong/DoListy/DoListy/DoListy/Pages/YearPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.YearPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\YearPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\YearPage.xaml
 
-[D:/DoLisTy/DoListy/DoListy/DoListy/Resources/Styles/Colors.xaml]
+[C:/Users/duong/DoListy/DoListy/DoListy/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[D:/DoLisTy/DoListy/DoListy/DoListy/Resources/Styles/Styles.xaml]
+[C:/Users/duong/DoListy/DoListy/DoListy/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml

@@ -6,8 +6,45 @@
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title="WeekPage">
     <!--Page cua Huu Thinh-->
-    <Grid>
+    <ContentPage.Resources>
+        <Color x:Key="HeaderColor">#424874</Color>
+        <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
+       
+   
+    </ContentPage.Resources>
+    <Grid BackgroundColor="{StaticResource appBgColor}"
+          RowDefinitions="*"
+          ColumnDefinitions="*,3*,*"
+         >
+        <scheduler:SfScheduler
+            Grid.Column="1"
+            Grid.Row="0"
+            
+            x:Name="WeekPageScheduler"
+            View="Week"
+            ShowWeekNumber="True"
+            AllowViewNavigation="True">
 
-        <Label Text="This is the week view"/>
+            <scheduler:SfScheduler.DaysView>
+                <scheduler:SchedulerDaysView>
+                    <scheduler:SchedulerDaysView.ViewHeaderSettings >
+                        <scheduler:SchedulerViewHeaderSettings DateFormat="dd" Background="{StaticResource HeaderColor}"
+                                                               DateTextStyle="{StaticResource  textStyle}"
+                                                               DayTextStyle ="{StaticResource textStyle}"
+                                                               Height="60"
+                                                               DayFormat="ddd">
+
+
+                        </scheduler:SchedulerViewHeaderSettings>
+                    </scheduler:SchedulerDaysView.ViewHeaderSettings>
+
+
+                </scheduler:SchedulerDaysView>
+          
+            </scheduler:SfScheduler.DaysView>
+        </scheduler:SfScheduler>
+
+
+
     </Grid>
 </ContentPage>
