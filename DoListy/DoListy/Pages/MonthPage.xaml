@@ -33,7 +33,6 @@
                 ShowWeekNumber="True"
                 View="Month"
                 AllowViewNavigation="True"
-                AppointmentsSource="{Binding AppointmentEvents}"
                 >
                 <scheduler:SfScheduler.AppointmentMapping>
                     <scheduler:SchedulerAppointmentMapping Subject="Name"
@@ -43,9 +42,6 @@
 
                     </scheduler:SchedulerAppointmentMapping>
                 </scheduler:SfScheduler.AppointmentMapping>
-                <scheduler:SfScheduler.BindingContext>
-                    <local:ControlViewModel></local:ControlViewModel>
-                </scheduler:SfScheduler.BindingContext>
                 <scheduler:SfScheduler.MonthView>
                     <scheduler:SchedulerMonthView CellStyle="{StaticResource monthCellStyle}" AppointmentDisplayMode="Text" >
                         <scheduler:SchedulerMonthView.ViewHeaderSettings>
@@ -61,6 +57,9 @@
                 Grid.Row="0"
                 Grid.Column="1">
             <VerticalStackLayout>
+                <Button CornerRadius="25" HeightRequest="20" WidthRequest="50" FontAttributes="Bold" Text="+" x:Name="buttonAddAppointment" BackgroundColor="SkyBlue" HorizontalOptions="End"  Clicked="buttonAddAppointment_Clicked">
+
+                </Button>
                 <ListView>
                     
                 </ListView>
