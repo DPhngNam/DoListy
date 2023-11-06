@@ -43,7 +43,7 @@
             <x:Double x:Key="taskFrameHeaderLabelFontSize">18</x:Double>
             <x:Double x:Key="taskItemButtonFontSize">17</x:Double>
             <x:Double x:Key="dayP3LabelFontSize">18</x:Double>
-            <x:Double x:Key="dateLabelFontSize">30</x:Double>
+            <x:Double x:Key="dateLabelFontSize">20</x:Double>
             <!-- Style Definations-->
             <Style x:Key="navButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource navButtonBgColor}"/>
