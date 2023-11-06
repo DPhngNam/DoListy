@@ -39,24 +39,32 @@
 
             <Style x:Key="monthViewCalendarStyle"  TargetType="control:SfCalendar">
                 <Setter Property="HeaderView">
-                    <control:CalendarHeaderView ShowNavigationArrows="False" Height="20" TextFormat="MMM"/>
+                    <control:CalendarHeaderView ShowNavigationArrows="False" Height="20" TextFormat="MMMMM">
+                        <control:CalendarHeaderView.TextStyle>
+                            <control:CalendarTextStyle FontAttributes="Bold" FontFamily="OpenSansRegular" FontSize="15"/>
+                        </control:CalendarHeaderView.TextStyle>
+                    </control:CalendarHeaderView>
 
                 </Setter>
 
                 <Setter Property="AllowViewNavigation" Value="False"/>
                 <Setter Property="View" Value="Month"/>
                 <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TodayHighlightBrush" Value="Orange"/>
+                
 
             </Style>
             <Style x:Key="monthViewCalendarFrameStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{StaticResource navBgColor}"/>
                 <Setter Property="Padding" Value="10"/>
+                <Setter Property="BorderColor" Value="{StaticResource dayFrameBgColor}"/>
+                <Setter Property="CornerRadius" Value="10"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
 
-    <Grid RowDefinitions="1*,1*,1*" ColumnDefinitions="1*,1*,1*,1*" ColumnSpacing="10" Padding="10" RowSpacing="10" BackgroundColor="{StaticResource appBgColor}">
+    <Grid RowDefinitions="1*,1*,1*" ColumnDefinitions="1*,1*,1*,1*,1*" ColumnSpacing="10" Padding="20" RowSpacing="10" BackgroundColor="{StaticResource appBgColor}">
         <Frame Grid.Column="0" Grid.Row="0" Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}"  DisplayDate="01/2023">
                 <!-- DisplayDate co the thay doi nam khi xu li event-->
