@@ -7,6 +7,7 @@
              Title="WeekPage">
     <!--Page cua Huu Thinh-->
     <ContentPage.Resources>
+        
         <Color x:Key="HeaderColor">#424874</Color>
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
        
@@ -16,6 +17,7 @@
           RowDefinitions="*"
           ColumnDefinitions="*,3*,*"
          >
+        <!--scheduler week view--> 
         <scheduler:SfScheduler
             Grid.Column="1"
             Grid.Row="0"
@@ -26,8 +28,10 @@
             AllowViewNavigation="True">
 
             <scheduler:SfScheduler.DaysView>
-                <scheduler:SchedulerDaysView>
+                <scheduler:SchedulerDaysView TimeIntervalHeight="25">
+                    
                     <scheduler:SchedulerDaysView.ViewHeaderSettings >
+                        <!--custom header style--> 
                         <scheduler:SchedulerViewHeaderSettings DateFormat="dd" Background="{StaticResource HeaderColor}"
                                                                DateTextStyle="{StaticResource  textStyle}"
                                                                DayTextStyle ="{StaticResource textStyle}"
@@ -43,6 +47,33 @@
           
             </scheduler:SfScheduler.DaysView>
         </scheduler:SfScheduler>
+        <!--stack layout for Pomo anh TaskFrame-->
+        <StackLayout Grid.Column="2" Spacing="10" Margin="10">
+            
+            <Label x:Name="WPdateLabel"
+                   Style="{StaticResource dateLabelStyle}"
+                    Text=" 23-29 (10-2023) ">
+                
+            </Label>
+            <!--taskframe-->
+            <Frame x:Name="WPTaskFrame"
+                   Style="{StaticResource taskFrameStyle}"
+                   Grid.Column="2"
+                   VerticalOptions="FillAndExpand"
+                  >
+
+            </Frame>
+            <!--Pomobutton-->
+            <Button x:Name="WPPomoButton" 
+                    Text="Pomodoro" 
+                    Style="{StaticResource pomoButton}"
+                    VerticalOptions="End">
+                
+            </Button>
+
+
+        </StackLayout>
+       
 
 
 
