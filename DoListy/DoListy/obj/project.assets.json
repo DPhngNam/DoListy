@@ -26908,19 +26908,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\hk1 năm 2\\LTTQ\\Dolisty\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
       "projectName": "DoListy",
       "projectPath": "D:\\hk1 năm 2\\LTTQ\\Dolisty\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
       "packagesPath": "C:\\Users\\thinh\\.nuget\\packages\\",
       "outputPath": "D:\\hk1 năm 2\\LTTQ\\Dolisty\\DoListy\\DoListy\\DoListy\\obj\\",
-=======
-      "projectUniqueName": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
-      "projectName": "DoListy",
-      "projectPath": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
-      "packagesPath": "C:\\Users\\thinh\\.nuget\\packages\\",
-      "outputPath": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\obj\\",
->>>>>>> 0cdef197885f8a308ad2b8a33a8fecf8eafe732e
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
@@ -27355,5 +27347,13 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\hk1 năm 2\\LTTQ\\Dolisty\\DoListy\\DoListy\\DoListy\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
