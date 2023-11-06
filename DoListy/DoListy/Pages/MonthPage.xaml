@@ -10,8 +10,8 @@
     <!--Page cua Vinh Thinh-->
     <ContentPage.Resources>
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold"/>
-        <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-        <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="13" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
         <scheduler:SchedulerMonthCellStyle x:Key="monthCellStyle"
                                              Background="{StaticResource appBgColor}"
                                            LeadingMonthBackground="{StaticResource navBgColor}"
@@ -27,7 +27,7 @@
         >
 
             <Frame BorderColor="#808080" Padding="0,0,0,0" BackgroundColor="WhiteSmoke"  CornerRadius="1">
-            <scheduler:SfScheduler TodayHighlightBrush="Orange" CellBorderBrush="Black" SelectedCellBackground="Gray"
+            <scheduler:SfScheduler TodayHighlightBrush= "Orange" CellBorderBrush="Black" SelectedCellBackground="Gray"
                 x:Name="Scheduler"
                 Grid.Column="0" Grid.Row="0"
                 ShowWeekNumber="True"
@@ -49,7 +49,7 @@
                 <scheduler:SfScheduler.MonthView>
                     <scheduler:SchedulerMonthView CellStyle="{StaticResource monthCellStyle}" AppointmentDisplayMode="Text" >
                         <scheduler:SchedulerMonthView.ViewHeaderSettings>
-                                <scheduler:SchedulerViewHeaderSettings Height="20" DateTextStyle="{StaticResource dayFrameHeaderLabelFontSize}" />
+                                <scheduler:SchedulerViewHeaderSettings Height="20" DateTextStyle="{StaticResource dayFrameHeaderLabelFontSize}" DayFormat="ddd"/>
                             </scheduler:SchedulerMonthView.ViewHeaderSettings>
                         </scheduler:SchedulerMonthView>
                 </scheduler:SfScheduler.MonthView>
