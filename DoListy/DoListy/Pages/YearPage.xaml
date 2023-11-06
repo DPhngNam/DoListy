@@ -4,27 +4,128 @@
              x:Class="DoListy.Pages.YearPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             xmlns:local="clr-namespace:DoListy.Pages"
+
              Title="">
-    <Grid RowDefinitions="*" ColumnDefinitions="*">
-        <control:SfCalendar BackgroundColor="{StaticResource appBgColor}" 
+    <!--<Grid RowDefinitions="*" ColumnDefinitions="*">
+        <control:SfCalendar BackgroundColor="{StaticResource appBgColor}"
                             View="Year" 
                             AllowViewNavigation="False">
             <control:SfCalendar.YearView>
-                
+
                 <control:CalendarYearView>
-                    
+
                     <control:CalendarYearView.CellTemplate>
                         <DataTemplate>
-                            <control:SfCalendar View="Month"> <!-- qua la thong minh -->
-
+                            <control:SfCalendar View="Month"  >
+                                <control:SfCalendar.BindingContext>
+                                    <local:MonthInfo Year="{Binding Year}" Month="{Binding Month}" />
+                                </control:SfCalendar.BindingContext>
+                                
                             </control:SfCalendar>
                         </DataTemplate>
-                        
-                    </control:CalendarYearView.CellTemplate>
 
+                    </control:CalendarYearView.CellTemplate>
+                    
                 </control:CalendarYearView>
                 
             </control:SfCalendar.YearView>
         </control:SfCalendar>
+                                
+    </Grid>
+   -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="monthViewCalendarStyle"  TargetType="control:SfCalendar">
+                <Setter Property="HeaderView">
+                    <control:CalendarHeaderView ShowNavigationArrows="False" Height="20" TextFormat="MMM"/>
+
+                </Setter>
+
+                <Setter Property="AllowViewNavigation" Value="False"/>
+                <Setter Property="View" Value="Month"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+
+            </Style>
+            <Style x:Key="monthViewCalendarFrameStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource navBgColor}"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <Grid RowDefinitions="1*,1*,1*" ColumnDefinitions="1*,1*,1*,1*" ColumnSpacing="10" Padding="10" RowSpacing="10" BackgroundColor="{StaticResource appBgColor}">
+        <Frame Grid.Column="0" Grid.Row="0" Style="{StaticResource monthViewCalendarFrameStyle}">
+            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}"  DisplayDate="01/2023">
+                <!-- DisplayDate co the thay doi nam khi xu li event-->
+
+            </control:SfCalendar>
+        </Frame>
+        <Frame Grid.Column="0" Grid.Row="1"  Style="{StaticResource monthViewCalendarFrameStyle}">
+            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="05/2023" >
+
+            </control:SfCalendar>
+        </Frame>
+        <Frame Grid.Column="0" Grid.Row="2"  Style="{StaticResource monthViewCalendarFrameStyle}">
+            <control:SfCalendar  Style="{StaticResource monthViewCalendarStyle}" DisplayDate="09/2023" >
+
+            </control:SfCalendar>
+        </Frame>
+
+        <Frame Grid.Column="1" Grid.Row="0" Style="{StaticResource monthViewCalendarFrameStyle}">
+            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="02/2023">
+
+            </control:SfCalendar>
+        </Frame>
+
+        <Frame Grid.Column="1" Grid.Row="1"  Style="{StaticResource monthViewCalendarFrameStyle}">
+            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="06/2023">
+
+            </control:SfCalendar>
+        </Frame>
+
+        <Frame Grid.Column="1" Grid.Row="2"  Style="{StaticResource monthViewCalendarFrameStyle}">
+            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="10/2023">
+
+            </control:SfCalendar>
+        </Frame>
+
+        <Frame Grid.Column="2" Grid.Row="0"  Style="{StaticResource monthViewCalendarFrameStyle}">
+            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="3/2023">
+
+            </control:SfCalendar>
+        </Frame>
+
+        <Frame Grid.Column="2" Grid.Row="1" Style="{StaticResource monthViewCalendarFrameStyle}">
+            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="07/2023" >
+
+            </control:SfCalendar>
+        </Frame>
+
+        <Frame Grid.Column="2" Grid.Row="2"  Style="{StaticResource monthViewCalendarFrameStyle}">
+            <control:SfCalendar  Style="{StaticResource monthViewCalendarStyle}" DisplayDate="11/2023">
+
+            </control:SfCalendar>
+        </Frame>
+
+        <Frame Grid.Column="3" Grid.Row="0"  Style="{StaticResource monthViewCalendarFrameStyle}">
+            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="4/2023">
+
+            </control:SfCalendar>
+        </Frame>
+
+        <Frame Grid.Column="3" Grid.Row="1"  Style="{StaticResource monthViewCalendarFrameStyle}">
+            <control:SfCalendar  Style="{StaticResource monthViewCalendarStyle}" DisplayDate="8/2023">
+
+            </control:SfCalendar>
+        </Frame>
+
+        <Frame Grid.Column="3" Grid.Row="2" Style="{StaticResource monthViewCalendarFrameStyle}">
+            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="12/2023">
+
+            </control:SfCalendar>
+        </Frame>
     </Grid>
 </ContentPage>
