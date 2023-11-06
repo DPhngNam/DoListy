@@ -1653,3 +1653,5 @@ C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows1
 C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\pnam2\source\repos\New folder\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+C:\Users\duong\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\leftarrowicon.scale-100.png
+C:\Users\duong\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\rightarrowicon.scale-100.png

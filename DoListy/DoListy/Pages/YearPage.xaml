@@ -135,5 +135,19 @@
 
             </control:SfCalendar>
         </Frame>
+        <Grid Grid.Column="4" Grid.Row="0" Grid.RowSpan="3" ColumnDefinitions="*,2*,*" RowDefinitions="Auto,*" RowSpacing="20" Padding="0">
+            <ImageButton Grid.Column="0" Grid.Row="0" Source="Images/leftarrowicon.png" />
+            <Label Grid.Column="1" Grid.Row="0" Text="2023" HorizontalTextAlignment="Center" Style="{StaticResource dateLabelStyle}"/>
+            <ImageButton Grid.Column="2" Grid.Row="0" Source="Images/rightarrowicon.png" />
+            <Frame Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" BackgroundColor="{StaticResource taskFrameBgColor}"
+                   CornerRadius="10"
+                   BorderColor="Purple"
+                   Padding="10">
+                <StackLayout Orientation="Vertical" Spacing="5">
+                    <Label Text="Goals" Style="{StaticResource taskFrameHeaderLabelStyle}"/>
+                    <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
     </Grid>
 </ContentPage>
