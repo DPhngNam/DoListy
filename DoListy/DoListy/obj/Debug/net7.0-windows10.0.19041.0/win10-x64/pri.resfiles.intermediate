@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\7.0.92\ref\net7.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri
 C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\7.0.92\ref\net7.0-windows10.0.19041\Microsoft.Maui.Controls.pri
 C:\Program Files\dotnet\packs\Microsoft.Maui.Core.Ref.win\7.0.92\ref\net7.0-windows10.0.19041\Microsoft.Maui.pri
+=======
+C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\7.0.96\ref\net7.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri
+C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\7.0.96\ref\net7.0-windows10.0.19041\Microsoft.Maui.Controls.pri
+C:\Program Files\dotnet\packs\Microsoft.Maui.Core.Ref.win\7.0.96\ref\net7.0-windows10.0.19041\Microsoft.Maui.pri
+>>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a

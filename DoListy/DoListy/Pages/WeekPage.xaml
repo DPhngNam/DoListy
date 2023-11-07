@@ -4,7 +4,7 @@
              x:Class="DoListy.Pages.WeekPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
-             Title="WeekPage">
+             Title="">
     <!--Page cua Huu Thinh-->
     <ContentPage.Resources>
         
@@ -15,11 +15,11 @@
     </ContentPage.Resources>
     <Grid BackgroundColor="{StaticResource appBgColor}"
           RowDefinitions="*"
-          ColumnDefinitions="*,3*,*"
+          ColumnDefinitions="3*,*"
          >
         <!--scheduler week view--> 
         <scheduler:SfScheduler
-            Grid.Column="1"
+            Grid.Column="0"
             Grid.Row="0"
             
             x:Name="WeekPageScheduler"
@@ -27,7 +27,7 @@
             ShowWeekNumber="True"
             AllowViewNavigation="True">
 
-            <scheduler:SfScheduler.DaysView>
+            <scheduler:SfScheduler.DaysView >
                 <scheduler:SchedulerDaysView TimeIntervalHeight="25">
                     
                     <scheduler:SchedulerDaysView.ViewHeaderSettings >
@@ -37,6 +37,7 @@
                                                                DayTextStyle ="{StaticResource textStyle}"
                                                                Height="60"
                                                                DayFormat="ddd">
+                            
 
 
                         </scheduler:SchedulerViewHeaderSettings>
