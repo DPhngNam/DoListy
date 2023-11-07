@@ -11,12 +11,8 @@ namespace DoListy.ControlViewModel
 {
     public class ControlViewModel
     {
-        public ObservableCollection<SchedulerAppointment> SchedulerEvents { get; set; }
 
-        public ObservableCollection<Appointment> AppointmentEvents {  get; set; }
-
-
-        public List<Appointment> AppointmentsList = new List<Appointment>()
+        public static List<Appointment> AppointmentsList = new List<Appointment>()
         {
             new Appointment
             {
@@ -26,10 +22,11 @@ namespace DoListy.ControlViewModel
                     Color = Colors.Blue
             }
         };
+        public static List<Appointment> GetAppointments() => AppointmentsList;
 
-        public ControlViewModel() 
+        public static void AddAppointment(Appointment temp)
         {
-            this.AppointmentEvents = new ObservableCollection<Appointment>(AppointmentsList);
+            AppointmentsList.Add(temp);
         }
         
     }

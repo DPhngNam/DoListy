@@ -4,7 +4,7 @@
              x:Class="DoListy.Pages.WeekPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
-             Title="WeekPage">
+             Title="">
     <!--Page cua Huu Thinh-->
     <ContentPage.Resources>
         
@@ -37,6 +37,7 @@
                                                                DayTextStyle ="{StaticResource textStyle}"
                                                                Height="60"
                                                                DayFormat="ddd">
+                            
 
 
                         </scheduler:SchedulerViewHeaderSettings>
