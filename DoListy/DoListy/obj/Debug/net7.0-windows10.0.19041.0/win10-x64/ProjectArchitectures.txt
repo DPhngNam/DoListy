@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-D:\DoLisTy\DoListy\DoListy\DoListy\DoListy.csproj;x64
-=======
-D:\hk1 năm 2\LTTQ\Dolisty\DoListy\DoListy\DoListy\DoListy.csproj;x64
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+C:\Users\duong\DoListy\DoListy\DoListy\DoListy.csproj;x64

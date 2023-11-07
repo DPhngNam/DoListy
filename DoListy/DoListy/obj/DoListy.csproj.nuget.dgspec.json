@@ -1,38 +1,24 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {}
+    "C:\\Users\\duong\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {}
   },
   "projects": {
-    "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {
+    "C:\\Users\\duong\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
+        "projectUniqueName": "C:\\Users\\duong\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
         "projectName": "DoListy",
-        "projectPath": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
-        "packagesPath": "C:\\Users\\thinh\\.nuget\\packages\\",
-        "outputPath": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\obj\\",
-=======
-    "D:\\hk1 năm 2\\LTTQ\\Dolisty\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {}
-  },
-  "projects": {
-    "D:\\hk1 năm 2\\LTTQ\\Dolisty\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\hk1 năm 2\\LTTQ\\Dolisty\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
-        "projectName": "DoListy",
-        "projectPath": "D:\\hk1 năm 2\\LTTQ\\Dolisty\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
-        "packagesPath": "C:\\Users\\thinh\\.nuget\\packages\\",
-        "outputPath": "D:\\hk1 năm 2\\LTTQ\\Dolisty\\DoListy\\DoListy\\DoListy\\obj\\",
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+        "projectPath": "C:\\Users\\duong\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
+        "packagesPath": "C:\\Users\\duong\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\duong\\DoListy\\DoListy\\DoListy\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\thinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\duong\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -101,11 +87,7 @@
             },
             "Microsoft.Maui.Graphics": {
               "target": "Package",
-<<<<<<< HEAD
-              "version": "[7.0.92, )",
-=======
-              "version": "[7.0.96, )",
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+              "version": "[7.0.59, )",
               "autoReferenced": true
             },
             "Syncfusion.Maui.Calendar": {
@@ -204,11 +186,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         },
         "net7.0-ios16.1": {
           "targetAlias": "net7.0-ios",
@@ -239,11 +217,7 @@
             },
             "Microsoft.Maui.Graphics": {
               "target": "Package",
-<<<<<<< HEAD
-              "version": "[7.0.92, )",
-=======
-              "version": "[7.0.96, )",
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+              "version": "[7.0.59, )",
               "autoReferenced": true
             },
             "Syncfusion.Maui.Calendar": {
@@ -287,11 +261,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         },
         "net7.0-maccatalyst16.1": {
           "targetAlias": "net7.0-maccatalyst",
@@ -322,11 +292,7 @@
             },
             "Microsoft.Maui.Graphics": {
               "target": "Package",
-<<<<<<< HEAD
-              "version": "[7.0.92, )",
-=======
-              "version": "[7.0.96, )",
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+              "version": "[7.0.59, )",
               "autoReferenced": true
             },
             "Syncfusion.Maui.Calendar": {
@@ -371,11 +337,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         },
         "net7.0-windows10.0.19041": {
           "targetAlias": "net7.0-windows10.0.19041.0",
@@ -406,20 +368,18 @@
             },
             "Microsoft.Maui.Graphics": {
               "target": "Package",
-<<<<<<< HEAD
-              "version": "[7.0.92, )",
-=======
-              "version": "[7.0.96, )",
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+              "version": "[7.0.59, )",
               "autoReferenced": true
             },
             "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop": {
               "target": "Package",
-<<<<<<< HEAD
-              "version": "[7.0.92, )",
-=======
-              "version": "[7.0.96, )",
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+              "version": "[7.0.59, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Windows.SDK.BuildTools": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.22621.755, )",
               "autoReferenced": true
             },
             "Microsoft.WindowsAppSDK": {
@@ -454,31 +414,19 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-<<<<<<< HEAD
-              "version": "[7.0.11, 7.0.11]"
+              "version": "[7.0.3, 7.0.3]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[7.0.11, 7.0.11]"
-=======
-              "version": "[7.0.12, 7.0.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[7.0.12, 7.0.12]"
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+              "version": "[7.0.3, 7.0.3]"
             },
             {
               "name": "Microsoft.Windows.SDK.NET.Ref",
-              "version": "[10.0.19041.29, 10.0.19041.29]"
+              "version": "[10.0.19041.28, 10.0.19041.28]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-<<<<<<< HEAD
-              "version": "[7.0.11, 7.0.11]"
-=======
-              "version": "[7.0.12, 7.0.12]"
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+              "version": "[7.0.3, 7.0.3]"
             }
           ],
           "frameworkReferences": {
@@ -498,11 +446,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
->>>>>>> 245f5118bb7c31d64ee89be5be9a4942bfc4cf1a
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
