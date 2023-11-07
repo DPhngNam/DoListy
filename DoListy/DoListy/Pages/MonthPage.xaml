@@ -30,7 +30,7 @@
                 View="Month"
                 AllowViewNavigation="True"
                 >
-                <scheduler:SfScheduler.AppointmentMapping>
+                <scheduler:SfScheduler.AppointmentMapping> <!--tham chiếu tới task người dùng-->
                     <scheduler:SchedulerAppointmentMapping Subject="Name"
                                                            StartTime="EventStart"
                                                            EndTime="EventEnd"
@@ -52,11 +52,16 @@
                 Margin="25"
                 Grid.Row="0"
                 Grid.Column="1">
-            <VerticalStackLayout>
-                <Button CornerRadius="25" HeightRequest="20" WidthRequest="50" FontAttributes="Bold" Text="+" x:Name="buttonAddAppointment" BackgroundColor="SkyBlue" HorizontalOptions="End"  Clicked="buttonAddAppointment_Clicked">
+            <VerticalStackLayout >
+                <StackLayout Orientation="Vertical" Spacing="5">
+                    <HorizontalStackLayout>
+                        <Label Text="Goals" Style="{StaticResource taskFrameHeaderLabelStyle}"/>
+                        <Button CornerRadius="25" FontAttributes="Bold" Text="+" x:Name="buttonAddAppointment" BackgroundColor="SkyBlue"  Clicked="buttonAddAppointment_Clicked" Margin="80,0,20,0"></Button>
+                    </HorizontalStackLayout>
+                    <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                </StackLayout>
+                <ListView>                   
 
-                </Button>
-                <ListView>
                     
                 </ListView>
             </VerticalStackLayout>

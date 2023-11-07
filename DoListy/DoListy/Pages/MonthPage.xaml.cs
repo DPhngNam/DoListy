@@ -24,6 +24,6 @@ public partial class MonthPage : ContentPage
 
     private async void buttonAddAppointment_Clicked(object sender, EventArgs e)
     {
-       await Navigation.PushModalAsync(new AddAppointmentPage());
+        await Navigation.PushModalAsync(new AddAppointmentPage());
     }
 }
