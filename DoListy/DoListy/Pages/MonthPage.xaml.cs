@@ -26,4 +26,9 @@ public partial class MonthPage : ContentPage
     {
         await Navigation.PushModalAsync(new AddAppointmentPage());
     }
+
+    private void Scheduler_AppointmentDrop(object sender, Syncfusion.Maui.Scheduler.AppointmentDropEventArgs e)
+    {
+        loadAppointments();
+    }
 }

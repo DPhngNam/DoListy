@@ -19,7 +19,8 @@ namespace DoListy.ControlViewModel
                     Name = "AAAA",
                     EventStart = new DateTime(2023, 11 ,5,19,30, 30),
                     EventEnd = new DateTime(2023 , 11, 5, 22 , 30 ,30),
-                    Color = Colors.Blue
+                    Colorbg = Colors.Blue,
+                    Recurrencerule = "FREQ=DAILY,INTERVAL=1,COUNT=5",
             }
         };
         public static List<Appointment> GetAppointments() => AppointmentsList;

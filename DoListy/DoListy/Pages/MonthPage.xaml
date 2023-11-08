@@ -29,15 +29,21 @@
                 ShowWeekNumber="True"
                 View="Month"
                 AllowViewNavigation="True"
+                AppointmentDrop="Scheduler_AppointmentDrop"
                 >
                 <scheduler:SfScheduler.AppointmentMapping> <!--tham chiếu tới task người dùng-->
                     <scheduler:SchedulerAppointmentMapping Subject="Name"
                                                            StartTime="EventStart"
                                                            EndTime="EventEnd"
-                                                           Background="Color">
-
+                                                           Background="Colorbg"
+                                                           RecurrenceRule="Recurrencerule">
                     </scheduler:SchedulerAppointmentMapping>
                 </scheduler:SfScheduler.AppointmentMapping>
+                <scheduler:SfScheduler.DragDropSettings>
+                    <scheduler:DragDropSettings AllowNavigation="true" 
+                                       AllowScroll="true" 
+                                       ShowTimeIndicator="true"/>
+                </scheduler:SfScheduler.DragDropSettings>
                 <scheduler:SfScheduler.MonthView>
                     <scheduler:SchedulerMonthView ShowLeadingAndTrailingDates="True" CellStyle="{StaticResource monthCellStyle}" AppointmentDisplayMode="Text" >
                         <scheduler:SchedulerMonthView.ViewHeaderSettings>
@@ -52,14 +58,12 @@
                 Margin="25"
                 Grid.Row="0"
                 Grid.Column="1">
-            <VerticalStackLayout >
-                <StackLayout Orientation="Vertical" Spacing="5">
-                    <HorizontalStackLayout>
-                        <Label Text="Goals" Style="{StaticResource taskFrameHeaderLabelStyle}"/>
-                        <Button CornerRadius="25" FontAttributes="Bold" Text="+" x:Name="buttonAddAppointment" BackgroundColor="SkyBlue"  Clicked="buttonAddAppointment_Clicked" Margin="80,0,20,0"></Button>
-                    </HorizontalStackLayout>
-                    <BoxView BackgroundColor="Black" HeightRequest="1"/>
-                </StackLayout>
+            <VerticalStackLayout Spacing="5">
+                <HorizontalStackLayout>
+                    <Label Text="Goals" FontSize="35" FontAttributes="Bold"/>
+                    <Button CornerRadius="30" FontAttributes="Bold" Text="+" x:Name="buttonAddAppointment" BackgroundColor="SkyBlue"  Clicked="buttonAddAppointment_Clicked" Margin="50,0,10,0"></Button>
+                </HorizontalStackLayout>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
                 <ListView>                   
 
                     

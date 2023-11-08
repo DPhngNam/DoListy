@@ -18,6 +18,7 @@
           "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop": "7.0.92",
           "Microsoft.WindowsAppSDK": "1.2.221209.1",
           "Syncfusion.Maui.Calendar": "23.1.41",
+          "Syncfusion.Maui.Picker": "23.1.44",
           "Syncfusion.Maui.Scheduler": "23.1.41",
           "XCalendar.Maui": "4.5.2",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "7.0.11",
@@ -998,17 +999,17 @@
           }
         }
       },
-      "Syncfusion.Licensing/23.1.41": {
+      "Syncfusion.Licensing/23.1.44": {
         "runtime": {
           "lib/net7.0/Syncfusion.Licensing.dll": {
-            "assemblyVersion": "23.1.41.0",
-            "fileVersion": "23.1.41.0"
+            "assemblyVersion": "23.1.44.0",
+            "fileVersion": "23.1.44.0"
           }
         }
       },
       "Syncfusion.Maui.Calendar/23.1.41": {
         "dependencies": {
-          "Syncfusion.Maui.Core": "23.1.41"
+          "Syncfusion.Maui.Core": "23.1.44"
         },
         "runtime": {
           "lib/net7.0-windows10.0.19041.0/Syncfusion.Maui.Calendar.dll": {
@@ -1017,20 +1018,48 @@
           }
         }
       },
-      "Syncfusion.Maui.Core/23.1.41": {
+      "Syncfusion.Maui.Core/23.1.44": {
         "dependencies": {
-          "Syncfusion.Licensing": "23.1.41"
+          "Syncfusion.Licensing": "23.1.44"
         },
         "runtime": {
           "lib/net7.0-windows10.0.19041.0/Syncfusion.Maui.Core.dll": {
-            "assemblyVersion": "23.1.41.0",
-            "fileVersion": "23.1.41.0"
+            "assemblyVersion": "23.1.44.0",
+            "fileVersion": "23.1.44.0"
+          }
+        }
+      },
+      "Syncfusion.Maui.Picker/23.1.44": {
+        "dependencies": {
+          "Syncfusion.Maui.Core": "23.1.44",
+          "Syncfusion.Maui.Popup": "23.1.44"
+        },
+        "runtime": {
+          "lib/net7.0-windows10.0.19041.0/Syncfusion.Maui.Picker.dll": {
+            "assemblyVersion": "23.1.44.0",
+            "fileVersion": "23.1.44.0"
+          }
+        }
+      },
+      "Syncfusion.Maui.Popup/23.1.44": {
+        "dependencies": {
+          "Syncfusion.Maui.Core": "23.1.44"
+        },
+        "runtime": {
+          "lib/net7.0-windows10.0.19041.0/Syncfusion.Maui.Popup.dll": {
+            "assemblyVersion": "23.1.44.0",
+            "fileVersion": "23.1.44.0"
+          }
+        },
+        "resources": {
+          "lib/net7.0-windows10.0.19041.0/en-US/Syncfusion.Maui.Popup.resources.dll": {
+            "locale": "en-US"
           }
         }
       },
       "Syncfusion.Maui.Scheduler/23.1.41": {
         "dependencies": {
-          "Syncfusion.Maui.Core": "23.1.41"
+          "Syncfusion.Maui.Core": "23.1.44"
         },
         "runtime": {
           "lib/net7.0-windows10.0.19041.0/Syncfusion.Maui.Scheduler.dll": {
@@ -1194,12 +1223,12 @@
       "path": "microsoft.windowsappsdk/1.2.221209.1",
       "hashPath": "microsoft.windowsappsdk.1.2.221209.1.nupkg.sha512"
     },
-    "Syncfusion.Licensing/23.1.41": {
+    "Syncfusion.Licensing/23.1.44": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BNHibjFgz/E1c8Gd88/L7NPBCM1PbxchPm1OUdpauaZ+nV+Bkma0V2/ANw4MkUWaaO5SORBdF+hmOBfAcwKWSA==",
-      "path": "syncfusion.licensing/23.1.41",
-      "hashPath": "syncfusion.licensing.23.1.41.nupkg.sha512"
+      "sha512": "sha512-83M4d0oPKjTK9PYN4a2OTzqOHUmkZ7YaGlnnTZ5UIx5u5dNM8DEl37NJQBWt1FSDFUf3kXqJTrZcu6h2ClJ/2w==",
+      "path": "syncfusion.licensing/23.1.44",
+      "hashPath": "syncfusion.licensing.23.1.44.nupkg.sha512"
     },
     "Syncfusion.Maui.Calendar/23.1.41": {
       "type": "package",
@@ -1208,12 +1237,26 @@
       "path": "syncfusion.maui.calendar/23.1.41",
       "hashPath": "syncfusion.maui.calendar.23.1.41.nupkg.sha512"
     },
-    "Syncfusion.Maui.Core/23.1.41": {
+    "Syncfusion.Maui.Core/23.1.44": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gj4yFgxbjUvcVqb3EEwladlixIj0dUFPM7worXyeRIIQgCAK5v03UC+fc1yzrZkMY5hzeQbqbs0rIjM4+qXamA==",
-      "path": "syncfusion.maui.core/23.1.41",
-      "hashPath": "syncfusion.maui.core.23.1.41.nupkg.sha512"
+      "sha512": "sha512-S2epZJWXFeCzvzWcQX45Oco7TkkDlFRzwcDyfyQYWEgaXyD3b0w6C3z4mYlli+/JuASGpWSX3yj3is2oYPcLZg==",
+      "path": "syncfusion.maui.core/23.1.44",
+      "hashPath": "syncfusion.maui.core.23.1.44.nupkg.sha512"
+    },
+    "Syncfusion.Maui.Picker/23.1.44": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ImbsyDOLiaTRJ8ln/PX+FnqmrbeD3a5oD6onUFgjap48JFUJnC7vE0KDVKBbiOOE6og6zaKZ5JmitwYbGe4uOQ==",
+      "path": "syncfusion.maui.picker/23.1.44",
+      "hashPath": "syncfusion.maui.picker.23.1.44.nupkg.sha512"
+    },
+    "Syncfusion.Maui.Popup/23.1.44": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-C8tQ69qkdgs66VdZc6Z3iAxCp+KrxXGYwcyACFA0OX/i3WK44j2bFmiEt4EBOPRNVWl1lqSDeeEnY5tOcw6kdA==",
+      "path": "syncfusion.maui.popup/23.1.44",
+      "hashPath": "syncfusion.maui.popup.23.1.44.nupkg.sha512"
     },
     "Syncfusion.Maui.Scheduler/23.1.41": {
       "type": "package",

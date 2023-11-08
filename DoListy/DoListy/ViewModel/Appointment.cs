@@ -8,9 +8,12 @@ namespace DoListy.ViewModel
 {
     public class Appointment
     {
+        public int Id { get; set; }
         public DateTime EventStart { get; set; }
         public DateTime EventEnd { get; set; }
         public string Name { get; set; }
-        public Brush Color { get; set; }
+        public Brush Colorbg { get; set; }
+        public string Recurrencerule { get; set; }
+        public string Tag { get; set;}
     }
 }

@@ -94,6 +94,10 @@
               "target": "Package",
               "version": "[23.1.41, )"
             },
+            "Syncfusion.Maui.Picker": {
+              "target": "Package",
+              "version": "[23.1.44, )"
+            },
             "Syncfusion.Maui.Scheduler": {
               "target": "Package",
               "version": "[23.1.41, )"
@@ -224,6 +228,10 @@
               "target": "Package",
               "version": "[23.1.41, )"
             },
+            "Syncfusion.Maui.Picker": {
+              "target": "Package",
+              "version": "[23.1.44, )"
+            },
             "Syncfusion.Maui.Scheduler": {
               "target": "Package",
               "version": "[23.1.41, )"
@@ -298,6 +306,10 @@
             "Syncfusion.Maui.Calendar": {
               "target": "Package",
               "version": "[23.1.41, )"
+            },
+            "Syncfusion.Maui.Picker": {
+              "target": "Package",
+              "version": "[23.1.44, )"
             },
             "Syncfusion.Maui.Scheduler": {
               "target": "Package",
@@ -384,6 +396,10 @@
             "Syncfusion.Maui.Calendar": {
               "target": "Package",
               "version": "[23.1.41, )"
+            },
+            "Syncfusion.Maui.Picker": {
+              "target": "Package",
+              "version": "[23.1.44, )"
             },
             "Syncfusion.Maui.Scheduler": {
               "target": "Package",

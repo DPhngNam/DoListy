@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
+
 namespace DoListy
 {
     public static class MauiProgram

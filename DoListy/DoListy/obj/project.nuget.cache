@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Ln8mV0Sj9O0DhpGi4wtN12FErYK0ybh35D4BfC3hUAB/nkS4MfeGr4YNoSfrw7Do5BHkFcrO4MDOe0xePc3RpQ==",
+  "dgSpecHash": "vOqFlEgg0bFmoZuVK5qRIkBc4/OzTt2JIU0MeZwtiwJlQXQuBLhxR4USHrg/0pNmTE4AT6u92INUi6gv0uR80A==",
   "success": true,
   "projectFilePath": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
   "expectedPackageFiles": [
@@ -19,9 +19,11 @@
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.maui.graphics.win2d.winui.desktop\\7.0.92\\microsoft.maui.graphics.win2d.winui.desktop.7.0.92.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.22621.756\\microsoft.windows.sdk.buildtools.10.0.22621.756.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\microsoft.windowsappsdk\\1.2.221209.1\\microsoft.windowsappsdk.1.2.221209.1.nupkg.sha512",
-    "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.licensing\\23.1.41\\syncfusion.licensing.23.1.41.nupkg.sha512",
+    "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.licensing\\23.1.44\\syncfusion.licensing.23.1.44.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.calendar\\23.1.41\\syncfusion.maui.calendar.23.1.41.nupkg.sha512",
-    "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.core\\23.1.41\\syncfusion.maui.core.23.1.41.nupkg.sha512",
+    "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.core\\23.1.44\\syncfusion.maui.core.23.1.44.nupkg.sha512",
+    "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.picker\\23.1.44\\syncfusion.maui.picker.23.1.44.nupkg.sha512",
+    "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.popup\\23.1.44\\syncfusion.maui.popup.23.1.44.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.scheduler\\23.1.41\\syncfusion.maui.scheduler.23.1.41.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\xamarin.android.glide\\4.13.2.2\\xamarin.android.glide.4.13.2.2.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\xamarin.android.glide.annotations\\4.13.2.2\\xamarin.android.glide.annotations.4.13.2.2.nupkg.sha512",

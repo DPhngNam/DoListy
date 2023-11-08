@@ -29,29 +29,29 @@
     <AppXManifest Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-11-07T15:56:32.491</Modified>
+      <Modified>2023-11-08T16:56:24.590</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-11-07T15:56:32.169</Modified>
+      <Modified>2023-11-08T16:56:24.367</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.runtimeconfig.json">
       <PackagePath>DoListy.runtimeconfig.json</PackagePath>
-      <Modified>2023-11-07T14:37:36.438</Modified>
+      <Modified>2023-11-08T14:33:58.754</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.dll">
       <PackagePath>DoListy.dll</PackagePath>
-      <Modified>2023-11-07T15:56:30.060</Modified>
+      <Modified>2023-11-08T16:56:23.251</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>DoListy.exe</PackagePath>
-      <Modified>2023-11-07T15:56:30.079</Modified>
+      <Modified>2023-11-08T16:56:23.266</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.deps.json">
       <PackagePath>DoListy.deps.json</PackagePath>
-      <Modified>2023-11-07T15:56:31.861</Modified>
+      <Modified>2023-11-08T14:33:58.641</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.11\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -913,17 +913,25 @@
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
       <Modified>2022-11-08T19:31:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.licensing\23.1.41\lib\net7.0\Syncfusion.Licensing.dll">
+    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.licensing\23.1.44\lib\net7.0\Syncfusion.Licensing.dll">
       <PackagePath>Syncfusion.Licensing.dll</PackagePath>
-      <Modified>2023-10-16T08:18:26.000</Modified>
+      <Modified>2023-11-06T08:22:08.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.calendar\23.1.41\lib\net7.0-windows10.0.19041.0\Syncfusion.Maui.Calendar.dll">
       <PackagePath>Syncfusion.Maui.Calendar.dll</PackagePath>
       <Modified>2023-10-16T08:11:44.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.core\23.1.41\lib\net7.0-windows10.0.19041.0\Syncfusion.Maui.Core.dll">
+    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.core\23.1.44\lib\net7.0-windows10.0.19041.0\Syncfusion.Maui.Core.dll">
       <PackagePath>Syncfusion.Maui.Core.dll</PackagePath>
-      <Modified>2023-10-16T07:46:44.000</Modified>
+      <Modified>2023-11-06T07:54:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.picker\23.1.44\lib\net7.0-windows10.0.19041.0\Syncfusion.Maui.Picker.dll">
+      <PackagePath>Syncfusion.Maui.Picker.dll</PackagePath>
+      <Modified>2023-11-06T08:30:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.popup\23.1.44\lib\net7.0-windows10.0.19041.0\Syncfusion.Maui.Popup.dll">
+      <PackagePath>Syncfusion.Maui.Popup.dll</PackagePath>
+      <Modified>2023-11-06T08:21:28.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.scheduler\23.1.41\lib\net7.0-windows10.0.19041.0\Syncfusion.Maui.Scheduler.dll">
       <PackagePath>Syncfusion.Maui.Scheduler.dll</PackagePath>
@@ -936,6 +944,10 @@
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\xcalendar.maui\4.5.2\lib\net7.0-windows10.0.19041\XCalendar.Maui.dll">
       <PackagePath>XCalendar.Maui.dll</PackagePath>
       <Modified>2023-09-08T17:21:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.popup\23.1.44\lib\net7.0-windows10.0.19041.0\en-US\Syncfusion.Maui.Popup.resources.dll">
+      <PackagePath>en-US\Syncfusion.Maui.Popup.resources.dll</PackagePath>
+      <Modified>2023-11-06T08:21:28.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.scheduler\23.1.41\lib\net7.0-windows10.0.19041.0\en-US\Syncfusion.Maui.Scheduler.resources.dll">
       <PackagePath>en-US\Syncfusion.Maui.Scheduler.resources.dll</PackagePath>

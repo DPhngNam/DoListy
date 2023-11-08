@@ -23,4 +23,9 @@ public partial class WeekPage : ContentPage
         var AppointmentEvents = new ObservableCollection<Appointment>(ControlViewModel.ControlViewModel.GetAppointments());
         WeekPageScheduler.AppointmentsSource = AppointmentEvents;
     }
+
+    private void WeekPageScheduler_AppointmentDrop(object sender, AppointmentDropEventArgs e)
+    {
+        loadAppointments();
+    }
 }

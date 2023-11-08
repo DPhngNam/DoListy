@@ -685,14 +685,20 @@
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\microsoft.windowsappsdk\1.2.221209.1\lib\net6.0-windows10.0.18362.0\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.licensing\23.1.41\lib\net7.0\Syncfusion.Licensing.dll">
+    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.licensing\23.1.44\lib\net7.0\Syncfusion.Licensing.dll">
       <PackagePath>Syncfusion.Licensing.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.calendar\23.1.41\lib\net7.0-windows10.0.19041.0\Syncfusion.Maui.Calendar.dll">
       <PackagePath>Syncfusion.Maui.Calendar.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.core\23.1.41\lib\net7.0-windows10.0.19041.0\Syncfusion.Maui.Core.dll">
+    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.core\23.1.44\lib\net7.0-windows10.0.19041.0\Syncfusion.Maui.Core.dll">
       <PackagePath>Syncfusion.Maui.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.picker\23.1.44\lib\net7.0-windows10.0.19041.0\Syncfusion.Maui.Picker.dll">
+      <PackagePath>Syncfusion.Maui.Picker.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.popup\23.1.44\lib\net7.0-windows10.0.19041.0\Syncfusion.Maui.Popup.dll">
+      <PackagePath>Syncfusion.Maui.Popup.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.scheduler\23.1.41\lib\net7.0-windows10.0.19041.0\Syncfusion.Maui.Scheduler.dll">
       <PackagePath>Syncfusion.Maui.Scheduler.dll</PackagePath>
@@ -702,6 +708,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\xcalendar.maui\4.5.2\lib\net7.0-windows10.0.19041\XCalendar.Maui.dll">
       <PackagePath>XCalendar.Maui.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.popup\23.1.44\lib\net7.0-windows10.0.19041.0\en-US\Syncfusion.Maui.Popup.resources.dll">
+      <PackagePath>en-US\Syncfusion.Maui.Popup.resources.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\syncfusion.maui.scheduler\23.1.41\lib\net7.0-windows10.0.19041.0\en-US\Syncfusion.Maui.Scheduler.resources.dll">
       <PackagePath>en-US\Syncfusion.Maui.Scheduler.resources.dll</PackagePath>
