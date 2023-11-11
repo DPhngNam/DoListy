@@ -18,7 +18,7 @@ public partial class AddAppointmentPage : ContentPage
 
     private async void buttonCreate_Clicked(object sender, EventArgs e)
     {
-        Brush temp;
+        Brush temp = Brush.Blue;
         if(ColorEntry.SelectedItem.ToString() == "Blue")
         {
             temp = Brush.Blue;
