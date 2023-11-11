@@ -51,7 +51,7 @@
                 <Setter Property="View" Value="Month"/>
                 <Setter Property="BackgroundColor" Value="Transparent"/>
                 <Setter Property="TodayHighlightBrush" Value="Orange"/>
-                
+
 
             </Style>
             <Style x:Key="monthViewCalendarFrameStyle" TargetType="Frame">
@@ -66,79 +66,102 @@
 
     <Grid RowDefinitions="1*,1*,1*" ColumnDefinitions="1*,1*,1*,1*,1*" ColumnSpacing="10" Padding="20" RowSpacing="10" BackgroundColor="{StaticResource appBgColor}">
         <Frame Grid.Column="0" Grid.Row="0" Style="{StaticResource monthViewCalendarFrameStyle}">
-            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}"  DisplayDate="01/2023">
-                <!-- DisplayDate co the thay doi nam khi xu li event-->
+            <control:SfCalendar x:Name="janMonthViewCalendar" 
+                                Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
         <Frame Grid.Column="0" Grid.Row="1"  Style="{StaticResource monthViewCalendarFrameStyle}">
-            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="05/2023" >
+            <control:SfCalendar x:Name="mayMonthViewCalendar"
+                                Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
         <Frame Grid.Column="0" Grid.Row="2"  Style="{StaticResource monthViewCalendarFrameStyle}">
-            <control:SfCalendar  Style="{StaticResource monthViewCalendarStyle}" DisplayDate="09/2023" >
+            <control:SfCalendar x:Name="sepMonthViewCalendar"
+                                Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
 
         <Frame Grid.Column="1" Grid.Row="0" Style="{StaticResource monthViewCalendarFrameStyle}">
-            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="02/2023">
+            <control:SfCalendar x:Name="febMonthViewCalendar"
+                                Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
 
         <Frame Grid.Column="1" Grid.Row="1"  Style="{StaticResource monthViewCalendarFrameStyle}">
-            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="06/2023">
+            <control:SfCalendar x:Name="junMonthViewCalendar"
+                                Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
 
         <Frame Grid.Column="1" Grid.Row="2"  Style="{StaticResource monthViewCalendarFrameStyle}">
-            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="10/2023">
+            <control:SfCalendar x:Name="octMonthViewCalendar"
+                                Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
 
         <Frame Grid.Column="2" Grid.Row="0"  Style="{StaticResource monthViewCalendarFrameStyle}">
-            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="3/2023">
+            <control:SfCalendar x:Name="marMonthViewCalendar"
+                                Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
 
         <Frame Grid.Column="2" Grid.Row="1" Style="{StaticResource monthViewCalendarFrameStyle}">
-            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="07/2023" >
+            <control:SfCalendar x:Name="julMonthViewCalendar"
+                                Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
 
         <Frame Grid.Column="2" Grid.Row="2"  Style="{StaticResource monthViewCalendarFrameStyle}">
-            <control:SfCalendar  Style="{StaticResource monthViewCalendarStyle}" DisplayDate="11/2023">
+            <control:SfCalendar  x:Name="novMonthViewCalendar"
+                                 Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
 
         <Frame Grid.Column="3" Grid.Row="0"  Style="{StaticResource monthViewCalendarFrameStyle}">
-            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="4/2023">
+            <control:SfCalendar x:Name="aprMonthViewCalendar"
+                                Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
 
         <Frame Grid.Column="3" Grid.Row="1"  Style="{StaticResource monthViewCalendarFrameStyle}">
-            <control:SfCalendar  Style="{StaticResource monthViewCalendarStyle}" DisplayDate="8/2023">
+            <control:SfCalendar  x:Name="augMonthViewCalendar"
+                                 Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
 
         <Frame Grid.Column="3" Grid.Row="2" Style="{StaticResource monthViewCalendarFrameStyle}">
-            <control:SfCalendar Style="{StaticResource monthViewCalendarStyle}" DisplayDate="12/2023">
+            <control:SfCalendar x:Name="decMonthViewCalendar"
+                                Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
         <Grid Grid.Column="4" Grid.Row="0" Grid.RowSpan="3" ColumnDefinitions="*,2*,*" RowDefinitions="Auto,*" RowSpacing="20" Padding="0">
-            <ImageButton BackgroundColor="{StaticResource appBgColor}" Grid.Column="0" Grid.Row="0" Source="leftarrowicon.png" HeightRequest="24" WidthRequest="24"/>
-            <Label Grid.Column="1" Grid.Row="0" Text="2023" HorizontalTextAlignment="Center" Style="{StaticResource dateLabelStyle}" FontSize="30"/>
-            <ImageButton BackgroundColor="{StaticResource appBgColor}" Grid.Column="2" Grid.Row="0" Source="rightarrowicon.png" HeightRequest="24" WidthRequest="24"/>
+            <ImageButton Grid.Column="0" Grid.Row="0"
+                         Source="leftarrowicon.png"
+                         HeightRequest="24" WidthRequest="24" 
+                         HorizontalOptions="End"
+                         BackgroundColor="{StaticResource appBgColor}"
+                         Clicked="OnLeftArrowButtonClicked"
+                         />
+            <Label x:Name="yearLabel" Grid.Column="1" Grid.Row="0" Text="2023" HorizontalTextAlignment="Center" Style="{StaticResource dateLabelStyle}" FontSize="30"/>
+            <ImageButton Grid.Column="2" Grid.Row="0"
+                         Source="rightarrowicon.png"
+                         HeightRequest="24" WidthRequest="24" 
+                         HorizontalOptions="Start"
+                         BackgroundColor="{StaticResource appBgColor}"
+                         Clicked="OnRightArrowButtonClicked"
+                         />
             <Frame Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" BackgroundColor="{StaticResource taskFrameBgColor}"
                    CornerRadius="10"
                    BorderColor="Purple"

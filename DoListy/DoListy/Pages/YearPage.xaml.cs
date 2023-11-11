@@ -1,40 +1,60 @@
 
-
 namespace DoListy.Pages;
 using System.Collections.Generic;
 using Microsoft.Maui.Controls;
-public class MonthInfo
-{
-    public int Month { get; set; }
-    public int Year { get; set; }
-    public MonthInfo()
-    {
-        Month = 1;
-    }
-}
+
 public partial class YearPage : ContentPage
 {
-    public List<MonthInfo> MonthData { get; set; }
 
     public YearPage()
     {
         InitializeComponent();
-        MonthData = new List<MonthInfo>
-            {
-                new MonthInfo { Year = 2023, Month = 1 },
-                new MonthInfo { Year = 2023, Month = 2 },
-                                new MonthInfo { Year = 2023, Month = 3 },
-                new MonthInfo { Year = 2023, Month = 4 },
-                new MonthInfo { Year = 2023, Month = 5 },
-                new MonthInfo { Year = 2023, Month = 6 },
-                new MonthInfo { Year = 2023, Month = 7 },
-                new MonthInfo { Year = 2023, Month = 8 },
-                new MonthInfo { Year = 2023, Month = 9 },
-                new MonthInfo { Year = 2023, Month = 10 },
-                new MonthInfo { Year = 2023, Month = 11},
-                new MonthInfo { Year = 2023, Month = 12 },
+        DateTime currentDate = DateTime.Now;
+        yearLabel.Text = currentDate.Year.ToString();
+        SetIniDisplayDate(currentDate);
+    }
+    private void SetIniDisplayDate(DateTime currentDate)
+    {
+        janMonthViewCalendar.DisplayDate = new DateTime(currentDate.Year, 1, 1);
+        febMonthViewCalendar.DisplayDate = new DateTime(currentDate.Year, 2, 1);
+        marMonthViewCalendar.DisplayDate = new DateTime(currentDate.Year, 3, 1);
+        aprMonthViewCalendar.DisplayDate = new DateTime(currentDate.Year, 4, 1);
+        mayMonthViewCalendar.DisplayDate = new DateTime(currentDate.Year, 5, 1);
+        junMonthViewCalendar.DisplayDate = new DateTime(currentDate.Year, 6, 1);
+        julMonthViewCalendar.DisplayDate = new DateTime(currentDate.Year, 7, 1);
+        augMonthViewCalendar.DisplayDate = new DateTime(currentDate.Year, 8, 1);
+        sepMonthViewCalendar.DisplayDate = new DateTime(currentDate.Year, 9, 1);
+        octMonthViewCalendar.DisplayDate = new DateTime(currentDate.Year, 10, 1);
+        novMonthViewCalendar.DisplayDate = new DateTime(currentDate.Year, 11, 1);
+        decMonthViewCalendar.DisplayDate = new DateTime(currentDate.Year, 12, 1);
 
-            };
-
+    }
+    private void OnLeftArrowButtonClicked(object sender, EventArgs e)
+    {
+        yearLabel.Text = Convert.ToString(Convert.ToInt32(yearLabel.Text) - 1);
+        ChangeYearOfDisplayDate(false);
+    }
+    private void OnRightArrowButtonClicked(object sender, EventArgs e)
+    {
+        yearLabel.Text = Convert.ToString(Convert.ToInt32(yearLabel.Text) + 1);
+        ChangeYearOfDisplayDate(true);
+    }
+    private void ChangeYearOfDisplayDate(bool plus)
+    {
+        int num;
+        if (plus) num = 1;
+        else num = -1;
+        janMonthViewCalendar.DisplayDate = janMonthViewCalendar.DisplayDate.AddYears(num);
+        febMonthViewCalendar.DisplayDate = febMonthViewCalendar.DisplayDate.AddYears(num);
+        marMonthViewCalendar.DisplayDate = marMonthViewCalendar.DisplayDate.AddYears(num);
+        aprMonthViewCalendar.DisplayDate = aprMonthViewCalendar.DisplayDate.AddYears(num);
+        mayMonthViewCalendar.DisplayDate = mayMonthViewCalendar.DisplayDate.AddYears(num);
+        junMonthViewCalendar.DisplayDate = junMonthViewCalendar.DisplayDate.AddYears(num);
+        julMonthViewCalendar.DisplayDate = julMonthViewCalendar.DisplayDate.AddYears(num);
+        augMonthViewCalendar.DisplayDate = augMonthViewCalendar.DisplayDate.AddYears(num);
+        sepMonthViewCalendar.DisplayDate = sepMonthViewCalendar.DisplayDate.AddYears(num);
+        octMonthViewCalendar.DisplayDate = octMonthViewCalendar.DisplayDate.AddYears(num);
+        novMonthViewCalendar.DisplayDate = novMonthViewCalendar.DisplayDate.AddYears(num);
+        decMonthViewCalendar.DisplayDate = decMonthViewCalendar.DisplayDate.AddYears(num);
     }
 }
