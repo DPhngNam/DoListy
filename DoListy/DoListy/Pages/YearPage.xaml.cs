@@ -61,62 +61,74 @@ public partial class YearPage : ContentPage
     private async void OnJanButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
-        
+        var monthPage = (MonthPage)Shell.Current.CurrentPage;
+        monthPage.Scheduler.DisplayDate = janMonthViewCalendar.DisplayDate;
     }
     private async void OnFebButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
-
+        var monthPage = (MonthPage)Shell.Current.CurrentPage;
+        monthPage.Scheduler.DisplayDate = febMonthViewCalendar.DisplayDate;
     }
     private async void OnMarButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
-
+        var monthPage = (MonthPage)Shell.Current.CurrentPage;
+        monthPage.Scheduler.DisplayDate = marMonthViewCalendar.DisplayDate;
     }
     private async void OnAprButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
-
+        var monthPage = (MonthPage)Shell.Current.CurrentPage;
+        monthPage.Scheduler.DisplayDate = aprMonthViewCalendar.DisplayDate;
     }
     private async void OnMayButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
-
+        var monthPage = (MonthPage)Shell.Current.CurrentPage;
+        monthPage.Scheduler.DisplayDate = mayMonthViewCalendar.DisplayDate;
     }
     private async void OnJunButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
-
+        var monthPage = (MonthPage)Shell.Current.CurrentPage;
+        monthPage.Scheduler.DisplayDate = junMonthViewCalendar.DisplayDate;
     }
     private async void OnJulButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
-
+        var monthPage = (MonthPage)Shell.Current.CurrentPage;
+        monthPage.Scheduler.DisplayDate = julMonthViewCalendar.DisplayDate;
     }
     private async void OnAugButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
-
+        var monthPage = (MonthPage)Shell.Current.CurrentPage;
+        monthPage.Scheduler.DisplayDate = augMonthViewCalendar.DisplayDate;
     }
     private async void OnSepButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
-
+        var monthPage = (MonthPage)Shell.Current.CurrentPage;
+        monthPage.Scheduler.DisplayDate = sepMonthViewCalendar.DisplayDate;
     }
     private async void OnOctButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
-
+        var monthPage = (MonthPage)Shell.Current.CurrentPage;
+        monthPage.Scheduler.DisplayDate = octMonthViewCalendar.DisplayDate;
     }
     private async void OnNovButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
-
+        var monthPage = (MonthPage)Shell.Current.CurrentPage;
+        monthPage.Scheduler.DisplayDate = novMonthViewCalendar.DisplayDate;
     }
     private async void OnDecButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
-
+        var monthPage = (MonthPage)Shell.Current.CurrentPage;
+        monthPage.Scheduler.DisplayDate = decMonthViewCalendar.DisplayDate;
     }
 
 }
