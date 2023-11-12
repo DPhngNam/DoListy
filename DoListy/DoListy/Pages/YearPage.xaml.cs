@@ -57,4 +57,66 @@ public partial class YearPage : ContentPage
         novMonthViewCalendar.DisplayDate = novMonthViewCalendar.DisplayDate.AddYears(num);
         decMonthViewCalendar.DisplayDate = decMonthViewCalendar.DisplayDate.AddYears(num);
     }
+    
+    private async void OnJanButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Month");
+        
+    }
+    private async void OnFebButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Month");
+
+    }
+    private async void OnMarButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Month");
+
+    }
+    private async void OnAprButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Month");
+
+    }
+    private async void OnMayButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Month");
+
+    }
+    private async void OnJunButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Month");
+
+    }
+    private async void OnJulButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Month");
+
+    }
+    private async void OnAugButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Month");
+
+    }
+    private async void OnSepButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Month");
+
+    }
+    private async void OnOctButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Month");
+
+    }
+    private async void OnNovButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Month");
+
+    }
+    private async void OnDecButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Month");
+
+    }
+
 }

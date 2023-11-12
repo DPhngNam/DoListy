@@ -71,18 +71,26 @@
 
             </control:SfCalendar>
         </Frame>
+        <Button x:Name="janButton" Grid.Column="0" Grid.Row="0" Clicked="OnJanButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
+        
+        
         <Frame Grid.Column="0" Grid.Row="1"  Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="mayMonthViewCalendar"
                                 Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
+        <Button x:Name="mayButton" Grid.Column="0" Grid.Row="1" Clicked="OnMayButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
+
+        
         <Frame Grid.Column="0" Grid.Row="2"  Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="sepMonthViewCalendar"
                                 Style="{StaticResource monthViewCalendarStyle}">
 
             </control:SfCalendar>
         </Frame>
+        <Button x:Name="sepButton" Grid.Column="0" Grid.Row="2" Clicked="OnSepButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
+
 
         <Frame Grid.Column="1" Grid.Row="0" Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="febMonthViewCalendar"
@@ -90,6 +98,8 @@
 
             </control:SfCalendar>
         </Frame>
+        <Button x:Name="febButton" Grid.Column="1" Grid.Row="0" Clicked="OnFebButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
+
 
         <Frame Grid.Column="1" Grid.Row="1"  Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="junMonthViewCalendar"
@@ -97,6 +107,8 @@
 
             </control:SfCalendar>
         </Frame>
+        <Button x:Name="junButton" Grid.Column="1" Grid.Row="1" Clicked="OnJunButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
+
 
         <Frame Grid.Column="1" Grid.Row="2"  Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="octMonthViewCalendar"
@@ -104,6 +116,8 @@
 
             </control:SfCalendar>
         </Frame>
+        <Button x:Name="octButton" Grid.Column="1" Grid.Row="2" Clicked="OnOctButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
+
 
         <Frame Grid.Column="2" Grid.Row="0"  Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="marMonthViewCalendar"
@@ -111,6 +125,8 @@
 
             </control:SfCalendar>
         </Frame>
+        <Button x:Name="marButton" Grid.Column="2" Grid.Row="0" Clicked="OnMarButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
+
 
         <Frame Grid.Column="2" Grid.Row="1" Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="julMonthViewCalendar"
@@ -118,6 +134,8 @@
 
             </control:SfCalendar>
         </Frame>
+        <Button x:Name="julButton" Grid.Column="2" Grid.Row="1" Clicked="OnJulButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
+
 
         <Frame Grid.Column="2" Grid.Row="2"  Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar  x:Name="novMonthViewCalendar"
@@ -125,6 +143,8 @@
 
             </control:SfCalendar>
         </Frame>
+        <Button x:Name="novButton" Grid.Column="2" Grid.Row="2" Clicked="OnNovButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
+
 
         <Frame Grid.Column="3" Grid.Row="0"  Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="aprMonthViewCalendar"
@@ -132,6 +152,8 @@
 
             </control:SfCalendar>
         </Frame>
+        <Button x:Name="aprButton" Grid.Column="3" Grid.Row="0" Clicked="OnAprButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
+
 
         <Frame Grid.Column="3" Grid.Row="1"  Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar  x:Name="augMonthViewCalendar"
@@ -139,6 +161,8 @@
 
             </control:SfCalendar>
         </Frame>
+        <Button x:Name="augButton" Grid.Column="3" Grid.Row="1" Clicked="OnAugButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
+
 
         <Frame Grid.Column="3" Grid.Row="2" Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="decMonthViewCalendar"
@@ -146,6 +170,8 @@
 
             </control:SfCalendar>
         </Frame>
+        <Button x:Name="decButton" Grid.Column="3" Grid.Row="2" Clicked="OnDecButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
+
         <Grid Grid.Column="4" Grid.Row="0" Grid.RowSpan="3" ColumnDefinitions="*,2*,*" RowDefinitions="Auto,*" RowSpacing="20" Padding="0">
             <ImageButton Grid.Column="0" Grid.Row="0"
                          Source="leftarrowicon.png"

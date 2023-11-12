@@ -5,6 +5,7 @@
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              xmlns:local="clr-namespace:DoListy.ControlViewModel"
+             
              Title=""
              >
     <!--Page cua Vinh Thinh-->
@@ -23,7 +24,7 @@
         >
 
             <Frame BorderColor="#808080" Padding="0,0,0,0"  CornerRadius="1">
-            <scheduler:SfScheduler   TodayHighlightBrush= "blue"  CellBorderBrush="black" SelectedCellBackground="Gray" BackgroundColor="{StaticResource navBgColor}" 
+            <scheduler:SfScheduler TodayHighlightBrush= "blue"  CellBorderBrush="black" SelectedCellBackground="Gray" BackgroundColor="{StaticResource navBgColor}" 
                 x:Name="Scheduler"
                 Grid.Column="0" Grid.Row="0"
                 ShowWeekNumber="True"
