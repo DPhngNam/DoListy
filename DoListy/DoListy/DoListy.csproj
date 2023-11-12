@@ -65,6 +65,9 @@
 	  <MauiXaml Update="Pages\MonthPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\CreateTaskPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\PomodoroPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -78,6 +81,12 @@
 
 	<ItemGroup>
 	  <Folder Include="Resources\Images\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Pages\CreateTaskPage.xaml.cs">
+	    <DependentUpon>CreateTaskPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>

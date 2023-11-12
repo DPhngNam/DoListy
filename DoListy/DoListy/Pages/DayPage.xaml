@@ -7,10 +7,7 @@
              Title="">
     <!-- Page cua Nam-->
     <ContentPage.Resources>
-        
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="Black" />
-
-
     </ContentPage.Resources>
     <Grid Background="{StaticResource appBgColor}">
         <Grid.RowDefinitions>
@@ -56,27 +53,30 @@
         </StackLayout>
 
 
-        <Frame BackgroundColor="{StaticResource dayFrameBgColor}" CornerRadius="30"  Grid.Row="1" Grid.Column="0" Margin="10" MaximumHeightRequest="500" MaximumWidthRequest="300">
+        <Frame BackgroundColor="{StaticResource dayFrameBgColor}" CornerRadius="30"  Grid.Row="1" Grid.Column="0" Margin="10" MaximumHeightRequest="600" MaximumWidthRequest="300">
+            <VerticalStackLayout>
+                <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
+                    <Label Text="Tasks" FontSize="30" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
+
+                    <Button CornerRadius="23" FontAttributes="Bold" Text="+" x:Name="buttonAddTask" BackgroundColor="SkyBlue" Clicked="buttonAddTask_Clicked"  Grid.Column="2" Grid.Row="0"></Button>
+                </Grid>
+                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+            </VerticalStackLayout>
+        </Frame>
+        <Frame BackgroundColor="{StaticResource dayFrameBgColor}" CornerRadius="30"  Grid.Row="1" Grid.Column="1" Margin="10" MaximumHeightRequest="600" MaximumWidthRequest="300">
             <StackLayout>
-                <Label Text="Card Example" FontSize="14" FontAttributes="Bold" />
+                <Label Text="Task details" FontSize="14" FontAttributes="Bold" />
                 <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill" />
-                <Label Text="Frames can wrap more complex layouts to create more complex UI components, such as this card!"/>
+
             </StackLayout>
         </Frame>
-        <Frame BackgroundColor="{StaticResource dayFrameBgColor}" CornerRadius="30"  Grid.Row="1" Grid.Column="1" Margin="10" MaximumHeightRequest="500" MaximumWidthRequest="300">
+        <Frame BackgroundColor="{StaticResource dayFrameBgColor}" CornerRadius="30"  Grid.Row="1" Grid.Column="2" Margin="10" MaximumHeightRequest="600" MaximumWidthRequest="300">
             <StackLayout>
-                <Label Text="Card Example" FontSize="14" FontAttributes="Bold" />
+                <Label Text="weather" FontSize="14" FontAttributes="Bold" />
                 <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill" />
-                <Label Text="Frames can wrap more complex layouts to create more complex UI components, such as this card!"/>
+
             </StackLayout>
         </Frame>
-        <Frame BackgroundColor="{StaticResource dayFrameBgColor}" CornerRadius="30"  Grid.Row="1" Grid.Column="2" Margin="10" MaximumHeightRequest="500" MaximumWidthRequest="300">
-            <StackLayout>
-                <Label Text="Card Example" FontSize="14" FontAttributes="Bold" />
-                <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill" />
-                <Label Text="Frames can wrap more complex layouts to create more complex UI components, such as this card!"/>
-            </StackLayout>
-        </Frame>
-       
+
     </Grid>
 </ContentPage>

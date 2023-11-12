@@ -2,8 +2,13 @@ namespace DoListy.Pages;
 
 public partial class DayPage : ContentPage
 {
-	public DayPage()
-	{
-		InitializeComponent();
-	}
+    public DayPage()
+    {
+        InitializeComponent();
+    }
+
+    private async void buttonAddTask_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new CreateTaskPage());
+    }
 }
