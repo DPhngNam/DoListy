@@ -31,6 +31,7 @@
                 View="Month"
                 AllowViewNavigation="True"
                 AppointmentDrop="Scheduler_AppointmentDrop"
+                x:FieldModifier="public"
                 >
                 <scheduler:SfScheduler.AppointmentMapping> <!--tham chiếu tới task người dùng-->
                     <scheduler:SchedulerAppointmentMapping Subject="Name"

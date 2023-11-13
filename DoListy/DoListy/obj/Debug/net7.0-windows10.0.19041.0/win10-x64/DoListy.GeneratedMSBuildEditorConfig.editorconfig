@@ -8,69 +8,121 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DoListy
+<<<<<<< HEAD
 build_property.ProjectDir = D:\DoLisTy\DoListy\DoListy\DoListy\
 
 [D:/DoLisTy/DoListy/DoListy/DoListy/App.xaml]
+=======
+build_property.ProjectDir = D:\DoListy\DoListy\DoListy\DoListy\
+
+[D:/DoListy/DoListy/DoListy/DoListy/App.xaml]
+>>>>>>> b77e6796eda237e89dd23facf4f638bd1cd398ce
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
+<<<<<<< HEAD
 [D:/DoLisTy/DoListy/DoListy/DoListy/AppShell.xaml]
+=======
+[D:/DoListy/DoListy/DoListy/DoListy/AppShell.xaml]
+>>>>>>> b77e6796eda237e89dd23facf4f638bd1cd398ce
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
+<<<<<<< HEAD
 [D:/DoLisTy/DoListy/DoListy/DoListy/MainPage.xaml]
+=======
+[D:/DoListy/DoListy/DoListy/DoListy/MainPage.xaml]
+>>>>>>> b77e6796eda237e89dd23facf4f638bd1cd398ce
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
+<<<<<<< HEAD
 [D:/DoLisTy/DoListy/DoListy/DoListy/Pages/AddAppointmentPage.xaml]
+=======
+[D:/DoListy/DoListy/DoListy/DoListy/Pages/AddAppointmentPage.xaml]
+>>>>>>> b77e6796eda237e89dd23facf4f638bd1cd398ce
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.AddAppointmentPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\AddAppointmentPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\AddAppointmentPage.xaml
 
+<<<<<<< HEAD
 [D:/DoLisTy/DoListy/DoListy/DoListy/Pages/DayPage.xaml]
+=======
+[D:/DoListy/DoListy/DoListy/DoListy/Pages/CreateTaskPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.CreateTaskPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\CreateTaskPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\CreateTaskPage.xaml
+
+[D:/DoListy/DoListy/DoListy/DoListy/Pages/DayPage.xaml]
+>>>>>>> b77e6796eda237e89dd23facf4f638bd1cd398ce
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.DayPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\DayPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\DayPage.xaml
 
+<<<<<<< HEAD
 [D:/DoLisTy/DoListy/DoListy/DoListy/Pages/MonthPage.xaml]
+=======
+[D:/DoListy/DoListy/DoListy/DoListy/Pages/MonthPage.xaml]
+>>>>>>> b77e6796eda237e89dd23facf4f638bd1cd398ce
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.MonthPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\MonthPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\MonthPage.xaml
 
+<<<<<<< HEAD
 [D:/DoLisTy/DoListy/DoListy/DoListy/Pages/PomodoroPage.xaml]
+=======
+[D:/DoListy/DoListy/DoListy/DoListy/Pages/PomodoroPage.xaml]
+>>>>>>> b77e6796eda237e89dd23facf4f638bd1cd398ce
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.PomodoroPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\PomodoroPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\PomodoroPage.xaml
 
+<<<<<<< HEAD
 [D:/DoLisTy/DoListy/DoListy/DoListy/Pages/WeekPage.xaml]
+=======
+[D:/DoListy/DoListy/DoListy/DoListy/Pages/WeekPage.xaml]
+>>>>>>> b77e6796eda237e89dd23facf4f638bd1cd398ce
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.WeekPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\WeekPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\WeekPage.xaml
 
+<<<<<<< HEAD
 [D:/DoLisTy/DoListy/DoListy/DoListy/Pages/YearPage.xaml]
+=======
+[D:/DoListy/DoListy/DoListy/DoListy/Pages/YearPage.xaml]
+>>>>>>> b77e6796eda237e89dd23facf4f638bd1cd398ce
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.YearPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\YearPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\YearPage.xaml
 
+<<<<<<< HEAD
 [D:/DoLisTy/DoListy/DoListy/DoListy/Resources/Styles/Colors.xaml]
+=======
+[D:/DoListy/DoListy/DoListy/DoListy/Resources/Styles/Colors.xaml]
+>>>>>>> b77e6796eda237e89dd23facf4f638bd1cd398ce
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
+<<<<<<< HEAD
 [D:/DoLisTy/DoListy/DoListy/DoListy/Resources/Styles/Styles.xaml]
+=======
+[D:/DoListy/DoListy/DoListy/DoListy/Resources/Styles/Styles.xaml]
+>>>>>>> b77e6796eda237e89dd23facf4f638bd1cd398ce
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
