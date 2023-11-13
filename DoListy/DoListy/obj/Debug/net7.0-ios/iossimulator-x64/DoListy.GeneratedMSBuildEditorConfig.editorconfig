@@ -34,12 +34,6 @@ build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.AddAppointme
 build_metadata.AdditionalFiles.TargetPath = Pages\AddAppointmentPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\AddAppointmentPage.xaml
 
-[D:/DoListy/DoListy/DoListy/DoListy/Pages/CreateTaskPage.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.CreateTaskPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Pages\CreateTaskPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Pages\CreateTaskPage.xaml
-
 [D:/DoListy/DoListy/DoListy/DoListy/Pages/DayPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.DayPage.xaml

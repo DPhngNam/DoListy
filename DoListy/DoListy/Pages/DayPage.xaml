@@ -175,24 +175,6 @@
                     </Grid>
                     <BoxView BackgroundColor="Black" HeightRequest="1"/>
 
-
-                    <StackLayout>
-                        <!-- Other UI elements go here -->
-                        <ListView x:Name="taskListView">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <StackLayout>
-                                            <Label Text="{Binding Title}" FontAttributes="Bold" TextColor="Black" FontSize="Body"/>
-
-                                        </StackLayout>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </StackLayout>
-
-
                 </VerticalStackLayout>
             </Frame>
 
