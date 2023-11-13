@@ -11,4 +11,9 @@ public partial class DayPage : ContentPage
     {
         await Navigation.PushModalAsync(new CreateTaskPage());
     }
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        
+    }
 }
