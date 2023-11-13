@@ -1,1 +1,1 @@
-C:\Users\duong\DoListy\DoListy\DoListy\DoListy.csproj;x64
+D:\DoLisTy\DoListy\DoListy\DoListy\DoListy.csproj;x64
