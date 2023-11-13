@@ -2,10 +2,12 @@ using DoListy.ViewModel;
 using System.Collections.ObjectModel;
 using Appointment = DoListy.ViewModel.Appointment;
 using DoListy.ControlViewModel;
+using System.Xml;
 
 namespace DoListy.Pages;
 public partial class MonthPage : ContentPage
 {
+    private DateTime pickedDate = DateTime.Now;
 	public MonthPage()
 	{
 		InitializeComponent();
@@ -30,9 +32,14 @@ public partial class MonthPage : ContentPage
     {
         loadAppointments();
     }
-
     private async void btnOpenDeatil_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//Day");
+        await Shell.Current.GoToAsync("//Week");
+
+    }
+
+    private void Scheduler_SelectionChanged(object sender, Syncfusion.Maui.Scheduler.SchedulerSelectionChangedEventArgs e)
+    {
+        pickedDate = (DateTime)e.NewValue;
     }
 }

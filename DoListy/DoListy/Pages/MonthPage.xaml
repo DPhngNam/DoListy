@@ -5,7 +5,7 @@
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              xmlns:local="clr-namespace:DoListy.ControlViewModel"
-             
+             BackgroundColor="{StaticResource appBgColor}"
              Title=""
              >
     <!--Page cua Vinh Thinh-->
@@ -24,7 +24,7 @@
         >
 
             <Frame BorderColor="#808080" Padding="0,0,0,0"  CornerRadius="1">
-            <scheduler:SfScheduler TodayHighlightBrush= "blue"  CellBorderBrush="black" SelectedCellBackground="Gray" BackgroundColor="{StaticResource navBgColor}" 
+            <scheduler:SfScheduler TodayHighlightBrush= "blue" CellBorderBrush="black" SelectedCellBackground="Gray" BackgroundColor="{StaticResource navBgColor}" 
                 x:Name="Scheduler"
                 Grid.Column="0" Grid.Row="0"
                 ShowWeekNumber="True"
@@ -32,6 +32,7 @@
                 AllowViewNavigation="True"
                 AppointmentDrop="Scheduler_AppointmentDrop"
                 x:FieldModifier="public"
+               SelectionChanged="Scheduler_SelectionChanged"
                 >
                 <scheduler:SfScheduler.AppointmentMapping> <!--tham chiếu tới task người dùng-->
                     <scheduler:SchedulerAppointmentMapping Subject="Name"
@@ -47,10 +48,10 @@
                                        ShowTimeIndicator="true"/>
                 </scheduler:SfScheduler.DragDropSettings>
                 <scheduler:SfScheduler.MonthView>
-                    <scheduler:SchedulerMonthView ShowLeadingAndTrailingDates="True" CellStyle="{StaticResource monthCellStyle}" AppointmentDisplayMode="Text" >
+                    <scheduler:SchedulerMonthView ShowLeadingAndTrailingDates="True" CellStyle="{StaticResource monthCellStyle}" AppointmentDisplayMode="Indicator">
                         <scheduler:SchedulerMonthView.ViewHeaderSettings>
-                                <scheduler:SchedulerViewHeaderSettings Height="20" DateTextStyle="{StaticResource dayFrameHeaderLabelFontSize}" DayFormat="ddd"/>
-                            </scheduler:SchedulerMonthView.ViewHeaderSettings>
+                            <scheduler:SchedulerViewHeaderSettings Height="20" DateTextStyle="{StaticResource dayFrameHeaderLabelFontSize}" DayFormat="ddd"/>
+                        </scheduler:SchedulerMonthView.ViewHeaderSettings>
                         </scheduler:SchedulerMonthView>
                 </scheduler:SfScheduler.MonthView>
                 
