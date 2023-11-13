@@ -1,5 +1,5 @@
 namespace DoListy.Pages;
-using DoListy.TaskManager;
+
 using System.Collections.ObjectModel;
 
 public partial class DayPage : ContentPage
