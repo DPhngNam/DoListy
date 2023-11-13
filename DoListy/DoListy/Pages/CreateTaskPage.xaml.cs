@@ -15,12 +15,7 @@ public partial class CreateTaskPage : ContentPage
         TaskManager.TaskManager.AddTask(new TaskManager.Task
         {
             Title = entryTitle.Text,
-            EventStart = pickerDateTime1.SelectedDate,
-            EventEnd = pickerDateTime2.SelectedDate,
-            //Something
-            //Something
-            Tag = Tag.Text,
-            State = Status.Text,
+            
 
         });
         await Navigation.PopModalAsync();

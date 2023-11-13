@@ -3,19 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace DoListy.TaskManager
-{
-    public class Task
+
+    using System.ComponentModel;
+
+    namespace DoListy.TaskManager
     {
-        public int Id { get; set; }
-        public DateTime EventStart { get; set; }
-        public DateTime EventEnd { get; set; }
-        public string Title { get; set; }
-        public string Remind { get; set; }
-        public string Repeat { get; set; }
-        public string Recurrencerule { get; set; }
-        public string Tag { get; set; }
-        public string State { get; set; }
+        public class Task : INotifyPropertyChanged
+        {
+            private string _title;
+
+            public int Id { get; set; }
+
+            public string Title
+            {
+                get { return _title; }
+                set
+                {
+                    if (_title != value)
+                    {
+                        _title = value;
+                        OnPropertyChanged(nameof(Title));
+                    }
+                }
+            }
+
+            // Add other properties
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            protected virtual void OnPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
-}
+
+
+
