@@ -29,9 +29,6 @@
     <MauiXaml Update="Pages\MonthPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\CreateTaskPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
     <MauiXaml Update="Pages\PomodoroPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

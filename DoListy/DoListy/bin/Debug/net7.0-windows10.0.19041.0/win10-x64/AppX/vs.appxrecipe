@@ -29,13 +29,21 @@
     <AppXManifest Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2023-11-13T17:08:38.893</Modified>
+=======
+      <Modified>2023-11-13T16:30:06.151</Modified>
+>>>>>>> b9d1e13b695f6a3fc7e615d013104cd3cd7e6538
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
+<<<<<<< HEAD
       <Modified>2023-11-13T17:00:51.383</Modified>
+=======
+      <Modified>2023-11-13T16:30:05.706</Modified>
+>>>>>>> b9d1e13b695f6a3fc7e615d013104cd3cd7e6538
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.runtimeconfig.json">
       <PackagePath>DoListy.runtimeconfig.json</PackagePath>
@@ -43,15 +51,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.dll">
       <PackagePath>DoListy.dll</PackagePath>
+<<<<<<< HEAD
       <Modified>2023-11-13T17:08:37.557</Modified>
+=======
+      <Modified>2023-11-13T16:29:57.701</Modified>
+>>>>>>> b9d1e13b695f6a3fc7e615d013104cd3cd7e6538
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>DoListy.exe</PackagePath>
+<<<<<<< HEAD
       <Modified>2023-11-13T17:08:37.564</Modified>
+=======
+      <Modified>2023-11-13T16:29:57.764</Modified>
+>>>>>>> b9d1e13b695f6a3fc7e615d013104cd3cd7e6538
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.deps.json">
       <PackagePath>DoListy.deps.json</PackagePath>
+<<<<<<< HEAD
       <Modified>2023-11-13T15:48:42.522</Modified>
+=======
+      <Modified>2023-11-13T16:30:05.350</Modified>
+>>>>>>> b9d1e13b695f6a3fc7e615d013104cd3cd7e6538
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.11\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
