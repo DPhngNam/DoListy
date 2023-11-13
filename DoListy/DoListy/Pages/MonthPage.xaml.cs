@@ -33,6 +33,6 @@ public partial class MonthPage : ContentPage
 
     private async void btnOpenDeatil_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.Navigation.PushAsync(new DayPage());
+        await Shell.Current.GoToAsync("//Day");
     }
 }
