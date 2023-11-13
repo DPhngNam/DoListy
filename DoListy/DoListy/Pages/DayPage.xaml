@@ -4,11 +4,11 @@
              x:Class="DoListy.Pages.DayPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
-             Title="">
+             Title="DayPage">
     <!-- Page cua Nam-->
     <ContentPage.Resources>
         <ResourceDictionary>
-
+            <!--Half 1-->
             <Style x:Key="dayViewSchedulerStyle" TargetType="scheduler:SfScheduler">
                 <Setter Property="View" Value="Day" />
                 <Setter Property="HeaderView">
@@ -66,14 +66,15 @@
     <Grid Background="{StaticResource appBgColor}">
         <!--Devide the page into two half-->
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <!-- Header -->
+            <RowDefinition Height="*"/>
+            
             <RowDefinition Height="3*"/>
-            <!-- Three equally split labels -->
+           
         </Grid.RowDefinitions>
 
         <!--Half 1-->
-        <Grid Grid.Row="0"  Padding="10">
+        <Grid Grid.Row="0"  Padding="10" TranslationY="-50">
             
 
             <Grid.ColumnDefinitions>
@@ -94,13 +95,12 @@
                     <scheduler:SfScheduler Style="{StaticResource dayViewSchedulerStyle}"/>
                 </StackLayout>
             </Frame>
-            <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="0" />
+            <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="0" Clicked="Button_Clicked"/>
 
 
             <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="1">
                 <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
                     <scheduler:SfScheduler Style="{StaticResource dayViewSchedulerStyle}" />
-                    
                 </StackLayout>
             </Frame>
             <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="1" />
@@ -152,16 +152,16 @@
 
         
         <!--Half 2-->
-        <!-- Frames Section -->
+        
 
-        <Grid Grid.Row="1" Grid.Column="0">
+        <Grid Grid.Row="1" Grid.Column="0" TranslationY="-40">
             <Grid.RowDefinitions>
-                <!-- Divide the grid into 7 equal columns -->
+                
                 <RowDefinition Height="3*"/>
 
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <!-- Divide the grid into 7 equal columns -->
+               
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
