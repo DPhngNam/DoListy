@@ -29,25 +29,45 @@
     <AppXManifest Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2023-11-14T12:23:50.481</Modified>
+=======
+      <Modified>2023-11-14T12:19:15.875</Modified>
+>>>>>>> ad3005d9c2c4c9fae0cdf512765fa0b4dc19bfd0
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
+<<<<<<< HEAD
       <Modified>2023-11-14T12:23:50.265</Modified>
+=======
+      <Modified>2023-11-14T12:19:15.507</Modified>
+>>>>>>> ad3005d9c2c4c9fae0cdf512765fa0b4dc19bfd0
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.runtimeconfig.json">
       <PackagePath>DoListy.runtimeconfig.json</PackagePath>
+<<<<<<< HEAD
       <Modified>2023-11-14T11:53:16.389</Modified>
+=======
+      <Modified>2023-11-14T12:10:40.974</Modified>
+>>>>>>> ad3005d9c2c4c9fae0cdf512765fa0b4dc19bfd0
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.dll">
       <PackagePath>DoListy.dll</PackagePath>
+<<<<<<< HEAD
       <Modified>2023-11-14T12:23:49.171</Modified>
+=======
+      <Modified>2023-11-14T12:19:14.293</Modified>
+>>>>>>> ad3005d9c2c4c9fae0cdf512765fa0b4dc19bfd0
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>DoListy.exe</PackagePath>
+<<<<<<< HEAD
       <Modified>2023-11-14T12:23:49.177</Modified>
+=======
+      <Modified>2023-11-14T12:19:14.303</Modified>
+>>>>>>> ad3005d9c2c4c9fae0cdf512765fa0b4dc19bfd0
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.deps.json">
       <PackagePath>DoListy.deps.json</PackagePath>
@@ -809,7 +829,19 @@
       <PackagePath>WinRT.Runtime.dll</PackagePath>
       <Modified>2023-06-09T20:10:26.000</Modified>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\microsoft.extensions.configuration\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.dll">
+=======
+    <AppxPackagedFile Include="C:\Users\duong\.nuget\packages\communitytoolkit.maui\6.1.0\lib\net7.0-windows10.0.19041\CommunityToolkit.Maui.dll">
+      <PackagePath>CommunityToolkit.Maui.dll</PackagePath>
+      <Modified>2023-11-03T08:17:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\duong\.nuget\packages\communitytoolkit.maui.core\6.1.0\lib\net7.0-windows10.0.19041\CommunityToolkit.Maui.Core.dll">
+      <PackagePath>CommunityToolkit.Maui.Core.dll</PackagePath>
+      <Modified>2023-11-03T08:17:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\duong\.nuget\packages\microsoft.extensions.configuration\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.dll">
+>>>>>>> ad3005d9c2c4c9fae0cdf512765fa0b4dc19bfd0
       <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
       <Modified>2022-10-18T16:15:22.000</Modified>
     </AppxPackagedFile>
@@ -937,7 +969,15 @@
       <PackagePath>Syncfusion.Maui.Scheduler.dll</PackagePath>
       <Modified>2023-10-16T07:53:24.000</Modified>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\xcalendar.core\4.5.2\lib\netstandard2.0\XCalendar.Core.dll">
+=======
+    <AppxPackagedFile Include="C:\Users\duong\.nuget\packages\system.speech\7.0.0\runtimes\win\lib\net7.0\System.Speech.dll">
+      <PackagePath>System.Speech.dll</PackagePath>
+      <Modified>2022-10-18T16:18:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\duong\.nuget\packages\xcalendar.core\4.5.2\lib\netstandard2.0\XCalendar.Core.dll">
+>>>>>>> ad3005d9c2c4c9fae0cdf512765fa0b4dc19bfd0
       <PackagePath>XCalendar.Core.dll</PackagePath>
       <Modified>2023-09-08T17:21:36.000</Modified>
     </AppxPackagedFile>
@@ -961,7 +1001,15 @@
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
       <Modified>2022-11-08T19:31:24.000</Modified>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\7.0.92\ref\net7.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
+=======
+    <AppxPackagedFile Include="C:\Users\duong\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.deps.json">
+      <PackagePath>DoListy.deps.json</PackagePath>
+      <Modified>2023-11-14T12:19:15.736</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\7.0.59\ref\net7.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
+>>>>>>> ad3005d9c2c4c9fae0cdf512765fa0b4dc19bfd0
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>
       <Modified>2023-06-30T09:51:22.000</Modified>
     </AppxPackagedFile>

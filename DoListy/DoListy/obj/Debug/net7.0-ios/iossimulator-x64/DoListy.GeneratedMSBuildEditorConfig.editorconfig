@@ -52,7 +52,17 @@ build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.PomodoroPage
 build_metadata.AdditionalFiles.TargetPath = Pages\PomodoroPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\PomodoroPage.xaml
 
+<<<<<<< HEAD
 [D:/DoLisTy/DoListy/DoListy/DoListy/Pages/WeekPage.xaml]
+=======
+[C:/Users/duong/DoListy/DoListy/DoListy/Pages/SetGoals.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.SetGoals.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\SetGoals.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\SetGoals.xaml
+
+[C:/Users/duong/DoListy/DoListy/DoListy/Pages/WeekPage.xaml]
+>>>>>>> ad3005d9c2c4c9fae0cdf512765fa0b4dc19bfd0
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Pages.WeekPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\WeekPage.xaml

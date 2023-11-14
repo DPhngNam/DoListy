@@ -1,5 +1,6 @@
 namespace DoListy.Pages;
 using System.Collections.Generic;
+using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
 
 public partial class YearPage : ContentPage
@@ -156,7 +157,8 @@ public partial class YearPage : ContentPage
 
     private void OnGoalsPlusButtonClicked(object sender, EventArgs e)
     {
-        var newGoal = new Label
+        this.ShowPopup(new SetGoals());
+        /*var newGoal = new Label
         {
             Text = "A Goal in " + janMonthViewCalendar.DisplayDate.ToString()
         };
@@ -172,6 +174,7 @@ public partial class YearPage : ContentPage
             goalsList.Add(currentdate, newGoalList);
         }
         goalsListStack.Children.Add(newGoal);
+        */
     }
 }
 

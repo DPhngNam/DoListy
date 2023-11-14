@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
-
+using CommunityToolkit.Maui;
 namespace DoListy
 {
     public static class MauiProgram
@@ -11,6 +11,7 @@ namespace DoListy
             builder.ConfigureSyncfusionCore();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
