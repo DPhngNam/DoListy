@@ -11,6 +11,9 @@
         
         <Color x:Key="HeaderColor">#424874</Color>
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
+        <Style x:Key="HeaderLabel" TargetType="Label" BasedOn="{StaticResource taskFrameHeaderLabelStyle}">
+            <Setter Property="TextColor" Value="Black"></Setter>
+        </Style>
        
    
     </ContentPage.Resources>
@@ -73,7 +76,18 @@
                    Grid.Column="2"
                    VerticalOptions="FillAndExpand"
                   >
+                <VerticalStackLayout Spacing="5">
+                    <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
+                        <Label Text="Tasks" FontSize="30" FontAttributes="Bold" TextColor="Black" Grid.Column="0" Grid.Row="0"/>
+                        <Button CornerRadius="23" x:Name="btnOpenDeatil" Background="Transparent" Clicked="btnOpenDeatil_Clicked" FontSize="Small" Text="Eyes" TextColor="Black" Grid.Column="1" Grid.Row="0" ></Button>
+                        <Button CornerRadius="23" FontAttributes="Bold" Text="+" x:Name="buttonAddAppointment" BackgroundColor="SkyBlue"  Clicked="buttonAddAppointment_Clicked" Grid.Column="2" Grid.Row="0"></Button>
+                    </Grid>
+                    <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                    <ListView x:Name="TaskList">
 
+
+                    </ListView>
+                </VerticalStackLayout>
             </Frame>
             <!--Pomobutton-->
             <Button x:Name="WPPomoButton" 
