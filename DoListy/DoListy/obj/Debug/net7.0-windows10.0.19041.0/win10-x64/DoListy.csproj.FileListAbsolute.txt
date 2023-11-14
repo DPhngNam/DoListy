@@ -2330,3 +2330,6 @@ D:\hk1 năm 2\LTTQ\Dolisty_ver2\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows
 D:\hk1 năm 2\LTTQ\Dolisty_ver2\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 D:\hk1 năm 2\LTTQ\Dolisty_ver2\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
 C:\Users\duong\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\resizetizer\r\listplus.scale-100.png
+C:\Users\duong\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Maui.dll
+C:\Users\duong\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Maui.Core.dll
+C:\Users\duong\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.Speech.dll

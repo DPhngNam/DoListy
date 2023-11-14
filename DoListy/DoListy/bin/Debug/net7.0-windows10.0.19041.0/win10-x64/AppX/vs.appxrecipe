@@ -29,25 +29,25 @@
     <AppXManifest Include="C:\Users\duong\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-11-14T08:59:15.254</Modified>
+      <Modified>2023-11-14T12:19:15.875</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\duong\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-11-14T08:59:14.745</Modified>
+      <Modified>2023-11-14T12:19:15.507</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.runtimeconfig.json">
       <PackagePath>DoListy.runtimeconfig.json</PackagePath>
-      <Modified>2023-11-14T08:57:50.599</Modified>
+      <Modified>2023-11-14T12:10:40.974</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.dll">
       <PackagePath>DoListy.dll</PackagePath>
-      <Modified>2023-11-14T08:59:13.419</Modified>
+      <Modified>2023-11-14T12:19:14.293</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>DoListy.exe</PackagePath>
-      <Modified>2023-11-14T08:59:13.430</Modified>
+      <Modified>2023-11-14T12:19:14.303</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.3\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -805,6 +805,14 @@
       <PackagePath>WinRT.Runtime.dll</PackagePath>
       <Modified>2022-11-16T01:34:42.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\duong\.nuget\packages\communitytoolkit.maui\6.1.0\lib\net7.0-windows10.0.19041\CommunityToolkit.Maui.dll">
+      <PackagePath>CommunityToolkit.Maui.dll</PackagePath>
+      <Modified>2023-11-03T08:17:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\duong\.nuget\packages\communitytoolkit.maui.core\6.1.0\lib\net7.0-windows10.0.19041\CommunityToolkit.Maui.Core.dll">
+      <PackagePath>CommunityToolkit.Maui.Core.dll</PackagePath>
+      <Modified>2023-11-03T08:17:42.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\.nuget\packages\microsoft.extensions.configuration\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.dll">
       <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
       <Modified>2022-10-18T16:15:22.000</Modified>
@@ -933,6 +941,10 @@
       <PackagePath>Syncfusion.Maui.Scheduler.dll</PackagePath>
       <Modified>2023-10-16T07:53:24.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\duong\.nuget\packages\system.speech\7.0.0\runtimes\win\lib\net7.0\System.Speech.dll">
+      <PackagePath>System.Speech.dll</PackagePath>
+      <Modified>2022-10-18T16:18:24.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\.nuget\packages\xcalendar.core\4.5.2\lib\netstandard2.0\XCalendar.Core.dll">
       <PackagePath>XCalendar.Core.dll</PackagePath>
       <Modified>2023-09-08T17:21:36.000</Modified>
@@ -959,7 +971,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.deps.json">
       <PackagePath>DoListy.deps.json</PackagePath>
-      <Modified>2023-11-14T08:59:15.001</Modified>
+      <Modified>2023-11-14T12:19:15.736</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\7.0.59\ref\net7.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>

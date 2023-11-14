@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "eYj3bSADic3M56Kg0KptT4bZRRyMom4uSavsRpgfyJKH2ayE76CXMIAghDodIavTQ81LOFF1FCmSkBHWd3wFGQ==",
+  "dgSpecHash": "bE3Snm6Xl6zIwoG6xUPpki8gHhYQAFsEwKGxgXaXw8jQpxnFIfTOUq2bcXYLkca1EIPiWkFJX0d2uWxTgL/cyQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\duong\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\duong\\.nuget\\packages\\communitytoolkit.maui\\6.1.0\\communitytoolkit.maui.6.1.0.nupkg.sha512",
+    "C:\\Users\\duong\\.nuget\\packages\\communitytoolkit.maui.core\\6.1.0\\communitytoolkit.maui.core.6.1.0.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\googlegson\\2.9.1.1\\googlegson.2.9.1.1.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
@@ -25,6 +27,7 @@
     "C:\\Users\\duong\\.nuget\\packages\\syncfusion.maui.picker\\23.1.44\\syncfusion.maui.picker.23.1.44.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\syncfusion.maui.popup\\23.1.44\\syncfusion.maui.popup.23.1.44.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\syncfusion.maui.scheduler\\23.1.41\\syncfusion.maui.scheduler.23.1.41.nupkg.sha512",
+    "C:\\Users\\duong\\.nuget\\packages\\system.speech\\7.0.0\\system.speech.7.0.0.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\xamarin.android.glide\\4.13.2.2\\xamarin.android.glide.4.13.2.2.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\xamarin.android.glide.annotations\\4.13.2.2\\xamarin.android.glide.annotations.4.13.2.2.nupkg.sha512",
     "C:\\Users\\duong\\.nuget\\packages\\xamarin.android.glide.disklrucache\\4.13.2.2\\xamarin.android.glide.disklrucache.4.13.2.2.nupkg.sha512",
