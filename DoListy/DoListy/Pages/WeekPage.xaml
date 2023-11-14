@@ -30,7 +30,7 @@
             ShowWeekNumber="True"
             AppointmentDrop="WeekPageScheduler_AppointmentDrop"
              x:FieldModifier="public"
-             Tapped="WeekPageScheduler_Tapped"
+          
             >
             
             <scheduler:SfScheduler.AppointmentMapping>
