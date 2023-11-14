@@ -43,4 +43,11 @@ public partial class WeekPage : ContentPage
     {
         throw new NotImplementedException();
     }
+
+    private void WeekPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
+    {
+      
+
+
+    }
 }

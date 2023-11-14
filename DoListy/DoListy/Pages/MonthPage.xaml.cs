@@ -54,4 +54,24 @@ public partial class MonthPage : ContentPage
         }
         e.Reminders[0].IsDismissed = true;
     }
+
+    private void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)
+    {
+        stacktest.Clear();
+     
+        foreach(Appointment app in e.Appointments)
+        {
+            
+            Label var = new Label { Text = app.Name + "\n" + app.EventStart , TextColor = new Color(1,1,1) };
+            Label label = new Label { Text = app.EventStart.ToString() };
+            StackLayout framestack = new StackLayout();
+            framestack.Children.Add(var);
+            framestack.Children.Add(label);
+            Frame frame = new Frame();
+            frame.Content = framestack;
+            stacktest.Children.Add(frame);
+        }
+  
+
+    }
 }

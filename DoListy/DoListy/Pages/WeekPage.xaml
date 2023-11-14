@@ -30,6 +30,8 @@
             ShowWeekNumber="True"
             AppointmentDrop="WeekPageScheduler_AppointmentDrop"
              x:FieldModifier="public"
+            AllowViewNavigation="True"
+            Tapped="WeekPageScheduler_Tapped"
           
             >
             

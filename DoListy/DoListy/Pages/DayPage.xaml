@@ -4,7 +4,7 @@
              x:Class="DoListy.Pages.DayPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
-             Title="DayPage">
+          >
     <!-- Page cua Nam-->
     <ContentPage.Resources>
         <ResourceDictionary>
