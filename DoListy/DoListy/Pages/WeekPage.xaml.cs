@@ -38,4 +38,9 @@ public partial class WeekPage : ContentPage
         var daypage = (DayPage)Shell.Current.CurrentPage;
     }
 
+
+    private void TaskList_ChildAdded(object sender, ElementEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }
