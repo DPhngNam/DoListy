@@ -17,21 +17,41 @@ namespace DoListy.ControlViewModel
             new Appointment
             {
                     Name = "AAAA",
-                    EventStart = new DateTime(2023, 11 ,14,10,30, 00),
-                    EventEnd = new DateTime(2023 , 11, 14, 10, 50 ,00),
+                    EventStart = new DateTime(2023, 11 ,14,19,25, 00),
+                    EventEnd = new DateTime(2023 , 11, 14, 20, 30 ,00),
                     Colorbg = Colors.Blue,
                     Reminders = new ObservableCollection<Reminder> { new Reminder
                     {
-                        TimeBeforeStart = new TimeSpan(0,3,0)
+                        TimeBeforeStart = new TimeSpan(0,1,0)
                     } }
             }
         };
         public static List<Appointment> GetAppointments() => AppointmentsList;
+        public static Appointment GetAppointmentByID(int AppointmentID)
+        {
+            var Appointmenttemp = AppointmentsList.FirstOrDefault(x => x.Id == AppointmentID);
+            if (Appointmenttemp != null)
+            {
+                return new Appointment
+                {
+                    Id = Appointmenttemp.Id,
+                    Name = Appointmenttemp.Name,
+                    EventStart = Appointmenttemp.EventStart,
+                    EventEnd = Appointmenttemp.EventEnd,
+                    Colorbg = Appointmenttemp.Colorbg,
+                    Recurrencerule = Appointmenttemp.Recurrencerule,
+                    Reminders = Appointmenttemp.Reminders,
+                };
+            }
+            return null;
+        }
 
         public static void AddAppointment(Appointment temp)
         {
+            int maxID = AppointmentsList.Max(x => x.Id);
+            temp.Id = maxID + 1;
             AppointmentsList.Add(temp);
         }
-        
+
     }
 }

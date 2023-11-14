@@ -45,6 +45,13 @@ public partial class MonthPage : ContentPage
 
     private async void Scheduler_ReminderAlertOpening(object sender, Syncfusion.Maui.Scheduler.ReminderAlertOpeningEventArgs e)
     {
-        bool snooze = await DisplayAlert("Reminder", Scheduler.AppointmentMapping.Subject + " - " + Scheduler.AppointmentMapping.StartTime.ToString(), "Snooze", "Dismiss");
+        var currentTime = DateTime.Now;
+        var reminderTime = e.Reminders[0].Appointment.StartTime - e.Reminders[0].TimeBeforeStart;
+
+        if (currentTime >= reminderTime && e.Reminders[0].Appointment.StartTime >= currentTime)
+        {
+            bool snooze = await DisplayAlert("Reminder", e.Reminders[0].Appointment.Subject + " - " + e.Reminders[0].Appointment.StartTime.ToString(), "Snooze", "Dismiss");
+        }
+        e.Reminders[0].IsDismissed = true;
     }
 }
