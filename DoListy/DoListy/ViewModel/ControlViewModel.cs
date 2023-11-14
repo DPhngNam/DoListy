@@ -17,13 +17,12 @@ namespace DoListy.ControlViewModel
             new Appointment
             {
                     Name = "AAAA",
-                    EventStart = new DateTime(2023, 11 ,5,19,30, 30),
-                    EventEnd = new DateTime(2023 , 11, 5, 22 , 30 ,30),
+                    EventStart = new DateTime(2023, 11 ,14,10,30, 00),
+                    EventEnd = new DateTime(2023 , 11, 14, 10, 50 ,00),
                     Colorbg = Colors.Blue,
                     Reminders = new ObservableCollection<Reminder> { new Reminder
                     {
-                        IsDismissed = true,
-                        TimeBeforeStart = new TimeSpan(0,0,5)
+                        TimeBeforeStart = new TimeSpan(0,3,0)
                     } }
             }
         };

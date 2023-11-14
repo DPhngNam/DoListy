@@ -43,8 +43,8 @@ public partial class MonthPage : ContentPage
         pickedDate = (DateTime)e.NewValue;
     }
 
-    private void Scheduler_ReminderAlertOpening(object sender, Syncfusion.Maui.Scheduler.ReminderAlertOpeningEventArgs e)
+    private async void Scheduler_ReminderAlertOpening(object sender, Syncfusion.Maui.Scheduler.ReminderAlertOpeningEventArgs e)
     {
-
+        bool snooze = await DisplayAlert("Reminder", Scheduler.AppointmentMapping.Subject + " - " + Scheduler.AppointmentMapping.StartTime.ToString(), "Snooze", "Dismiss");
     }
 }
