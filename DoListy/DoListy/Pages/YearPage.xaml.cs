@@ -1,17 +1,18 @@
-
 namespace DoListy.Pages;
 using System.Collections.Generic;
 using Microsoft.Maui.Controls;
 
 public partial class YearPage : ContentPage
 {
-
+    Dictionary<DateTime, List<IView>> goalsList;
     public YearPage()
     {
         InitializeComponent();
         DateTime currentDate = DateTime.Now;
         yearLabel.Text = currentDate.Year.ToString();
         SetIniDisplayDate(currentDate);
+        goalsList = new Dictionary<DateTime, List<IView>>(); // khi lam xong Database, goalsList se lay lai latest goalsList chu khong phai new
+
     }
     private void SetIniDisplayDate(DateTime currentDate)
     {
@@ -33,11 +34,33 @@ public partial class YearPage : ContentPage
     {
         yearLabel.Text = Convert.ToString(Convert.ToInt32(yearLabel.Text) - 1);
         ChangeYearOfDisplayDate(false);
+
+        var currentDate = janMonthViewCalendar.DisplayDate;
+        goalsListStack.Children.Clear();
+        if (goalsList.ContainsKey(currentDate))
+        {
+            var numOfGoals = goalsList[currentDate].Count;
+            for (int i = 0; i < numOfGoals; i++)
+            {
+                goalsListStack.Children.Add(goalsList[currentDate][i]);
+            }
+        }
     }
     private void OnRightArrowButtonClicked(object sender, EventArgs e)
     {
         yearLabel.Text = Convert.ToString(Convert.ToInt32(yearLabel.Text) + 1);
         ChangeYearOfDisplayDate(true);
+
+        var currentDate = janMonthViewCalendar.DisplayDate;
+        goalsListStack.Children.Clear();
+        if (goalsList.ContainsKey(currentDate))
+        {
+            var numOfGoals = goalsList[currentDate].Count;
+            for (int i = 0; i < numOfGoals; i++)
+            {
+                goalsListStack.Children.Add(goalsList[currentDate][i]);
+            }
+        }
     }
     private void ChangeYearOfDisplayDate(bool plus)
     {
@@ -57,7 +80,7 @@ public partial class YearPage : ContentPage
         novMonthViewCalendar.DisplayDate = novMonthViewCalendar.DisplayDate.AddYears(num);
         decMonthViewCalendar.DisplayDate = decMonthViewCalendar.DisplayDate.AddYears(num);
     }
-    
+
     private async void OnJanButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Month");
@@ -131,4 +154,25 @@ public partial class YearPage : ContentPage
         monthPage.Scheduler.DisplayDate = decMonthViewCalendar.DisplayDate;
     }
 
+    private void OnGoalsPlusButtonClicked(object sender, EventArgs e)
+    {
+        var newGoal = new Label
+        {
+            Text = "A Goal in " + janMonthViewCalendar.DisplayDate.ToString()
+        };
+        var currentdate = janMonthViewCalendar.DisplayDate;
+        if (goalsList.ContainsKey(currentdate))
+        {
+            goalsList[currentdate].Add(newGoal);
+        }
+        else
+        {
+            var newGoalList = new List<IView>();
+            newGoalList.Add(newGoal);
+            goalsList.Add(currentdate, newGoalList);
+        }
+        goalsListStack.Children.Add(newGoal);
+    }
 }
+
+

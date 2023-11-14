@@ -72,8 +72,8 @@
             </control:SfCalendar>
         </Frame>
         <Button x:Name="janButton" Grid.Column="0" Grid.Row="0" Clicked="OnJanButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
-        
-        
+
+
         <Frame Grid.Column="0" Grid.Row="1"  Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="mayMonthViewCalendar"
                                 Style="{StaticResource monthViewCalendarStyle}">
@@ -82,7 +82,7 @@
         </Frame>
         <Button x:Name="mayButton" Grid.Column="0" Grid.Row="1" Clicked="OnMayButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
 
-        
+
         <Frame Grid.Column="0" Grid.Row="2"  Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="sepMonthViewCalendar"
                                 Style="{StaticResource monthViewCalendarStyle}">
@@ -172,11 +172,11 @@
         </Frame>
         <Button x:Name="decButton" Grid.Column="3" Grid.Row="2" Clicked="OnDecButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
 
-        <Grid Grid.Column="4" Grid.Row="0" Grid.RowSpan="3" ColumnDefinitions="*,2*,*" RowDefinitions="Auto,*" RowSpacing="20" Padding="0">
+        <Grid Grid.Column="4" Grid.Row="0" Grid.RowSpan="3" ColumnDefinitions="*,2*,*" RowDefinitions="Auto,*" RowSpacing="20">
             <ImageButton Grid.Column="0" Grid.Row="0"
                          Source="leftarrowicon.png"
-                         HeightRequest="24" WidthRequest="24" 
-                         HorizontalOptions="End"
+                         HeightRequest="9" WidthRequest="9" 
+                         HorizontalOptions="Start"
                          BackgroundColor="{StaticResource appBgColor}"
                          Clicked="OnLeftArrowButtonClicked"
                          />
@@ -188,13 +188,25 @@
                          BackgroundColor="{StaticResource appBgColor}"
                          Clicked="OnRightArrowButtonClicked"
                          />
+
             <Frame Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" BackgroundColor="{StaticResource taskFrameBgColor}"
                    CornerRadius="10"
                    BorderColor="Purple"
                    Padding="10">
                 <StackLayout Orientation="Vertical" Spacing="5">
-                    <Label Text="Goals" Style="{StaticResource taskFrameHeaderLabelStyle}"/>
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="*">
+                        <Label Grid.Column="0" Grid.Row="0" Text="Goals" Style="{StaticResource taskFrameHeaderLabelStyle}" FontSize="28"/>
+                        <ImageButton Grid.Column="1" Grid.Row="0" 
+                                     Source="listplus.png" 
+                                     HorizontalOptions="End" 
+                                     WidthRequest="9" HeightRequest="9" 
+                                     BackgroundColor="{StaticResource taskFrameBgColor}"
+                                     Clicked="OnGoalsPlusButtonClicked"/>
+                    </Grid>
                     <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                    <StackLayout Orientation="Vertical" x:Name="goalsListStack">
+
+                    </StackLayout>
                 </StackLayout>
             </Frame>
         </Grid>
