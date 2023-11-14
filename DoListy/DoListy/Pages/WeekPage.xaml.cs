@@ -28,4 +28,19 @@ public partial class WeekPage : ContentPage
     {
         loadAppointments();
     }
+    private async void buttonAddAppointment_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new AddAppointmentPage());
+    }
+    private async void btnOpenDeatil_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Day");
+        var daypage = (DayPage)Shell.Current.CurrentPage;
+    }
+
+
+    private void TaskList_ChildAdded(object sender, ElementEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }
