@@ -26,7 +26,7 @@
             View="Week"
             ShowWeekNumber="True"
             AppointmentDrop="WeekPageScheduler_AppointmentDrop"
-          
+             x:FieldModifier="public"
             >
             <scheduler:SfScheduler.AppointmentMapping>
                 <!--tham chiếu tới task người dùng-->

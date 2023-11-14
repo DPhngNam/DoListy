@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,9 @@ namespace DoListy.ViewModel
         public string Name { get; set; }
         public Brush Colorbg { get; set; }
         public string Recurrencerule { get; set; }
-        public string Tag { get; set;}
+        public string Note { get; set;}
+        public string State { get; set; }
+        public ObservableCollection<Reminder> Reminders { get; set; }
+
     }
 }

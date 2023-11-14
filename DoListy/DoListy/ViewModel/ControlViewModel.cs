@@ -20,6 +20,11 @@ namespace DoListy.ControlViewModel
                     EventStart = new DateTime(2023, 11 ,5,19,30, 30),
                     EventEnd = new DateTime(2023 , 11, 5, 22 , 30 ,30),
                     Colorbg = Colors.Blue,
+                    Reminders = new ObservableCollection<Reminder> { new Reminder
+                    {
+                        IsDismissed = true,
+                        TimeBeforeStart = new TimeSpan(0,0,5)
+                    } }
             }
         };
         public static List<Appointment> GetAppointments() => AppointmentsList;

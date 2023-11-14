@@ -20,8 +20,7 @@
     
     <Grid 
         RowDefinitions="*"
-        ColumnDefinitions="3*,*"
-        >
+        ColumnDefinitions="3*,*">
 
             <Frame BorderColor="#808080" Padding="0,0,0,0"  CornerRadius="1">
             <scheduler:SfScheduler TodayHighlightBrush= "blue" CellBorderBrush="black" SelectedCellBackground="Gray" BackgroundColor="{StaticResource navBgColor}" 
@@ -33,13 +32,21 @@
                 AppointmentDrop="Scheduler_AppointmentDrop"
                 x:FieldModifier="public"
                SelectionChanged="Scheduler_SelectionChanged"
+                EnableReminder="True"
+                ReminderAlertOpening="Scheduler_ReminderAlertOpening"
                 >
-                <scheduler:SfScheduler.AppointmentMapping> <!--tham chiếu tới task người dùng-->
+                <scheduler:SfScheduler.AppointmentMapping>
+                    <!--tham chiếu tới task người dùng-->
                     <scheduler:SchedulerAppointmentMapping Subject="Name"
                                                            StartTime="EventStart"
                                                            EndTime="EventEnd"
                                                            Background="Colorbg"
-                                                           RecurrenceRule="Recurrencerule">
+                                                           RecurrenceRule="Recurrencerule"
+                                                           Reminders="Reminders">
+                        <scheduler:SchedulerAppointmentMapping.ReminderMapping>
+                            <scheduler:SchedulerReminderMapping IsDismissed="IsDismissed"
+                                                                TimeBeforeStart="TimeBeforeStart"/>
+                        </scheduler:SchedulerAppointmentMapping.ReminderMapping> 
                     </scheduler:SchedulerAppointmentMapping>
                 </scheduler:SfScheduler.AppointmentMapping>
                 <scheduler:SfScheduler.DragDropSettings>

@@ -37,14 +37,26 @@ public partial class AddAppointmentPage : ContentPage
         }
         else temp = Brush.Green;
 
-        ControlViewModel.ControlViewModel.AddAppointment(new ViewModel.Appointment
+        if (Freg.SelectedItem == null)
         {
-            Name = entrySubject.Text,
-            EventStart = pickerDateTime1.SelectedDate,
-            EventEnd = pickerDateTime2.SelectedDate,
-            Colorbg = temp,
-            Recurrencerule = "FREQ=" + Freg.SelectedItem.ToString() + ";INTERVAL=" + Interval.Text + ";COUNT=" + Count.Text,
-        });
+            ControlViewModel.ControlViewModel.AddAppointment(new ViewModel.Appointment
+            {
+                Name = entrySubject.Text,
+                EventStart = pickerDateTime1.SelectedDate,
+                EventEnd = pickerDateTime2.SelectedDate,
+                Colorbg = temp,
+            });
+        }
+        else {
+            ControlViewModel.ControlViewModel.AddAppointment(new ViewModel.Appointment
+            {
+                Name = entrySubject.Text,
+                EventStart = pickerDateTime1.SelectedDate,
+                EventEnd = pickerDateTime2.SelectedDate,
+                Colorbg = temp,
+                Recurrencerule = "FREQ=" + Freg.SelectedItem.ToString() + ";INTERVAL=" + Interval.Text + ";COUNT=" + Count.Text,
+            }); 
+        }
         await Navigation.PopModalAsync();
     }
 

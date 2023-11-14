@@ -34,12 +34,17 @@ public partial class MonthPage : ContentPage
     }
     private async void btnOpenDeatil_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("//Week");
-
+        await Shell.Current.GoToAsync("//Day");
+        var daypage = (DayPage)Shell.Current.CurrentPage;
     }
 
     private void Scheduler_SelectionChanged(object sender, Syncfusion.Maui.Scheduler.SchedulerSelectionChangedEventArgs e)
     {
         pickedDate = (DateTime)e.NewValue;
+    }
+
+    private void Scheduler_ReminderAlertOpening(object sender, Syncfusion.Maui.Scheduler.ReminderAlertOpeningEventArgs e)
+    {
+
     }
 }

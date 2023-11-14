@@ -92,7 +92,7 @@
             <!-- Frames corresponding to each column, each containing a Button -->
             <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="0">
                 <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
-                    <scheduler:SfScheduler Style="{StaticResource dayViewSchedulerStyle}"/>
+                    <scheduler:SfScheduler  x:FieldModifier="public" Style="{StaticResource dayViewSchedulerStyle}"/>
                 </StackLayout>
             </Frame>
             <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="0" Clicked="Button_Clicked"/>
