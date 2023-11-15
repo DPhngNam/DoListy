@@ -4,6 +4,7 @@
              x:Class="DoListy.Pages.DayPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             Title=""
           >
     <!-- Page cua Nam-->
     <ContentPage.Resources>
@@ -78,7 +79,9 @@
             
 
             <Grid.ColumnDefinitions>
-                <!-- Divide the grid into 7 equal columns -->
+                <!-- Divide the grid into 9 equal columns -->
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -90,64 +93,73 @@
 
 
             <!-- Frames corresponding to each column, each containing a Button -->
+            
+            <!--Monday-->
             <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="0">
                 <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
-                    <scheduler:SfScheduler  x:FieldModifier="public" Style="{StaticResource dayViewSchedulerStyle}"/>
+                    <scheduler:SfScheduler x:Name="mon" x:FieldModifier="public" Style="{StaticResource dayViewSchedulerStyle}"/>
                 </StackLayout>
             </Frame>
-            <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="0" Clicked="Button_Clicked"/>
-
-
+            <Button x:Name="Butmon" Style="{StaticResource CommonButtonStyle}" Grid.Column="0" Clicked="Butmon_Clicked"/>
+            <!--Monday-->
+    
+            <!--Tuesday-->
             <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="1">
                 <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
-                    <scheduler:SfScheduler Style="{StaticResource dayViewSchedulerStyle}" />
+                    <scheduler:SfScheduler  x:Name="tue" Style="{StaticResource dayViewSchedulerStyle}" />
                 </StackLayout>
             </Frame>
-            <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="1" />
-
+            <Button x:Name="Buttue" Style="{StaticResource CommonButtonStyle}" Grid.Column="1" Clicked="Buttue_Clicked"/>
+            <!--Tuesday-->
+            
+            <!--Wednesday-->
             <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="2">
                 <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
-                    <scheduler:SfScheduler Style="{StaticResource dayViewSchedulerStyle}" />
+                    <scheduler:SfScheduler x:Name="wed" Style="{StaticResource dayViewSchedulerStyle}" />
                 </StackLayout>
             </Frame>
-            <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="2" />
+            <Button x:Name="Butwed" Style="{StaticResource CommonButtonStyle}" Grid.Column="2" Clicked="Butwed_Clicked"/>
+            <!--Wednesday-->
 
-
+            <!--Thusday-->
             <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="3">
                 <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
-                    <scheduler:SfScheduler Style="{StaticResource dayViewSchedulerStyle}" />
+                    <scheduler:SfScheduler x:Name="thus" Style="{StaticResource dayViewSchedulerStyle}" />
                 </StackLayout>
             </Frame>
-            <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="3" />
+            <Button x:Name="Butthus" Style="{StaticResource CommonButtonStyle}" Grid.Column="3" Clicked="Butthus_Clicked"/>
+            <!--Thusday-->
 
-
-
+            <!--Friday-->
             <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="4">
                 <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
-                    <scheduler:SfScheduler Style="{StaticResource dayViewSchedulerStyle}" />
+                    <scheduler:SfScheduler x:Name="fri"  Style="{StaticResource dayViewSchedulerStyle}" />
                 </StackLayout>
             </Frame>
-            <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="4" />
+            <Button x:Name="Butfri" Style="{StaticResource CommonButtonStyle}" Grid.Column="4" Clicked="Butfri_Clicked"/>
+            <!--Friday-->
 
-
+            <!--Saturday-->
             <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="5">
                 <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
-                    <scheduler:SfScheduler Style="{StaticResource dayViewSchedulerStyle}" />
+                    <scheduler:SfScheduler x:Name="sat" Style="{StaticResource dayViewSchedulerStyle}" />
                 </StackLayout>
             </Frame>
-            <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="5" />
+            <Button x:Name="Butsat" Clicked="Butsat_Clicked" Style="{StaticResource CommonButtonStyle}" Grid.Column="5" />
+            <!--Saturday-->
 
-
-
-
+            <!--Sunday-->
             <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="6">
                 <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
-                    <scheduler:SfScheduler Style="{StaticResource dayViewSchedulerStyle}"  />
+                    <scheduler:SfScheduler x:Name="sun" Style="{StaticResource dayViewSchedulerStyle}"  />
                 </StackLayout>
             </Frame>
-            <Button Style="{StaticResource CommonButtonStyle}" Grid.Column="6" />
-
-
+            <Button x:Name="Butsun" Clicked="Butsun_Clicked" Style="{StaticResource CommonButtonStyle}" Grid.Column="6" />
+            <!--Sunday-->
+            
+            
+            <ImageButton x:Name="LeftimaBut" HeightRequest="10" WidthRequest="10" Source="leftarrowicon.png" Grid.Column="7" Clicked="LeftimaBut_Clicked"/>
+            <ImageButton x:Name="RightimaBut" HeightRequest="10" WidthRequest="10" Source="rightarrowicon.png" Grid.Column="8" Clicked="RightimaBut_Clicked"/>
         </Grid>
 
         
@@ -164,7 +176,7 @@
                
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                
 
             </Grid.ColumnDefinitions>
             <Frame Style="{StaticResource CommonFrame}" Grid.Row="1" Grid.Column="0" Margin="10" >
@@ -174,7 +186,9 @@
                         <Button CornerRadius="23" FontAttributes="Bold" Text="+" x:Name="buttonAddTask" BackgroundColor="SkyBlue" Clicked="buttonAddTask_Clicked" Grid.Column="2" Grid.Row="0"></Button>
                     </Grid>
                     <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                    <StackLayout Orientation="Vertical" x:Name="TaskDailyStack">
 
+                    </StackLayout>
                 </VerticalStackLayout>
             </Frame>
 
@@ -182,17 +196,14 @@
                 <StackLayout>
                     <Label Text="Task details" FontSize="14" FontAttributes="Bold" />
                     <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill" />
+
+                    <StackLayout Orientation="Vertical" x:Name="TaskDailyDetail">
+
+                    </StackLayout>
                 </StackLayout>
             </Frame>
 
-            <!-- Weather Frame -->
-            <Frame Style="{StaticResource CommonFrame}" Grid.Row="1" Grid.Column="2">
-                <StackLayout>
-                    <Label Text="Weather" FontSize="14" FontAttributes="Bold" />
-                    <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill" />
-                    
-                </StackLayout>
-            </Frame>
+            
         </Grid>
     </Grid>
 </ContentPage>

@@ -122,7 +122,7 @@
                 <Entry x:Name="Count" Placeholder="Enter Content" WidthRequest="130"></Entry>
             </HorizontalStackLayout>
         </Frame>
-        <Button x:Name="buttonCancle" TextColor="black" Text="Cancle" Background="WhiteSmoke" Clicked="buttonCancle_Clicked"></Button>
+        <Button x:Name="buttonCancle" TextColor="black" Text="Cancel" Background="WhiteSmoke" Clicked="buttonCancle_Clicked"></Button>
         <Button x:Name="buttonCreate" TextColor="black" Text="Create" Background="skyblue" Clicked="buttonCreate_Clicked"></Button>    
     </VerticalStackLayout>
 </ContentPage>
