@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Do_an\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {}
+    "D:\\Projects\\doan\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Do_an\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {
+    "D:\\Projects\\doan\\DoListy\\DoListy\\DoListy\\DoListy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Do_an\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
+        "projectUniqueName": "D:\\Projects\\doan\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
         "projectName": "DoListy",
-        "projectPath": "D:\\Projects\\Do_an\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
+        "projectPath": "D:\\Projects\\doan\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
         "packagesPath": "C:\\Users\\pnam2\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Do_an\\DoListy\\DoListy\\DoListy\\obj\\",
+        "outputPath": "D:\\Projects\\doan\\DoListy\\DoListy\\DoListy\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

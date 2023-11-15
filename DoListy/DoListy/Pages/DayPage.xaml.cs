@@ -29,7 +29,27 @@ public partial class DayPage : ContentPage
 
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new AddAppointmentPage());
+        DateTime current = DateTime.Now; // You need to get the actual date/time for the task
+        TaskDaily.Add(current, new List<IView>());
+
+        // Adding a new goal
+        var newGoal = new Label
+        {
+            Text = "A Goal in " + current.ToString() // Using the current date
+        };
+
+        if (TaskDaily.ContainsKey(current))
+        {
+            TaskDaily[current].Add(newGoal);
+        }
+        else
+        {
+            var newGoalList = new List<IView>();
+            newGoalList.Add(newGoal);
+            TaskDaily.Add(current, newGoalList);
+        }
+
+        TaskDailyStack.Children.Add(newGoal);
     }
 
     private void LeftimaBut_Clicked(object sender, EventArgs e)
@@ -46,7 +66,6 @@ public partial class DayPage : ContentPage
     private void RightimaBut_Clicked(object sender, EventArgs e)
     {
         mon.DisplayDate = mon.DisplayDate.AddDays(7);
-
         tue.DisplayDate = tue.DisplayDate.AddDays(7);
         wed.DisplayDate = wed.DisplayDate.AddDays(7);
         thus.DisplayDate = thus.DisplayDate.AddDays(7);
@@ -55,9 +74,8 @@ public partial class DayPage : ContentPage
         sun.DisplayDate = sun.DisplayDate.AddDays(7);
     }
 
-    private void Butmon_Clicked(object sender, EventArgs e)
+    private void AlwaysOnDisplay(DateTime currentDate)
     {
-        var currentDate = mon.DisplayDate;
         TaskDailyStack.Children.Clear();
         if (TaskDaily.ContainsKey(currentDate))
         {
@@ -67,89 +85,47 @@ public partial class DayPage : ContentPage
                 TaskDailyStack.Children.Add(TaskDaily[currentDate][i]);
             }
         }
+    }
+
+    private void Butmon_Clicked(object sender, EventArgs e)
+    {
+        AlwaysOnDisplay(mon.DisplayDate);
+        
     }
 
     private void Buttue_Clicked(object sender, EventArgs e)
     {
-        var currentDate = tue.DisplayDate;
-        TaskDailyStack.Children.Clear();
-        if (TaskDaily.ContainsKey(currentDate))
-        {
-            var numOfGoals = TaskDaily[currentDate].Count;
-            for (int i = 0; i < numOfGoals; i++)
-            {
-                TaskDailyStack.Children.Add(TaskDaily[currentDate][i]);
-            }
-        }
+        AlwaysOnDisplay(tue.DisplayDate);
+
     }
 
     private void Butwed_Clicked(object sender, EventArgs e)
     {
-        var currentDate = wed.DisplayDate;
-        TaskDailyStack.Children.Clear();
-        if (TaskDaily.ContainsKey(currentDate))
-        {
-            var numOfGoals = TaskDaily[currentDate].Count;
-            for (int i = 0; i < numOfGoals; i++)
-            {
-                TaskDailyStack.Children.Add(TaskDaily[currentDate][i]);
-            }
-        }
+        AlwaysOnDisplay(wed.DisplayDate);
+
     }
 
     private void Butthus_Clicked(object sender, EventArgs e)
     {
-        var currentDate = thus.DisplayDate;
-        TaskDailyStack.Children.Clear();
-        if (TaskDaily.ContainsKey(currentDate))
-        {
-            var numOfGoals = TaskDaily[currentDate].Count;
-            for (int i = 0; i < numOfGoals; i++)
-            {
-                TaskDailyStack.Children.Add(TaskDaily[currentDate][i]);
-            }
-        }
+        AlwaysOnDisplay(thus.DisplayDate);
+
     }
 
     private void Butfri_Clicked(object sender, EventArgs e)
     {
-        var currentDate = fri.DisplayDate;
-        TaskDailyStack.Children.Clear();
-        if (TaskDaily.ContainsKey(currentDate))
-        {
-            var numOfGoals = TaskDaily[currentDate].Count;
-            for (int i = 0; i < numOfGoals; i++)
-            {
-                TaskDailyStack.Children.Add(TaskDaily[currentDate][i]);
-            }
-        }
+        AlwaysOnDisplay(fri.DisplayDate);
+
     }
 
     private void Butsat_Clicked(object sender, EventArgs e)
     {
-        var currentDate = sat.DisplayDate;
-        TaskDailyStack.Children.Clear();
-        if (TaskDaily.ContainsKey(currentDate))
-        {
-            var numOfGoals = TaskDaily[currentDate].Count;
-            for (int i = 0; i < numOfGoals; i++)
-            {
-                TaskDailyStack.Children.Add(TaskDaily[currentDate][i]);
-            }
-        }
+        AlwaysOnDisplay(sat.DisplayDate);
+
     }
 
     private void Butsun_Clicked(object sender, EventArgs e)
     {
-        var currentDate = sun.DisplayDate;
-        TaskDailyStack.Children.Clear();
-        if (TaskDaily.ContainsKey(currentDate))
-        {
-            var numOfGoals = TaskDaily[currentDate].Count;
-            for (int i = 0; i < numOfGoals; i++)
-            {
-                TaskDailyStack.Children.Add(TaskDaily[currentDate][i]);
-            }
-        }
+        AlwaysOnDisplay(sun.DisplayDate);
+
     }
 }

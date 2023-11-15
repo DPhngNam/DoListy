@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZGwvr7SE1E/yGy+pw5LLMxxdhTbS04/F0WmEzake4SonzzDXfG+ftx/cFlswfLhrp8NX2Zenm3WZzgz5gOr3KQ==",
+  "dgSpecHash": "jWrWFeF5tIunU7UNhuT/yiHwmJWobdr/s02qdcAM6Iii0Rk6/MKKvKht5f3q0rcfvEvl2iZ9AtgrBHmESJEmaQ==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Do_an\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
+  "projectFilePath": "D:\\Projects\\doan\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pnam2\\.nuget\\packages\\communitytoolkit.maui\\6.1.0\\communitytoolkit.maui.6.1.0.nupkg.sha512",
     "C:\\Users\\pnam2\\.nuget\\packages\\communitytoolkit.maui.core\\6.1.0\\communitytoolkit.maui.core.6.1.0.nupkg.sha512",
