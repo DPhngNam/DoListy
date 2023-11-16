@@ -79,4 +79,16 @@ public partial class AddAppointmentPage : ContentPage
     {
         pickerDateTime2.IsOpen = false;
     }
+
+    private void pickerDateTime2_OkButtonClicked(object sender, EventArgs e)
+    {
+        pickerDateTime2.IsOpen = false;
+        entryEndTime.Text = pickerDateTime2.SelectedDate.ToString();
+    }
+
+    private void pickerDateTime1_OkButtonClicked(object sender, EventArgs e)
+    {
+        pickerDateTime1.IsOpen = false;
+        entryStartTime.Text = pickerDateTime1.SelectedDate.ToString();
+    }
 }

@@ -42,7 +42,7 @@
                                          IsOpen="False"
                                          IsVisible="False"
                                          CancelButtonClicked="pickerDateTime1_CancelButtonClicked"
-                                         OkButtonClicked="pickerDateTime1_CancelButtonClicked"
+                                         OkButtonClicked="pickerDateTime1_OkButtonClicked"
                                          >
                     <picker:SfDateTimePicker.ColumnHeaderView>
                         <picker:DateTimePickerColumnHeaderView Background="#D3D3D3">
@@ -77,7 +77,7 @@
                          IsOpen="False"
                          IsVisible="False"
                          CancelButtonClicked="pickerDateTime2_CancelButtonClicked"
-                         OkButtonClicked="pickerDateTime2_CancelButtonClicked"
+                         OkButtonClicked="pickerDateTime2_OkButtonClicked"
                          >
                     <picker:SfDateTimePicker.ColumnHeaderView>
                         <picker:DateTimePickerColumnHeaderView Background="#D3D3D3">

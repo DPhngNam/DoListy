@@ -46,31 +46,43 @@ public partial class MonthPage : ContentPage
     private async void Scheduler_ReminderAlertOpening(object sender, Syncfusion.Maui.Scheduler.ReminderAlertOpeningEventArgs e)
     {
         var currentTime = DateTime.Now;
-        var reminderTime = e.Reminders[0].Appointment.StartTime - e.Reminders[0].TimeBeforeStart;
+        var startTime = e.Reminders[0].Appointment.StartTime;
 
-        if (currentTime >= reminderTime && e.Reminders[0].Appointment.StartTime >= currentTime)
+        if (currentTime > startTime)
         {
-            bool snooze = await DisplayAlert("Reminder", e.Reminders[0].Appointment.Subject + " - " + e.Reminders[0].Appointment.StartTime.ToString(), "Snooze", "Dismiss");
+            return;
         }
-        e.Reminders[0].IsDismissed = true;
+
+        var reminderTime = startTime - e.Reminders[0].TimeBeforeStart;
+
+        if (currentTime >= reminderTime && currentTime < startTime && !e.Reminders[0].IsDismissed)
+        {
+            bool snooze = await DisplayAlert("Reminder", e.Reminders[0].Appointment.Subject + " - " + startTime.ToString(), "Snooze", "Dismiss");
+
+            e.Reminders[0].IsDismissed = true;
+        }
     }
 
     private void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)
     {
         stacktest.Clear();
-     
-        foreach(Appointment app in e.Appointments)
+        if (e.Appointments == null) return;
+        if(e.Appointments.Count > 0)
         {
+            foreach(Appointment app in e.Appointments)
+            {
             
-            Label var = new Label { Text = app.Name + "\n" + app.EventStart , TextColor = new Color(1,1,1) };
-            Label label = new Label { Text = app.EventStart.ToString() };
-            StackLayout framestack = new StackLayout();
-            framestack.Children.Add(var);
-            framestack.Children.Add(label);
-            Frame frame = new Frame();
-            frame.Content = framestack;
-            stacktest.Children.Add(frame);
+                Label var = new Label { Text = app.Name + "\n" + app.EventStart , TextColor = new Color(1,1,1) };
+                Label label = new Label { Text = app.EventStart.ToString() };
+                StackLayout framestack = new StackLayout();
+                framestack.Children.Add(var);
+                framestack.Children.Add(label);
+                Frame frame = new Frame();
+                frame.Content = framestack;
+                stacktest.Children.Add(frame);
+            }
         }
+        
   
 
     }
