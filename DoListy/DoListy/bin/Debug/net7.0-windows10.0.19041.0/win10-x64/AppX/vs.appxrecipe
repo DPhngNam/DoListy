@@ -29,7 +29,7 @@
     <AppXManifest Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-11-17T07:53:50.140</Modified>
+      <Modified>2023-11-17T15:14:36.977</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
