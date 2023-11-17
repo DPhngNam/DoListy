@@ -17,10 +17,10 @@ public partial class DayPage : ContentPage
 
     private void SetIniDisplayDate()
     {
-        mon.DisplayDate = new DateTime(2023,11, 13);
+        mon.DisplayDate = new DateTime(2023, 11, 13);
         tue.DisplayDate = new DateTime(2023, 11, 14);
         wed.DisplayDate = new DateTime(2023, 11, 15);
-        thus.DisplayDate= new DateTime(2023, 11, 16);
+        thus.DisplayDate = new DateTime(2023, 11, 16);
         fri.DisplayDate = new DateTime(2023, 11, 17);
         sat.DisplayDate = new DateTime(2023, 11, 18);
         sun.DisplayDate = new DateTime(2023, 11, 19);
@@ -90,7 +90,7 @@ public partial class DayPage : ContentPage
     private void Butmon_Clicked(object sender, EventArgs e)
     {
         AlwaysOnDisplay(mon.DisplayDate);
-        
+
     }
 
     private void Buttue_Clicked(object sender, EventArgs e)
@@ -126,6 +126,20 @@ public partial class DayPage : ContentPage
     private void Butsun_Clicked(object sender, EventArgs e)
     {
         AlwaysOnDisplay(sun.DisplayDate);
+
+    }
+
+    private async void NewButton_Clicked(object sender, EventArgs e)
+    {
+        await frame_A.TranslateTo(-300, 0, 250, Easing.Linear);
+        Grid.SetColumn(frame_A, 0);
+        Grid.SetRow(frame_A, 1);
+        // Scale back to original size
+
+        // Animate the visibility change for frame_B
+        frame_B.IsVisible = true;
+        await frame_B.FadeTo(1, 500, Easing.SinInOut); // Fade in
+
 
     }
 }
