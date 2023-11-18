@@ -10,7 +10,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <!--Half 1-->
-            <Style x:Key="dayViewSchedulerStyle" TargetType="scheduler:SfScheduler">
+            <Style  x:Key="dayViewSchedulerStyle" TargetType="scheduler:SfScheduler">
                 <Setter Property="View" Value="Day" />
                 <Setter Property="HeaderView">
                     <Setter.Value>
@@ -73,7 +73,7 @@
             <RowDefinition Height="3*"/>
 
         </Grid.RowDefinitions>
-
+        
         <!--Half 1-->
         <Grid Grid.Row="0"  Padding="10" TranslationY="-50">
 
@@ -91,7 +91,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-
+    
             <!-- Frames corresponding to each column, each containing a Button -->
 
             <!--Monday-->
@@ -190,7 +190,7 @@
 
                     </StackLayout>
 
-                    <Button BackgroundColor="Red" Clicked="NewButton_Clicked"/>
+                    
                 </VerticalStackLayout>
             </Frame>
 

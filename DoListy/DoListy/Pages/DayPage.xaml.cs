@@ -63,30 +63,22 @@ public partial class DayPage : ContentPage
     {
         
     }
-
-    
-
-  
-
     private void Butmon_Clicked(object sender, EventArgs e)
     {
         RefreshCurrentFrame();
         AlwaysOnDisplay(mon.DisplayDate);
-        
     }
 
     private void Buttue_Clicked(object sender, EventArgs e)
     {
         RefreshCurrentFrame();
         AlwaysOnDisplay(tue.DisplayDate);
-
     }
 
     private void Butwed_Clicked(object sender, EventArgs e)
     {
 
         RefreshCurrentFrame();
-
         AlwaysOnDisplay(wed.DisplayDate);
 
     }
@@ -119,18 +111,16 @@ public partial class DayPage : ContentPage
 
     }
 
-    private async void NewButton_Clicked(object sender, EventArgs e)
+    private async Task AnimateFrames()
     {
         await frame_A.TranslateTo(-300, 0, 250, Easing.Linear);
         Grid.SetColumn(frame_A, 0);
         Grid.SetRow(frame_A, 1);
-        // Scale back to original size
 
-        // Animate the visibility change for frame_B
+        // Scale back to original size (if there's relevant code for this)
+
         frame_B.IsVisible = true;
         await frame_B.FadeTo(1, 500, Easing.SinInOut); // Fade in
-
-
     }
 
     //Reset position
@@ -146,4 +136,52 @@ public partial class DayPage : ContentPage
         frame_B.IsVisible = false;
 
     }
+    private Color transparentColor = Color.FromRgba(255, 255, 255, 0);
+    private Color whiteColor = Color.FromRgb(255, 255, 255); // White color
+    private Color blackColor = Color.FromRgb(0, 0, 0);
+    private void DayPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
+    {
+        TaskDailyStack.Clear();
+
+        if (e.Appointments == null) return;
+
+        foreach (Appointment app in e.Appointments)
+        {
+            // Create labels for displaying appointment information
+            Label nameLabel = new Label { Text = app.Name, TextColor = whiteColor };
+            Label dateLabel = new Label { Text = $"{app.EventStart:hh/mm,dd/mm/yy}-{app.EventEnd:hh/mm,dd/mm/yy}", TextColor = blackColor };
+
+            // Create a StackLayout to hold labels
+            StackLayout infoStack = new StackLayout();
+            infoStack.Children.Add(nameLabel);
+            infoStack.Children.Add(dateLabel);
+
+            // Create a Frame to contain appointment information
+            Frame appointmentFrame = new Frame { BackgroundColor = whiteColor };
+            appointmentFrame.Content = infoStack;
+
+            // Create a transparent button
+            Button transparentButton = new Button
+            {
+                BackgroundColor = transparentColor,
+                Opacity = 0, // Set the opacity to 0 for it to be invisible
+            };
+
+            // Optional: Add a click event handler for the button
+            transparentButton.Clicked += async (s, args) =>
+            {
+                // Call the method containing the common animation logic
+                await AnimateFrames();
+            };
+
+            // Create a StackLayout to hold the frame and transparent button
+            StackLayout frameWithButtonStack = new StackLayout();
+            frameWithButtonStack.Children.Add(appointmentFrame);
+            frameWithButtonStack.Children.Add(transparentButton);
+
+            // Add the combined StackLayout to TaskDailyStack
+            TaskDailyStack.Children.Add(frameWithButtonStack);
+        }
+    }
+
 }
