@@ -62,7 +62,7 @@ public partial class MonthPage : ContentPage
             e.Reminders[0].IsDismissed = true;
         }
     }
-
+    
     private void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)
     {
         stacktest.Clear();
@@ -79,6 +79,7 @@ public partial class MonthPage : ContentPage
                 framestack.Children.Add(label);
                 Frame frame = new Frame();
                 frame.Content = framestack;
+              
                 stacktest.Children.Add(frame);
             }
         }

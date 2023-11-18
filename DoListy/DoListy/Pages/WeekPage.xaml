@@ -31,7 +31,10 @@
             AppointmentDrop="WeekPageScheduler_AppointmentDrop"
              x:FieldModifier="public"
             AllowViewNavigation="True"
+             
+      
             Tapped="WeekPageScheduler_Tapped"
+           
           
             >
             
@@ -46,7 +49,7 @@
             </scheduler:SfScheduler.AppointmentMapping>
 
             <scheduler:SfScheduler.DaysView >
-                <scheduler:SchedulerDaysView TimeIntervalHeight="25">
+                <scheduler:SchedulerDaysView TimeIntervalHeight="50" TimeInterval="0:30:0">
                     
                     <scheduler:SchedulerDaysView.ViewHeaderSettings >
                         <!--custom header style--> 
@@ -69,9 +72,9 @@
         <!--stack layout for Pomo anh TaskFrame-->
         <StackLayout Grid.Column="2" Spacing="10" Margin="10">
             
-            <Label x:Name="WPdateLabel"
+            <Label x:Name= "WPdateLabel"
                    Style="{StaticResource dateLabelStyle}"
-                    Text=" 23-29 (10-2023) ">
+                    >
                 
             </Label>
             <!--taskframe-->
@@ -88,6 +91,7 @@
                     </Grid>
                     <BoxView BackgroundColor="Black" HeightRequest="1"/>
                     <StackLayout x:Name="taskframestack"  >
+                        <Label x:Name="temp" Style="{StaticResource HeaderLabel} " Text="hiii"/>
 
                     </StackLayout>
                 </VerticalStackLayout>
