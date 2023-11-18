@@ -27,6 +27,7 @@ public partial class DayPage : ContentPage
         fri.DisplayDate = today.AddDays(delta + 4);
         sat.DisplayDate = today.AddDays(delta + 5);
         sun.DisplayDate = today.AddDays(delta + 6);
+
     }
 
 
