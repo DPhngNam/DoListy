@@ -47,25 +47,19 @@ public partial class WeekPage : ContentPage
     private void WeekPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
     {
         taskframestack.Clear();
-        //if (e.Appointments == null) return;
-        //if (e.Appointments.Count>0)
-        //{
-        //    foreach (Appointment ap in e.Appointments)
-        //    {
-        //        Label appNameLabel = new Label { Text = ap.Name, TextColor = new Color(0, 0, 0) };
-        //        Label appStartEndLabel = new Label { Text = ap.EventStart.ToString() +"-"+ ap.EventEnd.ToString(), TextColor = new Color(0, 0, 0),FontSize =10};
-        //        StackLayout views = new StackLayout();  
-        //        views.Children.Add(appNameLabel);
-        //        views.Children.Add(appStartEndLabel);
-        //        taskframestack.Children.Add(views);
-        //    }
-        //}
-        if(e.Element is SchedulerElement.ViewHeader)
+        if (e.Appointments == null) return;
+        if (e.Appointments.Count > 0)
         {
-            Label label = new Label();
-            label.Text = e.Date.ToString();
-            label.TextColor = new Color(0, 0, 0);
-            taskframestack.Children.Add(label);
+            foreach (Appointment ap in e.Appointments)
+            {
+                Label appNameLabel = new Label { Text = ap.Name, TextColor = new Color(0, 0, 0) };
+                Label appStartEndLabel = new Label { Text = ap.EventStart.ToString() + "-" + ap.EventEnd.ToString(), TextColor = new Color(0, 0, 0), FontSize = 10 };
+                StackLayout views = new StackLayout();
+                views.Children.Add(appNameLabel);
+                views.Children.Add(appStartEndLabel);
+                taskframestack.Children.Add(views);
+            }
         }
+
     }
 }
