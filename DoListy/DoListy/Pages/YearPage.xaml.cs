@@ -2,16 +2,18 @@ namespace DoListy.Pages;
 using System.Collections.Generic;
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
 
 public partial class YearPage : ContentPage
 {
     Dictionary<DateTime, List<IView>> goalsList;
+    public DateTime CurrentDate { get; set; }
     public YearPage()
     {
         InitializeComponent();
-        DateTime currentDate = DateTime.Now;
-        yearLabel.Text = currentDate.Year.ToString();
-        SetIniDisplayDate(currentDate);
+        CurrentDate = DateTime.Now;
+        yearLabel.Text = CurrentDate.Year.ToString();
+        SetIniDisplayDate(CurrentDate);
         goalsList = new Dictionary<DateTime, List<IView>>(); // khi lam xong Database, goalsList se lay lai latest goalsList chu khong phai new
 
     }
@@ -35,33 +37,41 @@ public partial class YearPage : ContentPage
     {
         yearLabel.Text = Convert.ToString(Convert.ToInt32(yearLabel.Text) - 1);
         ChangeYearOfDisplayDate(false);
-
-        var currentDate = janMonthViewCalendar.DisplayDate;
-        goalsListStack.Children.Clear();
-        if (goalsList.ContainsKey(currentDate))
+        CurrentDate = janMonthViewCalendar.DisplayDate;
+        goalsListGrid.Children.Clear();
+        goalsListGrid.RowDefinitions.Clear();
+        if(goalsList.ContainsKey(CurrentDate))
         {
-            var numOfGoals = goalsList[currentDate].Count;
-            for (int i = 0; i < numOfGoals; i++)
+            var numOfGoals = goalsList[CurrentDate].Count;
+            for(int i=0; i<numOfGoals; i++)
             {
-                goalsListStack.Children.Add(goalsList[currentDate][i]);
+                goalsListGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
+                goalsListGrid.Children.Add(goalsList[CurrentDate][i]);
+                goalsListGrid.SetColumn(goalsList[CurrentDate][i], 0);
+                goalsListGrid.SetRow(goalsList[CurrentDate][i], goalsListGrid.RowDefinitions.Count - 1);
             }
         }
+        
     }
     private void OnRightArrowButtonClicked(object sender, EventArgs e)
     {
         yearLabel.Text = Convert.ToString(Convert.ToInt32(yearLabel.Text) + 1);
         ChangeYearOfDisplayDate(true);
-
-        var currentDate = janMonthViewCalendar.DisplayDate;
-        goalsListStack.Children.Clear();
-        if (goalsList.ContainsKey(currentDate))
+        CurrentDate = janMonthViewCalendar.DisplayDate;
+        goalsListGrid.Children.Clear();
+        goalsListGrid.RowDefinitions.Clear();
+        if (goalsList.ContainsKey(CurrentDate))
         {
-            var numOfGoals = goalsList[currentDate].Count;
+            var numOfGoals = goalsList[CurrentDate].Count;
             for (int i = 0; i < numOfGoals; i++)
             {
-                goalsListStack.Children.Add(goalsList[currentDate][i]);
+                goalsListGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
+                goalsListGrid.Children.Add(goalsList[CurrentDate][i]);
+                goalsListGrid.SetColumn(goalsList[CurrentDate][i], 0);
+                goalsListGrid.SetRow(goalsList[CurrentDate][i], goalsListGrid.RowDefinitions.Count - 1);
             }
         }
+        
     }
     private void ChangeYearOfDisplayDate(bool plus)
     {
@@ -154,10 +164,12 @@ public partial class YearPage : ContentPage
         var monthPage = (MonthPage)Shell.Current.CurrentPage;
         monthPage.Scheduler.DisplayDate = decMonthViewCalendar.DisplayDate;
     }
-
     private void OnGoalsPlusButtonClicked(object sender, EventArgs e)
     {
-        this.ShowPopup(new SetGoals());
+
+        SetGoals setGoalsPage = new SetGoals();
+        setGoalsPage.IniYearNumericEntry(CurrentDate.Year);
+        this.ShowPopup(setGoalsPage);
         /*var newGoal = new Label
         {
             Text = "A Goal in " + janMonthViewCalendar.DisplayDate.ToString()
@@ -175,6 +187,48 @@ public partial class YearPage : ContentPage
         }
         goalsListStack.Children.Add(newGoal);
         */
+    }
+
+    public void getCreatedGoal(string goalName, int year, string note)
+    {
+        goalsListGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
+        var newButton = new Button
+        {
+            Text = goalName,
+            BackgroundColor = Color.FromRgba(0, 0, 0, 0),
+            HeightRequest = 40,
+            TextColor = Color.FromRgb(0, 0, 0)
+        };
+        newButton.Clicked += (sender, e) =>
+        {
+            SetGoals viewGoal = new SetGoals();
+            viewGoal.goalTitleEntry.Text = goalName;
+            viewGoal.goalTitleEntry.IsEnabled = false;
+            viewGoal.yearNumericEntry.Value = year;
+            viewGoal.yearNumericEntry.IsEnabled = false;
+            viewGoal.goalNoteEntry.Text = note;
+            viewGoal.goalNoteEntry.IsEnabled = false;
+            viewGoal.setGoalsCancelButton.IsVisible = false;
+            viewGoal.setGoalsCreateButton.IsVisible = false;
+            this.ShowPopup(viewGoal);
+        };
+        DateTime goalInYear = new DateTime(year, 1, 1);
+        if(goalsList.ContainsKey(goalInYear))
+        {
+            goalsList[goalInYear].Add(newButton);
+        }
+        else
+        {
+            var newGoalList = new List<IView>();
+            newGoalList.Add(newButton);
+            goalsList.Add(goalInYear, newGoalList);
+        }
+        if (goalInYear.Year == CurrentDate.Year)
+        {
+            goalsListGrid.Children.Add(newButton);
+            goalsListGrid.SetRow(newButton, goalsListGrid.RowDefinitions.Count - 1);
+            goalsListGrid.SetColumn(newButton, 0);
+        }
     }
 }
 

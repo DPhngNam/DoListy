@@ -204,9 +204,10 @@
                                      Clicked="OnGoalsPlusButtonClicked"/>
                     </Grid>
                     <BoxView BackgroundColor="Black" HeightRequest="1"/>
-                    <StackLayout Orientation="Vertical" x:Name="goalsListStack">
-
-                    </StackLayout>
+                    <Grid x:Name="goalsListGrid" ColumnDefinitions="*">
+                        
+                    </Grid>
+                    
                 </StackLayout>
             </Frame>
         </Grid>
