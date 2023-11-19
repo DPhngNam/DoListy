@@ -154,7 +154,7 @@ public partial class DayPage : ContentPage
     }
     private void Butmon_Clicked(object sender, EventArgs e)
     {
-        Butmon.Background = Color.FromRgb(255, 0, 0);
+        
         RefreshCurrentFrame();
         AlwaysOnDisplay(mon.DisplayDate);
     }
@@ -198,6 +198,4 @@ public partial class DayPage : ContentPage
         AlwaysOnDisplay(sun.DisplayDate);
 
     }
-
-    
 }
