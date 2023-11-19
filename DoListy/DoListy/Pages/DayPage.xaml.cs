@@ -18,9 +18,10 @@ public partial class DayPage : ContentPage
     public DayPage()
     {
         InitializeComponent();
+        AlwaysOnDisplay(DateTime.Now);
         SetIniDisplayDate();
-        
 
+        
     }
 
 
@@ -55,9 +56,35 @@ public partial class DayPage : ContentPage
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
         await Navigation.PushModalAsync(new AddAppointmentPage());
+
+        
     }
 
-    
+    private async Task AnimateFrames()
+    {
+        await frame_A.TranslateTo(-300, 0, 250, Easing.Linear);
+        Grid.SetColumn(frame_A, 0);
+        Grid.SetRow(frame_A, 1);
+
+        // Scale back to original size (if there's relevant code for this)
+
+        frame_B.IsVisible = true;
+        await frame_B.FadeTo(1, 500, Easing.SinInOut); // Fade in
+    }
+
+    //Reset position
+    private async void RefreshCurrentFrame()
+    {
+        // Move frame_A back to its original position
+        await frame_A.TranslateTo(0, 0, 250, Easing.Linear);
+        Grid.SetColumn(frame_A, 0);
+        Grid.SetRow(frame_A, 0);
+
+        // Reverse the visibility change for frame_B
+        await frame_B.FadeTo(0, 500, Easing.SinInOut); // Fade out
+        frame_B.IsVisible = false;
+
+    }
     private void LeftimaBut_Clicked(object sender, EventArgs e)
     {
         mon.DisplayDate = mon.DisplayDate.AddDays(-7);
@@ -99,30 +126,29 @@ public partial class DayPage : ContentPage
             infoStack.Children.Add(dateLabel);
 
             // Create a Frame to contain appointment information
-            Frame appointmentFrame = new Frame { BackgroundColor = blackColor };
-            appointmentFrame.Content = infoStack;
-
-            // Create a transparent button
-            Button transparentButton = new Button
+            Frame appointmentFrame = new Frame
             {
                 BackgroundColor = transparentColor,
-                Opacity = 0, // Set the opacity to 0 for it to be invisible
+                Content = infoStack
             };
 
-            // Optional: Add a click event handler for the button
-            transparentButton.Clicked += async (s, args) =>
+            // Add TapGestureRecognizer to the appointmentFrame
+            appointmentFrame.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                // Call the method containing the common animation logic
-                await AnimateFrames();
-            };
+                Command = new Command(async () =>
+                {
+                    // Call the method containing the common animation logic
+                    await AnimateFrames();
+                })
+            });
 
-            // Create a StackLayout to hold the frame and transparent button
-            StackLayout frameWithButtonStack = new StackLayout();
-            frameWithButtonStack.Children.Add(appointmentFrame);
-            frameWithButtonStack.Children.Add(transparentButton);
+            // Create a StackLayout to hold the frame
+            StackLayout frameStack = new StackLayout();
+            frameStack.Children.Add(appointmentFrame);
+
 
             // Add the combined StackLayout to TaskDailyStack
-            TaskDailyStack.Children.Add(frameWithButtonStack);
+            TaskDailyStack.Children.Add(frameStack);
         }
 
     }
@@ -140,12 +166,9 @@ public partial class DayPage : ContentPage
     }
 
     private void Butwed_Clicked(object sender, EventArgs e)
-    {
-       
+    {       
         RefreshCurrentFrame();
-        AlwaysOnDisplay(wed.DisplayDate);
-
-        
+        AlwaysOnDisplay(wed.DisplayDate);       
     }
 
     private void Butthus_Clicked(object sender, EventArgs e)
@@ -176,29 +199,5 @@ public partial class DayPage : ContentPage
 
     }
 
-    private async Task AnimateFrames()
-    {
-        await frame_A.TranslateTo(-300, 0, 250, Easing.Linear);
-        Grid.SetColumn(frame_A, 0);
-        Grid.SetRow(frame_A, 1);
-
-        // Scale back to original size (if there's relevant code for this)
-
-        frame_B.IsVisible = true;
-        await frame_B.FadeTo(1, 500, Easing.SinInOut); // Fade in
-    }
-
-    //Reset position
-    private async void RefreshCurrentFrame()
-    {
-        // Move frame_A back to its original position
-        await frame_A.TranslateTo(0, 0, 250, Easing.Linear);
-        Grid.SetColumn(frame_A, 0);
-        Grid.SetRow(frame_A, 0);
-
-        // Reverse the visibility change for frame_B
-        await frame_B.FadeTo(0, 500, Easing.SinInOut); // Fade out
-        frame_B.IsVisible = false;
-
-    }
+    
 }
