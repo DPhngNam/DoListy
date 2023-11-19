@@ -2,6 +2,46 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DoListy.Weather.WeatherPage"
+             xmlns:fontHelper="clr-namespace:WeatherAppClone.Helpers"
+             BackgroundColor="#13232f"
              Title="">
-    
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="Thanh pho Ho Chi minh" 
+               FontSize="26"
+               HorizontalOptions="Center"
+               Margin="0,20,0,0"/>
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                Margin="0,10,0,0">
+                <Label Text="26" FontSize="45"/>
+                <Label Text="o" FontSize="20"/>
+                <Label Text="C" FontSize="45"/>
+            </HorizontalStackLayout>
+
+            <Frame Background="#363363" 
+               CornerRadius="30"
+               Padding="10,5,10,5"
+               Margin="0,10,0,0"
+               HorizontalOptions="Center">
+                <Label Text="Cloud " LineBreakMode="NoWrap"/>
+            </Frame>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <HorizontalStackLayout>
+                    <Image Background="Transparent" VerticalOptions="Center">
+                        <Image.Source>
+                            <FontImageSource FontFamily="IconFontTypes"
+                                        Glyph="{x:Static fontHelper:IconFont.Water_drop}"
+                                         Color="SkyBlue"/>
+                        </Image.Source>
+                    </Image>
+                </HorizontalStackLayout>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
