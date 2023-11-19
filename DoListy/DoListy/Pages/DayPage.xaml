@@ -17,6 +17,8 @@
                         <scheduler:SchedulerHeaderView Height="0" />
                     </Setter.Value>
                 </Setter>
+                
+                
                 <Setter Property="DaysView">
                     <Setter.Value>
                         <scheduler:SchedulerDaysView NumberOfVisibleDays="1" StartHour="0" EndHour="0" />

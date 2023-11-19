@@ -4,6 +4,8 @@ using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
 using Syncfusion.Maui.Scheduler;
 using System.Collections.ObjectModel;
+using CommunityToolkit.Maui.Extensions;
+
 
 
 namespace DoListy.Pages;
@@ -21,22 +23,33 @@ public partial class DayPage : ContentPage
 
     }
 
+
     private void SetIniDisplayDate()
     {
         DateTime today = DateTime.Today;
         int delta = DayOfWeek.Monday - today.DayOfWeek; // Calculate the offset to Monday
+
         if (delta > 0)
             delta -= 7; // Adjust if today is later in the week than Monday
 
-        mon.DisplayDate = today.AddDays(delta);
-        tue.DisplayDate = today.AddDays(delta + 1);
-        wed.DisplayDate = today.AddDays(delta + 2);
-        thus.DisplayDate = today.AddDays(delta + 3);
-        fri.DisplayDate = today.AddDays(delta + 4);
-        sat.DisplayDate = today.AddDays(delta + 5);
-        sun.DisplayDate = today.AddDays(delta + 6);
+        // Adjust the condition to handle Monday separately
+        if (delta == 0)
+        {
+            mon.DisplayDate = today;
+        }
+        else
+        {
+            mon.DisplayDate = today.AddDays(delta);
+        }
 
+        tue.DisplayDate = mon.DisplayDate.AddDays(1);
+        wed.DisplayDate = mon.DisplayDate.AddDays(2);
+        thus.DisplayDate = mon.DisplayDate.AddDays(3);
+        fri.DisplayDate = mon.DisplayDate.AddDays(4);
+        sat.DisplayDate = mon.DisplayDate.AddDays(5);
+        sun.DisplayDate = mon.DisplayDate.AddDays(6);
     }
+
 
 
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
@@ -70,51 +83,52 @@ public partial class DayPage : ContentPage
     private void AlwaysOnDisplay(DateTime currentDate)
     {
         TaskDailyStack.Clear();
-        //List<Appointment> appointmentsForDate = new ObservableCollection<Appointment>(ControlViewModel.ControlViewModel.GetAppointments())
-        //    .Where(app => app.EventStart.Date == currentDate.Date)
-        //    .ToList();
+        List<Appointment> appointmentsForDate = new ObservableCollection<Appointment>(ControlViewModel.ControlViewModel.GetAppointments())
+            .Where(app => app.EventStart.Date == currentDate.Date)
+            .ToList();
 
-        //foreach (Appointment app in appointmentsForDate)
-        //{
-        //    // Create labels for displaying appointment information
-        //    Label nameLabel = new Label { Text = app.Name, TextColor = blackColor };
-        //    Label dateLabel = new Label { Text = $"{app.EventStart:hh/mm,dd/mm/yy}-{app.EventEnd:hh/mm,dd/mm/yy}", TextColor = blackColor };
+        foreach (Appointment app in appointmentsForDate)
+        {
+            // Create labels for displaying appointment information
+            Label nameLabel = new Label { Text = app.Name, TextColor = blackColor };
+            Label dateLabel = new Label { Text = $"{app.EventStart:hh/mm,dd/mm/yy}-{app.EventEnd:hh/mm,dd/mm/yy}", TextColor = blackColor };
 
-        //    // Create a StackLayout to hold labels
-        //    StackLayout infoStack = new StackLayout();
-        //    infoStack.Children.Add(nameLabel);
-        //    infoStack.Children.Add(dateLabel);
+            // Create a StackLayout to hold labels
+            StackLayout infoStack = new StackLayout();
+            infoStack.Children.Add(nameLabel);
+            infoStack.Children.Add(dateLabel);
 
-        //    // Create a Frame to contain appointment information
-        //    Frame appointmentFrame = new Frame { BackgroundColor = blackColor };
-        //    appointmentFrame.Content = infoStack;
+            // Create a Frame to contain appointment information
+            Frame appointmentFrame = new Frame { BackgroundColor = blackColor };
+            appointmentFrame.Content = infoStack;
 
-        //    // Create a transparent button
-        //    Button transparentButton = new Button
-        //    {
-        //        BackgroundColor = blackColor,
-        //        //Opacity = 0, // Set the opacity to 0 for it to be invisible
-        //    };
+            // Create a transparent button
+            Button transparentButton = new Button
+            {
+                BackgroundColor = transparentColor,
+                Opacity = 0, // Set the opacity to 0 for it to be invisible
+            };
 
-        //    // Optional: Add a click event handler for the button
-        //    transparentButton.Clicked += async (s, args) =>
-        //    {
-        //        // Call the method containing the common animation logic
-        //        await AnimateFrames();
-        //    };
+            // Optional: Add a click event handler for the button
+            transparentButton.Clicked += async (s, args) =>
+            {
+                // Call the method containing the common animation logic
+                await AnimateFrames();
+            };
 
-        //    // Create a StackLayout to hold the frame and transparent button
-        //    StackLayout frameWithButtonStack = new StackLayout();
-        //    frameWithButtonStack.Children.Add(appointmentFrame);
-        //    frameWithButtonStack.Children.Add(transparentButton);
+            // Create a StackLayout to hold the frame and transparent button
+            StackLayout frameWithButtonStack = new StackLayout();
+            frameWithButtonStack.Children.Add(appointmentFrame);
+            frameWithButtonStack.Children.Add(transparentButton);
 
-        //    // Add the combined StackLayout to TaskDailyStack
-        //    TaskDailyStack.Children.Add(frameWithButtonStack);
-        //}
+            // Add the combined StackLayout to TaskDailyStack
+            TaskDailyStack.Children.Add(frameWithButtonStack);
+        }
 
     }
     private void Butmon_Clicked(object sender, EventArgs e)
     {
+        Butmon.Background = Color.FromRgb(255, 0, 0);
         RefreshCurrentFrame();
         AlwaysOnDisplay(mon.DisplayDate);
     }
@@ -127,10 +141,11 @@ public partial class DayPage : ContentPage
 
     private void Butwed_Clicked(object sender, EventArgs e)
     {
-
+       
         RefreshCurrentFrame();
         AlwaysOnDisplay(wed.DisplayDate);
 
+        
     }
 
     private void Butthus_Clicked(object sender, EventArgs e)
