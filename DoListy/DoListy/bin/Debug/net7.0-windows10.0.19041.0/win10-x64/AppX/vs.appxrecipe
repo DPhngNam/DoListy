@@ -29,29 +29,29 @@
     <AppXManifest Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-11-17T15:14:36.977</Modified>
+      <Modified>2023-11-17T16:18:42.871</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-11-17T07:53:49.618</Modified>
+      <Modified>2023-11-17T16:05:50.264</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.runtimeconfig.json">
       <PackagePath>DoListy.runtimeconfig.json</PackagePath>
-      <Modified>2023-11-17T07:53:49.305</Modified>
+      <Modified>2023-11-17T15:55:09.370</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.dll">
       <PackagePath>DoListy.dll</PackagePath>
-      <Modified>2023-11-17T07:52:50.420</Modified>
+      <Modified>2023-11-17T16:18:41.448</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>DoListy.exe</PackagePath>
-      <Modified>2023-11-17T07:52:50.420</Modified>
+      <Modified>2023-11-17T16:18:41.455</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\DoLisTy\DoListy\DoListy\DoListy\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DoListy.deps.json">
       <PackagePath>DoListy.deps.json</PackagePath>
-      <Modified>2023-11-17T07:53:49.118</Modified>
+      <Modified>2023-11-17T15:55:09.316</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\thinh\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.11\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>

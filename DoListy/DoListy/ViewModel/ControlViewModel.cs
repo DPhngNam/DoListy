@@ -24,6 +24,17 @@ namespace DoListy.ControlViewModel
                     {
                         TimeBeforeStart = new TimeSpan(0,12,0)
                     } }
+            },
+             new Appointment
+            {
+                    Name = "BBBB",
+                    EventStart = new DateTime(2023, 11 ,17,20,50, 00),
+                    EventEnd = new DateTime(2023 , 11, 17, 22, 30 ,00),
+                    Colorbg = Colors.Blue,
+                    Reminders = new ObservableCollection<Reminder> { new Reminder
+                    {
+                        TimeBeforeStart = new TimeSpan(0,12,0)
+                    } }
             }
         };
         public static List<Appointment> GetAppointments() => AppointmentsList;
