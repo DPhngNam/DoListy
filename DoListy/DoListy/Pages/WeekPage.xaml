@@ -43,7 +43,8 @@
                 <scheduler:SchedulerAppointmentMapping     Subject="Name"
                                                            StartTime="EventStart"
                                                            EndTime="EventEnd"
-                                                           Background="Color">
+                                                           Background="Colorbg"
+                                                           RecurrenceRule="Recurrencerule">
 
                 </scheduler:SchedulerAppointmentMapping>
             </scheduler:SfScheduler.AppointmentMapping>

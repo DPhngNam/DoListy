@@ -2,8 +2,8 @@ namespace DoListy.Pages;
 
 public partial class AddAppointmentPage : ContentPage
 {
-    List<string> freqs = new List<string>() { "DAILY", "WEEKLY", "MONTHLY", "YEARLY" };
-    List<string> Colors = new List<string>() { "Blue", "Red", "Green", "Orange", "Purple" };
+    List<string> freqs = new List<string>() { "DAILY", "WEEKLY", "MONTHLY", "YEARLY", "NONE" };
+    List<string> Colors = new List<string>() { "Blue", "Red", "Green", "Orange", "Purple"};
     public AddAppointmentPage()
 	{
 		InitializeComponent();
@@ -37,7 +37,7 @@ public partial class AddAppointmentPage : ContentPage
         }
         else temp = Brush.Green;
 
-        if (Freg.SelectedItem == null)
+        if (Freg.SelectedItem == null || Freg.SelectedItem.ToString() == "NONE")
         {
             ControlViewModel.ControlViewModel.AddAppointment(new ViewModel.Appointment
             {
@@ -47,7 +47,8 @@ public partial class AddAppointmentPage : ContentPage
                 Colorbg = temp,
             });
         }
-        else {
+        else if(Interval.Text != null && Count.Text != null)
+        {
             ControlViewModel.ControlViewModel.AddAppointment(new ViewModel.Appointment
             {
                 Name = entrySubject.Text,

@@ -16,9 +16,10 @@ namespace DoListy.ControlViewModel
         {
             new Appointment
             {
+                    Id = 1,
                     Name = "AAAA",
-                    EventStart = new DateTime(2023, 11 ,16,20,50, 00),
-                    EventEnd = new DateTime(2023 , 11, 16, 22, 30 ,00),
+                    EventStart = DateTime.Now,
+                    EventEnd = DateTime.Now.AddHours(3),
                     Colorbg = Colors.Blue,
                     Reminders = new ObservableCollection<Reminder> { new Reminder
                     {
@@ -27,10 +28,11 @@ namespace DoListy.ControlViewModel
             },
              new Appointment
             {
+                    Id = 2,
                     Name = "BBBB",
-                    EventStart = new DateTime(2023, 11 ,17,20,50, 00),
-                    EventEnd = new DateTime(2023 , 11, 17, 22, 30 ,00),
-                    Colorbg = Colors.Blue,
+                    EventStart = DateTime.Now.AddDays(1),
+                    EventEnd = DateTime.Now.AddDays(1).AddHours(3),
+                    Colorbg = Colors.Green,
                     Reminders = new ObservableCollection<Reminder> { new Reminder
                     {
                         TimeBeforeStart = new TimeSpan(0,12,0)
@@ -55,6 +57,22 @@ namespace DoListy.ControlViewModel
                 };
             }
             return null;
+        }
+
+        public static void Update(int Id, Appointment appointment)
+        {
+            if (Id != appointment.Id) return;
+            Appointment temp = AppointmentsList.FirstOrDefault(x => x.Id ==  Id);
+            if(temp != null)
+            {
+                temp.Name = appointment.Name;
+                temp.EventStart = appointment.EventStart;
+                temp.EventEnd = appointment.EventEnd;
+                if(appointment.Recurrencerule != null)
+                {
+                    temp.Recurrencerule = appointment.Recurrencerule;
+                }    
+            }
         }
 
         public static void AddAppointment(Appointment temp)

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DoListy.Pages.EditAppointmentPage"
+             xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
+             xmlns:picker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
+             xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
+             xmlns:local="clr-namespace:DoListy.ControlViewModel"
+             Background="white"
+             Title="">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="labelPage" TargetType="Label">
+                <Setter Property="WidthRequest" Value="100"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="entryPage" TargetType="Entry">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="Placeholder" Value="Enter Content"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <VerticalStackLayout Spacing="10" Margin="20,20,20,0">
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout>
+                <Label   Text="Subject: " Style="{StaticResource labelPage}"></Label>
+                <Entry x:Name="editSubject" Placeholder="Enter Content"  WidthRequest="130"></Entry>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout >
+                <Label   Text="Start Time: " Style="{StaticResource labelPage}" ></Label>
+                <Button x:Name="eidtStartTime" Text="Select DateTime" Clicked="eidtStartTime_Clicked" HeightRequest="50"></Button>
+                <picker:SfDateTimePicker x:Name="pickerDateTime1"
+                                 HeightRequest="250" 
+                                 DateFormat="dd_MM_yyyy"
+                                TimeFormat="hh_mm_ss_tt"
+                                 WidthRequest="300"
+                                 ColumnDividerColor="Black"
+                                 Mode="Dialog"
+                                 IsOpen="False"
+                                 IsVisible="False"
+                                 CancelButtonClicked="pickerDateTime1_CancelButtonClicked"
+                                 OkButtonClicked="pickerDateTime1_OkButtonClicked"
+                                 >
+                    <picker:SfDateTimePicker.ColumnHeaderView>
+                        <picker:DateTimePickerColumnHeaderView Background="#D3D3D3">
+                            <picker:DateTimePickerColumnHeaderView.TextStyle>
+                                <picker:PickerTextStyle FontSize="15" TextColor="Black" />
+                            </picker:DateTimePickerColumnHeaderView.TextStyle>
+                        </picker:DateTimePickerColumnHeaderView>
+                    </picker:SfDateTimePicker.ColumnHeaderView>
+                    <picker:SfDateTimePicker.SelectionView >
+                        <picker:PickerSelectionView CornerRadius="10" Stroke="#36454F" Padding="10, 5, 10, 5" Background="#808080" />
+                    </picker:SfDateTimePicker.SelectionView>
+                    <picker:SfDateTimePicker.SelectedTextStyle >
+                        <picker:PickerTextStyle FontSize="15" TextColor="#FF9B50"/>
+                    </picker:SfDateTimePicker.SelectedTextStyle>
+                    <picker:SfDateTimePicker.FooterView>
+                        <picker:PickerFooterView  ShowOkButton="True" Height="40" />
+                    </picker:SfDateTimePicker.FooterView>
+                </picker:SfDateTimePicker>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout >
+                <Label   Text="End Time: " Style="{StaticResource labelPage}" ></Label>
+                <Button x:Name="editEndTime" Text="Select DateTime" Clicked="editEndTime_Clicked" HeightRequest="50"></Button>
+                <picker:SfDateTimePicker x:Name="pickerDateTime2"
+                 HeightRequest="250" 
+                 DateFormat="dd_MM_yyyy"
+                TimeFormat="hh_mm_ss_tt"
+                 WidthRequest="300"
+                 ColumnDividerColor="Black"
+                 Mode="Dialog"
+                 IsOpen="False"
+                 IsVisible="False"
+                 CancelButtonClicked="pickerDateTime2_CancelButtonClicked"
+                 OkButtonClicked="pickerDateTime2_OkButtonClicked"
+                 >
+                    <picker:SfDateTimePicker.ColumnHeaderView>
+                        <picker:DateTimePickerColumnHeaderView Background="#D3D3D3">
+                            <picker:DateTimePickerColumnHeaderView.TextStyle>
+                                <picker:PickerTextStyle FontSize="15" TextColor="Black" />
+                            </picker:DateTimePickerColumnHeaderView.TextStyle>
+                        </picker:DateTimePickerColumnHeaderView>
+                    </picker:SfDateTimePicker.ColumnHeaderView>
+                    <picker:SfDateTimePicker.SelectionView >
+                        <picker:PickerSelectionView CornerRadius="10" Stroke="#36454F" Padding="10, 5, 10, 5" Background="#808080" />
+                    </picker:SfDateTimePicker.SelectionView>
+                    <picker:SfDateTimePicker.SelectedTextStyle >
+                        <picker:PickerTextStyle FontSize="15" TextColor="#FF9B50"/>
+                    </picker:SfDateTimePicker.SelectedTextStyle>
+                    <picker:SfDateTimePicker.FooterView>
+                        <picker:PickerFooterView  ShowOkButton="True" Height="40" />
+                    </picker:SfDateTimePicker.FooterView>
+                </picker:SfDateTimePicker>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout>
+                <Label   Text="Color: " Style="{StaticResource labelPage}" ></Label>
+                <Picker HeightRequest="50" x:Name="ColorEdit" WidthRequest="130"></Picker>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout >
+                <Label   Text="Frequency: " Style="{StaticResource labelPage}" ></Label>
+                <Picker HeightRequest="50" x:Name="FreqEdit" WidthRequest="130"></Picker>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout>
+                <Label   Text="Interval: " Style="{StaticResource labelPage}" ></Label>
+                <Entry x:Name="IntervalEdit" Placeholder="Enter Content"  WidthRequest="130"></Entry>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout >
+                <Label   Text="Count: " Style="{StaticResource labelPage}" ></Label>
+                <Entry x:Name="CountEdit" Placeholder="Enter Content" WidthRequest="130"></Entry>
+            </HorizontalStackLayout>
+        </Frame>
+        <Button x:Name="buttonCancle1" TextColor="black" Text="Cancel" Background="WhiteSmoke" Clicked="buttonCancle1_Clicked"></Button>
+        <Button x:Name="buttonSave" TextColor="black" Text="Save" Background="skyblue" Clicked="buttonSave_Clicked"></Button>
+    </VerticalStackLayout>
+</ContentPage>

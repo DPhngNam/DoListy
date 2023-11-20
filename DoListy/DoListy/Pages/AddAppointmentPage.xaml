@@ -101,7 +101,7 @@
         <Frame Padding="10,2,10,2">
             <HorizontalStackLayout>
                 <Label   Text="Color: " Style="{StaticResource labelPage}" ></Label>
-                <Picker HeightRequest="50" x:Name="ColorEntry" WidthRequest="130"></Picker>
+                <Picker  HeightRequest="50" x:Name="ColorEntry" WidthRequest="130"></Picker>
             </HorizontalStackLayout>
         </Frame>
         <Frame Padding="10,2,10,2">
