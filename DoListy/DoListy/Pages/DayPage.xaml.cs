@@ -1,57 +1,90 @@
-namespace DoListy.Pages;
-
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
+using Appointment = DoListy.ViewModel.Appointment;
+using ControlViewModel = DoListy.ControlViewModel;
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
+using Syncfusion.Maui.Scheduler;
+using System.Collections.ObjectModel;
+using CommunityToolkit.Maui.Extensions;
 
+
+
+namespace DoListy.Pages;
 public partial class DayPage : ContentPage
 {
-    private Dictionary<DateTime, List<IView>> TaskDaily;
+    //Color for task inn frame A
+    private Color transparentColor = Color.FromRgba(255, 255, 255, 0);
+    private Color whiteColor = Color.FromRgb(255, 255, 255); // White color
+    private Color blackColor = Color.FromRgb(0, 0, 0);
     public DayPage()
     {
         InitializeComponent();
+        AlwaysOnDisplay(DateTime.Now);
         SetIniDisplayDate();
-        TaskDaily = new Dictionary<DateTime, List<IView>>();
+
+        
     }
+
 
     private void SetIniDisplayDate()
     {
-        mon.DisplayDate = new DateTime(2023, 11, 13);
-        tue.DisplayDate = new DateTime(2023, 11, 14);
-        wed.DisplayDate = new DateTime(2023, 11, 15);
-        thus.DisplayDate = new DateTime(2023, 11, 16);
-        fri.DisplayDate = new DateTime(2023, 11, 17);
-        sat.DisplayDate = new DateTime(2023, 11, 18);
-        sun.DisplayDate = new DateTime(2023, 11, 19);
+        DateTime today = DateTime.Today;
+        int delta = DayOfWeek.Monday - today.DayOfWeek; // Calculate the offset to Monday
+
+        if (delta > 0)
+            delta -= 7; // Adjust if today is later in the week than Monday
+
+        // Adjust the condition to handle Monday separately
+        if (delta == 0)
+        {
+            mon.DisplayDate = today;
+        }
+        else
+        {
+            mon.DisplayDate = today.AddDays(delta);
+        }
+
+        tue.DisplayDate = mon.DisplayDate.AddDays(1);
+        wed.DisplayDate = mon.DisplayDate.AddDays(2);
+        thus.DisplayDate = mon.DisplayDate.AddDays(3);
+        fri.DisplayDate = mon.DisplayDate.AddDays(4);
+        sat.DisplayDate = mon.DisplayDate.AddDays(5);
+        sun.DisplayDate = mon.DisplayDate.AddDays(6);
     }
+
 
 
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
-        DateTime current = DateTime.Now; // You need to get the actual date/time for the task
-        TaskDaily.Add(current, new List<IView>());
+        await Navigation.PushModalAsync(new AddAppointmentPage());
 
-        // Adding a new goal
-        var newGoal = new Label
-        {
-            Text = "A Goal in " + current.ToString() // Using the current date
-        };
-
-        if (TaskDaily.ContainsKey(current))
-        {
-            TaskDaily[current].Add(newGoal);
-        }
-        else
-        {
-            var newGoalList = new List<IView>();
-            newGoalList.Add(newGoal);
-            TaskDaily.Add(current, newGoalList);
-        }
-
-        TaskDailyStack.Children.Add(newGoal);
+        
     }
 
+    private async Task AnimateFrames()
+    {
+        await frame_A.TranslateTo(-300, 0, 250, Easing.Linear);
+        Grid.SetColumn(frame_A, 0);
+        Grid.SetRow(frame_A, 1);
+
+        // Scale back to original size (if there's relevant code for this)
+
+        frame_B.IsVisible = true;
+        await frame_B.FadeTo(1, 500, Easing.SinInOut); // Fade in
+    }
+
+    //Reset position
+    private async void RefreshCurrentFrame()
+    {
+        // Move frame_A back to its original position
+        await frame_A.TranslateTo(0, 0, 250, Easing.Linear);
+        Grid.SetColumn(frame_A, 0);
+        Grid.SetRow(frame_A, 0);
+
+        // Reverse the visibility change for frame_B
+        await frame_B.FadeTo(0, 500, Easing.SinInOut); // Fade out
+        frame_B.IsVisible = false;
+
+    }
     private void LeftimaBut_Clicked(object sender, EventArgs e)
     {
         mon.DisplayDate = mon.DisplayDate.AddDays(-7);
@@ -76,70 +109,93 @@ public partial class DayPage : ContentPage
 
     private void AlwaysOnDisplay(DateTime currentDate)
     {
-        TaskDailyStack.Children.Clear();
-        if (TaskDaily.ContainsKey(currentDate))
-        {
-            var numOfGoals = TaskDaily[currentDate].Count;
-            for (int i = 0; i < numOfGoals; i++)
-            {
-                TaskDailyStack.Children.Add(TaskDaily[currentDate][i]);
-            }
-        }
-    }
+        TaskDailyStack.Clear();
+        List<Appointment> appointmentsForDate = new ObservableCollection<Appointment>(ControlViewModel.ControlViewModel.GetAppointments())
+            .Where(app => app.EventStart.Date == currentDate.Date)
+            .ToList();
 
+        foreach (Appointment app in appointmentsForDate)
+        {
+            // Create labels for displaying appointment information
+            Label nameLabel = new Label { Text = app.Name, TextColor = blackColor };
+            Label dateLabel = new Label { Text = $"{app.EventStart:hh/mm,dd/mm/yy}-{app.EventEnd:hh/mm,dd/mm/yy}", TextColor = blackColor };
+
+            // Create a StackLayout to hold labels
+            StackLayout infoStack = new StackLayout();
+            infoStack.Children.Add(nameLabel);
+            infoStack.Children.Add(dateLabel);
+
+            // Create a Frame to contain appointment information
+            Frame appointmentFrame = new Frame
+            {
+                BackgroundColor = transparentColor,
+                Content = infoStack
+            };
+
+            // Add TapGestureRecognizer to the appointmentFrame
+            appointmentFrame.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(async () =>
+                {
+                    // Call the method containing the common animation logic
+                    await AnimateFrames();
+                })
+            });
+
+            // Create a StackLayout to hold the frame
+            StackLayout frameStack = new StackLayout();
+            frameStack.Children.Add(appointmentFrame);
+
+
+            // Add the combined StackLayout to TaskDailyStack
+            TaskDailyStack.Children.Add(frameStack);
+        }
+
+    }
     private void Butmon_Clicked(object sender, EventArgs e)
     {
+        
+        RefreshCurrentFrame();
         AlwaysOnDisplay(mon.DisplayDate);
-
     }
 
     private void Buttue_Clicked(object sender, EventArgs e)
     {
+        RefreshCurrentFrame();
         AlwaysOnDisplay(tue.DisplayDate);
-
     }
 
     private void Butwed_Clicked(object sender, EventArgs e)
-    {
-        AlwaysOnDisplay(wed.DisplayDate);
-
+    {       
+        RefreshCurrentFrame();
+        AlwaysOnDisplay(wed.DisplayDate);       
     }
 
     private void Butthus_Clicked(object sender, EventArgs e)
     {
+        RefreshCurrentFrame();
         AlwaysOnDisplay(thus.DisplayDate);
 
     }
 
     private void Butfri_Clicked(object sender, EventArgs e)
     {
+        RefreshCurrentFrame();
         AlwaysOnDisplay(fri.DisplayDate);
 
     }
 
     private void Butsat_Clicked(object sender, EventArgs e)
-    {
+    {   
+        RefreshCurrentFrame();
         AlwaysOnDisplay(sat.DisplayDate);
 
     }
 
     private void Butsun_Clicked(object sender, EventArgs e)
     {
+        RefreshCurrentFrame();
         AlwaysOnDisplay(sun.DisplayDate);
-
-    }
-
-    private async void NewButton_Clicked(object sender, EventArgs e)
-    {
-        await frame_A.TranslateTo(-300, 0, 250, Easing.Linear);
-        Grid.SetColumn(frame_A, 0);
-        Grid.SetRow(frame_A, 1);
-        // Scale back to original size
-
-        // Animate the visibility change for frame_B
-        frame_B.IsVisible = true;
-        await frame_B.FadeTo(1, 500, Easing.SinInOut); // Fade in
-
 
     }
 }

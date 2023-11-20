@@ -7,7 +7,7 @@ namespace DoListy
     {
         public App()
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjc3NjI0MEAzMjMzMmUzMDJlMzBBdTlSZXUxUUNGNzZyYkU2RjhhUFdQUS9TODlTTTllTUxVdzBxRXAwdnVrPQ==");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjgxOTEzMUAzMjMzMmUzMDJlMzBFdGVwOEhQTGxVdXZrMmxxYlNjUGZKM1NTSUNZYWNsam5DYTdVOHp2SXNRPQ==");
             InitializeComponent();
 
             

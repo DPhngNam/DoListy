@@ -57,6 +57,9 @@ public partial class AddAppointmentPage : ContentPage
                 Recurrencerule = "FREQ=" + Freg.SelectedItem.ToString() + ";INTERVAL=" + Interval.Text + ";COUNT=" + Count.Text,
             }); 
         }
+        //Added by Phuong Nam
+        Application.Current.MainPage.DisplayAlert("Success", "Created successfully", "OK");
+        //Added by Phuong Nam
         await Navigation.PopModalAsync();
     }
 

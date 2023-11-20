@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
-             x:Class="DoListy.Pages.SetGoals"
-           Color="#0197F6"
-             >
+<mct:Popup  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+            xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+            x:Class="DoListy.Pages.SetGoals"
+            xmlns:picker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
+            Color="#0197F6">
     <Grid RowDefinitions="*,*,*,2*,*" ColumnDefinitions="*,4*" WidthRequest="750" HeightRequest="500">
         <Grid RowDefinitions="2*,1*" ColumnDefinitions="4*,1*" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" BackgroundColor="#02182B" Padding="25,10,10,10">
             <Label Grid.Row="0" Grid.Column="0" Text="Set A New Goal" FontSize="30" FontAttributes="Bold" FontFamily="OpenSans" TextColor="White"/>
             <Label Grid.Row="1" Grid.Column="0" Text="The first step in turning the invisible into the visible" FontSize="10" FontAttributes="Italic" FontFamily="OpenSans" TextColor="White"/>
-            
         </Grid>
         <Label Text="TITLE" Grid.Column="0" Grid.Row="1" FontSize="25" FontAttributes="Bold" FontFamily="OpenSans" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
         <Label Text="YEAR" Grid.Column="0" Grid.Row="2" FontSize="25" FontAttributes="Bold" FontFamily="OpenSans" TextColor="Black"  VerticalOptions="Center" HorizontalOptions="Center"/>
         <Label Text="NOTES" Grid.Column="0" Grid.Row="3" FontSize="25" FontAttributes="Bold" FontFamily="OpenSans" TextColor="Black"  VerticalOptions="Center" HorizontalOptions="Center"/>
-        <Entry Grid.Column="1" Grid.Row="1" BackgroundColor="#F4EEFF" Placeholder="Title of the Goal" WidthRequest="500" HeightRequest="50" HorizontalOptions="Start" />
-        <Entry Grid.Column="1" Grid.Row="2" BackgroundColor="#F4EEFF" Placeholder="Year" WidthRequest="200" HeightRequest="50" HorizontalOptions="Start"/>
-        <Entry Grid.Column="1" Grid.Row="3" BackgroundColor="#F4EEFF" Placeholder="Write some notes, subgoals,..." WidthRequest="500" HeightRequest="100" HorizontalOptions="Start"/>
-
+        <Entry 
+            x:FieldModifier="public"
+            x:Name="goalTitleEntry" Grid.Column="1" Grid.Row="1" BackgroundColor="#F4EEFF" Placeholder="Title of the Goal" WidthRequest="500" HeightRequest="50" HorizontalOptions="Start" />
+        <editors:SfNumericEntry x:FieldModifier="public" x:Name="yearNumericEntry" Grid.Column="1" Grid.Row="2" WidthRequest="500" HeightRequest="50" UpDownPlacementMode="Inline" HorizontalOptions="Start" CustomFormat="0000" AllowNull="False" Minimum="0" Maximum="3000">
+            
+        </editors:SfNumericEntry>
+        <Entry x:FieldModifier="public" x:Name="goalNoteEntry" Grid.Column="1" Grid.Row="3" BackgroundColor="#F4EEFF" Placeholder="Write some notes, subgoals,..." WidthRequest="500" HeightRequest="100" HorizontalOptions="Start"/>
+        <Button x:FieldModifier="public" Grid.Column="0" Grid.Row="4" x:Name="setGoalsCancelButton" TextColor="black" Text="Cancel" Background="WhiteSmoke" Clicked="OnSetGoalsCancelButton"></Button>
+        <Button x:FieldModifier="public" Grid.Column="1" Grid.Row="4" x:Name="setGoalsCreateButton" TextColor="black" Text="Create" BackgroundColor="SkyBlue" Clicked="OnSetGoalsCreatelButton"></Button>
     </Grid>
 </mct:Popup>
