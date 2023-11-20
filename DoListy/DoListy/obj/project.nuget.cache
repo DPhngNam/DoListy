@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "r59V2C9Z1zbE6NnqPoDutTkrLaN6WIa2QTVuKFvgkFfCQIYRsrLPOy+GerWqQK/Lz5f6DEtrL8hTJWih2XPcZw==",
+  "dgSpecHash": "UuQdE/2LNvNHUHrB1CXh1xhz59MYqCkAP5/bi6LNlkMMzX1Wne0TD7aF8KnRwi2qn7EYIKr37IF7SvsupAAnGg==",
   "success": true,
   "projectFilePath": "D:\\DoLisTy\\DoListy\\DoListy\\DoListy\\DoListy.csproj",
   "expectedPackageFiles": [
@@ -24,6 +24,10 @@
     "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.licensing\\23.1.44\\syncfusion.licensing.23.1.44.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.calendar\\23.1.41\\syncfusion.maui.calendar.23.1.41.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.core\\23.1.44\\syncfusion.maui.core.23.1.44.nupkg.sha512",
+    "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.datasource\\23.1.44\\syncfusion.maui.datasource.23.1.44.nupkg.sha512",
+    "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.gridcommon\\23.1.44\\syncfusion.maui.gridcommon.23.1.44.nupkg.sha512",
+    "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.inputs\\23.1.44\\syncfusion.maui.inputs.23.1.44.nupkg.sha512",
+    "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.listview\\23.1.44\\syncfusion.maui.listview.23.1.44.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.picker\\23.1.44\\syncfusion.maui.picker.23.1.44.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.popup\\23.1.44\\syncfusion.maui.popup.23.1.44.nupkg.sha512",
     "C:\\Users\\thinh\\.nuget\\packages\\syncfusion.maui.scheduler\\23.1.41\\syncfusion.maui.scheduler.23.1.41.nupkg.sha512",

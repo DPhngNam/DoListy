@@ -81,3 +81,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[D:/DoLisTy/DoListy/DoListy/DoListy/Weather/WeatherPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = DoListy.Weather.WeatherPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Weather\WeatherPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Weather\WeatherPage.xaml

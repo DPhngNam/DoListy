@@ -67,32 +67,11 @@ public partial class MonthPage : ContentPage
     {
         TasksList.ItemsSource = null;
         if (e.Appointments == null) return;
-<<<<<<< HEAD
         TasksList.ItemsSource = e.Appointments;
     }
 
     private void MenuItem_Clicked(object sender, EventArgs e)
     {
-=======
-        if(e.Appointments.Count > 0)
-        {
-            foreach(Appointment app in e.Appointments)
-            {
-            
-                Label var = new Label { Text = app.Name + "\n" + app.EventStart , TextColor = new Color(1,1,1) };
-                Label label = new Label { Text = app.EventStart.ToString() };
-                StackLayout framestack = new StackLayout();
-                framestack.Children.Add(var);
-                framestack.Children.Add(label);
-                Frame frame = new Frame();
-                frame.Content = framestack;
-              
-                stacktest.Children.Add(frame);
-            }
-        }
         
-  
->>>>>>> 1cc10f27ab3cdfab45807b7b37f7c828f4312fbe
-
     }
 }
