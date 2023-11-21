@@ -14,7 +14,7 @@ public partial class WeekPage : ContentPage
 	public WeekPage()
 	{
 		InitializeComponent();
-        InitializeDateLabel();
+  
 	}
     
 
@@ -48,34 +48,22 @@ public partial class WeekPage : ContentPage
     {
         throw new NotImplementedException();
     }
-    private void InitializeDateLabel()
-    {
-       DateTime today = DateTime.Today;
-       DayOfWeek currentdayOfWeek = today.DayOfWeek;
-        DateTime LastMonday = today.AddDays(-(int)currentdayOfWeek);
-        string dateRangeString = $"{LastMonday.ToString("dd")}-{today.ToString("dd/MM/yyyy")}";
-        WPdateLabel.Text = dateRangeString;
 
-    }
     private void WeekPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
     {
-        taskframestack.Clear();
-        
-            if (e.Appointments == null) return;
-            foreach (Appointment app in e.Appointments)
+        if (e.Element is SchedulerElement.ViewHeader)
+        {
+            Tasklist.ItemsSource = null;
+            var CurrentAppointment = new ObservableCollection<Appointment>(ControlViewModel.ControlViewModel.GetAppointments());
+            List<string> strings = new List<string>();
+            foreach (Appointment app in CurrentAppointment)
             {
-
-                Label var = new Label { Text = app.Name , TextColor = new Color(1, 1, 1) };
-                Label label = new Label { Text = app.EventStart.ToString("hh/mm,dd/mm/yy") +"-"+ app.EventEnd.ToString("hh/mm,dd/mm/yy"),TextColor=new Color(0,0,0)};
-                StackLayout framestack = new StackLayout();
-                framestack.Children.Add(var);
-                framestack.Children.Add(label);
-                Frame frame = new Frame { BackgroundColor= new Color(255,255,255)};
-                frame.Content = framestack;
-
-                taskframestack.Children.Add(frame);
+                if  (app.EventStart.Day <=e.Date.Value.Day && e.Date.Value.Day <=app.EventEnd.Day)
+                {
+                    strings.Add(app.Name);
+                }
             }
-
-        
+            Tasklist.ItemsSource = strings;
+        }
     }
 }
