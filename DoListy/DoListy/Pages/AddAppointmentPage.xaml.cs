@@ -19,23 +19,27 @@ public partial class AddAppointmentPage : ContentPage
     private async void buttonCreate_Clicked(object sender, EventArgs e)
     {
         Brush temp = Brush.Blue;
-        if(ColorEntry.SelectedItem.ToString() == "Blue")
+        if (ColorEntry.SelectedItem != null)
         {
-            temp = Brush.Blue;
-        }   
-        else if(ColorEntry.SelectedItem.ToString() == "Orange")
-        {
-            temp = Brush.Orange;
-        }    
-        else if (ColorEntry.SelectedItem.ToString() == "Purple")
-        {
-            temp = Brush.Purple;
+            switch (ColorEntry.SelectedItem.ToString())
+            {
+                case "Blue":
+                    temp = Brush.Blue;
+                    break;
+                case "Orange":
+                    temp = Brush.Orange;
+                    break;
+                case "Green":
+                    temp = Brush.Green;
+                    break;
+                case "Red":
+                    temp = Brush.Red;
+                    break;
+                case "Purple":
+                    temp = Brush.Purple;
+                    break;
+            }
         }
-        else if(ColorEntry.SelectedItem.ToString() == "Red")
-        {
-            temp = Brush.Red;
-        }
-        else temp = Brush.Green;
 
         if (Freg.SelectedItem == null || Freg.SelectedItem.ToString() == "NONE")
         {

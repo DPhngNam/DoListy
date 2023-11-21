@@ -68,6 +68,7 @@ public partial class MonthPage : ContentPage
         TasksList.ItemsSource = null;
         if (e.Appointments == null) return;
         TasksList.ItemsSource = e.Appointments;
+        loadAppointments();
     }
 
     private void MenuItem_Clicked(object sender, EventArgs e)
@@ -81,8 +82,8 @@ public partial class MonthPage : ContentPage
         {
             int temp = ((Appointment)e.SelectedItem).Id;
             await Navigation.PushModalAsync(new EditAppointmentPage(temp));
+            loadAppointments();
         }
-        loadAppointments();
     }
 
     private void TasksList_ItemTapped(object sender, ItemTappedEventArgs e)
