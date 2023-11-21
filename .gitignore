@@ -3,3 +3,4 @@
 # Ignore Visual Studio build directories
 bin/
 obj/
+/DoListy/.vs/DoListy/v17/.suo
