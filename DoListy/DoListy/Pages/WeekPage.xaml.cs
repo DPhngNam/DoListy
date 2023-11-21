@@ -54,16 +54,39 @@ public partial class WeekPage : ContentPage
         if (e.Element is SchedulerElement.ViewHeader)
         {
             Tasklist.ItemsSource = null;
+            //if (e.Appointments == null)
+            //    return;
+            //Tasklist.ItemsSource = e.Appointments;
+            //loadAppointments();
+
             var CurrentAppointment = new ObservableCollection<Appointment>(ControlViewModel.ControlViewModel.GetAppointments());
-            List<string> strings = new List<string>();
+            List<Appointment> appointmennts = new List<Appointment>();
+        
             foreach (Appointment app in CurrentAppointment)
             {
-                if  (app.EventStart.Day <=e.Date.Value.Day && e.Date.Value.Day <=app.EventEnd.Day)
+                if (app.EventStart.Day <= e.Date.Value.Day && e.Date.Value.Day <= app.EventEnd.Day)
                 {
-                    strings.Add(app.Name);
+                    appointmennts.Add(app);
                 }
             }
-            Tasklist.ItemsSource = strings;
+            Tasklist.ItemsSource = appointmennts;
+            loadAppointments();
         }
+    }
+
+    private async void Tasklist_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+        if (Tasklist.SelectedItem != null)
+        {
+            int temp = ((Appointment)e.SelectedItem).Id;
+            await Navigation.PushModalAsync(new EditAppointmentPage(temp));
+        }
+    }
+
+    private void Tasklist_ItemTapped(object sender, ItemTappedEventArgs e)
+    {
+        Tasklist.SelectedItem = null;
+
+
     }
 }
