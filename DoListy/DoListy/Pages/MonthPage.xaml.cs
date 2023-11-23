@@ -76,13 +76,19 @@ public partial class MonthPage : ContentPage
     {
         
     }
-
+    
     private async void TasksList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
+        
         if(TasksList.SelectedItem != null)
         {
             int temp = ((Appointment)e.SelectedItem).Id;
             await Navigation.PushModalAsync(new EditAppointmentPage(temp));
+<<<<<<< HEAD
+=======
+            loadAppointments();
+            
+>>>>>>> 8c8a0ac95b961cb6629884c1eac8d83c116bedb5
         }
     }
 

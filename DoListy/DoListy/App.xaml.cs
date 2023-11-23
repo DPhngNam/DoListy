@@ -1,16 +1,17 @@
-﻿using Microsoft.Maui;
+﻿using DoListy.Database;
+using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 namespace DoListy
 {
     public partial class App : Application
     {
-        public App()
+        public static AppointmentRepository appointmentRepo { get; private set; }
+        public App(AppointmentRepository AppRepo)
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjgxOTEzMUAzMjMzMmUzMDJlMzBFdGVwOEhQTGxVdXZrMmxxYlNjUGZKM1NTSUNZYWNsam5DYTdVOHp2SXNRPQ==");
             InitializeComponent();
-
-            
+            appointmentRepo = AppRepo;  
         }
         protected override Window CreateWindow(IActivationState activationState)
         {

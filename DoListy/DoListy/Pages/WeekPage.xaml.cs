@@ -14,7 +14,7 @@ public partial class WeekPage : ContentPage
 	public WeekPage()
 	{
 		InitializeComponent();
-        InitializeDateLabel();
+  
 	}
     
 
@@ -48,34 +48,45 @@ public partial class WeekPage : ContentPage
     {
         throw new NotImplementedException();
     }
-    private void InitializeDateLabel()
-    {
-       DateTime today = DateTime.Today;
-       DayOfWeek currentdayOfWeek = today.DayOfWeek;
-        DateTime LastMonday = today.AddDays(-(int)currentdayOfWeek);
-        string dateRangeString = $"{LastMonday.ToString("dd")}-{today.ToString("dd/MM/yyyy")}";
-        WPdateLabel.Text = dateRangeString;
 
-    }
     private void WeekPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
     {
-        taskframestack.Clear();
+        if (e.Element is SchedulerElement.ViewHeader)
+        {
+            Tasklist.ItemsSource = null;
+            //if (e.Appointments == null)
+            //    return;
+            //Tasklist.ItemsSource = e.Appointments;
+            //loadAppointments();
+
+            var CurrentAppointment = new ObservableCollection<Appointment>(ControlViewModel.ControlViewModel.GetAppointments());
+            List<Appointment> appointmennts = new List<Appointment>();
         
-            if (e.Appointments == null) return;
-            foreach (Appointment app in e.Appointments)
+            foreach (Appointment app in CurrentAppointment)
             {
-
-                Label var = new Label { Text = app.Name , TextColor = new Color(1, 1, 1) };
-                Label label = new Label { Text = app.EventStart.ToString("hh/mm,dd/mm/yy") +"-"+ app.EventEnd.ToString("hh/mm,dd/mm/yy"),TextColor=new Color(0,0,0)};
-                StackLayout framestack = new StackLayout();
-                framestack.Children.Add(var);
-                framestack.Children.Add(label);
-                Frame frame = new Frame { BackgroundColor= new Color(255,255,255)};
-                frame.Content = framestack;
-
-                taskframestack.Children.Add(frame);
+                if (app.EventStart.Day <= e.Date.Value.Day && e.Date.Value.Day <= app.EventEnd.Day)
+                {
+                    appointmennts.Add(app);
+                }
             }
+            Tasklist.ItemsSource = appointmennts;
+            loadAppointments();
+        }
+    }
 
-        
+    private async void Tasklist_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+        if (Tasklist.SelectedItem != null)
+        {
+            int temp = ((Appointment)e.SelectedItem).Id;
+            await Navigation.PushModalAsync(new EditAppointmentPage(temp));
+        }
+    }
+
+    private void Tasklist_ItemTapped(object sender, ItemTappedEventArgs e)
+    {
+        Tasklist.SelectedItem = null;
+
+
     }
 }
