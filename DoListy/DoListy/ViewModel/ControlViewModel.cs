@@ -39,6 +39,8 @@ namespace DoListy.ControlViewModel
                     } }
             }
         };
+
+
         public static List<Appointment> GetAppointments() => AppointmentsList;
         public static Appointment GetAppointmentByID(int AppointmentID)
         {
