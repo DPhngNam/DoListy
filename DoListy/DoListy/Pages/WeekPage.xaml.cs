@@ -79,7 +79,7 @@ public partial class WeekPage : ContentPage
         if (Tasklist.SelectedItem != null)
         {
             int temp = ((Appointment)e.SelectedItem).Id;
-            await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
+            await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)Tasklist.SelectedItem).Id}");
             Tasklist.ItemsSource = null;
         }
     }
