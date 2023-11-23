@@ -1,27 +1,40 @@
+using DoListy.ViewModel;
+using Syncfusion.Maui.ListView;
+
 namespace DoListy.Pages;
+
+[QueryProperty(nameof(ID), "AppId")]
 
 public partial class EditAppointmentPage : ContentPage
 {
-    int Temp;
     Brush temp;
-    ViewModel.Appointment AddedAppointment = new ViewModel.Appointment(5);
+    ViewModel.Appointment AddedAppointment = new Appointment();
+    Appointment appointment = new Appointment();
     List<string> freqs = new List<string>() { "DAILY", "WEEKLY", "MONTHLY", "YEARLY", "NONE" };
     List<string> Colors = new List<string>() { "Blue", "Red", "Green", "Orange", "Purple" };
-    public EditAppointmentPage(int Id)
+
+    public string ID
+    {
+        set
+        {
+            appointment = ControlViewModel.ControlViewModel.GetAppointmentByID(int.Parse(value));
+            if (appointment != null)
+            {
+                temp = appointment.Colorbg;
+                AddedAppointment.Id = appointment.Id;
+                editSubject.Text = appointment.Name;
+                pickerDateTime1.SelectedDate = appointment.EventStart;
+                eidtStartTime.Text = appointment.EventStart.ToString();
+                pickerDateTime2.SelectedDate = appointment.EventEnd;
+                editEndTime.Text = appointment.EventEnd.ToString();
+            }
+        }
+    }
+    public EditAppointmentPage()
 	{
 		InitializeComponent();
         FreqEdit.ItemsSource = freqs;
         ColorEdit.ItemsSource = Colors;
-        if (ControlViewModel.ControlViewModel.GetAppointmentByID(Id) != null )
-        {
-            temp = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).Colorbg;
-            AddedAppointment.Id = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).Id;
-            editSubject.Text = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).Name;
-            pickerDateTime1.SelectedDate = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).EventStart;
-            eidtStartTime.Text = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).EventStart.ToString();
-            pickerDateTime2.SelectedDate = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).EventEnd;
-            editEndTime.Text = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).EventEnd.ToString();
-        }
 	}
 
     private void eidtStartTime_Clicked(object sender, EventArgs e)
@@ -61,7 +74,7 @@ public partial class EditAppointmentPage : ContentPage
         await Navigation.PopModalAsync();
     }
 
-    private async void buttonSave_Clicked(object sender, EventArgs e)
+    private void buttonSave_Clicked(object sender, EventArgs e)
     {
         if(ColorEdit.SelectedItem != null)
         {
@@ -102,6 +115,6 @@ public partial class EditAppointmentPage : ContentPage
         ControlViewModel.ControlViewModel.Update(AddedAppointment.Id, AddedAppointment);
         
         Application.Current.MainPage.DisplayAlert("Success", "Save successfully", "OK");
-        Navigation.PopModalAsync();
+        Shell.Current.GoToAsync("..");
     }
 }

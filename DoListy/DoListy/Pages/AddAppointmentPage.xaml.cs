@@ -13,12 +13,12 @@ public partial class AddAppointmentPage : ContentPage
         ColorEntry.ItemsSource = Colors;
 	}
 
-    private async void buttonCancle_Clicked(object sender, EventArgs e)
+    private void buttonCancle_Clicked(object sender, EventArgs e)
     {
-		await Navigation.PopModalAsync();
+        Shell.Current.GoToAsync("..");
     }
 
-    private async void buttonCreate_Clicked(object sender, EventArgs e)
+    private  void buttonCreate_Clicked(object sender, EventArgs e)
     {
         Brush temp = Brush.Blue;
         if (ColorEntry.SelectedItem != null)
@@ -47,6 +47,7 @@ public partial class AddAppointmentPage : ContentPage
         {
             Appointment appointment = new Appointment()
             {
+                Id = ViewModel.Appointment.count++,
                 Name = entrySubject.Text,
                 EventStart = pickerDateTime1.SelectedDate,
                 EventEnd = pickerDateTime2.SelectedDate,
@@ -58,6 +59,7 @@ public partial class AddAppointmentPage : ContentPage
         {
             Appointment appointment = new Appointment()
             {
+                Id = ViewModel.Appointment.count++,
                 Name = entrySubject.Text,
                 EventStart = pickerDateTime1.SelectedDate,
                 EventEnd = pickerDateTime2.SelectedDate,
@@ -69,7 +71,7 @@ public partial class AddAppointmentPage : ContentPage
         //Added by Phuong Nam
         Application.Current.MainPage.DisplayAlert("Success", "Created successfully", "OK");
         //Added by Phuong Nam
-        await Navigation.PopModalAsync();
+        Shell.Current.GoToAsync("..");
     }
 
     private void entryStartTime_Clicked(object sender, EventArgs e)

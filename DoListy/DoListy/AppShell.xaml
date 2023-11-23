@@ -4,7 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:DoListy"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Disabled"
+    >
 
     <FlyoutItem>
         <ShellContent Title="Day" Route="Day" ContentTemplate="{DataTemplate local:Pages.DayPage}"/>
@@ -12,7 +13,7 @@
         <ShellContent Title="Month" Route="Month" ContentTemplate="{DataTemplate local:Pages.MonthPage}"/>
         <ShellContent Title="Year" Route="Year" ContentTemplate="{DataTemplate local:Pages.YearPage}"/>
         <ShellContent Title="Weather" Route="Weather" ContentTemplate="{DataTemplate local:Weather.WeatherPage}"/>
-        
+
     </FlyoutItem>
 
 </Shell>

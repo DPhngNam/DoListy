@@ -42,12 +42,7 @@ namespace DoListy.ControlViewModel
         public static List<Appointment> GetAppointments() => AppointmentsList;
         public static Appointment GetAppointmentByID(int AppointmentID)
         {
-            var Appointmenttemp = AppointmentsList.FirstOrDefault(x => x.Id == AppointmentID);
-            if (Appointmenttemp != null)
-            {
-                return Appointmenttemp;
-            }
-            return null;
+            return AppointmentsList.FirstOrDefault(x => x.Id == AppointmentID);
         }
 
         public static void Update(int Id, Appointment appointment)
@@ -64,8 +59,6 @@ namespace DoListy.ControlViewModel
 
         public static void AddAppointment(ref Appointment temp)
         {
-                //int maxID = AppointmentsList.Max(x => x.Id);
-                //temp.Id = maxID + 1;
                 AppointmentsList.Add(temp);
         }
 

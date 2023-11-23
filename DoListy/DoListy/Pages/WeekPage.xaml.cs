@@ -35,7 +35,7 @@ public partial class WeekPage : ContentPage
     }
     private async void buttonAddAppointment_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new AddAppointmentPage());
+        await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
     }
     private async void btnOpenDeatil_Clicked(object sender, EventArgs e)
     {
@@ -79,14 +79,14 @@ public partial class WeekPage : ContentPage
         if (Tasklist.SelectedItem != null)
         {
             int temp = ((Appointment)e.SelectedItem).Id;
-            await Navigation.PushModalAsync(new EditAppointmentPage(temp));
+            await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
+            Tasklist.ItemsSource = null;
         }
     }
 
     private void Tasklist_ItemTapped(object sender, ItemTappedEventArgs e)
     {
         Tasklist.SelectedItem = null;
-
 
     }
 }

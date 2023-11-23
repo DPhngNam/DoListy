@@ -26,7 +26,8 @@ public partial class MonthPage : ContentPage
 
     private async void buttonAddAppointment_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new AddAppointmentPage());
+        //await Navigation.PushModalAsync(new AddAppointmentPage());
+        await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
     }
 
     private void Scheduler_AppointmentDrop(object sender, Syncfusion.Maui.Scheduler.AppointmentDropEventArgs e)
@@ -83,12 +84,8 @@ public partial class MonthPage : ContentPage
         if(TasksList.SelectedItem != null)
         {
             int temp = ((Appointment)e.SelectedItem).Id;
-            await Navigation.PushModalAsync(new EditAppointmentPage(temp));
-<<<<<<< HEAD
-=======
-            loadAppointments();
-            
->>>>>>> 8c8a0ac95b961cb6629884c1eac8d83c116bedb5
+            await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)TasksList.SelectedItem).Id}");
+            TasksList.ItemsSource = null;
         }
     }
 
