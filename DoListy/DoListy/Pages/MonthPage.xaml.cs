@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using Appointment = DoListy.ViewModel.Appointment;
 using DoListy.ControlViewModel;
 using System.Xml;
+using CommunityToolkit.Maui.Core;
 
 namespace DoListy.Pages;
 public partial class MonthPage : ContentPage
@@ -82,7 +83,6 @@ public partial class MonthPage : ContentPage
         {
             int temp = ((Appointment)e.SelectedItem).Id;
             await Navigation.PushModalAsync(new EditAppointmentPage(temp));
-            loadAppointments();
         }
     }
 

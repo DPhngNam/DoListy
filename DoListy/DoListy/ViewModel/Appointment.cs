@@ -7,9 +7,19 @@ using System.Threading.Tasks;
 
 namespace DoListy.ViewModel
 {
+
     public class Appointment
     {
-        public int Id { get; set; }
+        public Appointment() 
+        {
+            Id = count++;
+        }
+        public Appointment(int temp)
+        {
+
+        }
+        public static int count = 0;
+        public int  Id { get; set; }
         public DateTime EventStart { get; set; }
         public DateTime EventEnd { get; set; }
         public string Name { get; set; }
@@ -18,6 +28,6 @@ namespace DoListy.ViewModel
         public string Note { get; set;}
         public string State { get; set; }
         public ObservableCollection<Reminder> Reminders { get; set; }
-
     }
+    
 }

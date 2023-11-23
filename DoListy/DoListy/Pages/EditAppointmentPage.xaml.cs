@@ -2,8 +2,9 @@ namespace DoListy.Pages;
 
 public partial class EditAppointmentPage : ContentPage
 {
+    int Temp;
     Brush temp;
-    ViewModel.Appointment AddedAppointment = new ViewModel.Appointment();
+    ViewModel.Appointment AddedAppointment = new ViewModel.Appointment(5);
     List<string> freqs = new List<string>() { "DAILY", "WEEKLY", "MONTHLY", "YEARLY", "NONE" };
     List<string> Colors = new List<string>() { "Blue", "Red", "Green", "Orange", "Purple" };
     public EditAppointmentPage(int Id)
@@ -11,16 +12,15 @@ public partial class EditAppointmentPage : ContentPage
 		InitializeComponent();
         FreqEdit.ItemsSource = freqs;
         ColorEdit.ItemsSource = Colors;
-        ViewModel.Appointment appointment = ControlViewModel.ControlViewModel.GetAppointmentByID(Id);
-        if (appointment != null )
+        if (ControlViewModel.ControlViewModel.GetAppointmentByID(Id) != null )
         {
-            temp = appointment.Colorbg;
-            AddedAppointment.Id = appointment.Id;
-            editSubject.Text = appointment.Name;
-            pickerDateTime1.SelectedDate = appointment.EventStart;
-            eidtStartTime.Text = appointment.EventStart.ToString();
-            pickerDateTime2.SelectedDate = appointment.EventEnd;
-            editEndTime.Text = appointment.EventEnd.ToString();
+            temp = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).Colorbg;
+            AddedAppointment.Id = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).Id;
+            editSubject.Text = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).Name;
+            pickerDateTime1.SelectedDate = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).EventStart;
+            eidtStartTime.Text = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).EventStart.ToString();
+            pickerDateTime2.SelectedDate = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).EventEnd;
+            editEndTime.Text = ControlViewModel.ControlViewModel.GetAppointmentByID(Id).EventEnd.ToString();
         }
 	}
 
@@ -87,6 +87,7 @@ public partial class EditAppointmentPage : ContentPage
 
         if (FreqEdit.SelectedItem == null) // xu li cho Freq khong co
         {
+
             AddedAppointment.Name = editSubject.Text;
             AddedAppointment.EventStart = pickerDateTime1.SelectedDate;
             AddedAppointment.EventEnd  = pickerDateTime2.SelectedDate;
@@ -99,6 +100,8 @@ public partial class EditAppointmentPage : ContentPage
             AddedAppointment.Recurrencerule = "FREQ=" + FreqEdit.SelectedItem.ToString() + ";INTERVAL=" + IntervalEdit.Text + ";COUNT=" + CountEdit.Text;
         }
         ControlViewModel.ControlViewModel.Update(AddedAppointment.Id, AddedAppointment);
-        await Navigation.PopModalAsync();
+        
+        Application.Current.MainPage.DisplayAlert("Success", "Save successfully", "OK");
+        Navigation.PopModalAsync();
     }
 }
