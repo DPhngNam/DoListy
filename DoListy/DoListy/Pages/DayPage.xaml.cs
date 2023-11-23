@@ -51,21 +51,24 @@ public partial class DayPage : ContentPage
         sun.DisplayDate = mon.DisplayDate.AddDays(6);
     }
 
-    private DateTime temp;
+    private DateTime temp = DateTime.Now;
 
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
-        var addAppointmentPage = new AddAppointmentPage();
-        await Navigation.PushModalAsync(addAppointmentPage);
+        var result = await Application.Current.MainPage.DisplayAlert("Alert", $"Do you really want to add more tasks on {temp:dd/MM/yyyy}?", "No", "Yes");
 
-        // Handle the closing event of the AddAppointmentPage
-        addAppointmentPage.Disappearing += OnAddAppointmentPageDisappearing;
-        
+        if (!result)
+        {
+            var addAppointmentPage = new AddAppointmentPage();
+            await Navigation.PushModalAsync(addAppointmentPage);
+
+            // Handle the closing event of the AddAppointmentPage
+            addAppointmentPage.Disappearing += OnAddAppointmentPageDisappearing;
+        }
 
     }
     private void OnAddAppointmentPageDisappearing(object sender, EventArgs e)
     {
-       
         RefreshCurrentFrame();
         AlwaysOnDisplay(temp);
     }
@@ -171,18 +174,21 @@ public partial class DayPage : ContentPage
 
     private void Buttue_Clicked(object sender, EventArgs e)
     {
+        temp = this.tue.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(tue.DisplayDate);
     }
 
     private void Butwed_Clicked(object sender, EventArgs e)
-    {       
+    {
+        temp = this.wed.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(wed.DisplayDate);       
     }
 
     private void Butthus_Clicked(object sender, EventArgs e)
     {
+        temp = this.thus.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(thus.DisplayDate);
 
@@ -190,13 +196,15 @@ public partial class DayPage : ContentPage
 
     private void Butfri_Clicked(object sender, EventArgs e)
     {
+        temp = this.fri.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(fri.DisplayDate);
 
     }
 
     private void Butsat_Clicked(object sender, EventArgs e)
-    {   
+    {
+        temp = this.sat.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(sat.DisplayDate);
 
@@ -204,6 +212,7 @@ public partial class DayPage : ContentPage
 
     private void Butsun_Clicked(object sender, EventArgs e)
     {
+        temp = this.sun.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(sun.DisplayDate);
 
