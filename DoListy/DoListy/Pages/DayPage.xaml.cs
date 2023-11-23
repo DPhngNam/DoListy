@@ -51,15 +51,24 @@ public partial class DayPage : ContentPage
         sun.DisplayDate = mon.DisplayDate.AddDays(6);
     }
 
-
+    private DateTime temp;
 
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new AddAppointmentPage());
+        var addAppointmentPage = new AddAppointmentPage();
+        await Navigation.PushModalAsync(addAppointmentPage);
 
+        // Handle the closing event of the AddAppointmentPage
+        addAppointmentPage.Disappearing += OnAddAppointmentPageDisappearing;
         
-    }
 
+    }
+    private void OnAddAppointmentPageDisappearing(object sender, EventArgs e)
+    {
+       
+        RefreshCurrentFrame();
+        AlwaysOnDisplay(temp);
+    }
     private async Task AnimateFrames()
     {
         await frame_A.TranslateTo(-300, 0, 250, Easing.Linear);
@@ -154,9 +163,10 @@ public partial class DayPage : ContentPage
     }
     private void Butmon_Clicked(object sender, EventArgs e)
     {
-        
+        temp = this.mon.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(mon.DisplayDate);
+
     }
 
     private void Buttue_Clicked(object sender, EventArgs e)
