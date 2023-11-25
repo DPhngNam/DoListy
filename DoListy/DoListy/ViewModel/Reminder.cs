@@ -8,6 +8,10 @@ namespace DoListy.ViewModel
 {
     public class Reminder
     {
+        public Reminder() 
+        {
+            IsDismissed = false;
+        }
         public bool IsDismissed { get; set; }
         public TimeSpan TimeBeforeStart { get; set; }
     }
