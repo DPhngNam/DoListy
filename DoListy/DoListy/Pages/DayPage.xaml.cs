@@ -1,29 +1,22 @@
-using Appointment = DoListy.ViewModel.Appointment;
-using ControlViewModel = DoListy.ControlViewModel;
-using CommunityToolkit.Maui.Views;
-using Microsoft.Maui.Controls;
-using Syncfusion.Maui.Scheduler;
 using System.Collections.ObjectModel;
-using CommunityToolkit.Maui.Extensions;
-
-
+using Appointment = DoListy.ViewModel.Appointment;
 
 namespace DoListy.Pages;
 public partial class DayPage : ContentPage
 {
     //Color for task inn frame A
     private Color transparentColor = Color.FromRgba(255, 255, 255, 0);
-    private Color whiteColor = Color.FromRgb(255, 255, 255); // White color
     private Color blackColor = Color.FromRgb(0, 0, 0);
+
+    //set the setting task's day is Now (for tempo)
+    private DateTime temp = DateTime.Now;
+
     public DayPage()
     {
         InitializeComponent();
         AlwaysOnDisplay(DateTime.Now);
         SetIniDisplayDate();
-
-        
     }
-
 
     private void SetIniDisplayDate()
     {
@@ -50,8 +43,6 @@ public partial class DayPage : ContentPage
         sat.DisplayDate = mon.DisplayDate.AddDays(5);
         sun.DisplayDate = mon.DisplayDate.AddDays(6);
     }
-
-    private DateTime temp = DateTime.Now;
 
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
@@ -97,6 +88,7 @@ public partial class DayPage : ContentPage
         frame_B.IsVisible = false;
 
     }
+
     private void LeftimaBut_Clicked(object sender, EventArgs e)
     {
         mon.DisplayDate = mon.DisplayDate.AddDays(-7);
@@ -183,7 +175,7 @@ public partial class DayPage : ContentPage
     {
         temp = this.wed.DisplayDate;
         RefreshCurrentFrame();
-        AlwaysOnDisplay(wed.DisplayDate);       
+        AlwaysOnDisplay(wed.DisplayDate);
     }
 
     private void Butthus_Clicked(object sender, EventArgs e)
