@@ -61,7 +61,9 @@ public partial class DayPage : ContentPage
         {
             var addAppointmentPage = new AddAppointmentPage();
             await Navigation.PushModalAsync(addAppointmentPage);
-
+            var add = (AddAppointmentPage)Shell.Current.CurrentPage;
+            add.entryEndTime.Text = temp.ToString("F");
+            add.pickerDateTime2.SelectedDate = temp;
             // Handle the closing event of the AddAppointmentPage
             addAppointmentPage.Disappearing += OnAddAppointmentPageDisappearing;
         }

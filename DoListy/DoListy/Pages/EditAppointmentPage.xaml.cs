@@ -69,9 +69,9 @@ public partial class EditAppointmentPage : ContentPage
         editEndTime.Text = pickerDateTime2.SelectedDate.ToString();
     }
 
-    private async void buttonCancle1_Clicked(object sender, EventArgs e)
+    private  void buttonCancle1_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PopModalAsync();
+        Shell.Current.GoToAsync("..");
     }
 
     private void buttonSave_Clicked(object sender, EventArgs e)
