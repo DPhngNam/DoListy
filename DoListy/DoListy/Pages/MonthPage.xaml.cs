@@ -57,7 +57,7 @@ public partial class MonthPage : ContentPage
 
         var reminderTime = startTime - e.Reminders[0].TimeBeforeStart;
 
-        if (currentTime >= reminderTime && currentTime < startTime && !e.Reminders[0].IsDismissed)
+        if (currentTime >= reminderTime && currentTime < startTime && !e.Reminders[0].IsDismissed)//xet thoi gia reminder toi luc chua va current time phai be hon start time
         {
             bool snooze = await DisplayAlert("Reminder", e.Reminders[0].Appointment.Subject + " - " + startTime.ToString(), "Snooze", "Dismiss");
 
