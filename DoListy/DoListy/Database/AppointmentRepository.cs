@@ -6,32 +6,37 @@ namespace DoListy.Database
    public class AppointmentRepository
     {
         string _dbpath;
-        private SQLiteConnection conn;
+        private SQLiteAsyncConnection conn;
         public AppointmentRepository(string dbpath)
         {
             _dbpath = dbpath;
         }
-        public void Init()
+        private async Task Init()
         {
             if (conn != null)
                 return;
-            conn = new SQLiteConnection( _dbpath );
-            conn.CreateTable<Appointment>();
+            conn = new SQLiteAsyncConnection(_dbpath);
+            await conn.CreateTableAsync<Appointment>();
+        
         }
-        public List<Appointment> GetAll()
+        public async Task< List<Appointment>> GetAll()
         {
 
-            Init();
-            return conn.Table<Appointment>().ToList();
+            await Init();
+            return await conn.Table<Appointment>().ToListAsync();
         }
-        public void Add(Appointment appointment)
+        public async Task addAppointment(Appointment app )
         {
-            
-            conn.Insert( appointment );
+            int result = 0;
+          
+                await Init();
+                result = await conn.InsertAsync(new Appointment());   
         }
-        public void Delete(Appointment appointment)
+        public async Task DeleteAppointment(int id)
         {
-            conn.Delete(appointment);
-               }
+            await Init();
+            await conn.DeleteAsync(new {ID=id});
+        }
+    
     }
 }

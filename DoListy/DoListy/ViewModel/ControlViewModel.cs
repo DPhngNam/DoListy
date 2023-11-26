@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
 
 namespace DoListy.ControlViewModel
 {
@@ -41,7 +42,13 @@ namespace DoListy.ControlViewModel
         };
 
 
-        public static List<Appointment> GetAppointments() => AppointmentsList;
+        public static  List<Appointment> GetAppointments()
+        {
+            //List<Appointment> AppointmentsList = await App.appointmentRepo.GetAll();
+            return AppointmentsList;
+
+        } 
+            
         public static Appointment GetAppointmentByID(int AppointmentID)
         {
             var Appointmenttemp = AppointmentsList.FirstOrDefault(x => x.Id == AppointmentID);
