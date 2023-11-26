@@ -8,7 +8,7 @@ public partial class DayPage : ContentPage
     private Color transparentColor = Color.FromRgba(255, 255, 255, 0);
     private Color blackColor = Color.FromRgb(0, 0, 0);
 
-    //set the setting task's day is Now (for tempo)
+    //set the setting task's day is Now (for tempo)            
     private DateTime temp = DateTime.Now;
 
     public DayPage()
@@ -46,18 +46,15 @@ public partial class DayPage : ContentPage
 
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
-        var result = await Application.Current.MainPage.DisplayAlert("Alert", $"Do you really want to add more tasks on {temp:dd/MM/yyyy}?", "No", "Yes");
-
-        if (!result)
-        {
-            var addAppointmentPage = new AddAppointmentPage();
-            await Navigation.PushModalAsync(addAppointmentPage);
-            var add = (AddAppointmentPage)Shell.Current.CurrentPage;
-            add.entryEndTime.Text = temp.ToString("F");
-            add.pickerDateTime2.SelectedDate = temp;
-            // Handle the closing event of the AddAppointmentPage
-            addAppointmentPage.Disappearing += OnAddAppointmentPageDisappearing;
-        }
+        
+        var addAppointmentPage = new AddAppointmentPage();
+        await Navigation.PushModalAsync(addAppointmentPage);
+        var add = (AddAppointmentPage)Shell.Current.CurrentPage;
+        add.entryEndTime.Text = temp.ToString("F");
+        add.pickerDateTime2.SelectedDate = temp;
+        // Handle the closing event of the AddAppointmentPage
+        addAppointmentPage.Disappearing += OnAddAppointmentPageDisappearing;
+        
 
     }
     private void OnAddAppointmentPageDisappearing(object sender, EventArgs e)
