@@ -134,7 +134,306 @@
                            Text="18:00 PM"
                                />
                 </HorizontalStackLayout>
+                
+                
             </Grid>
+
+
+            <Label TextColor="SkyBlue" Text="Today" Margin="20,0,0,0"/>
+
+            <ScrollView Margin="20,20,0,0">
+                <HorizontalStackLayout Spacing="30">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+                               HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+                                   Text="o"
+                                   VerticalOptions="Start"
+                                   VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+                    HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+                        Text="o"
+                        VerticalOptions="Start"
+                        VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+    Text="o"
+    VerticalOptions="Start"
+    VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+    Text="o"
+    VerticalOptions="Start"
+    VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+    Text="o"
+    VerticalOptions="Start"
+    VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+    Text="o"
+    VerticalOptions="Start"
+    VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+    Text="o"
+    VerticalOptions="Start"
+    VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+    Text="o"
+    VerticalOptions="Start"
+    VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+    Text="o"
+    VerticalOptions="Start"
+    VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+    Text="o"
+    VerticalOptions="Start"
+    VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+    Text="o"
+    VerticalOptions="Start"
+    VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+                    HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+                        Text="o"
+                        VerticalOptions="Start"
+                        VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+    Text="o"
+    VerticalOptions="Start"
+    VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+    Text="o"
+    VerticalOptions="Start"
+    VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="10:00"/>
+                        <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+HorizontalOptions="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Label Text="25"/>
+                            <Label FontSize="8"
+    Text="o"
+    VerticalOptions="Start"
+    VerticalTextAlignment="Start"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+                </HorizontalStackLayout>
+            </ScrollView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
