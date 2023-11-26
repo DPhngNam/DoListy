@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DoListy.Pages.PomodoroPage"
-             Title="">
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    Title="">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="pomoFgColor">#0197F6</Color>
@@ -21,20 +22,76 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid ColumnDefinitions="2*,*" RowDefinitions="1*,5*,1*" BackgroundColor="{StaticResource pomoBgColor}">
+    <Grid ColumnDefinitions="2*,*" RowDefinitions="1*,4*,1*" BackgroundColor="{StaticResource pomoBgColor}" Padding="10,10,15,80">
         <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" Text="FOCUSING" Style="{StaticResource pomoStateLabelStyle}"/> 
-         <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="Transparent" BorderColor="{StaticResource pomoFgColor}" CornerRadius="20" Margin="10,10,15,10">
-            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,*,*,*,*,2*">
-                <Label Grid.Row="0" Grid.Column="0" Text="Timer Settings" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource pomoTextColor}"/>
-                <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="1" Margin="3,10,3,15" Color="{StaticResource pomoFgColor}" BackgroundColor="{StaticResource pomoFgColor}"/>
+         <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="Transparent"
+                BorderColor="{StaticResource pomoFgColor}"
+                CornerRadius="20" Margin="10,10,0,10"
+                HeightRequest="350">
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,0.1*,*,*,*,*,2*" RowSpacing="10">
+                <Label Grid.Row="0" Grid.Column="0" Text="Timer Settings" Margin="3,0,3,0" Padding="0,0,0,0" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource pomoTextColor}"/>
+                <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" HeightRequest="1" Margin="3,0,3,0" Color="{StaticResource pomoFgColor}" BackgroundColor="{StaticResource pomoFgColor}"/>
                 <Label Grid.Row="2" Grid.Column="0" Text="Pomodoro Length" Style="{StaticResource pomoSettingsLabelStyle}"/>
                 <Label Grid.Row="3" Grid.Column="0" Text="Short Break Length" Style="{StaticResource pomoSettingsLabelStyle}"/>
                 <Label Grid.Row="4" Grid.Column="0" Text="Long Break Length" Style="{StaticResource pomoSettingsLabelStyle}"/>
                 <Label Grid.Row="5" Grid.Column="0" Text="Long Break After" Style="{StaticResource pomoSettingsLabelStyle}"/>
+                <editors:SfNumericEntry IsEditable="False" Grid.Row="2" Grid.Column="1" BackgroundColor="Transparent" TextColor="{StaticResource pomoTextColor}"
+                                        CustomFormat="0 mins"
+                                        AllowNull="False" Minimum="0" Maximum="200"
+                                        UpDownPlacementMode="Inline"
+                                        SmallChange="5"
+                                        HeightRequest="20"
+                                        VerticalOptions="Start"
+                                        />
+                <editors:SfNumericEntry IsEditable="False" Grid.Row="3" Grid.Column="1" BackgroundColor="Transparent" TextColor="{StaticResource pomoTextColor}"
+                                        CustomFormat="0 mins"
+                                        AllowNull="False" Minimum="0" Maximum="200"
+                                        UpDownPlacementMode="Inline"
+                                        SmallChange="5"
+                                        HeightRequest="20"
+                                        VerticalOptions="Start"
+                                        />
+                <editors:SfNumericEntry IsEditable="False" Grid.Row="4" Grid.Column="1" BackgroundColor="Transparent" TextColor="{StaticResource pomoTextColor}"
+                                        CustomFormat="0 mins"
+                                        AllowNull="False" Minimum="0" Maximum="200"
+                                        UpDownPlacementMode="Inline"
+                                        SmallChange="5"
+                                        HeightRequest="20"
+                                        VerticalOptions="Start"
+                                        />
+                <editors:SfNumericEntry IsEditable="False" Grid.Row="5" Grid.Column="1" BackgroundColor="Transparent" TextColor="{StaticResource pomoTextColor}"
+                                        CustomFormat="0 Pomos"
+                                        AllowNull="False" Minimum="0" Maximum="50"
+                                        UpDownPlacementMode="Inline"
+                                        SmallChange="1"
+                                        HeightRequest="20"
+                                        VerticalOptions="Start"
+                                        />
 
+
+                <Button Grid.Row="6" Grid.Column="0" Text="Cancel"
+                        BackgroundColor="Transparent"
+                        BorderColor="#0197F6"
+                        HeightRequest="25"
+                        WidthRequest="140"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start"
+                        CornerRadius="20"/>
+                <Button Grid.Row="6" Grid.Column="1" Text="Apply"
+                        BackgroundColor="{StaticResource pomoFgColor}"
+                        HeightRequest="25"
+                        CornerRadius="20"
+                        HorizontalOptions="End"
+                        VerticalOptions="Start"
+                        WidthRequest="140"/>
+                
             </Grid>
         </Frame>
-            
-         
+        <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="*"  Grid.Row="2" Grid.Column="0" >
+            <ImageButton Grid.Column="1" Grid.Row="0" Source="playicon.png"
+                         BackgroundColor="Transparent"
+                         VerticalOptions="Start"/>
+        </Grid>
+
     </Grid> 
 </ContentPage>
