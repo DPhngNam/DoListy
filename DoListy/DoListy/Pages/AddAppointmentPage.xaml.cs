@@ -1,3 +1,5 @@
+using DoListy.ViewModel;
+
 namespace DoListy.Pages;
 
 public partial class AddAppointmentPage : ContentPage
@@ -11,12 +13,12 @@ public partial class AddAppointmentPage : ContentPage
         ColorEntry.ItemsSource = Colors;
 	}
 
-    private async void buttonCancle_Clicked(object sender, EventArgs e)
+    private void buttonCancle_Clicked(object sender, EventArgs e)
     {
-		await Navigation.PopModalAsync();
+        Shell.Current.GoToAsync("..");
     }
 
-    private async void buttonCreate_Clicked(object sender, EventArgs e)
+    private  void buttonCreate_Clicked(object sender, EventArgs e)
     {
         Brush temp = Brush.Blue;
         if (ColorEntry.SelectedItem != null)
@@ -43,29 +45,33 @@ public partial class AddAppointmentPage : ContentPage
 
         if (Freg.SelectedItem == null || Freg.SelectedItem.ToString() == "NONE")
         {
-            ControlViewModel.ControlViewModel.AddAppointment(new ViewModel.Appointment
+            Appointment appointment = new Appointment()
             {
+                Id = ViewModel.Appointment.count++,
                 Name = entrySubject.Text,
                 EventStart = pickerDateTime1.SelectedDate,
                 EventEnd = pickerDateTime2.SelectedDate,
                 Colorbg = temp,
-            });
+            };
+            ControlViewModel.ControlViewModel.AddAppointment(ref appointment);
         }
         else if(Interval.Text != null && Count.Text != null)
         {
-            ControlViewModel.ControlViewModel.AddAppointment(new ViewModel.Appointment
+            Appointment appointment = new Appointment()
             {
+                Id = ViewModel.Appointment.count++,
                 Name = entrySubject.Text,
                 EventStart = pickerDateTime1.SelectedDate,
                 EventEnd = pickerDateTime2.SelectedDate,
                 Colorbg = temp,
                 Recurrencerule = "FREQ=" + Freg.SelectedItem.ToString() + ";INTERVAL=" + Interval.Text + ";COUNT=" + Count.Text,
-            }); 
+            };
+            ControlViewModel.ControlViewModel.AddAppointment(ref appointment);
         }
         //Added by Phuong Nam
         Application.Current.MainPage.DisplayAlert("Success", "Created successfully", "OK");
         //Added by Phuong Nam
-        await Navigation.PopModalAsync();
+        Shell.Current.GoToAsync("..");
     }
 
     private void entryStartTime_Clicked(object sender, EventArgs e)

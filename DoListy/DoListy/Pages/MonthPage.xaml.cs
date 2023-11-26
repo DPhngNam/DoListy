@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using Appointment = DoListy.ViewModel.Appointment;
 using DoListy.ControlViewModel;
 using System.Xml;
+using CommunityToolkit.Maui.Core;
 
 namespace DoListy.Pages;
 public partial class MonthPage : ContentPage
@@ -25,7 +26,8 @@ public partial class MonthPage : ContentPage
 
     private async void buttonAddAppointment_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new AddAppointmentPage());
+        //await Navigation.PushModalAsync(new AddAppointmentPage());
+        await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
     }
 
     private void Scheduler_AppointmentDrop(object sender, Syncfusion.Maui.Scheduler.AppointmentDropEventArgs e)
@@ -55,7 +57,7 @@ public partial class MonthPage : ContentPage
 
         var reminderTime = startTime - e.Reminders[0].TimeBeforeStart;
 
-        if (currentTime >= reminderTime && currentTime < startTime && !e.Reminders[0].IsDismissed)
+        if (currentTime >= reminderTime && currentTime < startTime && !e.Reminders[0].IsDismissed)//xet thoi gia reminder toi luc chua va current time phai be hon start time
         {
             bool snooze = await DisplayAlert("Reminder", e.Reminders[0].Appointment.Subject + " - " + startTime.ToString(), "Snooze", "Dismiss");
 
@@ -82,9 +84,8 @@ public partial class MonthPage : ContentPage
         if(TasksList.SelectedItem != null)
         {
             int temp = ((Appointment)e.SelectedItem).Id;
-            await Navigation.PushModalAsync(new EditAppointmentPage(temp));
-            loadAppointments();
-            
+            await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)TasksList.SelectedItem).Id}");
+            TasksList.ItemsSource = null;
         }
     }
 

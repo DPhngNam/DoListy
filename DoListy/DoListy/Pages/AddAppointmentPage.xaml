@@ -31,7 +31,7 @@
         <Frame Padding="10,2,10,2">
             <HorizontalStackLayout >
                 <Label   Text="Start Time: " Style="{StaticResource labelPage}" ></Label>
-                <Button x:Name="entryStartTime" Text="Select DateTime" Clicked="entryStartTime_Clicked" HeightRequest="50"></Button>
+                <Button x:Name="entryStartTime" Text="Select DateTime" Clicked="entryStartTime_Clicked" HeightRequest="50" x:FieldModifier="public"></Button>
                 <picker:SfDateTimePicker x:Name="pickerDateTime1"
                                          HeightRequest="250" 
                                          DateFormat="dd_MM_yyyy"
@@ -43,6 +43,7 @@
                                          IsVisible="False"
                                          CancelButtonClicked="pickerDateTime1_CancelButtonClicked"
                                          OkButtonClicked="pickerDateTime1_OkButtonClicked"
+                                         x:FieldModifier="public"
                                          >
                     <picker:SfDateTimePicker.ColumnHeaderView>
                         <picker:DateTimePickerColumnHeaderView Background="#D3D3D3">
@@ -66,7 +67,7 @@
         <Frame Padding="10,2,10,2">
             <HorizontalStackLayout >
                 <Label   Text="End Time: " Style="{StaticResource labelPage}" ></Label>
-                <Button x:Name="entryEndTime" Text="Select DateTime" Clicked="entryEndTime_Clicked" HeightRequest="50"></Button>
+                <Button x:Name="entryEndTime" Text="Select DateTime" Clicked="entryEndTime_Clicked" HeightRequest="50" x:FieldModifier="public"></Button>
                 <picker:SfDateTimePicker x:Name="pickerDateTime2"
                          HeightRequest="250" 
                          DateFormat="dd_MM_yyyy"
@@ -78,6 +79,7 @@
                          IsVisible="False"
                          CancelButtonClicked="pickerDateTime2_CancelButtonClicked"
                          OkButtonClicked="pickerDateTime2_OkButtonClicked"
+                         x:FieldModifier="public"
                          >
                     <picker:SfDateTimePicker.ColumnHeaderView>
                         <picker:DateTimePickerColumnHeaderView Background="#D3D3D3">

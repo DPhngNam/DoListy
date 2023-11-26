@@ -1,29 +1,22 @@
-using Appointment = DoListy.ViewModel.Appointment;
-using ControlViewModel = DoListy.ControlViewModel;
-using CommunityToolkit.Maui.Views;
-using Microsoft.Maui.Controls;
-using Syncfusion.Maui.Scheduler;
 using System.Collections.ObjectModel;
-using CommunityToolkit.Maui.Extensions;
-
-
+using Appointment = DoListy.ViewModel.Appointment;
 
 namespace DoListy.Pages;
 public partial class DayPage : ContentPage
 {
     //Color for task inn frame A
     private Color transparentColor = Color.FromRgba(255, 255, 255, 0);
-    private Color whiteColor = Color.FromRgb(255, 255, 255); // White color
     private Color blackColor = Color.FromRgb(0, 0, 0);
+
+    //set the setting task's day is Now (for tempo)            
+    private DateTime temp = DateTime.Now;
+
     public DayPage()
     {
         InitializeComponent();
         AlwaysOnDisplay(DateTime.Now);
         SetIniDisplayDate();
-
-        
     }
-
 
     private void SetIniDisplayDate()
     {
@@ -51,15 +44,24 @@ public partial class DayPage : ContentPage
         sun.DisplayDate = mon.DisplayDate.AddDays(6);
     }
 
-
-
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new AddAppointmentPage());
-
         
-    }
+        
+        await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
+        var add = (AddAppointmentPage)Shell.Current.CurrentPage;
+        add.entryStartTime.Text = temp.ToString("F");
+        add.pickerDateTime1.SelectedDate = temp;
+        
+        add.Disappearing += OnAddAppointmentPageDisappearing;
+        
 
+    }
+    private void OnAddAppointmentPageDisappearing(object sender, EventArgs e)
+    {
+        RefreshCurrentFrame();
+        AlwaysOnDisplay(temp);
+    }
     private async Task AnimateFrames()
     {
         await frame_A.TranslateTo(-300, 0, 250, Easing.Linear);
@@ -85,6 +87,7 @@ public partial class DayPage : ContentPage
         frame_B.IsVisible = false;
 
     }
+
     private void LeftimaBut_Clicked(object sender, EventArgs e)
     {
         mon.DisplayDate = mon.DisplayDate.AddDays(-7);
@@ -154,25 +157,29 @@ public partial class DayPage : ContentPage
     }
     private void Butmon_Clicked(object sender, EventArgs e)
     {
-        
+        temp = this.mon.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(mon.DisplayDate);
+
     }
 
     private void Buttue_Clicked(object sender, EventArgs e)
     {
+        temp = this.tue.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(tue.DisplayDate);
     }
 
     private void Butwed_Clicked(object sender, EventArgs e)
-    {       
+    {
+        temp = this.wed.DisplayDate;
         RefreshCurrentFrame();
-        AlwaysOnDisplay(wed.DisplayDate);       
+        AlwaysOnDisplay(wed.DisplayDate);
     }
 
     private void Butthus_Clicked(object sender, EventArgs e)
     {
+        temp = this.thus.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(thus.DisplayDate);
 
@@ -180,13 +187,15 @@ public partial class DayPage : ContentPage
 
     private void Butfri_Clicked(object sender, EventArgs e)
     {
+        temp = this.fri.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(fri.DisplayDate);
 
     }
 
     private void Butsat_Clicked(object sender, EventArgs e)
-    {   
+    {
+        temp = this.sat.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(sat.DisplayDate);
 
@@ -194,6 +203,7 @@ public partial class DayPage : ContentPage
 
     private void Butsun_Clicked(object sender, EventArgs e)
     {
+        temp = this.sun.DisplayDate;
         RefreshCurrentFrame();
         AlwaysOnDisplay(sun.DisplayDate);
 

@@ -11,6 +11,7 @@ namespace DoListy.ViewModel
     [Table ("Appointment")]
     public class Appointment
     {
+        public static int count = 0;
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public DateTime EventStart { get; set; }
@@ -22,6 +23,5 @@ namespace DoListy.ViewModel
         public string Note { get; set;}
         public string State { get; set; }
         public ObservableCollection<Reminder> Reminders { get; set; }
-
     }
 }
