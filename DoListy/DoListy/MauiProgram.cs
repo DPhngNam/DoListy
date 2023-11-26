@@ -18,6 +18,7 @@ namespace DoListy
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("MaterialIcons-Regular.ttf", "IconFontTypes");
                 });
             string dbpath = Path.Combine(FileSystem.AppDataDirectory, "Appointment.db");
             builder.Services.AddSingleton<AppointmentRepository>(s =>
