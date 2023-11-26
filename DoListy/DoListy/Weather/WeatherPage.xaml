@@ -141,8 +141,8 @@
 
             <Label TextColor="SkyBlue" Text="Today" Margin="20,0,0,0"/>
 
-            <ScrollView Margin="20,20,0,0">
-                <HorizontalStackLayout Spacing="30">
+            <ScrollView Margin="20,20,0,0" HeightRequest="175">
+                <HorizontalStackLayout Spacing="20">
                     <VerticalStackLayout Spacing="5">
                         <Label Text="10:00"/>
                         <Image Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
@@ -431,9 +431,194 @@ HorizontalOptions="Center"/>
     VerticalTextAlignment="Start"/>
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
-
                 </HorizontalStackLayout>
             </ScrollView>
+
+            <VerticalStackLayout Margin="20,0,0,0">
+                <AbsoluteLayout>
+                    <Label AbsoluteLayout.LayoutBounds="0,0.5"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"
+                           Text="Monday"/>
+                    <Image AbsoluteLayout.LayoutBounds="0.5,0.5"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"
+                           HeightRequest="32"
+                           HorizontalOptions="Center"
+                           Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+                           WidthRequest="32"/>
+                    <HorizontalStackLayout 
+                        AbsoluteLayout.LayoutBounds="0.75,0.5"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        HorizontalOptions="Center">
+
+                        <Label Text="25"/>
+                        <Label FontSize="8"
+                               Text="o"
+                               VerticalOptions="Start"
+                               VerticalTextAlignment="Start"/>
+                        
+
+                    </HorizontalStackLayout>
+
+
+                </AbsoluteLayout>
+                <AbsoluteLayout>
+                    <Label AbsoluteLayout.LayoutBounds="0,0.5"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           Text="Monday"/>
+                    <Image AbsoluteLayout.LayoutBounds="0.5,0.5"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           HeightRequest="32"
+           HorizontalOptions="Center"
+           Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           WidthRequest="32"/>
+                    <HorizontalStackLayout 
+        AbsoluteLayout.LayoutBounds="0.75,0.5"
+        AbsoluteLayout.LayoutFlags="PositionProportional"
+        HorizontalOptions="Center">
+
+                        <Label Text="25"/>
+                        <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+
+
+                    </HorizontalStackLayout>
+
+
+                </AbsoluteLayout>
+                <AbsoluteLayout>
+                    <Label AbsoluteLayout.LayoutBounds="0,0.5"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           Text="Monday"/>
+                    <Image AbsoluteLayout.LayoutBounds="0.5,0.5"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           HeightRequest="32"
+           HorizontalOptions="Center"
+           Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           WidthRequest="32"/>
+                    <HorizontalStackLayout 
+        AbsoluteLayout.LayoutBounds="0.75,0.5"
+        AbsoluteLayout.LayoutFlags="PositionProportional"
+        HorizontalOptions="Center">
+
+                        <Label Text="25"/>
+                        <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+
+
+                    </HorizontalStackLayout>
+
+
+                </AbsoluteLayout>
+                <AbsoluteLayout>
+                    <Label AbsoluteLayout.LayoutBounds="0,0.5"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           Text="Monday"/>
+                    <Image AbsoluteLayout.LayoutBounds="0.5,0.5"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           HeightRequest="32"
+           HorizontalOptions="Center"
+           Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           WidthRequest="32"/>
+                    <HorizontalStackLayout 
+        AbsoluteLayout.LayoutBounds="0.75,0.5"
+        AbsoluteLayout.LayoutFlags="PositionProportional"
+        HorizontalOptions="Center">
+
+                        <Label Text="25"/>
+                        <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+
+
+                    </HorizontalStackLayout>
+
+
+                </AbsoluteLayout>
+                <AbsoluteLayout>
+                    <Label AbsoluteLayout.LayoutBounds="0,0.5"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           Text="Monday"/>
+                    <Image AbsoluteLayout.LayoutBounds="0.5,0.5"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           HeightRequest="32"
+           HorizontalOptions="Center"
+           Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           WidthRequest="32"/>
+                    <HorizontalStackLayout 
+        AbsoluteLayout.LayoutBounds="0.75,0.5"
+        AbsoluteLayout.LayoutFlags="PositionProportional"
+        HorizontalOptions="Center">
+
+                        <Label Text="25"/>
+                        <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+
+
+                    </HorizontalStackLayout>
+
+
+                </AbsoluteLayout>
+                <AbsoluteLayout>
+                    <Label AbsoluteLayout.LayoutBounds="0,0.5"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           Text="Monday"/>
+                    <Image AbsoluteLayout.LayoutBounds="0.5,0.5"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           HeightRequest="32"
+           HorizontalOptions="Center"
+           Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           WidthRequest="32"/>
+                    <HorizontalStackLayout 
+        AbsoluteLayout.LayoutBounds="0.75,0.5"
+        AbsoluteLayout.LayoutFlags="PositionProportional"
+        HorizontalOptions="Center">
+
+                        <Label Text="25"/>
+                        <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+
+
+                    </HorizontalStackLayout>
+
+
+                </AbsoluteLayout>
+                <AbsoluteLayout>
+                    <Label AbsoluteLayout.LayoutBounds="0,0.5"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           Text="Monday"/>
+                    <Image AbsoluteLayout.LayoutBounds="0.5,0.5"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           HeightRequest="32"
+           HorizontalOptions="Center"
+           Source="https://cdn.weatherapi.com/weather/64x64/day/116.png"
+           WidthRequest="32"/>
+                    <HorizontalStackLayout 
+        AbsoluteLayout.LayoutBounds="0.75,0.5"
+        AbsoluteLayout.LayoutFlags="PositionProportional"
+        HorizontalOptions="Center">
+
+                        <Label Text="25"/>
+                        <Label FontSize="8"
+               Text="o"
+               VerticalOptions="Start"
+               VerticalTextAlignment="Start"/>
+
+
+                    </HorizontalStackLayout>
+
+
+                </AbsoluteLayout>
+                
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
