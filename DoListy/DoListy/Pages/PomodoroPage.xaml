@@ -2,11 +2,39 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DoListy.Pages.PomodoroPage"
-             Title="PomodoroPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="pomoFgColor">#0197F6</Color>
+            <Color x:Key="pomoBgColor">#000509</Color>
+            <Color x:Key="pomoTextColor">#DCD6F7</Color>
+            <Style x:Key="pomoStateLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="TextColor" Value="{StaticResource pomoTextColor}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                
+            </Style>
+            <Style x:Key="pomoSettingsLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="TextColor" Value="{StaticResource pomoTextColor}"/>
+                
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid ColumnDefinitions="2*,*" RowDefinitions="1*,5*,1*" BackgroundColor="{StaticResource pomoBgColor}">
+        <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" Text="FOCUSING" Style="{StaticResource pomoStateLabelStyle}"/> 
+         <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="Transparent" BorderColor="{StaticResource pomoFgColor}" CornerRadius="20" Margin="10,10,15,10">
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,*,*,*,*,2*">
+                <Label Grid.Row="0" Grid.Column="0" Text="Timer Settings" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource pomoTextColor}"/>
+                <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="1" Margin="3,10,3,15" Color="{StaticResource pomoFgColor}" BackgroundColor="{StaticResource pomoFgColor}"/>
+                <Label Grid.Row="2" Grid.Column="0" Text="Pomodoro Length" Style="{StaticResource pomoSettingsLabelStyle}"/>
+                <Label Grid.Row="3" Grid.Column="0" Text="Short Break Length" Style="{StaticResource pomoSettingsLabelStyle}"/>
+                <Label Grid.Row="4" Grid.Column="0" Text="Long Break Length" Style="{StaticResource pomoSettingsLabelStyle}"/>
+                <Label Grid.Row="5" Grid.Column="0" Text="Long Break After" Style="{StaticResource pomoSettingsLabelStyle}"/>
+
+            </Grid>
+        </Frame>
+            
+         
+    </Grid> 
 </ContentPage>
