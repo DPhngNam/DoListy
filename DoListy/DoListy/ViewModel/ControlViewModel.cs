@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using DoListy.Database;
 
 namespace DoListy.ControlViewModel
 {
     public class ControlViewModel
     {
 
-        public static List<Appointment> AppointmentsList = new List<Appointment>()
-        {
+        public static  List<Appointment> AppointmentsList = new List<Appointment> ();
+
+
+
             //new Appointment
             //{
             //        Name = "AAAA",
@@ -37,10 +40,16 @@ namespace DoListy.ControlViewModel
             //            TimeBeforeStart = new TimeSpan(0,12,0)
             //        } }
             //}
-        };
+    
 
 
-        public static List<Appointment> GetAppointments() => AppointmentsList;
+        public static  List<Appointment> GetAppointments()
+        {
+            //List<Appointment> AppointmentsList = await App.appointmentRepo.GetAll();
+            return AppointmentsList;
+
+        } 
+            
         public static Appointment GetAppointmentByID(int AppointmentID)
         {
             return AppointmentsList.FirstOrDefault(x => x.Id == AppointmentID);
@@ -64,4 +73,5 @@ namespace DoListy.ControlViewModel
         }
 
     }
+
 }
