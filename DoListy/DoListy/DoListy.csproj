@@ -60,6 +60,7 @@
 		<PackageReference Include="Syncfusion.Maui.Calendar" Version="23.1.41" />
 		<PackageReference Include="Syncfusion.Maui.Inputs" Version="23.1.44" />
 		<PackageReference Include="Syncfusion.Maui.Picker" Version="23.1.44" />
+		<PackageReference Include="Syncfusion.Maui.ProgressBar" Version="23.2.5" />
 		<PackageReference Include="Syncfusion.Maui.Scheduler" Version="23.1.41" />
 		<PackageReference Include="XCalendar.Maui" Version="4.5.2" />
 	</ItemGroup>
