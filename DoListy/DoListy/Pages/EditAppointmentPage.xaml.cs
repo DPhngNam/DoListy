@@ -7,7 +7,7 @@ namespace DoListy.Pages;
 
 public partial class EditAppointmentPage : ContentPage
 {
-    Brush temp;
+    String temp;
     Appointment appointment = new Appointment();
     List<string> freqs = new List<string>() { "DAILY", "WEEKLY", "MONTHLY", "YEARLY", "NONE" };
     List<string> Colors = new List<string>() { "Blue", "Red", "Green", "Orange", "Purple" };
@@ -18,7 +18,7 @@ public partial class EditAppointmentPage : ContentPage
         appointment = await App.appointmentRepo.GetAppointmentByID(num);
         if (appointment != null)
         {
-            temp = appointment.Colorbg;
+            //temp = appointment.Colorbg;
             editSubject.Text = appointment.Name;
             pickerDateTime1.SelectedDate = appointment.EventStart;
             eidtStartTime.Text = appointment.EventStart.ToString();
@@ -82,24 +82,24 @@ public partial class EditAppointmentPage : ContentPage
     {
         if(ColorEdit.SelectedItem != null)
         {
-            switch(ColorEdit.SelectedItem.ToString()) 
-            {
-                case "Blue":
-                    temp = Brush.Blue;
-                    break;
-                case "Orange":
-                    temp = Brush.Orange;
-                    break;
-                case "Green":
-                    temp = Brush.Green;
-                    break;
-                case "Red":
-                    temp = Brush.Red;
-                    break;
-                case "Purple":
-                    temp = Brush.Purple;
-                    break;
-            }
+            //switch(ColorEdit.SelectedItem.ToString()) 
+            //{
+            //    case "Blue":
+            //        temp = Brush.Blue;
+            //        break;
+            //    case "Orange":
+            //        temp = Brush.Orange;
+            //        break;
+            //    case "Green":
+            //        temp = Brush.Green;
+            //        break;
+            //    case "Red":
+            //        temp = Brush.Red;
+            //        break;
+            //    case "Purple":
+            //        temp = Brush.Purple;
+            //        break;
+            //}
         }    
 
         if (FreqEdit.SelectedItem == null) // xu li cho Freq khong co

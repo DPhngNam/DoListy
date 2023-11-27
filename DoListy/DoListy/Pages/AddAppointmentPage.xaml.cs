@@ -20,28 +20,28 @@ public partial class AddAppointmentPage : ContentPage
 
     private async void buttonCreate_Clicked(object sender, EventArgs e)
     {
-        Brush temp = Brush.Blue;
-        if (ColorEntry.SelectedItem != null)
-        {
-            switch (ColorEntry.SelectedItem.ToString())
-            {
-                case "Blue":
-                    temp = Brush.Blue;
-                    break;
-                case "Orange":
-                    temp = Brush.Orange;
-                    break;
-                case "Green":
-                    temp = Brush.Green;
-                    break;
-                case "Red":
-                    temp = Brush.Red;
-                    break;
-                case "Purple":
-                    temp = Brush.Purple;
-                    break;
-            }
-        }
+        //Brush temp = Brush.Blue;
+        //if (ColorEntry.SelectedItem != null)
+        //{
+        //    switch (ColorEntry.SelectedItem.ToString())
+        //    {
+        //        case "Blue":
+        //            temp = Brush.Blue;
+        //            break;
+        //        case "Orange":
+        //            temp = Brush.Orange;
+        //            break;
+        //        case "Green":
+        //            temp = Brush.Green;
+        //            break;
+        //        case "Red":
+        //            temp = Brush.Red;
+        //            break;
+        //        case "Purple":
+        //            temp = Brush.Purple;
+        //            break;
+        //    }
+        //}
 
         if (Freg.SelectedItem == null || Freg.SelectedItem.ToString() == "NONE")
         {
@@ -50,7 +50,7 @@ public partial class AddAppointmentPage : ContentPage
                 Name = entrySubject.Text,
                 EventStart = pickerDateTime1.SelectedDate,
                 EventEnd = pickerDateTime2.SelectedDate,
-                Colorbg = temp,
+                //Colorbg = ColorEntry.SelectedItem.ToString(),
             };
             await App.appointmentRepo.AddAppointment(appointment);
         }
@@ -61,7 +61,7 @@ public partial class AddAppointmentPage : ContentPage
                 Name = entrySubject.Text,
                 EventStart = pickerDateTime1.SelectedDate,
                 EventEnd = pickerDateTime2.SelectedDate,
-                Colorbg = temp,
+                //Colorbg = ColorEntry.SelectedItem.ToString(),
                 Recurrencerule = "FREQ=" + Freg.SelectedItem.ToString() + ";INTERVAL=" + Interval.Text + ";COUNT=" + Count.Text,
             };
             await App.appointmentRepo.AddAppointment(appointment);

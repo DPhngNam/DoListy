@@ -16,12 +16,11 @@ namespace DoListy.ViewModel
         public int Id { get; set; }
         public DateTime EventStart { get; set; }
         public DateTime EventEnd { get; set; }
-        [Unique]
         public string Name { get; set; }
-        public Color Colorbg { get; set; }
+        //public string Colorbg { get; set; }
         public string Recurrencerule { get; set; }
         public string Note { get; set;}
         public string State { get; set; }
-        public ObservableCollection<Reminder> Reminders { get; set; }
+        //public ObservableCollection<Reminder> Reminders { get; set; }
     }
 }
