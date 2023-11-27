@@ -18,9 +18,9 @@ public partial class MonthPage : ContentPage
         base.OnAppearing();
         loadAppointments();
     }
-    public void loadAppointments()
+    public async void loadAppointments()
     {
-        var AppointmentEvents = new ObservableCollection<Appointment>(ControlViewModel.ControlViewModel.GetAppointments());
+        var AppointmentEvents = new ObservableCollection<Appointment>(await App.appointmentRepo.GetAppointments());
         Scheduler.AppointmentsSource = AppointmentEvents;
     }
 

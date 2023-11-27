@@ -11,21 +11,19 @@ namespace DoListy.Pages;
 
 public partial class WeekPage : ContentPage
 {
-	public WeekPage()
-	{
-		InitializeComponent();
-  
-	}
-    
+    public WeekPage()
+    {
+        InitializeComponent();
 
+    }
     protected override void OnAppearing()
     {
         base.OnAppearing();
         loadAppointments();
     }
-    public void loadAppointments()
+    public async void loadAppointments()
     {
-        var AppointmentEvents = new ObservableCollection<Appointment>(ControlViewModel.ControlViewModel.GetAppointments());
+        var AppointmentEvents = new ObservableCollection<Appointment>(await App.appointmentRepo.GetAppointments());
         WeekPageScheduler.AppointmentsSource = AppointmentEvents;
     }
 
@@ -41,15 +39,14 @@ public partial class WeekPage : ContentPage
     {
         await Shell.Current.GoToAsync("//Day");
         var daypage = (DayPage)Shell.Current.CurrentPage;
-    }
-
+    } 
 
     private void TaskList_ChildAdded(object sender, ElementEventArgs e)
     {
         throw new NotImplementedException();
     }
 
-    private void WeekPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
+    private async void WeekPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
     {
         if (e.Element is SchedulerElement.ViewHeader)
         {
@@ -59,7 +56,7 @@ public partial class WeekPage : ContentPage
             //Tasklist.ItemsSource = e.Appointments;
             //loadAppointments();
 
-            var CurrentAppointment = new ObservableCollection<Appointment>(ControlViewModel.ControlViewModel.GetAppointments());
+            var CurrentAppointment = new ObservableCollection<Appointment>(await App.appointmentRepo.GetAppointments());
             List<Appointment> appointmennts = new List<Appointment>();
         
             foreach (Appointment app in CurrentAppointment)

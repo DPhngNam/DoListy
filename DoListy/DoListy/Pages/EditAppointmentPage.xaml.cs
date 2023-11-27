@@ -1,4 +1,4 @@
-using DoListy.ViewModel;
+﻿using DoListy.ViewModel;
 using Syncfusion.Maui.ListView;
 
 namespace DoListy.Pages;
@@ -8,26 +8,30 @@ namespace DoListy.Pages;
 public partial class EditAppointmentPage : ContentPage
 {
     Brush temp;
-    ViewModel.Appointment AddedAppointment = new Appointment();
     Appointment appointment = new Appointment();
     List<string> freqs = new List<string>() { "DAILY", "WEEKLY", "MONTHLY", "YEARLY", "NONE" };
     List<string> Colors = new List<string>() { "Blue", "Red", "Green", "Orange", "Purple" };
+
+    public async Task SetIDAsync(string value)
+    {
+        int num = Convert.ToInt32(value);
+        appointment = await App.appointmentRepo.GetAppointmentByID(num);
+        if (appointment != null)
+        {
+            temp = appointment.Colorbg;
+            editSubject.Text = appointment.Name;
+            pickerDateTime1.SelectedDate = appointment.EventStart;
+            eidtStartTime.Text = appointment.EventStart.ToString();
+            pickerDateTime2.SelectedDate = appointment.EventEnd;
+            editEndTime.Text = appointment.EventEnd.ToString();
+        }
+    }
 
     public string ID
     {
         set
         {
-            appointment = ControlViewModel.ControlViewModel.GetAppointmentByID(int.Parse(value));
-            if (appointment != null)
-            {
-                temp = appointment.Colorbg;
-                AddedAppointment.Id = appointment.Id;
-                editSubject.Text = appointment.Name;
-                pickerDateTime1.SelectedDate = appointment.EventStart;
-                eidtStartTime.Text = appointment.EventStart.ToString();
-                pickerDateTime2.SelectedDate = appointment.EventEnd;
-                editEndTime.Text = appointment.EventEnd.ToString();
-            }
+            SetIDAsync(value).Wait(); // Sử dụng Wait để đợi cho phương thức SetIDAsync hoàn thành
         }
     }
     public EditAppointmentPage()
@@ -74,7 +78,7 @@ public partial class EditAppointmentPage : ContentPage
         Shell.Current.GoToAsync("..");
     }
 
-    private void buttonSave_Clicked(object sender, EventArgs e)
+    private async void buttonSave_Clicked(object sender, EventArgs e)
     {
         if(ColorEdit.SelectedItem != null)
         {
@@ -101,20 +105,20 @@ public partial class EditAppointmentPage : ContentPage
         if (FreqEdit.SelectedItem == null) // xu li cho Freq khong co
         {
 
-            AddedAppointment.Name = editSubject.Text;
-            AddedAppointment.EventStart = pickerDateTime1.SelectedDate;
-            AddedAppointment.EventEnd  = pickerDateTime2.SelectedDate;
+            appointment.Name = editSubject.Text;
+            appointment.EventStart = pickerDateTime1.SelectedDate;
+            appointment.EventEnd  = pickerDateTime2.SelectedDate;
         }
         else if(CountEdit.Text != null && IntervalEdit.Text != null)
         {
-            AddedAppointment.Name = editSubject.Text;
-            AddedAppointment.EventStart = pickerDateTime1.SelectedDate;
-            AddedAppointment.EventEnd = pickerDateTime2.SelectedDate;
-            AddedAppointment.Recurrencerule = "FREQ=" + FreqEdit.SelectedItem.ToString() + ";INTERVAL=" + IntervalEdit.Text + ";COUNT=" + CountEdit.Text;
+            appointment.Name = editSubject.Text;
+            appointment.EventStart = pickerDateTime1.SelectedDate;
+            appointment.EventEnd = pickerDateTime2.SelectedDate;
+            appointment.Recurrencerule = "FREQ=" + FreqEdit.SelectedItem.ToString() + ";INTERVAL=" + IntervalEdit.Text + ";COUNT=" + CountEdit.Text;
         }
-        ControlViewModel.ControlViewModel.Update(AddedAppointment.Id, AddedAppointment);
+        await App.appointmentRepo.Update(appointment);
         
-        Application.Current.MainPage.DisplayAlert("Success", "Save successfully", "OK");
+        await Application.Current.MainPage.DisplayAlert("Success", "Save successfully", "OK");
         Shell.Current.GoToAsync("..");
     }
 }

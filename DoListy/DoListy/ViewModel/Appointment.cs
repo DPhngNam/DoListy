@@ -18,7 +18,7 @@ namespace DoListy.ViewModel
         public DateTime EventEnd { get; set; }
         [Unique]
         public string Name { get; set; }
-        public Brush Colorbg { get; set; }
+        public Color Colorbg { get; set; }
         public string Recurrencerule { get; set; }
         public string Note { get; set;}
         public string State { get; set; }

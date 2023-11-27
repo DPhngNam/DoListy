@@ -13,6 +13,7 @@ namespace DoListy.ControlViewModel
 {
     public class ControlViewModel
     {
+<<<<<<< Updated upstream
 
         public static  List<Appointment> AppointmentsList = new List<Appointment> ();
 
@@ -44,34 +45,53 @@ namespace DoListy.ControlViewModel
 
 
         public static  List<Appointment> GetAppointments()
+=======
+        string _dbpath;
+        private SQLiteAsyncConnection conn;
+        public ControlViewModel(string dbpath)
         {
-            //List<Appointment> AppointmentsList = await App.appointmentRepo.GetAll();
-            return AppointmentsList;
-
-        } 
-            
-        public static Appointment GetAppointmentByID(int AppointmentID)
+            _dbpath = dbpath;
+        }
+        private async Task Init()
+>>>>>>> Stashed changes
         {
-            return AppointmentsList.FirstOrDefault(x => x.Id == AppointmentID);
+            if (conn != null)
+                return;
+            conn = new SQLiteAsyncConnection(_dbpath);
+            await conn.CreateTableAsync<Appointment>();
+        }
+        public async Task<List<Appointment>> GetAppointments()
+        {
+            await Init();
+            return await conn.Table<Appointment>().ToListAsync();
+        }
+        public async Task AddAppointment(Appointment app)
+        {
+            await Init();
+            int result = 0;
+            await Init();
+            result = await conn.InsertAsync(new Appointment());
+        }
+        public async Task DeleteAppointment(int id)
+        {
+            await Init();
+            await conn.DeleteAsync(new { ID = id });
+        }
+        public async Task<Appointment> GetAppointmentByID(int AppointmentID)
+        {
+            await Init();
+            var temp = from u in conn.Table<Appointment>()
+                       where u.Id == AppointmentID
+                       select u;
+            return await temp.FirstOrDefaultAsync();
         }
 
-        public static void Update(int Id, Appointment appointment)
+        public async Task Update(Appointment appointment)
         {
-            if (Id != appointment.Id) return;
-            AppointmentsList.FirstOrDefault(x => x.Id ==  Id).Name = appointment.Name;
-            AppointmentsList.FirstOrDefault(x => x.Id == Id).EventStart = appointment.EventStart;
-            AppointmentsList.FirstOrDefault(x => x.Id == Id).EventEnd = appointment.EventEnd;
-            if (appointment.Recurrencerule != null)
-            {
-                AppointmentsList.FirstOrDefault(x => x.Id == Id).Recurrencerule = appointment.Recurrencerule;
-            }
+            await Init();
+            int result = 0;
+            result = await conn.UpdateAsync(appointment);
         }
-
-        public static void AddAppointment(ref Appointment temp)
-        {
-                AppointmentsList.Add(temp);
-        }
-
     }
 
 }
