@@ -25,29 +25,28 @@ namespace DoListy.ViewModel
                 string temp="";
                 switch (Colorbg)
                 {
-                    case "red":
+                    case "Red":
                        temp= "FF0000";
                        break;
-                    case "blue":
+                    case "Blue":
                         temp = "0000FF";
-                        break;
+                        break;  
                     default:
                         temp = "0000FF";
-                        break;
-                  
+                        break;  
                 }
 
                 return temp;
             }
-     
-        }
-             
-
-          
+             set {  }
+            
+    
+        }   
         public string Recurrencerule { get; set; }
         public string Note { get; set;}
         public string State { get; set; }
-        public ObservableCollection<Reminder> Reminders { get; set; }
-        
+
+     
     }
+    
 }

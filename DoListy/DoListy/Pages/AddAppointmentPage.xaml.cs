@@ -61,7 +61,7 @@ public partial class AddAppointmentPage : ContentPage
                 Name = entrySubject.Text,
                 EventStart = pickerDateTime1.SelectedDate,
                 EventEnd = pickerDateTime2.SelectedDate,
-                //Colorbg = ColorEntry.SelectedItem.ToString(),
+                Colorbg = ColorEntry.SelectedItem.ToString(),
                 Recurrencerule = "FREQ=" + Freg.SelectedItem.ToString() + ";INTERVAL=" + Interval.Text + ";COUNT=" + Count.Text,
             };
             await App.appointmentRepo.AddAppointment(appointment);
