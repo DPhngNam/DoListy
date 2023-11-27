@@ -8,6 +8,7 @@ using CommunityToolkit.Maui.Core;
 namespace DoListy.Pages;
 public partial class MonthPage : ContentPage
 {
+    public Brush ColorBG;
     private DateTime pickedDate = DateTime.Now;
 	public MonthPage()
 	{
@@ -18,9 +19,9 @@ public partial class MonthPage : ContentPage
         base.OnAppearing();
         loadAppointments();
     }
-    public async void loadAppointments()
+    public void loadAppointments()
     {
-        List<Appointment> appointments = await App.appointmentRepo.GetAppointments();
+        List<Appointment> appointments = App.appointmentRepo.GetAppointments();
         var AppointmentEvents = new ObservableCollection<Appointment>(appointments);
         Scheduler.AppointmentsSource = AppointmentEvents;
     }
@@ -76,7 +77,12 @@ public partial class MonthPage : ContentPage
 
     private void MenuItem_Clicked(object sender, EventArgs e)
     {
-        
+        if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
+        {
+            App.appointmentRepo.DeleteAppointment(appointment);
+            loadAppointments();
+            TasksList.ItemsSource = null;
+        }
     }
     
     private async void TasksList_ItemSelected(object sender, SelectedItemChangedEventArgs e)

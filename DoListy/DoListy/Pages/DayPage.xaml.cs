@@ -110,10 +110,10 @@ public partial class DayPage : ContentPage
         sun.DisplayDate = sun.DisplayDate.AddDays(7);
     }
 
-    private async void AlwaysOnDisplay(DateTime currentDate)
+    private void AlwaysOnDisplay(DateTime currentDate)
     {
         TaskDailyStack.Clear();
-        List<Appointment> appointmentsForDate = new ObservableCollection<Appointment>(await App.appointmentRepo.GetAppointments())
+        List<Appointment> appointmentsForDate = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments())
             .Where(app => app.EventStart.Date == currentDate.Date)
             .ToList();
 

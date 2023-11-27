@@ -21,9 +21,9 @@ public partial class WeekPage : ContentPage
         base.OnAppearing();
         loadAppointments();
     }
-    public async void loadAppointments()
+    public void loadAppointments()
     {
-        var AppointmentEvents = new ObservableCollection<Appointment>(await App.appointmentRepo.GetAppointments());
+        var AppointmentEvents = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
         WeekPageScheduler.AppointmentsSource = AppointmentEvents;
     }
 
@@ -46,7 +46,7 @@ public partial class WeekPage : ContentPage
         throw new NotImplementedException();
     }
 
-    private async void WeekPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
+    private void WeekPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
     {
         if (e.Element is SchedulerElement.ViewHeader)
         {
@@ -56,7 +56,7 @@ public partial class WeekPage : ContentPage
             //Tasklist.ItemsSource = e.Appointments;
             //loadAppointments();
 
-            var CurrentAppointment = new ObservableCollection<Appointment>(await App.appointmentRepo.GetAppointments());
+            var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
             List<Appointment> appointmennts = new List<Appointment>();
         
             foreach (Appointment app in CurrentAppointment)
@@ -85,5 +85,15 @@ public partial class WeekPage : ContentPage
     {
         Tasklist.SelectedItem = null;
 
+    }
+
+    private void MenuItem_Clicked(object sender, EventArgs e)
+    {
+        if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
+        {
+            App.appointmentRepo.DeleteAppointment(appointment);
+            loadAppointments();
+            Tasklist.ItemsSource = null;
+        }
     }
 }

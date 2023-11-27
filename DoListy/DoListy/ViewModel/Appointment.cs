@@ -19,34 +19,10 @@ namespace DoListy.ViewModel
         [Unique]
         public string Name { get; set; }
 
-        public string Colorbg {
-            get
-            {
-                string temp="";
-                switch (Colorbg)
-                {
-                    case "Red":
-                       temp= "FF0000";
-                       break;
-                    case "Blue":
-                        temp = "0000FF";
-                        break;  
-                    default:
-                        temp = "0000FF";
-                        break;  
-                }
-
-                return temp;
-            }
-             set {  }
-            
-    
-        }   
+        public string Colorbg { get; set; }
         public string Recurrencerule { get; set; }
         public string Note { get; set;}
         public string State { get; set; }
-
-     
     }
     
 }

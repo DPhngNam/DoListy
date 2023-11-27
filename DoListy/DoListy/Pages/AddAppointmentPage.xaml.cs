@@ -18,7 +18,7 @@ public partial class AddAppointmentPage : ContentPage
         Shell.Current.GoToAsync("..");
     }
 
-    private async void buttonCreate_Clicked(object sender, EventArgs e)
+    private void buttonCreate_Clicked(object sender, EventArgs e)
     {
         //Brush temp = Brush.Blue;
         //if (ColorEntry.SelectedItem != null)
@@ -52,7 +52,7 @@ public partial class AddAppointmentPage : ContentPage
                 EventEnd = pickerDateTime2.SelectedDate,
                 //Colorbg = ColorEntry.SelectedItem.ToString(),
             };
-            await App.appointmentRepo.AddAppointment(appointment);
+            App.appointmentRepo.AddAppointment(appointment);
         }
         else if(Interval.Text != null && Count.Text != null)
         {
@@ -64,10 +64,10 @@ public partial class AddAppointmentPage : ContentPage
                 Colorbg = ColorEntry.SelectedItem.ToString(),
                 Recurrencerule = "FREQ=" + Freg.SelectedItem.ToString() + ";INTERVAL=" + Interval.Text + ";COUNT=" + Count.Text,
             };
-            await App.appointmentRepo.AddAppointment(appointment);
+            App.appointmentRepo.AddAppointment(appointment);
         }
         //Added by Phuong Nam
-        await Application.Current.MainPage.DisplayAlert("Success", "Created successfully", "OK");
+        Application.Current.MainPage.DisplayAlert("Success", "Created successfully", "OK");
         //Added by Phuong Nam
         Shell.Current.GoToAsync("..");
     }

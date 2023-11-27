@@ -6,49 +6,48 @@ namespace DoListy.Database
    public class AppointmentRepository
     {
         string _dbpath;
-        static SQLiteAsyncConnection conn;
+        static SQLiteConnection conn;
         public AppointmentRepository(string dbpath)
         {
             _dbpath = dbpath;
         }
-        private async Task Init()
+        private void Init()
         {
             if (conn != null)
                 return;
-            conn = new SQLiteAsyncConnection(_dbpath);
-            await conn.CreateTableAsync<Appointment>();
+            conn = new SQLiteConnection(_dbpath);
+             conn.CreateTable<Appointment>();
         
         }
-        public async Task<List<Appointment>> GetAppointments()
+        public List<Appointment> GetAppointments()
         {
-            await Init();
-            return await conn.Table<Appointment>().ToListAsync();
+            Init();
+            return conn.Table<Appointment>().ToList();
         }
-        public async Task AddAppointment(Appointment app)
+        public void AddAppointment(Appointment app)
         {
             int result = 0;
-            await Init();
-            result = await conn.InsertAsync(app);   
+            Init();
+            result = conn.Insert(app);
         }
-        public async Task DeleteAppointment(int id)
+        public void DeleteAppointment(Appointment app)
         {
-            await Init();
-            await conn.DeleteAsync(new {ID=id});
+            Init();
+            conn.Delete(app);
         }
-        public async Task<Appointment> GetAppointmentByID(int AppointmentID)
+        public Appointment GetAppointmentByID(int AppointmentID)
         {
-            await Init();
             var temp = from u in conn.Table<Appointment>()
                        where u.Id == AppointmentID
                        select u;
-            return await temp.FirstOrDefaultAsync();
+            return  temp.FirstOrDefault();
         }
 
-        public async Task Update(Appointment appointment)
+        public void Update(Appointment appointment)
         {
-            await Init();
+            Init();
             int result = 0;
-            result = await conn.UpdateAsync(appointment);
+            result = conn.Update(appointment);
         }
     }
 }

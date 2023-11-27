@@ -96,6 +96,11 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="Delete"
+                                                  Clicked="MenuItem_Clicked"
+                                                  CommandParameter="{Binding .}"></MenuItem>
+                                    </ViewCell.ContextActions>
                                     <StackLayout>
                                         <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="Black"> </Label>
                                         <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="Black"/>
