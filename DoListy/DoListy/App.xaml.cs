@@ -6,12 +6,12 @@ namespace DoListy
 {
     public partial class App : Application
     {
-        public static AppointmentRepository appointmentRepo { get; private set; }
+        public static AppointmentRepository AppointmentRepo { get; private set; }
         public App(AppointmentRepository AppRepo)
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjgxOTEzMUAzMjMzMmUzMDJlMzBFdGVwOEhQTGxVdXZrMmxxYlNjUGZKM1NTSUNZYWNsam5DYTdVOHp2SXNRPQ==");
             InitializeComponent();
-            appointmentRepo = AppRepo;  
+            AppointmentRepo = AppRepo;  
         }
         protected override Window CreateWindow(IActivationState activationState)
         {
