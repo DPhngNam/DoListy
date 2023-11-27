@@ -19,9 +19,8 @@ namespace DoListy.Database
             await conn.CreateTableAsync<Appointment>();
         
         }
-        public async Task< List<Appointment>> GetAppointments()
+        public async Task<List<Appointment>> GetAppointments()
         {
-
             await Init();
             return await conn.Table<Appointment>().ToListAsync();
         }
@@ -29,7 +28,7 @@ namespace DoListy.Database
         {
             int result = 0;
             await Init();
-            result = await conn.InsertAsync(new Appointment());   
+            result = await conn.InsertAsync(app);   
         }
         public async Task DeleteAppointment(int id)
         {

@@ -20,7 +20,8 @@ public partial class MonthPage : ContentPage
     }
     public async void loadAppointments()
     {
-        var AppointmentEvents = new ObservableCollection<Appointment>(await App.appointmentRepo.GetAppointments());
+        List<Appointment> appointments = await App.appointmentRepo.GetAppointments();
+        var AppointmentEvents = new ObservableCollection<Appointment>(appointments);
         Scheduler.AppointmentsSource = AppointmentEvents;
     }
 
