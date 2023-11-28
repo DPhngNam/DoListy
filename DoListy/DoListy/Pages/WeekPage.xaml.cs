@@ -14,7 +14,7 @@ public partial class WeekPage : ContentPage
     public WeekPage()
     {
         InitializeComponent();
-
+        
     }
     protected override void OnAppearing()
     {
