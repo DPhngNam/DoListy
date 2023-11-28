@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DoListy.Pages.PomodoroPage"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:control="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
     Title="">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -22,8 +23,8 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid ColumnDefinitions="2*,*" RowDefinitions="1*,4*,1*" BackgroundColor="{StaticResource pomoBgColor}" Padding="10,10,15,80">
-        <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" Text="FOCUSING" Style="{StaticResource pomoStateLabelStyle}"/> 
+    <Grid ColumnDefinitions="2*,*" RowDefinitions="1*,Auto,1*" BackgroundColor="{StaticResource pomoBgColor}" Padding="10,10,15,10">
+        <Label Grid.Row="0" Grid.Column="0" x:Name="pomoStateLabel" HorizontalOptions="Center" Text="FOCUSING" Style="{StaticResource pomoStateLabelStyle}"/> 
          <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="Transparent"
                 BorderColor="{StaticResource pomoFgColor}"
                 CornerRadius="20" Margin="10,10,0,10"
@@ -35,41 +36,51 @@
                 <Label Grid.Row="3" Grid.Column="0" Text="Short Break Length" Style="{StaticResource pomoSettingsLabelStyle}"/>
                 <Label Grid.Row="4" Grid.Column="0" Text="Long Break Length" Style="{StaticResource pomoSettingsLabelStyle}"/>
                 <Label Grid.Row="5" Grid.Column="0" Text="Long Break After" Style="{StaticResource pomoSettingsLabelStyle}"/>
-                <editors:SfNumericEntry IsEditable="False" Grid.Row="2" Grid.Column="1" BackgroundColor="Transparent" TextColor="{StaticResource pomoTextColor}"
+                <editors:SfNumericEntry Grid.Row="2" Grid.Column="1" BackgroundColor="Transparent" TextColor="{StaticResource pomoTextColor}"
+                                        x:Name="pomoLengthEntry"
                                         CustomFormat="0 mins"
                                         AllowNull="False" Minimum="0" Maximum="200"
                                         UpDownPlacementMode="Inline"
                                         SmallChange="5"
                                         HeightRequest="20"
                                         VerticalOptions="Start"
+                                        Value="25"
                                         />
-                <editors:SfNumericEntry IsEditable="False" Grid.Row="3" Grid.Column="1" BackgroundColor="Transparent" TextColor="{StaticResource pomoTextColor}"
+                <editors:SfNumericEntry Grid.Row="3" Grid.Column="1" BackgroundColor="Transparent" TextColor="{StaticResource pomoTextColor}"
+                                        x:Name="shortBreakLengthEntry"
                                         CustomFormat="0 mins"
                                         AllowNull="False" Minimum="0" Maximum="200"
                                         UpDownPlacementMode="Inline"
                                         SmallChange="5"
                                         HeightRequest="20"
                                         VerticalOptions="Start"
+                                        Value="5"
                                         />
-                <editors:SfNumericEntry IsEditable="False" Grid.Row="4" Grid.Column="1" BackgroundColor="Transparent" TextColor="{StaticResource pomoTextColor}"
+                <editors:SfNumericEntry Grid.Row="4" Grid.Column="1" BackgroundColor="Transparent" TextColor="{StaticResource pomoTextColor}"
+                                        x:Name="longBreakLengthEntry"
                                         CustomFormat="0 mins"
                                         AllowNull="False" Minimum="0" Maximum="200"
                                         UpDownPlacementMode="Inline"
                                         SmallChange="5"
                                         HeightRequest="20"
                                         VerticalOptions="Start"
+                                        Value="10"
                                         />
-                <editors:SfNumericEntry IsEditable="False" Grid.Row="5" Grid.Column="1" BackgroundColor="Transparent" TextColor="{StaticResource pomoTextColor}"
+                <editors:SfNumericEntry Grid.Row="5" Grid.Column="1" BackgroundColor="Transparent" TextColor="{StaticResource pomoTextColor}"
+                                        x:Name="longBreakAfterEntry"
                                         CustomFormat="0 Pomos"
                                         AllowNull="False" Minimum="0" Maximum="50"
                                         UpDownPlacementMode="Inline"
                                         SmallChange="1"
                                         HeightRequest="20"
                                         VerticalOptions="Start"
+                                        Value="4"
                                         />
-
+                
 
                 <Button Grid.Row="6" Grid.Column="0" Text="Cancel"
+                        x:Name="cancelPomoSettingsButton"
+                        Clicked="OnCancelPomoSettingClicked"
                         BackgroundColor="Transparent"
                         BorderColor="#0197F6"
                         HeightRequest="25"
@@ -78,6 +89,8 @@
                         HorizontalOptions="Start"
                         CornerRadius="20"/>
                 <Button Grid.Row="6" Grid.Column="1" Text="Apply"
+                        x:Name="applyPomoSettingsButton"
+                        Clicked="OnApplyPomoSettingClicked"
                         BackgroundColor="{StaticResource pomoFgColor}"
                         HeightRequest="25"
                         CornerRadius="20"
@@ -87,10 +100,36 @@
                 
             </Grid>
         </Frame>
+        <Label Grid.Row="1" Grid.Column="0"  x:Name="timerLabel" TextColor="White" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <control:SfCircularProgressBar Grid.Row="1" Grid.Column="0"  x:Name="progressBar" Progress="0" BackgroundColor="Transparent" VerticalOptions="Start" HeightRequest="350" WidthRequest="350"/>
+ 
         <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="*"  Grid.Row="2" Grid.Column="0" >
             <ImageButton Grid.Column="1" Grid.Row="0" Source="playicon.png"
                          BackgroundColor="Transparent"
-                         VerticalOptions="Start"/>
+                         VerticalOptions="Start"
+                         Clicked="OnStartClicked"
+                         x:Name="startButton"
+                         HeightRequest="32"
+                         WidthRequest="32"
+                         />
+            <ImageButton Grid.Column="0" Grid.Row="0" Source="pauseicon.png"
+                         BackgroundColor="Transparent"
+                         HorizontalOptions="End"
+                         VerticalOptions="Start"
+                         IsVisible="False"
+                         Clicked="OnPauseClicked"
+                         HeightRequest="32"
+                         WidthRequest="32"
+                         x:Name="pauseButton"/>
+            <ImageButton Grid.Column="2" Grid.Row="0" Source="stopicon.png"
+                         BackgroundColor="Transparent"
+                         HorizontalOptions="Start"
+                         VerticalOptions="Start"
+                         IsVisible="False"
+                         Clicked="OnStopClicked"
+                         HeightRequest="32"
+                         WidthRequest="32"
+                         x:Name="stopButton"/>
         </Grid>
 
     </Grid> 

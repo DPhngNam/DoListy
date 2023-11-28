@@ -50,16 +50,19 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\eye.png" />
 	  <None Remove="Resources\Images\plus.png" />
+	  <None Remove="Resources\Images\sunset_line.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.7" />
 		<PackageReference Include="Syncfusion.Maui.Calendar" Version="23.1.41" />
 		<PackageReference Include="Syncfusion.Maui.Inputs" Version="23.1.44" />
 		<PackageReference Include="Syncfusion.Maui.Picker" Version="23.1.44" />
+		<PackageReference Include="Syncfusion.Maui.ProgressBar" Version="23.2.5" />
 		<PackageReference Include="Syncfusion.Maui.Scheduler" Version="23.1.41" />
 		<PackageReference Include="XCalendar.Maui" Version="4.5.2" />
 	</ItemGroup>
