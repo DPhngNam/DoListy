@@ -10,10 +10,10 @@
                      Orientation="Vertical">
             <Label x:Name="City" FontSize="40" HorizontalOptions="Center" TextColor="Black" Text="Ho Chi Minh"/>
 
-            <Label x:Name="weatherCode" FontSize="20" HorizontalOptions="Center" TextColor="Black" Text="Clear sky"/>
+            <Label x:Name="weatherCode" FontSize="20" HorizontalOptions="Center" TextColor="Black" />
         </StackLayout>
 
-        <Image Grid.Row="1" Source="sun.png" MaximumWidthRequest="100" MaximumHeightRequest="100"/>
+        <Image x:Name="weatherImage" Grid.Row="1"  MaximumWidthRequest="100" MaximumHeightRequest="100"/>
 
         <Grid Grid.Row="2"  Margin="20" ColumnDefinitions="0.33*,0.33*,0.33*" RowDefinitions="Auto,Auto">
             <Image Grid.Column="0" Grid.Row="0" Source="drop.png" HeightRequest="50"/>
