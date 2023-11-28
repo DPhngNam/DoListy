@@ -4,7 +4,7 @@
              x:Class="DoListy.Pages.WeekPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
-             xmlns:local="clr-namespace:DoListy.ControlViewModel"
+             xmlns:local="clr-namespace:DoListy.ViewModel"
              Title="">
     <!--Page cua Huu Thinh-->
     <ContentPage.Resources>
@@ -14,8 +14,10 @@
         <Style x:Key="HeaderLabel" TargetType="Label" BasedOn="{StaticResource taskFrameHeaderLabelStyle}">
             <Setter Property="TextColor" Value="Black"></Setter>
         </Style>
-       
-   
+        <local:ColorNameToBrushConverter x:Key="ColorConverter"/>
+
+
+
     </ContentPage.Resources>
     <Grid BackgroundColor="{StaticResource appBgColor}"
           RowDefinitions="*"
@@ -44,7 +46,7 @@
                                                            Subject="Name"
                                                            StartTime="EventStart"
                                                            EndTime="EventEnd"
-                                                           Background="Colorbg"
+                                                           Background="{Binding Colorbg,Converter={StaticResource ColorConverter }}"
                                                            RecurrenceRule="Recurrencerule">
 
                 </scheduler:SchedulerAppointmentMapping>

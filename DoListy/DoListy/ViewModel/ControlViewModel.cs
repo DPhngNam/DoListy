@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using SQLite;
 using DoListy.Database;
 
-namespace DoListy.ControlViewModel
+namespace DoListy.ViewModel
 {
 
 

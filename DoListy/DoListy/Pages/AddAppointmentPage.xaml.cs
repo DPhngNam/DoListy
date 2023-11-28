@@ -6,6 +6,7 @@ public partial class AddAppointmentPage : ContentPage
 {
     List<string> freqs = new List<string>() { "DAILY", "WEEKLY", "MONTHLY", "YEARLY", "NONE" };
     List<string> Colors = new List<string>() { "Blue", "Red", "Green", "Orange", "Purple"};
+
     public AddAppointmentPage()
 	{
 		InitializeComponent();
@@ -50,7 +51,8 @@ public partial class AddAppointmentPage : ContentPage
                 Name = entrySubject.Text,
                 EventStart = pickerDateTime1.SelectedDate,
                 EventEnd = pickerDateTime2.SelectedDate,
-                //Colorbg = ColorEntry.SelectedItem.ToString(),
+                Colorbg = ColorEntry.SelectedItem.ToString(),
+
             };
             App.appointmentRepo.AddAppointment(appointment);
         }
@@ -61,7 +63,8 @@ public partial class AddAppointmentPage : ContentPage
                 Name = entrySubject.Text,
                 EventStart = pickerDateTime1.SelectedDate,
                 EventEnd = pickerDateTime2.SelectedDate,
-                Colorbg = ColorEntry.SelectedItem.ToString(),
+                Colorbg=ColorEntry.SelectedItem.ToString(),
+       
                 Recurrencerule = "FREQ=" + Freg.SelectedItem.ToString() + ";INTERVAL=" + Interval.Text + ";COUNT=" + Count.Text,
             };
             App.appointmentRepo.AddAppointment(appointment);
@@ -104,3 +107,8 @@ public partial class AddAppointmentPage : ContentPage
         entryStartTime.Text = pickerDateTime1.SelectedDate.ToString();
     }
 }
+
+
+
+
+

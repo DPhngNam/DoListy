@@ -1,7 +1,7 @@
 ﻿using DoListy.ViewModel;
 using System.Collections.ObjectModel;
 using Appointment = DoListy.ViewModel.Appointment;
-using DoListy.ControlViewModel;
+
 using Syncfusion.Maui.Scheduler;
 using System.Runtime.CompilerServices;
 //using Foundation;

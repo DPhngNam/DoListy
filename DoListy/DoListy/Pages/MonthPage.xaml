@@ -4,7 +4,7 @@
              x:Class="DoListy.Pages.MonthPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
-             xmlns:local="clr-namespace:DoListy.ControlViewModel"
+             xmlns:local="clr-namespace:DoListy.ViewModel"
              BackgroundColor="{StaticResource appBgColor}"
              Title=""
              >
@@ -44,7 +44,9 @@
                                                            StartTime="EventStart"
                                                            EndTime="EventEnd"
                                                            RecurrenceRule="Recurrencerule"
+                                                
                                                            Reminders="Reminders">
+                        
                         <scheduler:SchedulerAppointmentMapping.ReminderMapping>
                             <scheduler:SchedulerReminderMapping IsDismissed="IsDismissed"
                                                                 TimeBeforeStart="TimeBeforeStart"/>
