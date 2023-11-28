@@ -9,26 +9,35 @@ namespace DoListy.ViewModel
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            Color temp = Colors.Blue;
             if (value is string colorName)
             {
-                switch (colorName.ToLower())
+                if (!string.IsNullOrEmpty(colorName))
                 {
-                    case "blue":
-                        return new SolidColorBrush(Colors.Blue);
-                    case "red":
-                        return new SolidColorBrush(Colors.Red);
-                    case "green":
-                        return new SolidColorBrush(Colors.Green);
-                    case "orange":
-                        return new SolidColorBrush(Colors.Orange);
-                    case "purple":
-                        return new SolidColorBrush(Colors.Purple);
-                    default:
-                        return new SolidColorBrush(Colors.Gray);
+                    switch (colorName)
+                    {
+                        case "Blue":
+                            temp = Colors.Blue;
+                            break;
+                        case "Red":
+                            temp = Colors.Red;
+                            break;
+                        case "Green":
+                            temp = Colors.Green;
+                            break;
+                        case "Orange":
+                            temp = Colors.Orange;
+                            break;
+                        case "Purple":
+                            temp = Colors.Purple;
+                            break;
+                        default:
+                            temp = Colors.Blue;
+                            break;
+                    }
                 }
             }
-
-            return new SolidColorBrush(Colors.Gray);
+            return temp;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

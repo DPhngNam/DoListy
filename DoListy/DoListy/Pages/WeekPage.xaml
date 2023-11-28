@@ -8,15 +8,12 @@
              Title="">
     <!--Page cua Huu Thinh-->
     <ContentPage.Resources>
-        
+            <local:ColorNameToBrushConverter x:Key="cvtStringToBrush"></local:ColorNameToBrushConverter>
         <Color x:Key="HeaderColor">#424874</Color>
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
         <Style x:Key="HeaderLabel" TargetType="Label" BasedOn="{StaticResource taskFrameHeaderLabelStyle}">
             <Setter Property="TextColor" Value="Black"></Setter>
         </Style>
-        <local:ColorNameToBrushConverter x:Key="ColorConverter"/>
-
-
 
     </ContentPage.Resources>
     <Grid BackgroundColor="{StaticResource appBgColor}"
@@ -33,11 +30,7 @@
             AppointmentDrop="WeekPageScheduler_AppointmentDrop"
              x:FieldModifier="public"
             AllowViewNavigation="True"
-             
-      
             Tapped="WeekPageScheduler_Tapped"
-           
-          
             >
             
             <scheduler:SfScheduler.AppointmentMapping>
@@ -46,11 +39,7 @@
                                                            Subject="Name"
                                                            StartTime="EventStart"
                                                            EndTime="EventEnd"
-                                                         
                                                            RecurrenceRule="Recurrencerule">
-
-
-
                 </scheduler:SchedulerAppointmentMapping>
             </scheduler:SfScheduler.AppointmentMapping>
 
@@ -130,8 +119,5 @@
 
         </StackLayout>
        
-
-
-
     </Grid>
 </ContentPage>

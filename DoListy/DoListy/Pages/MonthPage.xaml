@@ -10,6 +10,9 @@
              >
     <!--Page cua Vinh Thinh-->
     <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ColorNameToBrushConverter x:Key="cvtStringToBrush"></local:ColorNameToBrushConverter>
+        </ResourceDictionary>
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold"/>
         <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold"/>
         <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold"/>
@@ -37,6 +40,9 @@
                 EnableReminder="True"
                 ReminderAlertOpening="Scheduler_ReminderAlertOpening"
                 >
+                <scheduler:SfScheduler.BindingContext>
+                    <local:ColorNameToBrushConverter></local:ColorNameToBrushConverter>
+                </scheduler:SfScheduler.BindingContext>
                 <scheduler:SfScheduler.AppointmentMapping>
                     <!--tham chiếu tới task người dùng-->
                     <scheduler:SchedulerAppointmentMapping Id="Id"
@@ -44,9 +50,7 @@
                                                            StartTime="EventStart"
                                                            EndTime="EventEnd"
                                                            RecurrenceRule="Recurrencerule"
-                                                
                                                            Reminders="Reminders">
-                        
                         <scheduler:SchedulerAppointmentMapping.ReminderMapping>
                             <scheduler:SchedulerReminderMapping IsDismissed="IsDismissed"
                                                                 TimeBeforeStart="TimeBeforeStart"/>

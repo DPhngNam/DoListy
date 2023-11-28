@@ -13,6 +13,7 @@ public partial class MonthPage : ContentPage
 	public MonthPage()
 	{
 		InitializeComponent();
+        TasksList.ItemsSource = null;
 	}
     protected override void OnAppearing()
     {

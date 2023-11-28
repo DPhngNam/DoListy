@@ -14,7 +14,7 @@ public partial class WeekPage : ContentPage
     public WeekPage()
     {
         InitializeComponent();
-
+        
     }
     public SchedulerAppointmentMapping schedulerAppointmentMapping { get; set; }
 
@@ -23,6 +23,7 @@ public partial class WeekPage : ContentPage
     {
         base.OnAppearing();
         loadAppointments();
+        Tasklist.ItemsSource = null;
     }
     public void loadAppointments()
     {
