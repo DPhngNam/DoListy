@@ -16,6 +16,9 @@ public partial class WeekPage : ContentPage
         InitializeComponent();
 
     }
+    public SchedulerAppointmentMapping schedulerAppointmentMapping { get; set; }
+
+   
     protected override void OnAppearing()
     {
         base.OnAppearing();
@@ -48,6 +51,7 @@ public partial class WeekPage : ContentPage
 
     private void WeekPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
     {
+        loadAppointments();
         if (e.Element is SchedulerElement.ViewHeader)
         {
             Tasklist.ItemsSource = null;

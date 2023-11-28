@@ -11,6 +11,8 @@ using DoListy.Database;
 
 namespace DoListy.ViewModel
 {
-
-
+    class Temp
+    {
+        public Brush colortemp = Brush.White;
+    }
 }

@@ -46,8 +46,10 @@
                                                            Subject="Name"
                                                            StartTime="EventStart"
                                                            EndTime="EventEnd"
-                                                           Background="{Binding Colorbg,Converter={StaticResource ColorConverter }}"
+                                                         
                                                            RecurrenceRule="Recurrencerule">
+
+
 
                 </scheduler:SchedulerAppointmentMapping>
             </scheduler:SfScheduler.AppointmentMapping>
