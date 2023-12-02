@@ -35,6 +35,9 @@
     <MauiXaml Update="Pages\PomodoroPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\SettingPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\WeekPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

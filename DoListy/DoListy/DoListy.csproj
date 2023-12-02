@@ -86,6 +86,9 @@
 	  <MauiXaml Update="Pages\SetGoals.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\SettingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\WeekPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

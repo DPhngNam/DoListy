@@ -94,7 +94,7 @@ public partial class WeatherPage : ContentPage
                     weatherImage.Source = "https://img.icons8.com/fluency/96/fog-night.png";
                 }
                 break;
-                break;
+                
 
 			
 
@@ -175,8 +175,5 @@ public partial class WeatherPage : ContentPage
                 break;
 
         }
-		
-    
-
 	}
 }
