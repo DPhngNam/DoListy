@@ -5,15 +5,11 @@
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              xmlns:local1="clr-namespace:DoListy.ViewModel"
-             xmlns:local2="clr-namespace:DoListy.Converter"
              BackgroundColor="{StaticResource appBgColor}"
              Title=""
              >
     <!--Page cua Vinh Thinh-->
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <local2:ConvertBrush x:Key="cvtToBrush"/>
-        </ResourceDictionary>
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold"/>
         <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold"/>
         <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold"/>
