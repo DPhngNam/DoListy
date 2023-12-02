@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:rating="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              x:Class="DoListy.Pages.SettingPage"
-             Title="SettingPage">
-    <Grid ColumnDefinitions="Auto,Auto">
-        
+             Title=""
+             >
+    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="30">
+        <Label Grid.Column="0" Text="General"/>
+        <VerticalStackLayout Grid.Column="1">
+            <HorizontalStackLayout>
+                <Label Text="Sounds"/>
+                <Switch IsToggled="True"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Darkmode"/>
+                <Switch IsToggled="True"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Remind"/>
+                <Switch IsToggled="True"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Startup"/>
+                <Switch IsToggled="True"/>
+            </HorizontalStackLayout>
+
+
+            
+        </VerticalStackLayout>
+        <Label Grid.Column="2" Text="About"/>
+        <VerticalStackLayout Grid.Column="3">
+            <HorizontalStackLayout Spacing="20">
+                <Label Text="Supported Platforms"/>
+                <Image Source="windows.png"/>
+                <Image Source="apple.png"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Feedback"/>
+
+                <Image Source="gmail.png" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Version"/>
+                <Label Text="1.0" FontSize="Large"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Rate us"/>
+                <rating:SfRating x:Name="rating" ItemCount="5" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
     </Grid>
 </ContentPage>

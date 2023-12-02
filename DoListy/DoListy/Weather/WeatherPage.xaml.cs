@@ -12,7 +12,9 @@ public partial class WeatherPage : ContentPage
 	{
 		base.OnAppearing();
 		var result = await ApiService.getWeather(10.823, 106.6296);
-		Humidity.Text = result.current.relative_humidity_2m.ToString();
+        drop.Source = "drop.png";
+
+        Humidity.Text = result.current.relative_humidity_2m.ToString();
 		temperature.Text = result.current.temperature_2m.ToString() + "oC";
 		wind.Text = result.current.wind_speed_10m.ToString();
 
