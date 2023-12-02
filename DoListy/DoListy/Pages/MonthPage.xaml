@@ -4,14 +4,15 @@
              x:Class="DoListy.Pages.MonthPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
-             xmlns:local="clr-namespace:DoListy.ViewModel"
+             xmlns:local1="clr-namespace:DoListy.ViewModel"
+             xmlns:local2="clr-namespace:DoListy.Converter"
              BackgroundColor="{StaticResource appBgColor}"
              Title=""
              >
     <!--Page cua Vinh Thinh-->
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:ColorNameToBrushConverter x:Key="cvtStringToBrush"></local:ColorNameToBrushConverter>
+            <local2:ConvertBrush x:Key="cvtToBrush"/>
         </ResourceDictionary>
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold"/>
         <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold"/>
@@ -35,19 +36,16 @@
                 Tapped="Scheduler_Tapped"                 
                 AppointmentDrop="Scheduler_AppointmentDrop"
                 x:FieldModifier="public"
-               SelectionChanged="Scheduler_SelectionChanged"
-                                   
+                SelectionChanged="Scheduler_SelectionChanged"
                 EnableReminder="True"
                 ReminderAlertOpening="Scheduler_ReminderAlertOpening"
                 >
-                <scheduler:SfScheduler.BindingContext>
-                    <local:ColorNameToBrushConverter></local:ColorNameToBrushConverter>
-                </scheduler:SfScheduler.BindingContext>
                 <scheduler:SfScheduler.AppointmentMapping>
                     <!--tham chiếu tới task người dùng-->
                     <scheduler:SchedulerAppointmentMapping Id="Id"
                                                            Subject="Name"
                                                            StartTime="EventStart"
+                                                           Background="Colorbg"
                                                            EndTime="EventEnd"
                                                            RecurrenceRule="Recurrencerule"
                                                            Reminders="Reminders">

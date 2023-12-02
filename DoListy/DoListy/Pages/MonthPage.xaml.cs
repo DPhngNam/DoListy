@@ -1,7 +1,6 @@
 using DoListy.ViewModel;
 using System.Collections.ObjectModel;
 using Appointment = DoListy.ViewModel.Appointment;
-
 using System.Xml;
 using CommunityToolkit.Maui.Core;
 

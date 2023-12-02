@@ -8,7 +8,6 @@
              Title="">
     <!--Page cua Huu Thinh-->
     <ContentPage.Resources>
-            <local:ColorNameToBrushConverter x:Key="cvtStringToBrush"></local:ColorNameToBrushConverter>
         <Color x:Key="HeaderColor">#424874</Color>
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
         <Style x:Key="HeaderLabel" TargetType="Label" BasedOn="{StaticResource taskFrameHeaderLabelStyle}">

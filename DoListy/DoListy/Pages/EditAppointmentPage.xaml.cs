@@ -73,46 +73,47 @@ public partial class EditAppointmentPage : ContentPage
     }
 
     private void buttonSave_Clicked(object sender, EventArgs e)
-    {
-        if(ColorEdit.SelectedItem != null)
-        {
-            //switch(ColorEdit.SelectedItem.ToString()) 
-            //{
-            //    case "Blue":
-            //        temp = Brush.Blue;
-            //        break;
-            //    case "Orange":
-            //        temp = Brush.Orange;
-            //        break;
-            //    case "Green":
-            //        temp = Brush.Green;
-            //        break;
-            //    case "Red":
-            //        temp = Brush.Red;
-            //        break;
-            //    case "Purple":
-            //        temp = Brush.Purple;
-            //        break;
-            //}
-        }    
-
+    {   
         if (FreqEdit.SelectedItem == null) // xu li cho Freq khong co
         {
-
             appointment.Name = editSubject.Text;
             appointment.EventStart = pickerDateTime1.SelectedDate;
             appointment.EventEnd  = pickerDateTime2.SelectedDate;
+            if(ColorEdit.SelectedItem != null)
+            {
+                appointment.colorbgString = ColorEdit.ToString();
+            }    
         }
-        else if(CountEdit.Text != null && IntervalEdit.Text != null)
+        else if(pickerDateTime3.SelectedDate.ToString() != null && IntervalEdit.Text != null)
         {
             appointment.Name = editSubject.Text;
             appointment.EventStart = pickerDateTime1.SelectedDate;
             appointment.EventEnd = pickerDateTime2.SelectedDate;
-            appointment.Recurrencerule = "FREQ=" + FreqEdit.SelectedItem.ToString() + ";INTERVAL=" + IntervalEdit.Text + ";COUNT=" + CountEdit.Text;
+            if (ColorEdit.SelectedItem != null)
+            {
+                appointment.colorbgString = ColorEdit.ToString();
+            }
+            appointment.Recurrencerule = "FREQ=" + FreqEdit.SelectedItem.ToString() + ";INTERVAL=" + IntervalEdit.Text + ";UNTIL=" + pickerDateTime3.SelectedDate.ToString("yyyyMMddTHHmmssZ");
         }
         App.appointmentRepo.Update(appointment);
         
         Application.Current.MainPage.DisplayAlert("Success", "Save successfully", "OK");
         Shell.Current.GoToAsync("..");
+    }
+
+    private void pickerDateTime3_CancelButtonClicked(object sender, EventArgs e)
+    {
+        pickerDateTime3.IsOpen = false;
+    }
+
+    private void pickerDateTime3_OkButtonClicked(object sender, EventArgs e)
+    {
+        pickerDateTime3.IsOpen = false;
+        UntilEdit.Text = pickerDateTime3.SelectedDate.ToString();
+    }
+
+    private void UntilEdit_Clicked(object sender, EventArgs e)
+    {
+        pickerDateTime3.IsOpen = true;
     }
 }
