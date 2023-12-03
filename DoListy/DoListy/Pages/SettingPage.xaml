@@ -5,22 +5,32 @@
              x:Class="DoListy.Pages.SettingPage"
              Title=""
              >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CommonHorizon" TargetType="HorizontalStackLayout">
+                <Setter Property="Spacing" Value="20" />
+                
+            </Style>
+        </ResourceDictionary>
+
+        
+    </ContentPage.Resources>
     <Grid ColumnDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="30">
-        <Label Grid.Column="0" Text="General"/>
+        <Label Grid.Column="0" Text="General" FontSize="Large"/>
         <VerticalStackLayout Grid.Column="1">
-            <HorizontalStackLayout>
+            <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
                 <Label Text="Sounds"/>
-                <Switch IsToggled="True"/>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout>
+                <Switch x:Name="SoundSwitch" IsToggled="True"/>
+            </HorizontalStackLayout >
+            <HorizontalStackLayout Spacing="1">
                 <Label Text="Darkmode"/>
                 <Switch IsToggled="True"/>
             </HorizontalStackLayout>
-            <HorizontalStackLayout>
+            <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
                 <Label Text="Remind"/>
                 <Switch IsToggled="True"/>
             </HorizontalStackLayout>
-            <HorizontalStackLayout>
+            <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
                 <Label Text="Startup"/>
                 <Switch IsToggled="True"/>
             </HorizontalStackLayout>
@@ -28,25 +38,29 @@
 
             
         </VerticalStackLayout>
-        <Label Grid.Column="2" Text="About"/>
-        <VerticalStackLayout Grid.Column="3">
+        <Label Grid.Column="2" Text="About" FontSize="Large"/>
+        <VerticalStackLayout Grid.Column="3" Spacing="15">
             <HorizontalStackLayout Spacing="20">
                 <Label Text="Supported Platforms"/>
                 <Image Source="windows.png"/>
                 <Image Source="apple.png"/>
             </HorizontalStackLayout>
-            <HorizontalStackLayout>
-                <Label Text="Feedback"/>
-
-                <Image Source="gmail.png" />
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Feedback" FontSize="Medium"/>
+                <ImageButton Source="gmail.png" Clicked="ImageButton_Clicked"/>
             </HorizontalStackLayout>
-            <HorizontalStackLayout>
-                <Label Text="Version"/>
+            <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
+                <Label Text="Version" FontSize="Medium"/>
                 <Label Text="1.0" FontSize="Large"/>
             </HorizontalStackLayout>
-            <HorizontalStackLayout>
-                <Label Text="Rate us"/>
-                <rating:SfRating x:Name="rating" ItemCount="5" />
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Rate us" FontSize="Medium"/>
+                <rating:SfRating x:Name="rating" ItemCount="5" ItemSize="30" >
+                    <rating:SfRating.RatingSettings>
+                        <rating:RatingSettings RatedFill="Yellow" />
+                    </rating:SfRating.RatingSettings>
+                </rating:SfRating>
+                
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>
