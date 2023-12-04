@@ -217,7 +217,7 @@ Scale="1.3"
                    CornerRadius="30"
                    BorderColor="Transparent"
                    Padding="10">
-                <StackLayout Orientation="Vertical" Spacing="5">
+                <StackLayout Orientation="Vertical" >
                     <Grid ColumnDefinitions="Auto,*" RowDefinitions="*">
                         <Label Grid.Column="0" Grid.Row="0" Text="Goals" Style="{StaticResource taskFrameHeaderLabelStyle}" FontSize="28"
                                Margin="15,0,0,0"
@@ -230,10 +230,12 @@ Scale="1.3"
                                      BackgroundColor="{StaticResource taskFrameBgColor}"
                                      Clicked="OnGoalsPlusButtonClicked"/>
                     </Grid>
-                    <BoxView Color="#8CABFF" HeightRequest="1"/>
-                    <Grid x:Name="goalsListGrid" ColumnDefinitions="*">
-                        
-                    </Grid>
+                    <BoxView Color="#8CABFF" HeightRequest="1" Margin="0,0,0,12"  />
+                    <ScrollView>
+                        <Grid x:Name="goalsListGrid" ColumnDefinitions="*" RowSpacing="5">
+
+                        </Grid>
+                    </ScrollView>
                     
                 </StackLayout>
             </Frame>

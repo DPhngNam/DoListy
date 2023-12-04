@@ -194,12 +194,12 @@ public partial class YearPage : ContentPage
         goalsListGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
         if (goalName.Length > 19)
         {
-            goalName = goalName.Substring(0, 1) + "...";
+            goalName = goalName.Substring(0, 18) + "...";
         }
         var newButton = new Button
         {
             Text = goalName,
-            WidthRequest=180,
+            WidthRequest=175,
             BorderColor=Color.FromHex("#8CABFF"),
             BackgroundColor = Color.FromRgba(0, 0, 0, 0),
             HeightRequest = 40,
