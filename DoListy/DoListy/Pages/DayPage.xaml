@@ -8,23 +8,35 @@
           >
     <!-- Page cua Nam-->
     <ContentPage.Resources>
+        
         <ResourceDictionary>
             <!--Half 1-->
+            <Color x:Key="HeaderColor">#424874</Color>
+            <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
             <Style  x:Key="dayViewSchedulerStyle" TargetType="scheduler:SfScheduler">
                 <Setter Property="View" Value="Day" />
                 <Setter Property="HeaderView">
                     <Setter.Value>
-                        <scheduler:SchedulerHeaderView Height="0" />
+                        <scheduler:SchedulerHeaderView Height="0"/>
                     </Setter.Value>
                 </Setter>
-                
-                
                 <Setter Property="DaysView">
                     <Setter.Value>
-                        <scheduler:SchedulerDaysView NumberOfVisibleDays="1" StartHour="0" EndHour="0" />
+                        <scheduler:SchedulerDaysView NumberOfVisibleDays="1" StartHour="0" EndHour="0"/>
                     </Setter.Value>
-
                 </Setter>
+                <Setter Property="DaysView">
+                    <Setter.Value>
+                        <scheduler:SchedulerDaysView>
+                            <scheduler:SchedulerDaysView.ViewHeaderSettings>
+                                <scheduler:SchedulerViewHeaderSettings DayTextStyle="{StaticResource textStyle}" 
+                                                                       DateTextStyle="{StaticResource textStyle}"/>
+                            </scheduler:SchedulerDaysView.ViewHeaderSettings>
+                        </scheduler:SchedulerDaysView>
+                    </Setter.Value>
+                </Setter>
+
+                
                 <Setter Property="ShowNavigationArrows" Value="False" />
                 <Setter Property="TranslationY" Value="1" />
                 <Setter Property="TranslationX" Value="30" />
@@ -33,8 +45,8 @@
 
             </Style>
             <Style x:Key="CommonFrameStyle" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="{StaticResource appBgColor}" />
-                <Setter Property="BorderColor" Value="{StaticResource appBgColor}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderColor" Value="Transparent" />
                 <Setter Property="CornerRadius" Value="10" />
                 <Setter Property="Margin" Value="5" />
                 <Setter Property="WidthRequest" Value="70" />
@@ -47,6 +59,7 @@
             <Style x:Key="CommonButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="WidthRequest" Value="70" />
+                <Setter Property="Opacity" Value="0"/>
                 <Setter Property="HeightRequest" Value="70" />
 
             </Style>
@@ -63,7 +76,7 @@
             </Style>
         </ResourceDictionary>
 
-        <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="Black" />
+        
     </ContentPage.Resources>
 
     <Grid Background="{StaticResource appBgColor}">
@@ -98,7 +111,7 @@
 
             <!--Monday-->
             <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="0">
-                <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
+                <StackLayout Style="{StaticResource CommonStackLayoutStyle}" >
                     <scheduler:SfScheduler x:Name="mon" x:FieldModifier="public" Style="{StaticResource dayViewSchedulerStyle}"/>
                 </StackLayout>
             </Frame>
@@ -156,12 +169,11 @@
                     <scheduler:SfScheduler x:Name="sun" Style="{StaticResource dayViewSchedulerStyle}"  />
                 </StackLayout>
             </Frame>
-            <Button x:Name="Butsun" Clicked="Butsun_Clicked" Style="{StaticResource CommonButtonStyle}" Grid.Column="6" />
+            <Button x:Name="Butsun"  Clicked="Butsun_Clicked" Style="{StaticResource CommonButtonStyle}" Grid.Column="6" />
             <!--Sunday-->
 
-
-            <ImageButton x:Name="LeftimaBut" HeightRequest="10" WidthRequest="10" Source="leftarrowicon.png" Grid.Column="7" Clicked="LeftimaBut_Clicked"/>
-            <ImageButton x:Name="RightimaBut" HeightRequest="10" WidthRequest="10" Source="rightarrowicon.png" Grid.Column="8" Clicked="RightimaBut_Clicked"/>
+            <ImageButton x:Name="LeftimaBut" HeightRequest="10" WidthRequest="10" Source="leftarrowicon.png" Grid.Column="7" Clicked="LeftimaBut_Clicked" BackgroundColor="Transparent"/>
+            <ImageButton x:Name="RightimaBut" HeightRequest="10" WidthRequest="10" Source="rightarrowicon.png" Grid.Column="8" Clicked="RightimaBut_Clicked" BackgroundColor="Transparent"/>
         </Grid>
 
 
