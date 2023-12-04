@@ -141,10 +141,10 @@
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontSize" Value="{StaticResource taskFrameHeaderLabelFontSize}"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="White"/>
             </Style>
             <Style x:Key="taskFrameSliderStyle" TargetType="Slider">
-                <Setter Property="BackgroundColor" Value="DarkGray"/>
+                <Setter Property="BackgroundColor" Value="#8CABFF"/>
             </Style>
             <Style x:Key="taskItemButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource taskItemButtonBgColor}"/>
