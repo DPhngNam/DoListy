@@ -11,15 +11,14 @@
             </ResourceDictionary.MergedDictionaries>
             
             <!-- Color Definations-->
-            <Color x:Key="appBgColor">#DCD6F7</Color>
-            <Color x:Key="navBgColor">#F4EEFF</Color>
+            <Color x:Key="appBgColor">#081B25</Color>
             <Color x:Key="navButtonBgColor">#424874</Color>
-            <Color x:Key="selectedNavButtonBgColor">#A6B1E1</Color>
-            <Color x:Key="settingButtonBgColor">#DCD6F7</Color>
-            <Color x:Key="navSearchBarBgColor">#DCD6F7</Color>
-            <Color x:Key="dayFrameBgColor">#424874</Color>
-            <Color x:Key="pomoButtonBgColor">#6EA4DD</Color>
-            <Color x:Key="taskFrameBgColor">#F4EEFF</Color>
+            <Color x:Key="selectedNavButtonBgColor">#3176F4</Color>
+            <Color x:Key="navSearchBarBgColor">#081B25</Color>
+            <Color x:Key="dayFrameBgColor">#152C39</Color>
+            <Color x:Key="todayButtonBgColor">#424874</Color>
+            <Color x:Key="pomoButtonBgColor">#8CABFF</Color>
+            <Color x:Key="taskFrameBgColor">#152C39</Color>
             <Color x:Key="taskItemButtonBgColor">#424874</Color>
             <!-- Font Definations-->
             <OnPlatform x:TypeArguments="x:String" x:Key="mainFontfamily">
@@ -85,7 +84,7 @@
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="FontSize" Value="17"/>
-                <Setter Property="TextColor" Value="{StaticResource pomoButtonBgColor}"/>
+                <Setter Property="TextColor" Value="White"/>
             </Style>
             <Style x:Key="dayFrameStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}"/>
@@ -163,7 +162,7 @@
             <Style x:Key="dateLabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontSize" Value="{StaticResource dateLabelFontSize}"/>
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="White"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
 
             </Style>

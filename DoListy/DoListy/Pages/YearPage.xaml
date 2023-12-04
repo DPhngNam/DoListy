@@ -55,9 +55,9 @@
 
             </Style>
             <Style x:Key="monthViewCalendarFrameStyle" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="{StaticResource navBgColor}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}"/>
                 <Setter Property="Padding" Value="10"/>
-                <Setter Property="BorderColor" Value="{StaticResource dayFrameBgColor}"/>
+                <Setter Property="BorderColor" Value="{StaticResource pomoButtonBgColor}"/>
                 <Setter Property="CornerRadius" Value="10"/>
             </Style>
         </ResourceDictionary>

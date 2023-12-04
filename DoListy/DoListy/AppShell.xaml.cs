@@ -8,6 +8,8 @@ namespace DoListy
             InitializeComponent();
             Routing.RegisterRoute(nameof(AddAppointmentPage), typeof(AddAppointmentPage));
             Routing.RegisterRoute(nameof(EditAppointmentPage), typeof(EditAppointmentPage));
+            SetTabBarBackgroundColor(this, Color.FromHex("#081B25"));
+            SetTabBarForegroundColor(this, Colors.White);
         }
     }
 }
