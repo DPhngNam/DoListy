@@ -23,6 +23,7 @@ public partial class SetGoals : Popup
 		
 		Close();
 
-		((YearPage)Shell.Current.CurrentPage).getCreatedGoal(goalTitleEntry.Text, (int)yearNumericEntry.Value, goalNoteEntry.Text);
+        var yearPage = (YearPage)Shell.Current.CurrentPage;
+		yearPage.getCreatedGoal(goalTitleEntry.Text, (int)yearNumericEntry.Value, goalNoteEntry.Text);
 	}
 }
