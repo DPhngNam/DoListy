@@ -4,6 +4,7 @@ using Appointment = DoListy.ViewModel.Appointment;
 
 using Syncfusion.Maui.Scheduler;
 using System.Runtime.CompilerServices;
+using Plugin.Maui.Audio;
 //using AndroidX.Core.View.Accessibility;
 //using Foundation;
 
@@ -12,10 +13,13 @@ namespace DoListy.Pages;
 
 public partial class WeekPage : ContentPage
 {
-    public WeekPage()
+    private readonly IAudioManager audioManager;
+
+    public WeekPage(IAudioManager audioManager)
     {
         InitializeComponent();
         TimeRulerTextStyle();
+        this.audioManager= audioManager;
         
     }
     public SchedulerAppointmentMapping schedulerAppointmentMapping { get; set; }
@@ -116,5 +120,10 @@ public partial class WeekPage : ContentPage
         }
     }
 
- 
+    private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    {
+        var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
+        player.Play();
+
+    }
 }
