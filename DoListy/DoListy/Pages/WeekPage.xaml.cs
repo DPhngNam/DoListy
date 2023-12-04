@@ -125,5 +125,6 @@ public partial class WeekPage : ContentPage
         var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
         player.Play();
 
+
     }
 }
