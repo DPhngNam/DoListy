@@ -8,11 +8,17 @@
              Title="">
     <!--Page cua Huu Thinh-->
     <ContentPage.Resources>
-        <Color x:Key="HeaderColor">#424874</Color>
+        <Color x:Key="HeaderColor">#8cabff</Color>
+        <Color x:Key="Textcolor" >white</Color>
+        <Color x:Key="TimeIntervalTextColor">#8cabff</Color>
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
         <Style x:Key="HeaderLabel" TargetType="Label" BasedOn="{StaticResource taskFrameHeaderLabelStyle}">
             <Setter Property="TextColor" Value="Black"></Setter>
         </Style>
+        <scheduler:SchedulerTextStyle x:Key="HeaderTextStyle" FontSize="30" FontAttributes="Bold" TextColor="White">
+           
+        </scheduler:SchedulerTextStyle>
+  
 
     </ContentPage.Resources>
     <Grid BackgroundColor="{StaticResource appBgColor}"
@@ -30,8 +36,11 @@
              x:FieldModifier="public"
             AllowViewNavigation="True"
             Tapped="WeekPageScheduler_Tapped"
+       
+            
             >
             
+            <!--appoinment mapping-->
             <scheduler:SfScheduler.AppointmentMapping>
                 <!--tham chiếu tới task người dùng-->
                 <scheduler:SchedulerAppointmentMapping     Id="Id"
@@ -41,9 +50,15 @@
                                                            RecurrenceRule="Recurrencerule">
                 </scheduler:SchedulerAppointmentMapping>
             </scheduler:SfScheduler.AppointmentMapping>
+            <!--Headerview-->
+            <scheduler:SfScheduler.HeaderView>
+                <scheduler:SchedulerHeaderView TextStyle="{StaticResource HeaderTextStyle}">
+                    
+                </scheduler:SchedulerHeaderView>
+            </scheduler:SfScheduler.HeaderView>
 
             <scheduler:SfScheduler.DaysView >
-                <scheduler:SchedulerDaysView TimeIntervalHeight="50" TimeInterval="0:30:0">
+                <scheduler:SchedulerDaysView TimeIntervalHeight="50" TimeInterval="0:30:0" CurrentTimeIndicatorBrush="{StaticResource TimeIntervalTextColor}" >
                     
                     <scheduler:SchedulerDaysView.ViewHeaderSettings >
                         <!--custom header style--> 
@@ -51,12 +66,14 @@
                                                                DateTextStyle="{StaticResource  textStyle}"
                                                                DayTextStyle ="{StaticResource textStyle}"
                                                                Height="60"
-                                                               DayFormat="ddd">
+                                                               DayFormat="ddd"
+                                                               >
                             
 
 
                         </scheduler:SchedulerViewHeaderSettings>
                     </scheduler:SchedulerDaysView.ViewHeaderSettings>
+                    
 
 
                 </scheduler:SchedulerDaysView>
@@ -79,7 +96,7 @@
                   >
                 <VerticalStackLayout Spacing="5">
                     <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
-                        <Label Text="Tasks" FontSize="25" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" TextColor="Black"/>
+                        <Label Text="Tasks" FontSize="25" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" TextColor="White"/>
                         <ImageButton HeightRequest="5" WidthRequest="5"   x:Name="btnOpenDeatil" Background="Transparent" Clicked="btnOpenDeatil_Clicked" Source="eye.png" Grid.Column="1" Grid.Row="0"></ImageButton>
                         <ImageButton HeightRequest="5" WidthRequest="5"    x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddAppointment_Clicked" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
                     </Grid>
@@ -94,8 +111,11 @@
                                                   CommandParameter="{Binding .}"></MenuItem>
                                     </ViewCell.ContextActions>
                                     <StackLayout>
-                                        <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="Black"> </Label>
-                                        <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="Black"/>
+                                        
+                                            <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="Black"> </Label>
+                                            <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="Black"/>
+                                        <CheckBox IsChecked="False"/>
+
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>

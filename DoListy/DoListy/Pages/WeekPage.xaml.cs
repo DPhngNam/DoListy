@@ -4,6 +4,7 @@ using Appointment = DoListy.ViewModel.Appointment;
 
 using Syncfusion.Maui.Scheduler;
 using System.Runtime.CompilerServices;
+//using AndroidX.Core.View.Accessibility;
 //using Foundation;
 
 namespace DoListy.Pages;
@@ -14,11 +15,24 @@ public partial class WeekPage : ContentPage
     public WeekPage()
     {
         InitializeComponent();
+        TimeRulerTextStyle();
         
     }
     public SchedulerAppointmentMapping schedulerAppointmentMapping { get; set; }
+    private void TimeRulerTextStyle()
+    {
+        var timeRulerTextStyle = new SchedulerTextStyle()
+        {
+            TextColor = Colors.AliceBlue,
+            FontSize = 12,
+        };
+        this.WeekPageScheduler.DaysView.TimeRulerTextStyle = timeRulerTextStyle;
+        this.WeekPageScheduler.TimelineView.TimeRulerTextStyle = timeRulerTextStyle;
+    }
 
-   
+
+
+
     protected override void OnAppearing()
     {
         base.OnAppearing();
@@ -101,4 +115,6 @@ public partial class WeekPage : ContentPage
             Tasklist.ItemsSource = null;
         }
     }
+
+ 
 }
