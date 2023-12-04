@@ -196,21 +196,18 @@
             <Frame Style="{StaticResource CommonFrame}" x:Name="frame_A" Grid.Row="1" Grid.Column="0" Margin="10" Grid.ColumnSpan="5" Grid.RowSpan="5">
                 <VerticalStackLayout>
                     <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
-                        <Label Text="Tasks" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
+                        <Label Text="Tasks" TextColor="White" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
                         <Button CornerRadius="23" FontAttributes="Bold" Text="+" x:Name="buttonAddTask" BackgroundColor="SkyBlue" Clicked="buttonAddTask_Clicked" Grid.Column="2" Grid.Row="0"></Button>
                     </Grid>
                     <BoxView BackgroundColor="Black" HeightRequest="1"/>
                     <StackLayout Orientation="Vertical" x:Name="TaskDailyStack">
-
                     </StackLayout>
-
-                    
                 </VerticalStackLayout>
             </Frame>
 
             <Frame Style="{StaticResource CommonFrame}" x:Name="frame_B" Grid.Row="1" Grid.Column="1" IsVisible="False">
                 <StackLayout>
-                    <Label Text="Task details" FontSize="14" FontAttributes="Bold" />
+                    <Label Text="Task details" TextColor="White" FontSize="20" FontAttributes="Bold" />
                     <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill" />
 
                     <StackLayout Orientation="Vertical" x:Name="TaskDetaiStack">

@@ -6,7 +6,7 @@ public partial class DayPage : ContentPage
 {
     //Color for task inn frame A
     private Color transparentColor = Color.FromRgba(255, 255, 255, 0);
-    private Color blackColor = Color.FromRgb(0, 0, 0);
+    private Color blackColor = Color.FromRgb(255, 255,255); // it is white
 
     //set the setting task's day is Now (for tempo)            
     private DateTime temp = DateTime.Now;
