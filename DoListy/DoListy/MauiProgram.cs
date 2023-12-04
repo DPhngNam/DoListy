@@ -26,6 +26,7 @@ namespace DoListy
                 });
             builder.Services.AddSingleton(AudioManager.Current);
             builder.Services.AddTransient<WeekPage>();
+            builder.Services.AddTransient<MonthPage>();
 #if WINDOWS
     builder.ConfigureLifecycleEvents(events =>
     {
