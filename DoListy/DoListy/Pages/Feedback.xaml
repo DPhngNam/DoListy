@@ -7,17 +7,19 @@
             xmlns:picker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
             >
     <Grid RowDefinitions="Auto,3*" WidthRequest="400" HeightRequest="200" RowSpacing="10">
-        <Label Grid.Row="0"  Background="Purple" Text="DoListy" FontSize="Header" Margin="10,0,0,0"/>
+        <Label Grid.Row="0"  Background="Purple" Text="DoListy" FontSize="Header" Margin="0,0,0,0"/>
         <VerticalStackLayout Grid.Row="1" Spacing="20" Margin="30,0,0,0">
             <Label Text="Lien he"/>
             <HorizontalStackLayout Spacing="40" >
                 <Label Text="Email:"/>
-                <Label Text="feadback@dolisty.me"/>
+                <Label x:Name="fbfromClient" Text="feedback@dolisty.me" TextColor="Blue"
+                       TextDecorations="Underline"/>
             </HorizontalStackLayout>
             <HorizontalStackLayout Spacing="40" >
                 <Label Text="Website:"/>
-                <Label Text="DoListy.com"/>
+                <Label Text="DoListy.com" TextColor="Blue"
+                       TextDecorations="Underline"/>
             </HorizontalStackLayout>
-        </VerticalStackLayout>
+        </VerticalStackLayout> 
     </Grid>
 </mct:Popup>

@@ -1,21 +1,25 @@
+using Plugin.Maui.Audio;
 using System.Collections.ObjectModel;
 using Appointment = DoListy.ViewModel.Appointment;
 
 namespace DoListy.Pages;
 public partial class DayPage : ContentPage
 {
-    //Color for task inn frame A
+    private readonly IAudioManager audioManager;
+    //Color for task in frame A
     private Color transparentColor = Color.FromRgba(255, 255, 255, 0);
-    private Color blackColor = Color.FromRgb(0, 0, 0);
+    private Color blackColor = Color.FromRgb(255, 255,255); // it is white
 
     //set the setting task's day is Now (for tempo)            
     private DateTime temp = DateTime.Now;
 
-    public DayPage()
+    public DayPage(IAudioManager audioManager)
     {
+
         InitializeComponent();
         AlwaysOnDisplay(DateTime.Now);
         SetIniDisplayDate();
+        this.audioManager = audioManager;
     }
 
     private void SetIniDisplayDate()
@@ -109,7 +113,14 @@ public partial class DayPage : ContentPage
         sat.DisplayDate = sat.DisplayDate.AddDays(7);
         sun.DisplayDate = sun.DisplayDate.AddDays(7);
     }
-
+    private async void CheckBox_CheckedChanged(object sender, EventArgs e)
+    {
+        if(sender is CheckBox checkBox && checkBox.IsChecked)
+    {
+            var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
+            player.Play();
+        }
+    }
     private void AlwaysOnDisplay(DateTime currentDate)
     {
         TaskDailyStack.Clear();
@@ -122,11 +133,13 @@ public partial class DayPage : ContentPage
             // Create labels for displaying appointment information
             Label nameLabel = new Label { Text = app.Name, TextColor = blackColor };
             Label dateLabel = new Label { Text = $"{app.EventStart:hh/mm,dd/mm/yy}-{app.EventEnd:hh/mm,dd/mm/yy}", TextColor = blackColor };
-
+            CheckBox ckbox = new CheckBox { IsChecked=false};
+            ckbox.CheckedChanged += CheckBox_CheckedChanged;
             // Create a StackLayout to hold labels
             StackLayout infoStack = new StackLayout();
             infoStack.Children.Add(nameLabel);
             infoStack.Children.Add(dateLabel);
+            infoStack.Children.Add(ckbox);
 
             // Create a Frame to contain appointment information
             Frame appointmentFrame = new Frame

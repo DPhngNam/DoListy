@@ -3,8 +3,9 @@ using Syncfusion.Maui.Core.Hosting;
 using CommunityToolkit.Maui;
 using DoListy.Database;
 using Microsoft.Maui.LifecycleEvents;
-using Microsoft.UI;
-using Microsoft.UI.Windowing;
+using Plugin.Maui.Audio;
+using DoListy.Pages;
+
 namespace DoListy
 {
     public static class MauiProgram
@@ -23,6 +24,10 @@ namespace DoListy
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("MaterialIcons-Regular.ttf", "IconFontTypes");
                 });
+            builder.Services.AddSingleton(AudioManager.Current);
+            builder.Services.AddTransient<WeekPage>();
+            builder.Services.AddTransient<MonthPage>();
+            builder.Services.AddTransient<DayPage>();
 #if WINDOWS
     builder.ConfigureLifecycleEvents(events =>
     {

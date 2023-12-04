@@ -93,10 +93,12 @@
                                               Clicked="MenuItem_Clicked"
                                               CommandParameter="{Binding .}"></MenuItem>
                                 </ViewCell.ContextActions>
-                                <StackLayout x:Name="TasksStack">
-                                    <Label TextColor="White" Text="{Binding Name}"></Label>
-                                    <Label TextColor="White" Text="{Binding EventStart}"></Label>
-                                </StackLayout>
+                                
+                                <Grid ColumnDefinitions="*,auto" RowDefinitions="*,*">
+                                    <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
+                                    <CheckBox IsChecked="False" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" CheckedChanged="CheckBox_CheckedChanged"/>
+                                </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

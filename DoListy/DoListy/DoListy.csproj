@@ -51,12 +51,14 @@
 	  <None Remove="Resources\Images\eye.png" />
 	  <None Remove="Resources\Images\plus.png" />
 	  <None Remove="Resources\Images\sunset_line.png" />
+	  <None Remove="Resources\Raw\tick.mp3" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Plugin.Maui.Audio" Version="2.1.0" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.7" />
 		<PackageReference Include="Syncfusion.Maui.Calendar" Version="23.1.41" />

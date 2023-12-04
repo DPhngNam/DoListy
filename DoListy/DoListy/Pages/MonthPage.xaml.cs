@@ -3,16 +3,20 @@ using System.Collections.ObjectModel;
 using Appointment = DoListy.ViewModel.Appointment;
 using System.Xml;
 using CommunityToolkit.Maui.Core;
+using Plugin.Maui.Audio;
 
 namespace DoListy.Pages;
 public partial class MonthPage : ContentPage
 {
     public Brush ColorBG;
     private DateTime pickedDate = DateTime.Now;
-	public MonthPage()
+    private readonly IAudioManager audioManager;
+
+    public MonthPage(IAudioManager audioManager)
 	{
 		InitializeComponent();
         TasksList.ItemsSource = null;
+        this.audioManager=audioManager;
 	}
     protected override void OnAppearing()
     {
@@ -99,5 +103,11 @@ public partial class MonthPage : ContentPage
     private void PomoButton_Clicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("Pomodoro");
+    }
+    private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    {
+        var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
+        player.Play();
+   
     }
 }
