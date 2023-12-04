@@ -21,7 +21,7 @@ public partial class MonthPage : ContentPage
     }
     public void loadAppointments()
     {
-        List<Appointment> appointments = App.appointmentRepo.GetAppointments();
+        List<Appointment> appointments =  App.appointmentRepo.GetAppointments();
         var AppointmentEvents = new ObservableCollection<Appointment>(appointments);
         Scheduler.AppointmentsSource = AppointmentEvents;
     }
@@ -30,11 +30,6 @@ public partial class MonthPage : ContentPage
     {
         //await Navigation.PushModalAsync(new AddAppointmentPage());
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
-    }
-
-    private void Scheduler_AppointmentDrop(object sender, Syncfusion.Maui.Scheduler.AppointmentDropEventArgs e)
-    {
-        loadAppointments();
     }
     private async void btnOpenDeatil_Clicked(object sender, EventArgs e)
     {
@@ -99,5 +94,10 @@ public partial class MonthPage : ContentPage
     private void TasksList_ItemTapped(object sender, ItemTappedEventArgs e)
     {
         TasksList.SelectedItem = null;
+    }
+
+    private void PomoButton_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("Pomodoro");
     }
 }
