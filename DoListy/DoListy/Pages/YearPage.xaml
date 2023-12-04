@@ -37,21 +37,39 @@
     <ContentPage.Resources>
         <ResourceDictionary>
 
+
             <Style x:Key="monthViewCalendarStyle"  TargetType="control:SfCalendar">
                 <Setter Property="HeaderView">
                     <control:CalendarHeaderView ShowNavigationArrows="False" Height="20" TextFormat="MMMMM">
                         <control:CalendarHeaderView.TextStyle>
-                            <control:CalendarTextStyle FontAttributes="Bold" FontFamily="OpenSansRegular" FontSize="15"/>
+                            <control:CalendarTextStyle FontAttributes="Bold" FontFamily="OpenSansRegular" FontSize="15" TextColor="White"/>
                         </control:CalendarHeaderView.TextStyle>
                     </control:CalendarHeaderView>
 
                 </Setter>
-
                 <Setter Property="AllowViewNavigation" Value="False"/>
                 <Setter Property="View" Value="Month"/>
                 <Setter Property="BackgroundColor" Value="Transparent"/>
-                <Setter Property="TodayHighlightBrush" Value="Orange"/>
+                <Setter Property="TodayHighlightBrush" Value="#8CABFF"/>
+                <Setter Property="MonthView">
+                    <control:CalendarMonthView>
+                        <control:CalendarMonthView.TextStyle>
+                            <control:CalendarTextStyle FontFamily="OpenSansRegular" FontSize="11" TextColor="White"/>
+                        </control:CalendarMonthView.TextStyle>
+                        <control:CalendarMonthView.TrailingLeadingDatesTextStyle>
+                            <control:CalendarTextStyle FontFamily="OpenSansRegular" FontSize="11" TextColor="DimGray"/>
 
+                        </control:CalendarMonthView.TrailingLeadingDatesTextStyle>
+                        <control:CalendarMonthView.HeaderView >
+                            <control:CalendarMonthHeaderView>
+                                <control:CalendarMonthHeaderView.TextStyle>
+                                    <control:CalendarTextStyle FontFamily="OpenSansRegular" FontSize="12" TextColor="#8CABFF" FontAttributes="Bold"/>
+
+                                </control:CalendarMonthHeaderView.TextStyle>
+                            </control:CalendarMonthHeaderView>
+                        </control:CalendarMonthView.HeaderView>
+                    </control:CalendarMonthView>
+                </Setter>
 
             </Style>
             <Style x:Key="monthViewCalendarFrameStyle" TargetType="Frame">
@@ -64,7 +82,7 @@
     </ContentPage.Resources>
 
 
-    <Grid RowDefinitions="1*,1*,1*" ColumnDefinitions="1*,1*,1*,1*,1*" ColumnSpacing="10" Padding="20" RowSpacing="10" BackgroundColor="{StaticResource appBgColor}">
+    <Grid RowDefinitions="1*,1*,1*" ColumnDefinitions="1*,1*,1*,1*,1*" ColumnSpacing="10" Padding="20,0,10,10" RowSpacing="10" BackgroundColor="{StaticResource appBgColor}">
         <Frame Grid.Column="0" Grid.Row="0" Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="janMonthViewCalendar" 
                                 Style="{StaticResource monthViewCalendarStyle}">
@@ -172,42 +190,57 @@
         </Frame>
         <Button x:Name="decButton" Grid.Column="3" Grid.Row="2" Clicked="OnDecButtonClicked" IsEnabled="True" BackgroundColor="Transparent"/>
 
-        <Grid Grid.Column="4" Grid.Row="0" Grid.RowSpan="3" ColumnDefinitions="*,2*,*" RowDefinitions="Auto,*" RowSpacing="20">
-            <ImageButton Grid.Column="0" Grid.Row="0"
+        <Grid Grid.Column="4" Grid.Row="0" Grid.RowSpan="3" ColumnDefinitions="*" RowDefinitions="Auto,*" RowSpacing="10" Margin="5,0,0,0" Padding="0,0,0,0">
+            <StackLayout HorizontalOptions="Start" Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Padding="0" Margin="0" Spacing="0">
+                <ImageButton x:Name="leftArrowButton"
                          Source="leftarrowicon.png"
                          HeightRequest="9" WidthRequest="9" 
-                         HorizontalOptions="Start"
-                         BackgroundColor="{StaticResource appBgColor}"
+                         BackgroundColor="Transparent"
                          Clicked="OnLeftArrowButtonClicked"
+                       Scale="1.3"
+                         Margin="10,0,0,0"
+                      Pressed="OnLeftArrowButtonPressed"
                          />
-            <Label x:Name="yearLabel" Grid.Column="1" Grid.Row="0" Text="2023" HorizontalTextAlignment="Center" Style="{StaticResource dateLabelStyle}" FontSize="30"/>
-            <ImageButton Grid.Column="2" Grid.Row="0"
+                <Label x:Name="yearLabel" Text="2023" Style="{StaticResource dateLabelStyle}" FontSize="40" Margin="0,0,0,0"/>
+                <ImageButton x:Name="rightArrowButton"
                          Source="rightarrowicon.png"
-                         HeightRequest="24" WidthRequest="24" 
-                         HorizontalOptions="Start"
-                         BackgroundColor="{StaticResource appBgColor}"
+                         HeightRequest="9" WidthRequest="9" 
+                         BackgroundColor="Transparent"
                          Clicked="OnRightArrowButtonClicked"
+                         Margin="0,0,0,0"
+Scale="1.3"
+                          Pressed="OnRightArrowButtonPressed"
                          />
+            </StackLayout>
 
-            <Frame Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" BackgroundColor="{StaticResource taskFrameBgColor}"
-                   CornerRadius="10"
-                   BorderColor="Purple"
+
+            <Frame Grid.Column="0"  Grid.Row="1" BackgroundColor="{StaticResource taskFrameBgColor}"
+                   CornerRadius="30"
+                   BorderColor="Transparent"
                    Padding="10">
-                <StackLayout Orientation="Vertical" Spacing="5">
+                <StackLayout Orientation="Vertical" >
                     <Grid ColumnDefinitions="Auto,*" RowDefinitions="*">
-                        <Label Grid.Column="0" Grid.Row="0" Text="Goals" Style="{StaticResource taskFrameHeaderLabelStyle}" FontSize="28"/>
+                        <Label Grid.Column="0" Grid.Row="0" Text="Goals" Style="{StaticResource taskFrameHeaderLabelStyle}" FontSize="28"
+                               Margin="15,0,0,0"
+                              />
                         <ImageButton Grid.Column="1" Grid.Row="0" 
-                                     Source="listplus.png" 
+                                    
+                                     x:Name="goalsPlusButton"
+                                     Source="listplus.png"
+                                     Scale="0.7"
                                      HorizontalOptions="End" 
                                      WidthRequest="9" HeightRequest="9" 
                                      BackgroundColor="{StaticResource taskFrameBgColor}"
-                                     Clicked="OnGoalsPlusButtonClicked"/>
+                                     Clicked="OnGoalsPlusButtonClicked"
+                                     Pressed="OnGoalsPlusButtonPressed"/>
                     </Grid>
-                    <BoxView BackgroundColor="Black" HeightRequest="1"/>
-                    <Grid x:Name="goalsListGrid" ColumnDefinitions="*">
-                        
-                    </Grid>
-                    
+                    <BoxView Color="#8CABFF" HeightRequest="1" Margin="0,0,0,12"  />
+                    <ScrollView HeightRequest="350">
+                        <Grid x:Name="goalsListGrid" ColumnDefinitions="*" RowSpacing="5">
+
+                        </Grid>
+                    </ScrollView>
+
                 </StackLayout>
             </Frame>
         </Grid>
