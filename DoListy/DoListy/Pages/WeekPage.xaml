@@ -110,13 +110,14 @@
                                                   Clicked="MenuItem_Clicked"
                                                   CommandParameter="{Binding .}"></MenuItem>
                                     </ViewCell.ContextActions>
-                                    <StackLayout>
-                                        
-                                            <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="Black"> </Label>
-                                            <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="Black"/>
-                                        <CheckBox IsChecked="False"/>
+                                    <Grid ColumnDefinitions="*,auto"
+                                          RowDefinitions="*,*">
+                                        <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="0"> </Label>
+                                            <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
+                                        <CheckBox IsChecked="False" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"/>
+                                    </Grid>
 
-                                    </StackLayout>
+
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
