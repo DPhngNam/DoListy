@@ -39,8 +39,8 @@
 
                 
                 <Setter Property="ShowNavigationArrows" Value="False" />
-                <Setter Property="TranslationY" Value="1" />
-                <Setter Property="TranslationX" Value="30" />
+                <Setter Property="TranslationY" Value="0" />
+                <Setter Property="TranslationX" Value="31" />
                 <Setter Property="WidthRequest" Value="110" />
                 <Setter Property="HeightRequest" Value="110" />
 
@@ -48,7 +48,7 @@
             <Style x:Key="CommonFrameStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="BorderColor" Value="Transparent" />
-                <Setter Property="CornerRadius" Value="90" />
+                
                 <Setter Property="Margin" Value="5" />
                 <Setter Property="WidthRequest" Value="68" />
                 <Setter Property="HeightRequest" Value="68" />
@@ -120,7 +120,7 @@
             <!--Monday-->
 
             <!--Tuesday-->
-            <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="1">
+            <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="1" >
                 <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
                     <scheduler:SfScheduler  x:Name="tue" Style="{StaticResource dayViewSchedulerStyle}" />
                 </StackLayout>
@@ -130,7 +130,7 @@
 
             <!--Wednesday-->
             <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="2">
-                <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
+                <StackLayout Style="{StaticResource CommonStackLayoutStyle}" >
                     <scheduler:SfScheduler x:Name="wed" Style="{StaticResource dayViewSchedulerStyle}" />
                 </StackLayout>
             </Frame>
@@ -212,9 +212,7 @@
                     <Label Text="Task details" TextColor="White" FontSize="20" FontAttributes="Bold" />
                     <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill" />
 
-                    <StackLayout Orientation="Vertical" x:Name="TaskDetaiStack">
-
-                    </StackLayout>
+                    
                 </StackLayout>
             </Frame>
 
