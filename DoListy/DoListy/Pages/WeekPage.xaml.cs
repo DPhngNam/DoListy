@@ -51,6 +51,16 @@ public partial class WeekPage : ContentPage
 
     private void WeekPageScheduler_AppointmentDrop(object sender, AppointmentDropEventArgs e)
     {
+        var dragedApp = e.Appointment;
+        if(dragedApp != null)
+        {
+            int num = Convert.ToInt32(dragedApp.Id);
+            Appointment temp = App.appointmentRepo.GetAppointmentByID(num);
+            TimeSpan delta = temp.EventEnd - temp.EventStart;
+            temp.EventStart = e.DropTime;
+            temp.EventEnd = e.DropTime.Add(delta);
+            App.appointmentRepo.Update(temp);
+        }    
         loadAppointments();
     }
     private async void buttonAddAppointment_Clicked(object sender, EventArgs e)

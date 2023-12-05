@@ -6,35 +6,37 @@
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              xmlns:local1="clr-namespace:DoListy.ViewModel"
              BackgroundColor="{StaticResource appBgColor}"
-             Title=""
              >
     <!--Page cua Vinh Thinh-->
     <ContentPage.Resources>
-        <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold"/>
-        <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold"/>
-        <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold"/>
-        <scheduler:SchedulerMonthCellStyle  x:Key="monthCellStyle"
+        <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold" TextColor="White"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle3" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle2" FontSize="14" FontAttributes="Bold" TextColor="#0047AB"/>
+        <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="White"/>
+        <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="White"/>
+        <scheduler:SchedulerMonthCellStyle x:Key="monthCellStyle"
                                            TextStyle="{StaticResource textStyle}"
-                                           />
+                                           TrailingMonthTextStyle="{StaticResource trailingTextStyle}"
+                                           LeadingMonthTextStyle="{StaticResource leadingTextStyle}"/>
     </ContentPage.Resources>
     
     <Grid 
         RowDefinitions="*"
         ColumnDefinitions="3*,*">
 
-            <Frame BorderColor="#808080" Padding="0,0,0,0"  CornerRadius="1">
-            <scheduler:SfScheduler TodayHighlightBrush= "blue" CellBorderBrush="black" SelectedCellBackground="Gray" BackgroundColor="{StaticResource navBgColor}" 
+            <Frame BorderColor="Black" Padding="0,0,0,0"  CornerRadius="1">
+            <scheduler:SfScheduler CellBorderBrush="black"  Background="{StaticResource dayFrameBgColor}"
                 x:Name="Scheduler"
                 Grid.Column="0" Grid.Row="0"
                 ShowWeekNumber="True"
                 View="Month"
                 AllowViewNavigation="True"
                 Tapped="Scheduler_Tapped"                 
-                AppointmentDrop="Scheduler_AppointmentDrop"
                 x:FieldModifier="public"
                 SelectionChanged="Scheduler_SelectionChanged"
                 EnableReminder="True"
                 ReminderAlertOpening="Scheduler_ReminderAlertOpening"
+                TodayHighlightBrush="#8C52FF"
                 >
                 <scheduler:SfScheduler.AppointmentMapping>
                     <!--tham chiếu tới task người dùng-->
@@ -51,31 +53,37 @@
                         </scheduler:SchedulerAppointmentMapping.ReminderMapping> 
                     </scheduler:SchedulerAppointmentMapping>
                 </scheduler:SfScheduler.AppointmentMapping>
-                <scheduler:SfScheduler.DragDropSettings>
+                <scheduler:SfScheduler.HeaderView>
+                    <scheduler:SchedulerHeaderView TextStyle="{StaticResource textStyle3}"  />
+                </scheduler:SfScheduler.HeaderView>
+                <scheduler:SfScheduler.DragDropSettings> 
                     <scheduler:DragDropSettings ShowTimeIndicator="true"/>
                 </scheduler:SfScheduler.DragDropSettings>
                 <scheduler:SfScheduler.MonthView>
-                    <scheduler:SchedulerMonthView ShowLeadingAndTrailingDates="True" CellStyle="{StaticResource monthCellStyle}" AppointmentDisplayMode="Indicator">
+                    <scheduler:SchedulerMonthView  ShowLeadingAndTrailingDates="True" CellStyle="{StaticResource monthCellStyle}"  AppointmentDisplayMode="Indicator">
                         <scheduler:SchedulerMonthView.ViewHeaderSettings>
-                            <scheduler:SchedulerViewHeaderSettings Height="20" DateTextStyle="{StaticResource dayFrameHeaderLabelFontSize}" DayFormat="ddd"/>
+                            <scheduler:SchedulerViewHeaderSettings Height="20" DayFormat="ddd" DayTextStyle="{StaticResource textStyle}"/>
                         </scheduler:SchedulerMonthView.ViewHeaderSettings>
-                        </scheduler:SchedulerMonthView>
+                    </scheduler:SchedulerMonthView>
                 </scheduler:SfScheduler.MonthView>
-                
+                <scheduler:SfScheduler.WeekNumberStyle>
+                    <scheduler:SchedulerWeekNumberStyle Background="#8CABFF" TextStyle="{StaticResource textStyle2}"/>
+                </scheduler:SfScheduler.WeekNumberStyle>
             </scheduler:SfScheduler>
             </Frame>
-        <Frame  BackgroundColor="{StaticResource navBgColor}"
-                Margin="25"
+        <Frame  Style="{StaticResource taskFrameStyle}"
+                Margin="15,0,15,55"
                 Grid.Row="0"
                 Grid.Column="1"
-                CornerRadius="40">
+                BorderColor="#8CABFF"
+                >
             <VerticalStackLayout Spacing="5">
                 <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
-                    <Label Text="Tasks" FontSize="30" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
-                    <ImageButton HeightRequest="5" WidthRequest="5"   x:Name="btnOpenDeatil" Background="Transparent" Clicked="btnOpenDeatil_Clicked" Source="eye.png" Grid.Column="1" Grid.Row="0"></ImageButton>
-                    <ImageButton HeightRequest="5" WidthRequest="5"   x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddAppointment_Clicked" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
+                    <Label TextColor="White" Text="Tasks" FontSize="30" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
+                    <ImageButton HeightRequest="5" WidthRequest="5"  x:Name="btnOpenDeatil" Background="Transparent" Clicked="btnOpenDeatil_Clicked" Source="eye.png" Grid.Column="1" Grid.Row="0"></ImageButton>
+                    <ImageButton HeightRequest="5" WidthRequest="5"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddAppointment_Clicked" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
                 </Grid>
-                <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                <BoxView Color="White" HeightRequest="1"/>
                 <ListView x:Name="TasksList" BackgroundColor="Transparent" ItemSelected="TasksList_ItemSelected" ItemTapped="TasksList_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -85,8 +93,8 @@
                                               Clicked="MenuItem_Clicked"
                                               CommandParameter="{Binding .}"></MenuItem>
                                 </ViewCell.ContextActions>
-                                <Grid ColumnDefinitions="*,auto"
-      RowDefinitions="*,*">
+                                
+                                <Grid ColumnDefinitions="*,auto" RowDefinitions="*,*">
                                     <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="0"></Label>
                                     <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
                                     <CheckBox IsChecked="False" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" CheckedChanged="CheckBox_CheckedChanged"/>
@@ -97,5 +105,12 @@
                 </ListView>
             </VerticalStackLayout>
         </Frame>
-</Grid>
+        <Button x:Name="PomoButton" 
+            Margin="10,0,10,5"
+            Text="Pomodoro" 
+            Style="{StaticResource pomoButton}"
+            VerticalOptions="End"
+            Grid.Column="1" Clicked="PomoButton_Clicked">
+        </Button>
+    </Grid>
 </ContentPage>

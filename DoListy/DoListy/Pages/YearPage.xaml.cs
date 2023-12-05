@@ -35,15 +35,16 @@ public partial class YearPage : ContentPage
     }
     private void OnLeftArrowButtonClicked(object sender, EventArgs e)
     {
+        leftArrowButton.Opacity = 1.0;
         yearLabel.Text = Convert.ToString(Convert.ToInt32(yearLabel.Text) - 1);
         ChangeYearOfDisplayDate(false);
         CurrentDate = janMonthViewCalendar.DisplayDate;
         goalsListGrid.Children.Clear();
         goalsListGrid.RowDefinitions.Clear();
-        if(goalsList.ContainsKey(CurrentDate))
+        if (goalsList.ContainsKey(CurrentDate))
         {
             var numOfGoals = goalsList[CurrentDate].Count;
-            for(int i=0; i<numOfGoals; i++)
+            for (int i = 0; i < numOfGoals; i++)
             {
                 goalsListGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
                 goalsListGrid.Children.Add(goalsList[CurrentDate][i]);
@@ -51,10 +52,12 @@ public partial class YearPage : ContentPage
                 goalsListGrid.SetRow(goalsList[CurrentDate][i], goalsListGrid.RowDefinitions.Count - 1);
             }
         }
-        
+
     }
     private void OnRightArrowButtonClicked(object sender, EventArgs e)
     {
+
+        rightArrowButton.Opacity = 1.0;
         yearLabel.Text = Convert.ToString(Convert.ToInt32(yearLabel.Text) + 1);
         ChangeYearOfDisplayDate(true);
         CurrentDate = janMonthViewCalendar.DisplayDate;
@@ -71,7 +74,7 @@ public partial class YearPage : ContentPage
                 goalsListGrid.SetRow(goalsList[CurrentDate][i], goalsListGrid.RowDefinitions.Count - 1);
             }
         }
-        
+
     }
     private void ChangeYearOfDisplayDate(bool plus)
     {
@@ -166,9 +169,11 @@ public partial class YearPage : ContentPage
     }
     private void OnGoalsPlusButtonClicked(object sender, EventArgs e)
     {
-
+        goalsPlusButton.Opacity = 1.0;
         SetGoals setGoalsPage = new SetGoals();
         setGoalsPage.IniYearNumericEntry(CurrentDate.Year);
+        setGoalsPage.editGoalButton.IsVisible = false;
+
         this.ShowPopup(setGoalsPage);
         /*var newGoal = new Label
         {
@@ -188,20 +193,98 @@ public partial class YearPage : ContentPage
         goalsListStack.Children.Add(newGoal);
         */
     }
-
+    private void OnLeftArrowButtonPressed(object sender, EventArgs e)
+    {
+        leftArrowButton.Opacity = 0.5;
+    }
+    private void OnRightArrowButtonPressed(Object sender, EventArgs e)
+    {
+        rightArrowButton.Opacity = 0.5;
+    }
+    private void OnGoalsPlusButtonPressed(Object sender, EventArgs e)
+    {
+        goalsPlusButton.Opacity = 0.5;
+    }
     public void getCreatedGoal(string goalName, int year, string note)
     {
         goalsListGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
+        if (goalName.Length > 15)
+        {
+            goalName = goalName.Substring(0, 13) + "...";
+        }
         var newButton = new Button
         {
             Text = goalName,
+
+            WidthRequest = 175,
+            BorderColor = Color.FromHex("#8CABFF"),
             BackgroundColor = Color.FromRgba(0, 0, 0, 0),
             HeightRequest = 40,
-            TextColor = Color.FromRgb(0, 0, 0)
+            TextColor = Colors.White,
+            HorizontalOptions = LayoutOptions.Start,
+            Padding = new Thickness(10,0,50,0)
+           
+        }; var tempColor = newButton.BorderColor;
+
+
+
+        var newCB = new CheckBox {
+            IsChecked = false,
+    };
+        newCB.CheckedChanged += (sender, e) =>
+        {
+            if (newCB.IsChecked)
+            {
+                newButton.BorderColor = Color.FromArgb("#ff081b25");
+                tempColor = Color.FromArgb("#ff081b25");
+                newButton.TextColor = Colors.Gray;
+            }
+            else
+            {
+                newButton.BorderColor = Color.FromArgb("#ff8cabff");
+                tempColor = Color.FromArgb("#ff8cabff");
+                newButton.TextColor = Colors.White;
+            }
         };
+        newButton.Pressed += (sender, e) =>
+        {   
+            newButton.BorderColor = Colors.White;
+        }; 
+       
+        var newGrid = new Grid();
+        newGrid.RowDefinitions.Add(new RowDefinition { Height=GridLength.Auto });
+        newGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+        newGrid.Children.Add(newButton);
+        newGrid.SetColumn(newButton, 0);
+        newGrid.SetRow(newButton, 0);
+        newGrid.Children.Add(newCB);
+        newGrid.SetColumn(newCB, 0);
+        newGrid.SetRow(newCB, 0);
+        newCB.HorizontalOptions = LayoutOptions.End;
+        DateTime goalInYear = new DateTime(year, 1, 1);
+        if (goalsList.ContainsKey(goalInYear))
+        {
+            goalsList[goalInYear].Add(newGrid);
+        }
+        else
+        {
+            var newGoalList = new List<IView>();
+            newGoalList.Add(newGrid);
+            goalsList.Add(goalInYear, newGoalList);
+        }
+        int flag1 = goalsList[goalInYear].Count-1;
+        if (goalInYear.Year == CurrentDate.Year)
+        {
+            goalsListGrid.Children.Add(newGrid);
+            goalsListGrid.SetRow(newGrid, goalsListGrid.RowDefinitions.Count - 1);
+            goalsListGrid.SetColumn(newGrid, 0);
+        }
         newButton.Clicked += (sender, e) =>
         {
+
+            newButton.BorderColor = tempColor;
             SetGoals viewGoal = new SetGoals();
+            
             viewGoal.goalTitleEntry.Text = goalName;
             viewGoal.goalTitleEntry.IsEnabled = false;
             viewGoal.yearNumericEntry.Value = year;
@@ -210,25 +293,17 @@ public partial class YearPage : ContentPage
             viewGoal.goalNoteEntry.IsEnabled = false;
             viewGoal.setGoalsCancelButton.IsVisible = false;
             viewGoal.setGoalsCreateButton.IsVisible = false;
+            viewGoal.editGoalButton.IsVisible = true;
             this.ShowPopup(viewGoal);
+            viewGoal.setGoalsSaveButton.Clicked += (sender, e) =>
+            {
+                ((Button)((Grid)goalsList[goalInYear][flag1]).Children[0]).Text = viewGoal.goalTitleEntry.Text;
+                ((Button)(((Grid)(goalsListGrid.Children[flag1])).Children[0])).Text = viewGoal.goalTitleEntry.Text;
+                goalName = viewGoal.goalTitleEntry.Text;
+                note = viewGoal.goalNoteEntry.Text;
+                viewGoal.Close();
+            };
         };
-        DateTime goalInYear = new DateTime(year, 1, 1);
-        if(goalsList.ContainsKey(goalInYear))
-        {
-            goalsList[goalInYear].Add(newButton);
-        }
-        else
-        {
-            var newGoalList = new List<IView>();
-            newGoalList.Add(newButton);
-            goalsList.Add(goalInYear, newGoalList);
-        }
-        if (goalInYear.Year == CurrentDate.Year)
-        {
-            goalsListGrid.Children.Add(newButton);
-            goalsListGrid.SetRow(newButton, goalsListGrid.RowDefinitions.Count - 1);
-            goalsListGrid.SetColumn(newButton, 0);
-        }
     }
 }
 
