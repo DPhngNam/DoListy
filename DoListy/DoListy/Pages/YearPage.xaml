@@ -77,12 +77,13 @@
                 <Setter Property="Padding" Value="10"/>
                 <Setter Property="BorderColor" Value="{StaticResource pomoButtonBgColor}"/>
                 <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="HeightRequest" Value="165"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
 
-    <Grid RowDefinitions="1*,1*,1*" ColumnDefinitions="1*,1*,1*,1*,1*" ColumnSpacing="10" Padding="20,0,10,10" RowSpacing="10" BackgroundColor="{StaticResource appBgColor}">
+    <Grid RowDefinitions="1*,1*,1*" ColumnDefinitions="1*,1*,1*,1*,1*" ColumnSpacing="10" Padding="20,0,10,20" RowSpacing="10" BackgroundColor="{StaticResource appBgColor}">
         <Frame Grid.Column="0" Grid.Row="0" Style="{StaticResource monthViewCalendarFrameStyle}">
             <control:SfCalendar x:Name="janMonthViewCalendar" 
                                 Style="{StaticResource monthViewCalendarStyle}">
@@ -220,7 +221,7 @@ Scale="1.3"
                    Padding="10">
                 <StackLayout Orientation="Vertical" >
                     <Grid ColumnDefinitions="Auto,*" RowDefinitions="*">
-                        <Label Grid.Column="0" Grid.Row="0" Text="Goals" Style="{StaticResource taskFrameHeaderLabelStyle}" FontSize="28"
+                        <Label Grid.Column="0" Grid.Row="0" Text="Goals" Style="{StaticResource taskFrameHeaderLabelStyle}" FontSize="28" TextColor="White"
                                Margin="15,0,0,0"
                               />
                         <ImageButton Grid.Column="1" Grid.Row="0" 

@@ -207,27 +207,51 @@ public partial class YearPage : ContentPage
     public void getCreatedGoal(string goalName, int year, string note)
     {
         goalsListGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
-        if (goalName.Length > 19)
+        if (goalName.Length > 15)
         {
-            goalName = goalName.Substring(0, 18) + "...";
+            goalName = goalName.Substring(0, 13) + "...";
         }
         var newButton = new Button
         {
             Text = goalName,
+
             WidthRequest = 175,
             BorderColor = Color.FromHex("#8CABFF"),
             BackgroundColor = Color.FromRgba(0, 0, 0, 0),
             HeightRequest = 40,
             TextColor = Colors.White,
-            HorizontalOptions = LayoutOptions.Start
+            HorizontalOptions = LayoutOptions.Start,
+            Padding = new Thickness(10,0,50,0)
+           
         }; var tempColor = newButton.BorderColor;
 
-        newButton.Pressed += (sender, e) =>
+
+
+        var newCB = new CheckBox {
+            IsChecked = false,
+    };
+        newCB.CheckedChanged += (sender, e) =>
         {
-            newButton.BorderColor = Colors.White;
+            if (newCB.IsChecked)
+            {
+                newButton.BorderColor = Color.FromArgb("#ff081b25");
+                tempColor = Color.FromArgb("#ff081b25");
+                newButton.TextColor = Colors.Gray;
+            }
+            else
+            {
+                newButton.BorderColor = Color.FromArgb("#ff8cabff");
+                tempColor = Color.FromArgb("#ff8cabff");
+                newButton.TextColor = Colors.White;
+            }
         };
+        newButton.Pressed += (sender, e) =>
+        {   
+            newButton.BorderColor = Colors.White;
+        }; 
         newButton.Clicked += (sender, e) =>
         {
+
             newButton.BorderColor = tempColor;
             SetGoals viewGoal = new SetGoals();
             viewGoal.goalTitleEntry.Text = goalName;
@@ -240,22 +264,32 @@ public partial class YearPage : ContentPage
             viewGoal.setGoalsCreateButton.IsVisible = false;
             this.ShowPopup(viewGoal);
         };
+        var newGrid = new Grid();
+        newGrid.RowDefinitions.Add(new RowDefinition { Height=GridLength.Auto });
+        newGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+        newGrid.Children.Add(newButton);
+        newGrid.SetColumn(newButton, 0);
+        newGrid.SetRow(newButton, 0);
+        newGrid.Children.Add(newCB);
+        newGrid.SetColumn(newCB, 0);
+        newGrid.SetRow(newCB, 0);
+        newCB.HorizontalOptions = LayoutOptions.End;
         DateTime goalInYear = new DateTime(year, 1, 1);
         if (goalsList.ContainsKey(goalInYear))
         {
-            goalsList[goalInYear].Add(newButton);
+            goalsList[goalInYear].Add(newGrid);
         }
         else
         {
             var newGoalList = new List<IView>();
-            newGoalList.Add(newButton);
+            newGoalList.Add(newGrid);
             goalsList.Add(goalInYear, newGoalList);
         }
         if (goalInYear.Year == CurrentDate.Year)
         {
-            goalsListGrid.Children.Add(newButton);
-            goalsListGrid.SetRow(newButton, goalsListGrid.RowDefinitions.Count - 1);
-            goalsListGrid.SetColumn(newButton, 0);
+            goalsListGrid.Children.Add(newGrid);
+            goalsListGrid.SetRow(newGrid, goalsListGrid.RowDefinitions.Count - 1);
+            goalsListGrid.SetColumn(newGrid, 0);
         }
     }
 }
