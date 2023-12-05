@@ -42,6 +42,13 @@
             x:Name="goalTitleEntry" Grid.Column="1" Grid.Row="1" 
             BackgroundColor="#1D267D"  TextColor="White"
             Placeholder="Title of the Goal" WidthRequest="500" HeightRequest="50" HorizontalOptions="Start" />
+        <ImageButton x:FieldModifier="public" x:Name="editGoalButton" Grid.Column="1" Grid.Row="1"
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="End"
+                     Scale="0.5"
+                     Pressed="OnEditGoalButtonPressed"
+                     Clicked="OnEditGoalButtonClicked"
+                     Source="editicon.png"/>
         <editors:SfNumericEntry x:FieldModifier="public" x:Name="yearNumericEntry" 
                                 BackgroundColor="#1D267D" TextColor="White"
                                 Grid.Column="1" Grid.Row="2" WidthRequest="500" HeightRequest="50" UpDownPlacementMode="Inline"
@@ -65,6 +72,15 @@
                 WidthRequest="160" HeightRequest="20"
                 Clicked="OnSetGoalsCreatelButtonClicked"
                 Pressed="OnSetGoalsCreateButtonPressed">
+                
+            </Button>
+            <Button x:FieldModifier="public"  x:Name="setGoalsSaveButton"
+                TextColor="#0C134F" Text="Save" FontSize="12" BackgroundColor="{StaticResource pomoButtonBgColor}"
+                CornerRadius="20"
+                WidthRequest="160" HeightRequest="20"
+             
+                    IsVisible="false"
+                    >
                 
             </Button>
         </StackLayout>

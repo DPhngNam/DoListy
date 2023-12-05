@@ -172,6 +172,7 @@ public partial class YearPage : ContentPage
         goalsPlusButton.Opacity = 1.0;
         SetGoals setGoalsPage = new SetGoals();
         setGoalsPage.IniYearNumericEntry(CurrentDate.Year);
+        setGoalsPage.editGoalButton.IsVisible = false;
 
         this.ShowPopup(setGoalsPage);
         /*var newGoal = new Label
@@ -249,21 +250,7 @@ public partial class YearPage : ContentPage
         {   
             newButton.BorderColor = Colors.White;
         }; 
-        newButton.Clicked += (sender, e) =>
-        {
-
-            newButton.BorderColor = tempColor;
-            SetGoals viewGoal = new SetGoals();
-            viewGoal.goalTitleEntry.Text = goalName;
-            viewGoal.goalTitleEntry.IsEnabled = false;
-            viewGoal.yearNumericEntry.Value = year;
-            viewGoal.yearNumericEntry.IsEnabled = false;
-            viewGoal.goalNoteEntry.Text = note;
-            viewGoal.goalNoteEntry.IsEnabled = false;
-            viewGoal.setGoalsCancelButton.IsVisible = false;
-            viewGoal.setGoalsCreateButton.IsVisible = false;
-            this.ShowPopup(viewGoal);
-        };
+       
         var newGrid = new Grid();
         newGrid.RowDefinitions.Add(new RowDefinition { Height=GridLength.Auto });
         newGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
@@ -285,12 +272,38 @@ public partial class YearPage : ContentPage
             newGoalList.Add(newGrid);
             goalsList.Add(goalInYear, newGoalList);
         }
+        int flag1 = goalsList[goalInYear].Count-1;
         if (goalInYear.Year == CurrentDate.Year)
         {
             goalsListGrid.Children.Add(newGrid);
             goalsListGrid.SetRow(newGrid, goalsListGrid.RowDefinitions.Count - 1);
             goalsListGrid.SetColumn(newGrid, 0);
         }
+        newButton.Clicked += (sender, e) =>
+        {
+
+            newButton.BorderColor = tempColor;
+            SetGoals viewGoal = new SetGoals();
+            
+            viewGoal.goalTitleEntry.Text = goalName;
+            viewGoal.goalTitleEntry.IsEnabled = false;
+            viewGoal.yearNumericEntry.Value = year;
+            viewGoal.yearNumericEntry.IsEnabled = false;
+            viewGoal.goalNoteEntry.Text = note;
+            viewGoal.goalNoteEntry.IsEnabled = false;
+            viewGoal.setGoalsCancelButton.IsVisible = false;
+            viewGoal.setGoalsCreateButton.IsVisible = false;
+            viewGoal.editGoalButton.IsVisible = true;
+            this.ShowPopup(viewGoal);
+            viewGoal.setGoalsSaveButton.Clicked += (sender, e) =>
+            {
+                ((Button)((Grid)goalsList[goalInYear][flag1]).Children[0]).Text = viewGoal.goalTitleEntry.Text;
+                ((Button)(((Grid)(goalsListGrid.Children[flag1])).Children[0])).Text = viewGoal.goalTitleEntry.Text;
+                goalName = viewGoal.goalTitleEntry.Text;
+                note = viewGoal.goalNoteEntry.Text;
+                viewGoal.Close();
+            };
+        };
     }
 }
 

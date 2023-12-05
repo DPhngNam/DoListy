@@ -30,10 +30,22 @@ public partial class SetGoals : Popup
     void OnSetGoalsCreatelButtonClicked(object sender, EventArgs e)
     {
         setGoalsCreateButton.Opacity = 1.0;
-
-
         Close();
         if (string.IsNullOrEmpty(goalTitleEntry.Text)) { goalTitleEntry.Text = ""; }
         ((YearPage)Shell.Current.CurrentPage).getCreatedGoal(goalTitleEntry.Text, (int)yearNumericEntry.Value, goalNoteEntry.Text);
     }
+    void OnEditGoalButtonPressed(object sender, EventArgs e)
+    {
+        editGoalButton.Opacity = 0.5;
+    }
+    void OnEditGoalButtonClicked(object sender, EventArgs e)
+    {
+        editGoalButton.Opacity = 1.0;
+        goalTitleEntry.IsEnabled = true;
+        yearNumericEntry.IsEnabled = true;
+        goalNoteEntry.IsEnabled = true;
+        setGoalsSaveButton.IsVisible = true;
+        setGoalsCancelButton.IsVisible = true;
+    }
+  
 }
