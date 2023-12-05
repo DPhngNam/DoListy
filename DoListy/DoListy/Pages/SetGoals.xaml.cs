@@ -13,12 +13,23 @@ public partial class SetGoals : Popup
     {
         yearNumericEntry.Value = num;
     }
-    void OnSetGoalsCancelButton(object sender, EventArgs e)
+    void OnSetGoalsCancelButtonPressed(object sender, EventArgs e)
     {
+        setGoalsCancelButton.Opacity = 0.5;
+    }
+    void OnSetGoalsCancelButtonClicked(object sender, EventArgs e)
+    {
+        setGoalsCancelButton.Opacity = 1.0;
+
         Close();
     }
-    void OnSetGoalsCreatelButton(object sender, EventArgs e)
+    void OnSetGoalsCreateButtonPressed(object sender, EventArgs e)
     {
+        setGoalsCreateButton.Opacity = 0.5;
+    }
+    void OnSetGoalsCreatelButtonClicked(object sender, EventArgs e)
+    {
+        setGoalsCreateButton.Opacity = 1.0;
 
 
         Close();
