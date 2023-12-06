@@ -91,6 +91,9 @@ public partial class DayPage : ContentPage
         frame_B.IsVisible = false;
 
     }
+    
+
+    
 
     private void LeftimaBut_Clicked(object sender, EventArgs e)
     {
@@ -102,7 +105,7 @@ public partial class DayPage : ContentPage
         sat.DisplayDate = sat.DisplayDate.AddDays(-7);
         sun.DisplayDate = sun.DisplayDate.AddDays(-7);
     }
-
+    
     private void RightimaBut_Clicked(object sender, EventArgs e)
     {
         mon.DisplayDate = mon.DisplayDate.AddDays(7);
@@ -121,6 +124,7 @@ public partial class DayPage : ContentPage
             player.Play();
         }
     }
+    
     private void AlwaysOnDisplay(DateTime currentDate)
     {
         TaskDailyStack.Clear();
@@ -131,15 +135,37 @@ public partial class DayPage : ContentPage
         foreach (Appointment app in appointmentsForDate)
         {
             // Create labels for displaying appointment information
+            Grid grid = new Grid();
+
+            // Define two auto-sized columns
+            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+            // Define two auto-sized rows
+            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+
             Label nameLabel = new Label { Text = app.Name, TextColor = blackColor };
+            CheckBox ckbox = new CheckBox { IsChecked = false };
             Label dateLabel = new Label { Text = $"{app.EventStart:hh/mm,dd/mm/yy}-{app.EventEnd:hh/mm,dd/mm/yy}", TextColor = blackColor };
-            CheckBox ckbox = new CheckBox { IsChecked=false};
+            
             ckbox.CheckedChanged += CheckBox_CheckedChanged;
+            // Set the row and column positions for labels and checkbox
+            grid.SetColumn(nameLabel, 0);
+            grid.SetRow(nameLabel, 0);
+
+            grid.SetColumn(dateLabel, 0);
+            grid.SetRow(dateLabel, 1);
+
+            grid.SetColumn(ckbox, 1);
+            grid.SetRowSpan(ckbox, 2);
+
+            grid.Children.Add(nameLabel);
+            grid.Children.Add(dateLabel);
+            grid.Children.Add(ckbox);
             // Create a StackLayout to hold labels
             StackLayout infoStack = new StackLayout();
-            infoStack.Children.Add(nameLabel);
-            infoStack.Children.Add(dateLabel);
-            infoStack.Children.Add(ckbox);
+            infoStack.Children.Add(grid);
+            
 
             // Create a Frame to contain appointment information
             Frame appointmentFrame = new Frame
@@ -153,7 +179,7 @@ public partial class DayPage : ContentPage
             {
                 Command = new Command(async () =>
                 {
-                    // Call the method containing the common animation logic
+                    
                     await AnimateFrames();
                 })
             });
@@ -165,6 +191,9 @@ public partial class DayPage : ContentPage
 
             // Add the combined StackLayout to TaskDailyStack
             TaskDailyStack.Children.Add(frameStack);
+
+            //Adding to frame B
+
         }
 
     }
@@ -221,4 +250,7 @@ public partial class DayPage : ContentPage
         AlwaysOnDisplay(sun.DisplayDate);
 
     }
+
+   
+    
 }

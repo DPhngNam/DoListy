@@ -24,21 +24,26 @@
     <Grid BackgroundColor="{StaticResource appBgColor}"
           RowDefinitions="*"
           ColumnDefinitions="3*,*"
-         >
+           
+    
+        
+        >
+       
         <!--scheduler week view--> 
         <scheduler:SfScheduler
             Grid.Column="0"
             Grid.Row="0"
+            Margin="15"
             x:Name="WeekPageScheduler"
             View="Week"
             ShowWeekNumber="True"
             AppointmentDrop="WeekPageScheduler_AppointmentDrop"
              x:FieldModifier="public"
             AllowViewNavigation="True"
-            Tapped="WeekPageScheduler_Tapped"
-       
-            
+            Tapped="WeekPageScheduler_Tapped" 
+        
             >
+          
             
             <!--appoinment mapping-->
             <scheduler:SfScheduler.AppointmentMapping>
@@ -94,6 +99,7 @@
                    Style="{StaticResource taskFrameStyle}"
                    Grid.Column="2"
                    VerticalOptions="FillAndExpand"
+                   CornerRadius="25"
                   >
                 <VerticalStackLayout Spacing="5">
                     <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
@@ -113,8 +119,8 @@
                                     </ViewCell.ContextActions>
                                     <Grid ColumnDefinitions="*,auto"
                                           RowDefinitions="*,*">
-                                        <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="0"> </Label>
-                                            <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
+                                        <Label Text="{Binding Name}"  TextColor="White" Grid.Column="0" Grid.Row="0"> </Label>
+                                            <Label Text="{Binding EventStart}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
                                         <CheckBox IsChecked="False" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" CheckedChanged="CheckBox_CheckedChanged"/>
                                     </Grid>
 

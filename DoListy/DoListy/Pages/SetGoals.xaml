@@ -5,23 +5,85 @@
             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
             x:Class="DoListy.Pages.SetGoals"
             xmlns:picker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
-            Color="#0197F6">
+            Color="#0C134F">
+    <mct:Popup.Resources>
+        <ResourceDictionary>
+            <Style x:Key="setGoalLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontFamily" Value="OpenSans"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </mct:Popup.Resources>
     <Grid RowDefinitions="*,*,*,2*,*" ColumnDefinitions="*,4*" WidthRequest="750" HeightRequest="500">
-        <Grid RowDefinitions="2*,1*" ColumnDefinitions="4*,1*" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" BackgroundColor="#02182B" Padding="25,10,10,10">
-            <Label Grid.Row="0" Grid.Column="0" Text="Set A New Goal" FontSize="30" FontAttributes="Bold" FontFamily="OpenSans" TextColor="White"/>
-            <Label Grid.Row="1" Grid.Column="0" Text="The first step in turning the invisible into the visible" FontSize="10" FontAttributes="Italic" FontFamily="OpenSans" TextColor="White"/>
+        <Grid RowDefinitions="10*,5*,1*" ColumnDefinitions="4*,1*" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Padding="0,10,0,10">
+            <Label Grid.Row="0" Grid.Column="0" Text="Set A New Goal" 
+                   FontSize="30" FontAttributes="Bold" FontFamily="OpenSans" 
+                   TextColor="White"
+                   Margin="20,0,0,0"
+                   />
+            <Label Grid.Row="1" Grid.Column="0" 
+                   Text="The first step in turning the invisible into the visible" 
+                   FontSize="10" FontAttributes="Italic" FontFamily="OpenSans" TextColor="White"
+                    Margin="20,0,0,0"/>
+            <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Source="setgoalsicon.png" BackgroundColor="Transparent"
+                   Margin="0,0,10,10"
+                   HorizontalOptions="End"/>
+            <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="1" Margin="0,0,0,0" Color="{StaticResource pomoButtonBgColor}"/>
         </Grid>
-        <Label Text="TITLE" Grid.Column="0" Grid.Row="1" FontSize="25" FontAttributes="Bold" FontFamily="OpenSans" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
-        <Label Text="YEAR" Grid.Column="0" Grid.Row="2" FontSize="25" FontAttributes="Bold" FontFamily="OpenSans" TextColor="Black"  VerticalOptions="Center" HorizontalOptions="Center"/>
-        <Label Text="NOTES" Grid.Column="0" Grid.Row="3" FontSize="25" FontAttributes="Bold" FontFamily="OpenSans" TextColor="Black"  VerticalOptions="Center" HorizontalOptions="Center"/>
-        <Entry 
+        <Label Text="TITLE" Grid.Column="0" Grid.Row="1" Style="{StaticResource setGoalLabelStyle}"/>
+        <Label Text="YEAR" Grid.Column="0" Grid.Row="2" Style="{StaticResource setGoalLabelStyle}"/>
+        <Label Text="NOTES" Grid.Column="0" Grid.Row="3" Style="{StaticResource setGoalLabelStyle}"/>
+        <Editor
             x:FieldModifier="public"
-            x:Name="goalTitleEntry" Grid.Column="1" Grid.Row="1" BackgroundColor="#F4EEFF" Placeholder="Title of the Goal" WidthRequest="500" HeightRequest="50" HorizontalOptions="Start" />
-        <editors:SfNumericEntry x:FieldModifier="public" x:Name="yearNumericEntry" Grid.Column="1" Grid.Row="2" WidthRequest="500" HeightRequest="50" UpDownPlacementMode="Inline" HorizontalOptions="Start" CustomFormat="0000" AllowNull="False" Minimum="0" Maximum="3000">
+            x:Name="goalTitleEntry" Grid.Column="1" Grid.Row="1" 
+            BackgroundColor="#1D267D"  TextColor="White"
+            Placeholder="Title of the Goal" WidthRequest="500" HeightRequest="50" HorizontalOptions="Start" />
+        <ImageButton x:FieldModifier="public" x:Name="editGoalButton" Grid.Column="1" Grid.Row="1"
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="End"
+                     Scale="0.5"
+                     Pressed="OnEditGoalButtonPressed"
+                     Clicked="OnEditGoalButtonClicked"
+                     Source="editicon.png"/>
+        <editors:SfNumericEntry x:FieldModifier="public" x:Name="yearNumericEntry" 
+                                BackgroundColor="#1D267D" TextColor="White"
+                                Grid.Column="1" Grid.Row="2" WidthRequest="500" HeightRequest="50" UpDownPlacementMode="Inline"
+                                HorizontalOptions="Start" CustomFormat="0000" AllowNull="False" Minimum="0" Maximum="3000">
             
         </editors:SfNumericEntry>
-        <Entry x:FieldModifier="public" x:Name="goalNoteEntry" Grid.Column="1" Grid.Row="3" BackgroundColor="#F4EEFF" Placeholder="Write some notes, subgoals,..." WidthRequest="500" HeightRequest="100" HorizontalOptions="Start"/>
-        <Button x:FieldModifier="public" Grid.Column="0" Grid.Row="4" x:Name="setGoalsCancelButton" TextColor="black" Text="Cancel" Background="WhiteSmoke" Clicked="OnSetGoalsCancelButton"></Button>
-        <Button x:FieldModifier="public" Grid.Column="1" Grid.Row="4" x:Name="setGoalsCreateButton" TextColor="black" Text="Create" BackgroundColor="SkyBlue" Clicked="OnSetGoalsCreatelButton"></Button>
+       
+        <Editor x:FieldModifier="public" x:Name="goalNoteEntry" Grid.Column="1" Grid.Row="3" BackgroundColor="#1D267D" TextColor="White" Placeholder="Write some notes, subgoals,..." 
+                WidthRequest="500" HeightRequest="130" HorizontalOptions="Start"/>
+        <StackLayout Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Spacing="10">
+            <Button x:FieldModifier="public" x:Name="setGoalsCancelButton"
+                TextColor="White" Text="Cancel" FontSize="12" BackgroundColor="Transparent" BorderColor="{StaticResource pomoButtonBgColor}"
+                CornerRadius="20"
+                WidthRequest="160" HeightRequest="20"
+                Margin="240,0,0,0"
+                Clicked="OnSetGoalsCancelButtonClicked"
+                    Pressed="OnSetGoalsCancelButtonPressed"/>
+            <Button x:FieldModifier="public"  x:Name="setGoalsCreateButton"
+                TextColor="#0C134F" Text="Create" FontSize="12" BackgroundColor="{StaticResource pomoButtonBgColor}"
+                CornerRadius="20"
+                WidthRequest="160" HeightRequest="20"
+                Clicked="OnSetGoalsCreatelButtonClicked"
+                Pressed="OnSetGoalsCreateButtonPressed">
+                
+            </Button>
+            <Button x:FieldModifier="public"  x:Name="setGoalsSaveButton"
+                TextColor="#0C134F" Text="Save" FontSize="12" BackgroundColor="{StaticResource pomoButtonBgColor}"
+                CornerRadius="20"
+                WidthRequest="160" HeightRequest="20"
+             
+                    IsVisible="false"
+                    >
+                
+            </Button>
+        </StackLayout>
+       
     </Grid>
 </mct:Popup>

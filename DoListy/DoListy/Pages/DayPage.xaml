@@ -2,30 +2,32 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DoListy.Pages.DayPage"
-             
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title=""
           >
     <!-- Page cua Nam-->
     <ContentPage.Resources>
-        
         <ResourceDictionary>
             <!--Half 1-->
             <Color x:Key="HeaderColor">#424874</Color>
             <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
             <Style  x:Key="dayViewSchedulerStyle" TargetType="scheduler:SfScheduler">
+                
                 <Setter Property="View" Value="Day" />
+                
                 <Setter Property="HeaderView">
                     <Setter.Value>
                         <scheduler:SchedulerHeaderView Height="0"/>
                     </Setter.Value>
                 </Setter>
+                
                 <Setter Property="DaysView">
                     <Setter.Value>
                         <scheduler:SchedulerDaysView NumberOfVisibleDays="1" StartHour="0" EndHour="0"/>
                     </Setter.Value>
                 </Setter>
+                
                 <Setter Property="DaysView">
                     <Setter.Value>
                         <scheduler:SchedulerDaysView>
@@ -36,33 +38,32 @@
                         </scheduler:SchedulerDaysView>
                     </Setter.Value>
                 </Setter>
-
                 
                 <Setter Property="ShowNavigationArrows" Value="False" />
-                <Setter Property="TranslationY" Value="1" />
-                <Setter Property="TranslationX" Value="30" />
+                <Setter Property="TranslationY" Value="0" />
+                <Setter Property="TranslationX" Value="31" />
                 <Setter Property="WidthRequest" Value="110" />
                 <Setter Property="HeightRequest" Value="110" />
-
             </Style>
+            
             <Style x:Key="CommonFrameStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="BorderColor" Value="Transparent" />
-                <Setter Property="CornerRadius" Value="90" />
                 <Setter Property="Margin" Value="5" />
                 <Setter Property="WidthRequest" Value="68" />
                 <Setter Property="HeightRequest" Value="68" />
             </Style>
+            
             <Style x:Key="CommonStackLayoutStyle" TargetType="StackLayout">
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
             </Style>
+            
             <Style x:Key="CommonButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="WidthRequest" Value="70" />
                 <Setter Property="Opacity" Value="0"/>
                 <Setter Property="HeightRequest" Value="70" />
-
             </Style>
 
 
@@ -70,6 +71,7 @@
             <Style x:Key="CommonFrame" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}" />
                 <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="BorderColor" Value="Transparent"/>
                 <Setter Property="Margin" Value="10" />
                 <Setter Property="MaximumHeightRequest" Value="1000" />
                 <Setter Property="MaximumWidthRequest" Value="400" />
@@ -104,7 +106,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                
             </Grid.ColumnDefinitions>
 
     
@@ -120,7 +122,7 @@
             <!--Monday-->
 
             <!--Tuesday-->
-            <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="1">
+            <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="1" >
                 <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
                     <scheduler:SfScheduler  x:Name="tue" Style="{StaticResource dayViewSchedulerStyle}" />
                 </StackLayout>
@@ -130,7 +132,7 @@
 
             <!--Wednesday-->
             <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="2">
-                <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
+                <StackLayout Style="{StaticResource CommonStackLayoutStyle}" >
                     <scheduler:SfScheduler x:Name="wed" Style="{StaticResource dayViewSchedulerStyle}" />
                 </StackLayout>
             </Frame>
@@ -173,8 +175,11 @@
             <Button x:Name="Butsun"  Clicked="Butsun_Clicked" Style="{StaticResource CommonButtonStyle}" Grid.Column="6" />
             <!--Sunday-->
 
-            <ImageButton x:Name="LeftimaBut" HeightRequest="10" WidthRequest="10" Source="leftarrowicon.png" Grid.Column="7" Clicked="LeftimaBut_Clicked" BackgroundColor="Transparent"/>
-            <ImageButton x:Name="RightimaBut" HeightRequest="10" WidthRequest="10" Source="rightarrowicon.png" Grid.Column="8" Clicked="RightimaBut_Clicked" BackgroundColor="Transparent"/>
+            <HorizontalStackLayout Grid.Column="7" Spacing="20">
+                <ImageButton x:Name="LeftimaBut" HeightRequest="10" WidthRequest="10" Source="leftarrowicon.png"  Clicked="LeftimaBut_Clicked" BackgroundColor="Transparent"/>
+                <ImageButton x:Name="RightimaBut" HeightRequest="10" WidthRequest="10" Source="rightarrowicon.png"  Clicked="RightimaBut_Clicked" BackgroundColor="Transparent"/>
+            </HorizontalStackLayout>
+            
         </Grid>
 
 
@@ -212,9 +217,7 @@
                     <Label Text="Task details" TextColor="White" FontSize="20" FontAttributes="Bold" />
                     <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill" />
 
-                    <StackLayout Orientation="Vertical" x:Name="TaskDetaiStack">
-
-                    </StackLayout>
+                    
                 </StackLayout>
             </Frame>
 
