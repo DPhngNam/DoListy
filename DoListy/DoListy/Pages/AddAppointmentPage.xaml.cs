@@ -21,32 +21,28 @@ public partial class AddAppointmentPage : ContentPage
 
     private void buttonCreate_Clicked(object sender, EventArgs e)
     {
-        if (Freg.SelectedItem == null || Freg.SelectedItem.ToString() == "NONE")
+        Appointment appointment = new Appointment()
         {
-            Appointment appointment = new Appointment()
-            {
-                Name = entrySubject.Text,
-                EventStart = pickerDateTime1.SelectedDate,
-                EventEnd = pickerDateTime2.SelectedDate,
-                colorbgString = ColorEntry.SelectedItem.ToString(),
-
-            };
-            App.appointmentRepo.AddAppointment(appointment);
+            Name = entrySubject.Text,
+            EventStart = pickerDateTime1.SelectedDate,
+            EventEnd = pickerDateTime2.SelectedDate,
+        };
+        appointment.colorbgString = "Blue";
+        if (ColorEntry.SelectedItem != null)
+        {
+            appointment.colorbgString = ColorEntry.SelectedItem.ToString();
         }
-        else if(Interval.Text != null && pickerDateTime3.SelectedDate.ToString() != null )
+        if (Interval.Text != null && pickerDateTime3.SelectedDate.ToString() != null)
         {
             string until = pickerDateTime3.SelectedDate.ToString("yyyyMMddTHHmmssZ");
-            Appointment appointment = new Appointment()
-            {
-                Name = entrySubject.Text,
-                EventStart = pickerDateTime1.SelectedDate,
-                EventEnd = pickerDateTime2.SelectedDate,
-                colorbgString = ColorEntry.SelectedItem.ToString(),
-       
-                Recurrencerule = "FREQ=" + Freg.SelectedItem.ToString() + ";INTERVAL=" + Interval.Text + ";UNTIL=" + until,
-            };
-            App.appointmentRepo.AddAppointment(appointment);
+            appointment.Recurrencerule = "FREQ=" + Freg.SelectedItem.ToString() + ";INTERVAL=" + Interval.Text + ";UNTIL=" + until;
         }
+        if (Note.Text != null)
+        {
+            appointment.Note = Note.Text;
+        }
+        appointment.IsDone = false;
+        App.appointmentRepo.AddAppointment(appointment);
         //Added by Phuong Nam
         Application.Current.MainPage.DisplayAlert("Success", "Created successfully", "OK");
         //Added by Phuong Nam

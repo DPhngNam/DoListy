@@ -6,11 +6,12 @@
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              xmlns:local1="clr-namespace:DoListy.ViewModel"
              BackgroundColor="{StaticResource appBgColor}"
+             Title=""
              >
     <!--Page cua Vinh Thinh-->
     <ContentPage.Resources>
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold" TextColor="White"/>
-        <scheduler:SchedulerTextStyle x:Key="textStyle3" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle3" FontSize="30" FontAttributes="Bold" TextColor="White"/>
         <scheduler:SchedulerTextStyle x:Key="textStyle2" FontSize="14" FontAttributes="Bold" TextColor="#0047AB"/>
         <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="White"/>
         <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="White"/>
@@ -24,7 +25,7 @@
         RowDefinitions="*"
         ColumnDefinitions="3*,*">
 
-            <Frame BorderColor="Black" Padding="0,0,0,0"  CornerRadius="1">
+        <Frame BackgroundColor="{StaticResource appBgColor}" Padding="0" Margin="20,0,15,25" BorderColor="Black" CornerRadius="1">
             <scheduler:SfScheduler CellBorderBrush="black"  Background="{StaticResource dayFrameBgColor}"
                 x:Name="Scheduler"
                 Grid.Column="0" Grid.Row="0"
@@ -76,6 +77,7 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 BorderColor="#8CABFF"
+                CornerRadius="25"
                 >
             <VerticalStackLayout Spacing="5">
                 <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
@@ -97,7 +99,7 @@
                                 <Grid ColumnDefinitions="*,auto" RowDefinitions="*,*">
                                     <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="0"></Label>
                                     <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
-                                    <CheckBox IsChecked="False" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" CheckedChanged="CheckBox_CheckedChanged"/>
+                                    <CheckBox Grid.Column="1" IsChecked="{Binding IsDone}"  BindingContext="{Binding Id}" Grid.Row="0" Grid.RowSpan="2" CheckedChanged="CheckBox_CheckedChanged"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

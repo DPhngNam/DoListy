@@ -51,6 +51,7 @@
                 <scheduler:SchedulerAppointmentMapping     Id="Id"
                                                            Subject="Name"
                                                            StartTime="EventStart"
+                                                           Background="Colorbg"
                                                            EndTime="EventEnd"
                                                            RecurrenceRule="Recurrencerule">
                 </scheduler:SchedulerAppointmentMapping>

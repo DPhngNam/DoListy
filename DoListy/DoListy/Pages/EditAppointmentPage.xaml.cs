@@ -25,6 +25,14 @@ public partial class EditAppointmentPage : ContentPage
                 eidtStartTime.Text = appointment.EventStart.ToString();
                 pickerDateTime2.SelectedDate = appointment.EventEnd;
                 editEndTime.Text = appointment.EventEnd.ToString();
+                if(!string.IsNullOrEmpty(appointment.Note))
+                {
+                    NoteEdit.Text = appointment.Note.ToString();
+                }
+                if(pickerDateTime3.SelectedDate != null)
+                {
+                    UntilEdit.Text = pickerDateTime3.SelectedDate.ToString();
+                }    
             }
         }
     }
@@ -73,27 +81,17 @@ public partial class EditAppointmentPage : ContentPage
     }
 
     private void buttonSave_Clicked(object sender, EventArgs e)
-    {   
-        if (FreqEdit.SelectedItem == null) // xu li cho Freq khong co
+    {
+        appointment.Name = editSubject.Text;
+        appointment.EventStart = pickerDateTime1.SelectedDate;
+        appointment.EventEnd = pickerDateTime2.SelectedDate;
+        if (ColorEdit.SelectedItem != null)
         {
-            appointment.Name = editSubject.Text;
-            appointment.EventStart = pickerDateTime1.SelectedDate;
-            appointment.EventEnd  = pickerDateTime2.SelectedDate;
-            if(ColorEdit.SelectedItem != null)
-            {
-                appointment.colorbgString = ColorEdit.ToString();
-            }    
+            appointment.colorbgString = ColorEdit.ToString();
         }
-        else if(pickerDateTime3.SelectedDate.ToString() != null && IntervalEdit.Text != null)
+        if(pickerDateTime3.SelectedDate.ToString() != null && IntervalEdit.Text != null)
         {
-            appointment.Name = editSubject.Text;
-            appointment.EventStart = pickerDateTime1.SelectedDate;
-            appointment.EventEnd = pickerDateTime2.SelectedDate;
-            if (ColorEdit.SelectedItem != null)
-            {
-                appointment.colorbgString = ColorEdit.ToString();
-            }
-            appointment.Recurrencerule = "FREQ=" + FreqEdit.SelectedItem.ToString() + ";INTERVAL=" + IntervalEdit.Text + ";UNTIL=" + pickerDateTime3.SelectedDate.ToString("yyyyMMddTHHmmssZ");
+           appointment.Recurrencerule = "FREQ=" + FreqEdit.SelectedItem.ToString() + ";INTERVAL=" + IntervalEdit.Text + ";UNTIL=" + pickerDateTime3.SelectedDate.ToString("yyyyMMddTHHmmssZ");
         }
         App.appointmentRepo.Update(appointment);
         

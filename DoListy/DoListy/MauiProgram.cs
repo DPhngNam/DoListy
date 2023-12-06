@@ -51,10 +51,10 @@ namespace DoListy
             string dbpath = Path.Combine(FileSystem.AppDataDirectory, "Appointment.db");
             builder.Services.AddSingleton<AppointmentRepository>(s =>
             ActivatorUtilities.CreateInstance<AppointmentRepository>(s,dbpath));
-         
+
 
 #if DEBUG
-        builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

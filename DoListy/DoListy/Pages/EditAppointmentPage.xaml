@@ -152,6 +152,12 @@
                 </picker:SfDateTimePicker>
             </HorizontalStackLayout>
         </Frame>
+        <Frame Padding="10,2,10,3">
+            <HorizontalStackLayout>
+                <Label   Text="Notes: " Style="{StaticResource labelPage}" ></Label>
+                <Entry x:Name="NoteEdit" Placeholder="Enter Content" HeightRequest="80"  WidthRequest="800"></Entry>
+            </HorizontalStackLayout>
+        </Frame>
         <Button x:Name="buttonCancle1" TextColor="black" Text="Cancel" Background="WhiteSmoke" Clicked="buttonCancle1_Clicked"></Button>
         <Button x:Name="buttonSave" TextColor="black" Text="Save" Background="skyblue" Clicked="buttonSave_Clicked"></Button>
     </VerticalStackLayout>
