@@ -106,8 +106,18 @@ public partial class MonthPage : ContentPage
     }
     private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
-        player.Play();
-   
+        if (sender is CheckBox checkBox && checkBox.BindingContext is int appId)
+        {
+            Appointment temp = App.appointmentRepo.GetAppointmentByID(appId);
+            if (temp != null)
+            {
+                temp.IsDone = !temp.IsDone;
+                checkBox.IsChecked = temp.IsDone;
+                App.appointmentRepo.Update(temp);
+                var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
+                player.Play();
+                return;
+            }
+        }
     }
 }

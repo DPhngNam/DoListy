@@ -206,6 +206,12 @@ public partial class YearPage : ContentPage
     }
     public void getCreatedGoal(string goalName, int year, string note)
     {
+        App.appointmentRepo.AddGoal(new ViewModel.Goal()
+        {
+            Title = goalName,
+            Year = year,
+            Notes = note
+        }); 
         goalsListGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
         if (goalName.Length > 19)
         {

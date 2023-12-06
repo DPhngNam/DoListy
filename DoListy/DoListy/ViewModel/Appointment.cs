@@ -6,7 +6,7 @@ namespace DoListy.ViewModel
 {
     [Table("Appointment")]
     public class Appointment
-    {
+    { 
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public DateTime EventStart { get; set; }
@@ -49,6 +49,16 @@ namespace DoListy.ViewModel
         public bool IsDisMissed { get; set; }
         public string Recurrencerule { get; set; }
         public string Note { get; set; }
-        public string State { get; set; }
+        public bool IsDone { get; set; }
+    }
+    [Table("Goal")]
+    public class Goal
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public int Year { get; set; }
+        public string Notes { get; set; }
+
     }
 }
