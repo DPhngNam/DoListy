@@ -301,6 +301,23 @@ public partial class YearPage : ContentPage
                 ((Button)(((Grid)(goalsListGrid.Children[flag1])).Children[0])).Text = viewGoal.goalTitleEntry.Text;
                 goalName = viewGoal.goalTitleEntry.Text;
                 note = viewGoal.goalNoteEntry.Text;
+                if ((int)viewGoal.yearNumericEntry.Value != year)
+                {
+                    DateTime goalInYear1 = new DateTime((int)viewGoal.yearNumericEntry.Value, 1, 1);
+                    IView temp = goalsList[goalInYear][flag1];
+                    goalsList[goalInYear].RemoveAt(flag1);
+                    if (goalsList.ContainsKey(goalInYear1))
+                    {
+                        goalsList[goalInYear1].Add(temp);
+                    }
+                    else
+                    {
+                        var newGoalList = new List<IView>();
+                        newGoalList.Add(temp);
+                        goalsList.Add(goalInYear1, newGoalList);
+                    }
+                    goalsListGrid.RemoveAt(flag1);
+                }
                 viewGoal.Close();
             };
         };
