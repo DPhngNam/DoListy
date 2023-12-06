@@ -8,22 +8,22 @@
     <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="20">
         <StackLayout Grid.Row="0"
                      Orientation="Vertical">
-            <Label x:Name="City" FontSize="40" HorizontalOptions="Center" TextColor="Black" Text="Ho Chi Minh"/>
+            <Label x:Name="City" FontSize="40" HorizontalOptions="Center" TextColor="White" Text="Ho Chi Minh"/>
 
-            <Label x:Name="weatherCode" FontSize="20" HorizontalOptions="Center" TextColor="Black" />
+            <Label x:Name="weatherCode" FontSize="20" HorizontalOptions="Center" TextColor="White" />
         </StackLayout>
 
         <Image x:Name="weatherImage" Grid.Row="1"  MaximumWidthRequest="100" MaximumHeightRequest="100"/>
 
         <Grid Grid.Row="2"  Margin="20" ColumnDefinitions="0.33*,0.33*,0.33*" RowDefinitions="Auto,Auto">
             <Image x:Name="drop" Grid.Column="0" Grid.Row="0"  HeightRequest="50"/>
-            <Label Grid.Column="0" Grid.Row="1"  x:Name="Humidity"  HorizontalOptions="Center"/>
-            
-            <Label Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" x:Name="temperature"   FontSize="40" HorizontalOptions="Center" FontAttributes="Bold"/>
+            <Label Grid.Column="0" Grid.Row="1"  x:Name="Humidity" TextColor="White" HorizontalOptions="Center"/>
+
+            <Label Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" x:Name="temperature" TextColor="White"  FontSize="40" HorizontalOptions="Center" FontAttributes="Bold"/>
            
             
-            <Image Grid.Column="2" Grid.Row="0" Source="wind.png" HeightRequest="50"/>
-            <Label Grid.Column="2" Grid.Row="1"  x:Name="wind"  HorizontalOptions="Center"/>
+            <Image x:Name="windPic" Grid.Column="2" Grid.Row="0"  HeightRequest="50"/>
+            <Label Grid.Column="2" Grid.Row="1"  x:Name="wind" TextColor="White" HorizontalOptions="Center"/>
         </Grid>
     </Grid>
 </ContentPage>
