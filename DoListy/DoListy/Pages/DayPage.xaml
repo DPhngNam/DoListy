@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DoListy.Pages.DayPage"
-             
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title=""
@@ -70,6 +69,7 @@
             <Style x:Key="CommonFrame" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}" />
                 <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="BorderColor" Value="Transparent"/>
                 <Setter Property="Margin" Value="10" />
                 <Setter Property="MaximumHeightRequest" Value="1000" />
                 <Setter Property="MaximumWidthRequest" Value="400" />
@@ -104,7 +104,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                
             </Grid.ColumnDefinitions>
 
     
@@ -173,8 +173,11 @@
             <Button x:Name="Butsun"  Clicked="Butsun_Clicked" Style="{StaticResource CommonButtonStyle}" Grid.Column="6" />
             <!--Sunday-->
 
-            <ImageButton x:Name="LeftimaBut" HeightRequest="10" WidthRequest="10" Source="leftarrowicon.png" Grid.Column="7" Clicked="LeftimaBut_Clicked" BackgroundColor="Transparent"/>
-            <ImageButton x:Name="RightimaBut" HeightRequest="10" WidthRequest="10" Source="rightarrowicon.png" Grid.Column="8" Clicked="RightimaBut_Clicked" BackgroundColor="Transparent"/>
+            <HorizontalStackLayout Grid.Column="7" Spacing="20">
+                <ImageButton x:Name="LeftimaBut" HeightRequest="10" WidthRequest="10" Source="leftarrowicon.png"  Clicked="LeftimaBut_Clicked" BackgroundColor="Transparent"/>
+                <ImageButton x:Name="RightimaBut" HeightRequest="10" WidthRequest="10" Source="rightarrowicon.png"  Clicked="RightimaBut_Clicked" BackgroundColor="Transparent"/>
+            </HorizontalStackLayout>
+            
         </Grid>
 
 
