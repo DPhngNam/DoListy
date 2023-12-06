@@ -51,7 +51,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ScrollView>
-        <Grid ColumnDefinitions="*" RowDefinitions="3*,*">
+        <Grid ColumnDefinitions="*" RowDefinitions="3*,auto">
             <VerticalStackLayout Spacing="10" Margin="20,20,0,0" Grid.Column="0" Grid.Row="0">
                 <HorizontalStackLayout>
                     <Label  Text="Subject: " Style="{StaticResource labelPage}" ></Label>
