@@ -24,21 +24,26 @@
     <Grid BackgroundColor="{StaticResource appBgColor}"
           RowDefinitions="*"
           ColumnDefinitions="3*,*"
-         >
+           
+    
+        
+        >
+       
         <!--scheduler week view--> 
         <scheduler:SfScheduler
             Grid.Column="0"
             Grid.Row="0"
+            Margin="15"
             x:Name="WeekPageScheduler"
             View="Week"
             ShowWeekNumber="True"
             AppointmentDrop="WeekPageScheduler_AppointmentDrop"
              x:FieldModifier="public"
             AllowViewNavigation="True"
-            Tapped="WeekPageScheduler_Tapped"
-       
-            
+            Tapped="WeekPageScheduler_Tapped" 
+        
             >
+          
             
             <!--appoinment mapping-->
             <scheduler:SfScheduler.AppointmentMapping>
@@ -93,6 +98,7 @@
                    Style="{StaticResource taskFrameStyle}"
                    Grid.Column="2"
                    VerticalOptions="FillAndExpand"
+                   CornerRadius="25"
                   >
                 <VerticalStackLayout Spacing="5">
                     <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
