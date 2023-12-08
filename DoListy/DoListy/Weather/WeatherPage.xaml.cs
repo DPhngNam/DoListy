@@ -6,13 +6,18 @@ public partial class WeatherPage : ContentPage
 {
 	public WeatherPage()
 	{
-		InitializeComponent();
-	}
+        
+
+        InitializeComponent();
+        
+
+    }
     private String s = "";
 	protected override async void OnAppearing()
 	{
 		base.OnAppearing();
-		var result = await ApiService.getWeather(10.823, 106.6296);
+        
+        var result = await ApiService.getWeather(10.823, 106.6296);
         
 
         switch (result.current.weather_code)
