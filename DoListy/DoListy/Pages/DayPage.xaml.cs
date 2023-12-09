@@ -64,7 +64,7 @@ public partial class DayPage : ContentPage
     }
     private async Task AnimateFrames()
     {
-        await frame_A.TranslateTo(-300, 0, 250, Easing.Linear);
+        await frame_A.TranslateTo(-430, 0, 250, Easing.Linear);
         Grid.SetColumn(frame_A, 0);
         Grid.SetRow(frame_A, 1);
 

@@ -5,12 +5,8 @@ namespace DoListy.Weather;
 public partial class WeatherPage : ContentPage
 {
 	public WeatherPage()
-	{
-        
-
-        InitializeComponent();
-        
-
+	{        
+        InitializeComponent();        
     }
     private String s = "";
 	protected override async void OnAppearing()
