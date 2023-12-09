@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DoListy.Pages.DayPage"
+             
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title=""
@@ -83,7 +84,7 @@
                 <Setter Property="CornerRadius" Value="30" />
                 <Setter Property="BorderColor" Value="Transparent"/>
                 
-                <Setter Property="HeightRequest" Value="200" />
+                <Setter Property="HeightRequest" Value="250" />
                 <Setter Property="MaximumWidthRequest" Value="400" />
 
             </Style>
@@ -194,8 +195,6 @@
 
 
         <!--Half 2-->
-
-
         <Grid Grid.Row="1" Grid.Column="0" TranslationY="-40">
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*"/>
@@ -224,20 +223,32 @@
                 <StackLayout>
                     <Label Text="Task details" TextColor="White" FontSize="20" FontAttributes="Bold" />
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" Margin="0,0,0,10"/>
-
-                    
                 </StackLayout>
             </Frame>
             <!--Weather frame-->
             <Frame Style="{StaticResource CommonFrameC}" x:Name="frame_C" Grid.Row="1" Grid.Column="2" VerticalOptions="Start">
+                
                 <StackLayout>
-                    <Label Text="Weather" TextColor="White" FontSize="40" FontAttributes="Bold" />
+                    
+                    <HorizontalStackLayout Spacing="100">
+                        <Label Text="Weather" TextColor="White" FontSize="40" FontAttributes="Bold" />
+                        <ImageButton Source="information.png" 
+                                     HeightRequest="10" 
+                                     WidthRequest="10"
+                                     BackgroundColor="Transparent"
+                                     
+                                     />
+                    </HorizontalStackLayout>
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" />
+                    
                     <HorizontalStackLayout Spacing="70">
                         <Label Text="Location:" TextColor="White" FontSize="20" Margin="0,10,0,0" />
                         <Label Text="Ho Chi Minh" TextColor="White" FontSize="30" FontAttributes="Bold" />
                     </HorizontalStackLayout>
-
+                     
+                    <ImageButton x:Name="weatherImage" BackgroundColor="Transparent"
+                                 HeightRequest="150"
+                                 />
                 </StackLayout>
             </Frame>
         </Grid>

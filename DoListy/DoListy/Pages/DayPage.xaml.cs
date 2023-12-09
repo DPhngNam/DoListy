@@ -1,5 +1,6 @@
 using Plugin.Maui.Audio;
 using System.Collections.ObjectModel;
+using DoListy.Services;
 using Appointment = DoListy.ViewModel.Appointment;
 
 namespace DoListy.Pages;
@@ -246,7 +247,175 @@ public partial class DayPage : ContentPage
         AlwaysOnDisplay(sun.DisplayDate);
 
     }
+    private string s = "";
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
 
-   
-    
+        var result = await ApiService.getWeather(10.823, 106.6296);
+
+
+        switch (result.current.weather_code)
+        {
+            //0
+            default:
+                
+                if (result.current.is_day == 1)
+                {
+                    s = "https://img.icons8.com/fluency/96/smiling-sun.png";
+
+                }
+                else
+                {
+                    s = "https://img.icons8.com/fluency/96/bright-moon.png";
+                }
+
+                break;
+
+            case 1:
+               
+                if (result.current.is_day == 1)
+                {
+                    s = "https://img.icons8.com/color/96/sun--v1.png";
+
+                }
+                else
+                {
+                    s = "https://img.icons8.com/color/96/night.png";
+                }
+                break;
+            case 2:
+                
+                if (result.current.is_day == 1)
+                {
+                    s = "https://img.icons8.com/fluency/96/partly-cloudy-day.png";
+
+                }
+                else
+                {
+                    s = "https://img.icons8.com/fluency/96/partly-cloudy-night.png";
+                }
+                break;
+            case 3:
+                
+                if (result.current.is_day == 1)
+                {
+                    s = "https://img.icons8.com/color/96/partly-cloudy-day--v1.png";
+
+                }
+                else
+                {
+                    s = "https://img.icons8.com/fluency/96/partly-cloudy-night.png";
+                }
+                break;
+
+            case 45:
+                
+                if (result.current.is_day == 1)
+                {
+                    s = "https://img.icons8.com/fluency/96/fog-day.png";
+
+                }
+                else
+                {
+                    s = "https://img.icons8.com/fluency/96/fog-night.png";
+                }
+                break;
+            case 48:
+                
+                if (result.current.is_day == 1)
+                {
+                    s = "https://img.icons8.com/fluency/96/fog-day.png";
+
+                }
+                else
+                {
+                    s = "https://img.icons8.com/fluency/96/fog-night.png";
+                }
+                break;
+
+
+
+
+            case 61:
+               
+
+                s = "https://img.icons8.com/fluency/96/light-rain.png";
+
+
+                break;
+
+            case 63:
+                
+                s = "https://img.icons8.com/fluency/96/moderate-rain.png";
+                break;
+            case 65:
+                
+                s = "https://img.icons8.com/fluency/96/intense-rain.png";
+                break;
+
+
+
+
+
+            case 80:
+                
+
+                s = "https://img.icons8.com/fluency/96/light-rain.png";
+
+
+                break;
+
+            case 81:
+                
+                s = "https://img.icons8.com/fluency/96/moderate-rain.png";
+                break;
+
+            case 82:
+                
+                s = "https://img.icons8.com/fluency/96/intense-rain.png";
+                break;
+
+
+
+            case 95:
+                
+                if (result.current.is_day == 1)
+                {
+                    s = "https://img.icons8.com/fluency/96/chance-of-storm.png";
+                }
+                else
+                {
+                    s = "https://img.icons8.com/plasticine/100/stormy-night.png";
+                }
+                break;
+
+            case 96:
+                
+                if (result.current.is_day == 1)
+                {
+                    s = "https://img.icons8.com/fluency/96/chance-of-storm.png";
+                }
+                else
+                {
+                    s = "https://img.icons8.com/plasticine/100/stormy-night.png";
+                }
+                break;
+            case 99:
+                
+                if (result.current.is_day == 1)
+                {
+                    s = "https://img.icons8.com/fluency/96/chance-of-storm.png";
+                }
+                else
+                {
+                    s = "https://img.icons8.com/plasticine/100/stormy-night.png";
+                }
+                break;
+
+        }
+        weatherImage.Source = s;
+        
+    }
+
 }
