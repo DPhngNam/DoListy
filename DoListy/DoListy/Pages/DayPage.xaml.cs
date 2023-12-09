@@ -2,6 +2,7 @@ using Plugin.Maui.Audio;
 using System.Collections.ObjectModel;
 using DoListy.Services;
 using Appointment = DoListy.ViewModel.Appointment;
+using DoListy.Weather;
 
 namespace DoListy.Pages;
 public partial class DayPage : ContentPage
@@ -418,4 +419,9 @@ public partial class DayPage : ContentPage
         
     }
 
+    private async void weatherImage_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(WeatherPage));
+        
+    }
 }
