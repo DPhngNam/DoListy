@@ -75,7 +75,7 @@
                 <Setter Property="BorderColor" Value="Transparent"/>
                 <Setter Property="Margin" Value="10" />
                 <Setter Property="MaximumHeightRequest" Value="1000" />
-                <Setter Property="MaximumWidthRequest" Value="400" />
+                <Setter Property="WidthRequest" Value="400" />
 
             </Style>
             
@@ -207,7 +207,7 @@
             </Grid.ColumnDefinitions>
             
             <!--Task frame-->
-            <Frame Style="{StaticResource CommonFrame}" x:Name="frame_A" Grid.Row="1" Grid.Column="0" Margin="10" Grid.ColumnSpan="5" Grid.RowSpan="5">
+            <Frame Style="{StaticResource CommonFrame}" x:Name="frame_A" Grid.Row="1" Grid.Column="0" Margin="10" Grid.ColumnSpan="2" WidthRequest="700">
                 <VerticalStackLayout>
                     <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
                         <Label Text="Tasks" TextColor="White" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>

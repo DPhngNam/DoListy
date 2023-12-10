@@ -1,15 +1,21 @@
+using CommunityToolkit.Maui.Core;
 using DoListy.Services;
 
 namespace DoListy.Weather;
 
 public partial class WeatherPage : ContentPage
 {
-	public WeatherPage()
-	{        
-        InitializeComponent();        
+    
+    public WeatherPage()
+
+    {        
+        InitializeComponent();
+        
     }
-    private string s = "";
-    private string gif = "";
+    private String s = "";
+    private String gif = "";
+
+
     protected override async void OnAppearing()
 	{
 		base.OnAppearing();
@@ -25,11 +31,13 @@ public partial class WeatherPage : ContentPage
 				if(result.current.is_day == 1)
 				{
                     s = "https://img.icons8.com/fluency/96/smiling-sun.png";
+                    
 
-				}
+                }
 				else
 				{
                     s = "https://img.icons8.com/fluency/96/bright-moon.png";
+                    
                 }
 
                 break;
@@ -63,7 +71,7 @@ public partial class WeatherPage : ContentPage
                 if (result.current.is_day == 1)
                 {
                     s = "https://img.icons8.com/color/96/partly-cloudy-day--v1.png";
-
+                    
                 }
                 else
                 {
@@ -176,12 +184,14 @@ public partial class WeatherPage : ContentPage
                 break;
 
         }
+        
         weatherImage.Source = s;
         drop.Source = "drop.png";
         Humidity.Text = result.current.relative_humidity_2m.ToString();
-        temperature.Text = result.current.temperature_2m.ToString() + "oC";
+        temperature.Text = result.current.temperature_2m.ToString() + "°C";
         windPic.Source = "wind.png";
         wind.Text = result.current.wind_speed_10m.ToString();
         busyIndicator.IsRunning = false;
     }
+    
 }

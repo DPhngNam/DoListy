@@ -66,9 +66,11 @@ public partial class DayPage : ContentPage
     }
     private async Task AnimateFrames()
     {
-        await frame_A.TranslateTo(-430, 0, 250, Easing.Linear);
+        frame_A.WidthRequest = 400;
+        await frame_A.TranslateTo(-190, 0, 250, Easing.Linear);
         Grid.SetColumn(frame_A, 0);
         Grid.SetRow(frame_A, 1);
+        
 
         // Scale back to original size (if there's relevant code for this)
 
@@ -79,14 +81,14 @@ public partial class DayPage : ContentPage
     //Reset position
     private async void RefreshCurrentFrame()
     {
-        // Move frame_A back to its original position
-        await frame_A.TranslateTo(0, 0, 250, Easing.Linear);
-        Grid.SetColumn(frame_A, 0);
-        Grid.SetRow(frame_A, 0);
-
         // Reverse the visibility change for frame_B
         await frame_B.FadeTo(0, 500, Easing.SinInOut); // Fade out
         frame_B.IsVisible = false;
+        // Move frame_A back to its original position
+        frame_A.WidthRequest = 700;
+        await frame_A.TranslateTo(0, 0, 250, Easing.Linear);
+        Grid.SetColumn(frame_A, 0);
+        Grid.SetRow(frame_A, 1);
 
     }
     
