@@ -8,8 +8,9 @@ public partial class WeatherPage : ContentPage
 	{        
         InitializeComponent();        
     }
-    private String s = "";
-	protected override async void OnAppearing()
+    private string s = "";
+    private string gif = "";
+    protected override async void OnAppearing()
 	{
 		base.OnAppearing();
         

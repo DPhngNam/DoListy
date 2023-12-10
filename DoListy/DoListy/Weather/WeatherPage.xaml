@@ -6,19 +6,23 @@
              xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              Title=""
              BackgroundImageSource="giphy.gif"
+             x:Name="MyContent"
             >
     
     <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="20">
-        <core:SfBusyIndicator x:Name="busyIndicator"
-                          IsRunning="True"
-                          AnimationType="CircularMaterial" />
+        
         <StackLayout Grid.Row="0"
                      Orientation="Vertical">
+            
             <Label x:Name="City" FontSize="40" HorizontalOptions="Center" TextColor="White" Text="Ho Chi Minh"/>
 
             <Label x:Name="weatherCode"  FontSize="20" HorizontalOptions="Center" TextColor="White" />
         </StackLayout>
-
+        <core:SfBusyIndicator x:Name="busyIndicator"
+                  IsRunning="True"
+                      ScaleX="2"
+               ScaleY="2"
+                  AnimationType="CircularMaterial" />
         <Image x:Name="weatherImage"  Grid.Row="1"  MaximumWidthRequest="100" MaximumHeightRequest="100"/>
 
         <Grid Grid.Row="2"  Margin="20" ColumnDefinitions="0.33*,0.33*,0.33*" RowDefinitions="Auto,Auto">
