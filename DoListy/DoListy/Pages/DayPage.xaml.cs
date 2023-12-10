@@ -49,6 +49,36 @@ public partial class DayPage : ContentPage
         sat.DisplayDate = mon.DisplayDate.AddDays(5);
         sun.DisplayDate = mon.DisplayDate.AddDays(6);
     }
+    private void LeftimaBut_Clicked(object sender, EventArgs e)
+    {
+        mon.DisplayDate = mon.DisplayDate.AddDays(-7);
+        tue.DisplayDate = tue.DisplayDate.AddDays(-7);
+        wed.DisplayDate = wed.DisplayDate.AddDays(-7);
+        thus.DisplayDate = thus.DisplayDate.AddDays(-7);
+        fri.DisplayDate = fri.DisplayDate.AddDays(-7);
+        sat.DisplayDate = sat.DisplayDate.AddDays(-7);
+        sun.DisplayDate = sun.DisplayDate.AddDays(-7);
+    }
+
+    private void RightimaBut_Clicked(object sender, EventArgs e)
+    {
+        mon.DisplayDate = mon.DisplayDate.AddDays(7);
+        tue.DisplayDate = tue.DisplayDate.AddDays(7);
+        wed.DisplayDate = wed.DisplayDate.AddDays(7);
+        thus.DisplayDate = thus.DisplayDate.AddDays(7);
+        fri.DisplayDate = fri.DisplayDate.AddDays(7);
+        sat.DisplayDate = sat.DisplayDate.AddDays(7);
+        sun.DisplayDate = sun.DisplayDate.AddDays(7);
+    }
+
+    private async void CheckBox_CheckedChanged(object sender, EventArgs e)
+    {
+        if (sender is CheckBox checkBox && checkBox.IsChecked)
+        {
+            var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
+            player.Play();
+        }
+    }
 
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
@@ -64,8 +94,9 @@ public partial class DayPage : ContentPage
         RefreshCurrentFrame();
         AlwaysOnDisplay(temp);
     }
-    private async Task AnimateFrames()
+    private async Task AnimateFrames(Appointment input)
     {
+        xxx = input;
         frame_A.WidthRequest = 400;
         await frame_A.TranslateTo(-190, 0, 250, Easing.Linear);
         Grid.SetColumn(frame_A, 0);
@@ -91,40 +122,7 @@ public partial class DayPage : ContentPage
         Grid.SetRow(frame_A, 1);
 
     }
-    
-
-    
-
-    private void LeftimaBut_Clicked(object sender, EventArgs e)
-    {
-        mon.DisplayDate = mon.DisplayDate.AddDays(-7);
-        tue.DisplayDate = tue.DisplayDate.AddDays(-7);
-        wed.DisplayDate = wed.DisplayDate.AddDays(-7);
-        thus.DisplayDate = thus.DisplayDate.AddDays(-7);
-        fri.DisplayDate = fri.DisplayDate.AddDays(-7);
-        sat.DisplayDate = sat.DisplayDate.AddDays(-7);
-        sun.DisplayDate = sun.DisplayDate.AddDays(-7);
-    }
-    
-    private void RightimaBut_Clicked(object sender, EventArgs e)
-    {
-        mon.DisplayDate = mon.DisplayDate.AddDays(7);
-        tue.DisplayDate = tue.DisplayDate.AddDays(7);
-        wed.DisplayDate = wed.DisplayDate.AddDays(7);
-        thus.DisplayDate = thus.DisplayDate.AddDays(7);
-        fri.DisplayDate = fri.DisplayDate.AddDays(7);
-        sat.DisplayDate = sat.DisplayDate.AddDays(7);
-        sun.DisplayDate = sun.DisplayDate.AddDays(7);
-    }
-    private async void CheckBox_CheckedChanged(object sender, EventArgs e)
-    {
-        if(sender is CheckBox checkBox && checkBox.IsChecked)
-    {
-            var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
-            player.Play();
-        }
-    }
-    
+    private Appointment xxx;
     private void AlwaysOnDisplay(DateTime currentDate)
     {
         TaskDailyStack.Clear();
@@ -177,11 +175,13 @@ public partial class DayPage : ContentPage
             // Add TapGestureRecognizer to the appointmentFrame
             appointmentFrame.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                Command = new Command(async () =>
+                Command = new Command<Appointment>(async (appointment) =>
                 {
+                    await AnimateFrames(appointment);
+                   
                     
-                    await AnimateFrames();
                 })
+
             });
 
             // Create a StackLayout to hold the frame
@@ -192,7 +192,7 @@ public partial class DayPage : ContentPage
             // Add the combined StackLayout to TaskDailyStack
             TaskDailyStack.Children.Add(frameStack);
 
-            //Adding to frame B
+           
 
         }
 
@@ -250,6 +250,9 @@ public partial class DayPage : ContentPage
         AlwaysOnDisplay(sun.DisplayDate);
 
     }
+
+
+    //Weather
     private string s = "";
     protected override async void OnAppearing()
     {

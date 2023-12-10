@@ -220,10 +220,15 @@
             </Frame>
             <!--Details frame-->
             <Frame Style="{StaticResource CommonFrame}" x:Name="frame_B" Grid.Row="1" Grid.Column="1" IsVisible="False">
-                <StackLayout>
+                <VerticalStackLayout>
                     <Label Text="Task details" TextColor="White" FontSize="20" FontAttributes="Bold" />
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" Margin="0,0,0,10"/>
-                </StackLayout>
+                    <StackLayout Orientation="Vertical" x:Name="DetailTaskStack">
+
+                    </StackLayout>
+
+                </VerticalStackLayout>
+                
             </Frame>
             <!--Weather frame-->
             <Frame Style="{StaticResource CommonFrameC}" x:Name="frame_C" Grid.Row="1" Grid.Column="2" VerticalOptions="Start">
