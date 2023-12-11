@@ -140,4 +140,8 @@ public partial class PomodoroPage : ContentPage
     {
         timerLabel.Text = $"{(int)time.TotalMinutes:D2}:{time.Seconds:D2}";
     }
+    void OnBackButtonClicked(object sender, EventArgs e)
+    {
+        Navigation.PopModalAsync();
+    }
 }

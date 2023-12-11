@@ -135,4 +135,8 @@ public partial class WeekPage : ContentPage
         var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
         player.Play();
     }
+    void OnPomoButtonClicked(object sender, EventArgs e)
+    {
+        Navigation.PushModalAsync(new PomodoroPage());
+    }
 }

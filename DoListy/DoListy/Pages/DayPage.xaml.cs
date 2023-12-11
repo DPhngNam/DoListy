@@ -2,6 +2,7 @@ using Plugin.Maui.Audio;
 using System.Collections.ObjectModel;
 using DoListy.Services;
 using Appointment = DoListy.ViewModel.Appointment;
+using DoListy.Weather;
 
 namespace DoListy.Pages;
 public partial class DayPage : ContentPage
@@ -48,6 +49,36 @@ public partial class DayPage : ContentPage
         sat.DisplayDate = mon.DisplayDate.AddDays(5);
         sun.DisplayDate = mon.DisplayDate.AddDays(6);
     }
+    private void LeftimaBut_Clicked(object sender, EventArgs e)
+    {
+        mon.DisplayDate = mon.DisplayDate.AddDays(-7);
+        tue.DisplayDate = tue.DisplayDate.AddDays(-7);
+        wed.DisplayDate = wed.DisplayDate.AddDays(-7);
+        thus.DisplayDate = thus.DisplayDate.AddDays(-7);
+        fri.DisplayDate = fri.DisplayDate.AddDays(-7);
+        sat.DisplayDate = sat.DisplayDate.AddDays(-7);
+        sun.DisplayDate = sun.DisplayDate.AddDays(-7);
+    }
+
+    private void RightimaBut_Clicked(object sender, EventArgs e)
+    {
+        mon.DisplayDate = mon.DisplayDate.AddDays(7);
+        tue.DisplayDate = tue.DisplayDate.AddDays(7);
+        wed.DisplayDate = wed.DisplayDate.AddDays(7);
+        thus.DisplayDate = thus.DisplayDate.AddDays(7);
+        fri.DisplayDate = fri.DisplayDate.AddDays(7);
+        sat.DisplayDate = sat.DisplayDate.AddDays(7);
+        sun.DisplayDate = sun.DisplayDate.AddDays(7);
+    }
+
+    private async void CheckBox_CheckedChanged(object sender, EventArgs e)
+    {
+        if (sender is CheckBox checkBox && checkBox.IsChecked)
+        {
+            var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
+            player.Play();
+        }
+    }
 
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
@@ -63,65 +94,44 @@ public partial class DayPage : ContentPage
         RefreshCurrentFrame();
         AlwaysOnDisplay(temp);
     }
-    private async Task AnimateFrames()
+    private async Task AnimateFrames(Appointment input)
     {
-        await frame_A.TranslateTo(-430, 0, 250, Easing.Linear);
-        Grid.SetColumn(frame_A, 0);
-        Grid.SetRow(frame_A, 1);
+        
+            frame_A.WidthRequest = 350;
+            await frame_A.TranslateTo(-220, 0, 250, Easing.Linear);
+            Grid.SetColumn(frame_A, 0);
+            Grid.SetRow(frame_A, 1);
 
-        // Scale back to original size (if there's relevant code for this)
 
-        frame_B.IsVisible = true;
-        await frame_B.FadeTo(1, 500, Easing.SinInOut); // Fade in
+            // Scale back to original size (if there's relevant code for this)
+            frame_B.FindByName<Label>("TaskTitle").Text = input.Name;
+            frame_B.FindByName<Label>("StartTime").Text = input.EventStart.ToString();
+            frame_B.FindByName<Label>("EndTime").Text = input.EventEnd.ToString();
+            //frame_B.FindByName<Label>("State").Text = input.;
+            frame_B.FindByName<Label>("Notes").Text = input.Note;
+
+            frame_B.IsVisible = true;
+
+            await frame_B.FadeTo(1, 500, Easing.SinInOut); // Fade in
+        
     }
 
     //Reset position
     private async void RefreshCurrentFrame()
     {
-        // Move frame_A back to its original position
-        await frame_A.TranslateTo(0, 0, 250, Easing.Linear);
-        Grid.SetColumn(frame_A, 0);
-        Grid.SetRow(frame_A, 0);
-
         // Reverse the visibility change for frame_B
         await frame_B.FadeTo(0, 500, Easing.SinInOut); // Fade out
         frame_B.IsVisible = false;
+        // Move frame_A back to its original position
+        frame_A.WidthRequest = 700;
+        await frame_A.TranslateTo(0, 0, 250, Easing.Linear);
+        Grid.SetColumn(frame_A, 0);
+        Grid.SetRow(frame_A, 1);
 
     }
-    
+    private Appointment xxx;
 
-    
 
-    private void LeftimaBut_Clicked(object sender, EventArgs e)
-    {
-        mon.DisplayDate = mon.DisplayDate.AddDays(-7);
-        tue.DisplayDate = tue.DisplayDate.AddDays(-7);
-        wed.DisplayDate = wed.DisplayDate.AddDays(-7);
-        thus.DisplayDate = thus.DisplayDate.AddDays(-7);
-        fri.DisplayDate = fri.DisplayDate.AddDays(-7);
-        sat.DisplayDate = sat.DisplayDate.AddDays(-7);
-        sun.DisplayDate = sun.DisplayDate.AddDays(-7);
-    }
-    
-    private void RightimaBut_Clicked(object sender, EventArgs e)
-    {
-        mon.DisplayDate = mon.DisplayDate.AddDays(7);
-        tue.DisplayDate = tue.DisplayDate.AddDays(7);
-        wed.DisplayDate = wed.DisplayDate.AddDays(7);
-        thus.DisplayDate = thus.DisplayDate.AddDays(7);
-        fri.DisplayDate = fri.DisplayDate.AddDays(7);
-        sat.DisplayDate = sat.DisplayDate.AddDays(7);
-        sun.DisplayDate = sun.DisplayDate.AddDays(7);
-    }
-    private async void CheckBox_CheckedChanged(object sender, EventArgs e)
-    {
-        if(sender is CheckBox checkBox && checkBox.IsChecked)
-    {
-            var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
-            player.Play();
-        }
-    }
-    
     private void AlwaysOnDisplay(DateTime currentDate)
     {
         TaskDailyStack.Clear();
@@ -131,38 +141,34 @@ public partial class DayPage : ContentPage
 
         foreach (Appointment app in appointmentsForDate)
         {
+
             // Create labels for displaying appointment information
-            Grid grid = new Grid();
+            Grid grid = CreateGrid();
 
-            // Define two auto-sized columns
-            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-            // Define two auto-sized rows
-            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            Label nameLabel = CreateLabel(app.Name, blackColor);
+            CheckBox ckbox = CreateCheckBox();
+            Label dateLabel = CreateDateLabel(app.EventStart, app.EventEnd, blackColor);
 
-            Label nameLabel = new Label { Text = app.Name, TextColor = blackColor };
-            CheckBox ckbox = new CheckBox { IsChecked = false };
-            Label dateLabel = new Label { Text = $"{app.EventStart:hh/mm,dd/mm/yy}-{app.EventEnd:hh/mm,dd/mm/yy}", TextColor = blackColor };
-            
             ckbox.CheckedChanged += CheckBox_CheckedChanged;
-            // Set the row and column positions for labels and checkbox
-            grid.SetColumn(nameLabel, 0);
-            grid.SetRow(nameLabel, 0);
-
-            grid.SetColumn(dateLabel, 0);
-            grid.SetRow(dateLabel, 1);
-
-            grid.SetColumn(ckbox, 1);
-            grid.SetRowSpan(ckbox, 2);
 
             grid.Children.Add(nameLabel);
             grid.Children.Add(dateLabel);
             grid.Children.Add(ckbox);
+            Grid.SetRow(nameLabel, 0);
+            Grid.SetColumn(nameLabel, 0);
+
+            Grid.SetRow(dateLabel, 1);
+            Grid.SetColumn(dateLabel, 0);
+
+            Grid.SetRowSpan(ckbox, 2);
+            Grid.SetRow(ckbox, 0);
+            Grid.SetColumn(ckbox, 1);  
+            Grid.SetRowSpan(ckbox, 2);
+            
+
             // Create a StackLayout to hold labels
             StackLayout infoStack = new StackLayout();
             infoStack.Children.Add(grid);
-            
 
             // Create a Frame to contain appointment information
             Frame appointmentFrame = new Frame
@@ -176,8 +182,7 @@ public partial class DayPage : ContentPage
             {
                 Command = new Command(async () =>
                 {
-                    
-                    await AnimateFrames();
+                    await AnimateFrames(app); // Use the local variable                   
                 })
             });
 
@@ -189,11 +194,45 @@ public partial class DayPage : ContentPage
             // Add the combined StackLayout to TaskDailyStack
             TaskDailyStack.Children.Add(frameStack);
 
-            //Adding to frame B
 
         }
 
+        // Separate helper methods to improve readability and maintainability
+
+        Grid CreateGrid()
+        {
+            Grid newGrid = new Grid();
+            newGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+            newGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+            newGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            newGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            return newGrid;
+        }
+
+        Label CreateLabel(string text, Color textColor)
+        {
+            return new Label { Text = text, TextColor = textColor };
+        }
+
+        CheckBox CreateCheckBox()
+        {
+            return new CheckBox { IsChecked = false };
+        }
+
+        Label CreateDateLabel(DateTime start, DateTime end, Color textColor)
+        {
+            string formattedDate = $"{start:hh/mm,dd/mm/yy}-{end:hh/mm,dd/mm/yy}";
+            return new Label { Text = formattedDate, TextColor = textColor };
+        }
+
+
+
+
+
+
+
     }
+
     private void Butmon_Clicked(object sender, EventArgs e)
     {
         temp = this.mon.DisplayDate;
@@ -247,6 +286,9 @@ public partial class DayPage : ContentPage
         AlwaysOnDisplay(sun.DisplayDate);
 
     }
+
+
+    //Weather
     private string s = "";
     protected override async void OnAppearing()
     {
@@ -418,4 +460,9 @@ public partial class DayPage : ContentPage
         
     }
 
+    private async void weatherImage_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(WeatherPage));
+        
+    }
 }

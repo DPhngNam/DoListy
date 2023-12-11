@@ -139,7 +139,8 @@
             <Button x:Name="WPPomoButton" 
                     Text="Pomodoro" 
                     Style="{StaticResource pomoButton}"
-                    VerticalOptions="End">
+                    VerticalOptions="End"
+                    Clicked="OnPomoButtonClicked">
                 
             </Button>
 

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DoListy.Pages.DayPage"
-             
+              
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title=""
@@ -75,7 +75,7 @@
                 <Setter Property="BorderColor" Value="Transparent"/>
                 <Setter Property="Margin" Value="10" />
                 <Setter Property="MaximumHeightRequest" Value="1000" />
-                <Setter Property="MaximumWidthRequest" Value="400" />
+                <Setter Property="WidthRequest" Value="440" />
 
             </Style>
             
@@ -207,7 +207,7 @@
             </Grid.ColumnDefinitions>
             
             <!--Task frame-->
-            <Frame Style="{StaticResource CommonFrame}" x:Name="frame_A" Grid.Row="1" Grid.Column="0" Margin="10" Grid.ColumnSpan="5" Grid.RowSpan="5">
+            <Frame Style="{StaticResource CommonFrame}" x:Name="frame_A" Grid.Row="1" Grid.Column="0" Margin="10" Grid.ColumnSpan="2" WidthRequest="700">
                 <VerticalStackLayout>
                     <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
                         <Label Text="Tasks" TextColor="White" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
@@ -220,10 +220,53 @@
             </Frame>
             <!--Details frame-->
             <Frame Style="{StaticResource CommonFrame}" x:Name="frame_B" Grid.Row="1" Grid.Column="1" IsVisible="False">
-                <StackLayout>
-                    <Label Text="Task details" TextColor="White" FontSize="20" FontAttributes="Bold" />
+                <VerticalStackLayout x:Name="st">
+                    <Label Text="Task details" TextColor="White" FontSize="30" FontAttributes="Bold" Margin="20,0,0,0"/>
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" Margin="0,0,0,10"/>
-                </StackLayout>
+                    <VerticalStackLayout  x:Name="DetailTaskStack" Spacing="30" Margin="20,20,0,0">
+                        
+                        <HorizontalStackLayout  Spacing="30">
+                            <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" Text="Title" TextColor="White"/>
+                            <Label Grid.Row="0" Grid.Column="1" FontSize="Large"  FontAttributes="Bold" x:Name="TaskTitle" TextColor="white" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="30">
+                            <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" Text="Start Time" TextColor="White"/>
+                            <Label x:Name="StartTime" 
+                                   FontAttributes="Bold" 
+                                   Grid.Row="1" Grid.Column="1" FontSize="Medium"
+                                   TextColor="White"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="30">
+                            <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" Text="End Time" TextColor="White"/>
+                            <Label x:Name="EndTime"
+                                   FontAttributes="Bold"
+                                   Grid.Row="2" Grid.Column="1" FontSize="Medium"
+                                    TextColor="White"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="30">
+                            <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" Text="State" TextColor="White"/>
+                            <Label x:Name="State" 
+                                   FontAttributes="Bold"
+                                   Grid.Row="3" Grid.Column="1" FontSize="Medium"
+                                   TextColor="White"/>
+                        </HorizontalStackLayout >
+
+                        <HorizontalStackLayout Spacing="30">
+                            <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" Text="Notes" TextColor="White"/>
+                            <Label x:Name="Notes" FontAttributes="Bold"
+                                   Grid.Row="4" Grid.Column="1" FontSize="Medium"
+                                   TextColor="White"/>
+                        </HorizontalStackLayout>
+                        
+                        
+            
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+                
             </Frame>
             <!--Weather frame-->
             <Frame Style="{StaticResource CommonFrameC}" x:Name="frame_C" Grid.Row="1" Grid.Column="2" VerticalOptions="Start">
@@ -247,7 +290,8 @@
                     </HorizontalStackLayout>
                      
                     <ImageButton x:Name="weatherImage" BackgroundColor="Transparent"
-                                 HeightRequest="150"
+                                 HeightRequest="150" Clicked="weatherImage_Clicked"
+                                 
                                  />
                 </StackLayout>
             </Frame>
