@@ -75,7 +75,7 @@
                 <Setter Property="BorderColor" Value="Transparent"/>
                 <Setter Property="Margin" Value="10" />
                 <Setter Property="MaximumHeightRequest" Value="1000" />
-                <Setter Property="WidthRequest" Value="400" />
+                <Setter Property="WidthRequest" Value="440" />
 
             </Style>
             
@@ -220,12 +220,50 @@
             </Frame>
             <!--Details frame-->
             <Frame Style="{StaticResource CommonFrame}" x:Name="frame_B" Grid.Row="1" Grid.Column="1" IsVisible="False">
-                <VerticalStackLayout>
-                    <Label Text="Task details" TextColor="White" FontSize="20" FontAttributes="Bold" />
+                <VerticalStackLayout x:Name="st">
+                    <Label Text="Task details" TextColor="White" FontSize="30" FontAttributes="Bold" Margin="20,0,0,0"/>
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" Margin="0,0,0,10"/>
-                    <StackLayout Orientation="Vertical" x:Name="DetailTaskStack">
+                    <VerticalStackLayout  x:Name="DetailTaskStack" Spacing="30" Margin="20,20,0,0">
+                        
+                        <HorizontalStackLayout  Spacing="30">
+                            <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" Text="Title" TextColor="White"/>
+                            <Label Grid.Row="0" Grid.Column="1" FontSize="Large"  FontAttributes="Bold" x:Name="TaskTitle" TextColor="white" />
+                        </HorizontalStackLayout>
 
-                    </StackLayout>
+                        <HorizontalStackLayout Spacing="30">
+                            <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" Text="Start Time" TextColor="White"/>
+                            <Label x:Name="StartTime" 
+                                   FontAttributes="Bold" 
+                                   Grid.Row="1" Grid.Column="1" FontSize="Medium"
+                                   TextColor="White"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="30">
+                            <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" Text="End Time" TextColor="White"/>
+                            <Label x:Name="EndTime"
+                                   FontAttributes="Bold"
+                                   Grid.Row="2" Grid.Column="1" FontSize="Medium"
+                                    TextColor="White"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="30">
+                            <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" Text="State" TextColor="White"/>
+                            <Label x:Name="State" 
+                                   FontAttributes="Bold"
+                                   Grid.Row="3" Grid.Column="1" FontSize="Medium"
+                                   TextColor="White"/>
+                        </HorizontalStackLayout >
+
+                        <HorizontalStackLayout Spacing="30">
+                            <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" Text="Notes" TextColor="White"/>
+                            <Label x:Name="Notes" FontAttributes="Bold"
+                                   Grid.Row="4" Grid.Column="1" FontSize="Medium"
+                                   TextColor="White"/>
+                        </HorizontalStackLayout>
+                        
+                        
+            
+                    </VerticalStackLayout>
 
                 </VerticalStackLayout>
                 
