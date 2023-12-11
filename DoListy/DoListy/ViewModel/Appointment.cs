@@ -1,6 +1,9 @@
 ﻿using Microsoft.Maui.Controls;
+using Plugin.Maui.Audio;
 using SQLite;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using Plugin.Maui.Audio;
 
 namespace DoListy.ViewModel
 {
@@ -50,6 +53,40 @@ namespace DoListy.ViewModel
         public string Recurrencerule { get; set; }
         public string Note { get; set; }
         public bool IsDone { get; set; }
+        [Ignore]
+        public bool isDone
+        {
+            get { return IsDone; }
+            set
+            {
+                if (IsDone != value)
+                {
+                    IsDone = value;
+                    OnPropertyChanged(nameof(IsDone));
+                    UpdateDatabase(value);
+                }
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private async void UpdateDatabase(bool a)
+        {
+            await Task.Run(() =>
+            {
+                Appointment temp = App.appointmentRepo.GetAppointmentByID(Id);
+
+                if (temp != null)
+                {
+                    temp.IsDone = a;
+                    App.appointmentRepo.Update(temp);
+                }
+            });
+        }
+
     }
     [Table("Goal")]
     public class Goal

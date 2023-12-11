@@ -34,11 +34,21 @@ public partial class MonthPage : ContentPage
     {
         //await Navigation.PushModalAsync(new AddAppointmentPage());
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
+        buttonAddAppointment.Opacity = 1.0;
+    }
+    private void buttonAddAppointment_Pressed(object sender, EventArgs e)
+    {
+        buttonAddAppointment.Opacity = 0.5;
     }
     private async void btnOpenDeatil_Clicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//Day");
         var daypage = (DayPage)Shell.Current.CurrentPage;
+        btnOpenDeatil.Opacity = 1.0;
+    }
+    private void btnOpenDeatil_Pressed(object sender, EventArgs e)
+    {
+        btnOpenDeatil.Opacity = 0.5;
     }
 
     private void Scheduler_SelectionChanged(object sender, Syncfusion.Maui.Scheduler.SchedulerSelectionChangedEventArgs e)
@@ -104,20 +114,10 @@ public partial class MonthPage : ContentPage
     {
         Shell.Current.GoToAsync("Pomodoro");
     }
-    private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+
+    private async void checkState_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        if (sender is CheckBox checkBox && checkBox.BindingContext is int appId)
-        {
-            Appointment temp = App.appointmentRepo.GetAppointmentByID(appId);
-            if (temp != null)
-            {
-                temp.IsDone = !temp.IsDone;
-                checkBox.IsChecked = temp.IsDone;
-                App.appointmentRepo.Update(temp);
-                var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
-                player.Play();
-                return;
-            }
-        }
+        var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
+        player.Play();
     }
 }

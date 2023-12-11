@@ -53,7 +53,7 @@ public partial class DayPage : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
         var add = (AddAppointmentPage)Shell.Current.CurrentPage;
-        add.entryStartTime.Text = temp.ToString("F");
+        add.entryStartTime.Text = temp.ToString();
         add.pickerDateTime1.SelectedDate = temp;
         
         add.Disappearing += OnAddAppointmentPageDisappearing;
