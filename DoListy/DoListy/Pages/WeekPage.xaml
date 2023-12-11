@@ -16,20 +16,17 @@
             <Setter Property="TextColor" Value="Black"></Setter>
         </Style>
         <scheduler:SchedulerTextStyle x:Key="HeaderTextStyle" FontSize="30" FontAttributes="Bold" TextColor="White">
-           
+
         </scheduler:SchedulerTextStyle>
-  
+
 
     </ContentPage.Resources>
     <Grid BackgroundColor="{StaticResource appBgColor}"
           RowDefinitions="*"
-          ColumnDefinitions="3*,*"
-           
-    
-        
+          ColumnDefinitions="3*,*" 
         >
-       
-        <!--scheduler week view--> 
+
+        <!--scheduler week view-->
         <scheduler:SfScheduler
             Grid.Column="0"
             Grid.Row="0"
@@ -43,8 +40,8 @@
             Tapped="WeekPageScheduler_Tapped" 
         
             >
-          
-            
+
+
             <!--appoinment mapping-->
             <scheduler:SfScheduler.AppointmentMapping>
                 <!--tham chiếu tới task người dùng-->
@@ -59,92 +56,112 @@
             <!--Headerview-->
             <scheduler:SfScheduler.HeaderView>
                 <scheduler:SchedulerHeaderView TextStyle="{StaticResource HeaderTextStyle}">
-                    
+
                 </scheduler:SchedulerHeaderView>
             </scheduler:SfScheduler.HeaderView>
 
             <scheduler:SfScheduler.DaysView >
                 <scheduler:SchedulerDaysView TimeIntervalHeight="50" TimeInterval="0:30:0" CurrentTimeIndicatorBrush="{StaticResource TimeIntervalTextColor}" >
-                    
+
                     <scheduler:SchedulerDaysView.ViewHeaderSettings >
-                        <!--custom header style--> 
+                        <!--custom header style-->
                         <scheduler:SchedulerViewHeaderSettings DateFormat="dd" Background="{StaticResource HeaderColor}"
                                                                DateTextStyle="{StaticResource  textStyle}"
                                                                DayTextStyle ="{StaticResource textStyle}"
                                                                Height="60"
                                                                DayFormat="ddd"
                                                                >
-                            
+
 
 
                         </scheduler:SchedulerViewHeaderSettings>
                     </scheduler:SchedulerDaysView.ViewHeaderSettings>
-                    
+
 
 
                 </scheduler:SchedulerDaysView>
-          
+
             </scheduler:SfScheduler.DaysView>
         </scheduler:SfScheduler>
         <!--stack layout for Pomo anh TaskFrame-->
-        <StackLayout Grid.Column="2" Spacing="10" Margin="10">
-            
-            <Label x:Name= "WPdateLabel"
+        <Grid Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ImageButton HeightRequest="2" WidthRequest="2" 
+                 x:Name="Settingbtn"
+                         Background="Transparent"
+                    Source="settings.png"
+                         HorizontalOptions="End"
+                         VerticalOptions="Start"
+                         Margin="0,0,20,100"
+                        
+         />
+
+
+
+            <StackLayout Spacing="10" Margin="10"  >
+                <Label x:Name= "WPdateLabel"
                    Style="{StaticResource dateLabelStyle}"
                     >
-                
-            </Label>
-            <!--taskframe-->
-            <Frame x:Name="WPTaskFrame"
+
+                </Label>
+                <!--taskframe-->
+                <Frame x:Name="WPTaskFrame"
                    Style="{StaticResource taskFrameStyle}"
                    Grid.Column="2"
                    VerticalOptions="FillAndExpand"
                    CornerRadius="25"
                   >
-                <VerticalStackLayout Spacing="5">
-                    <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
-                        <Label Text="Tasks" FontSize="25" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" TextColor="White"/>
-                        <ImageButton HeightRequest="5" WidthRequest="5"   x:Name="btnOpenDeatil" Background="Transparent" Clicked="btnOpenDeatil_Clicked" Source="eye.png" Grid.Column="1" Grid.Row="0"></ImageButton>
-                        <ImageButton HeightRequest="5" WidthRequest="5"    x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddAppointment_Clicked" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
-                    </Grid>
-                    <BoxView BackgroundColor="Black" HeightRequest="1"/>
-                    <ListView x:Name="Tasklist" ItemSelected="Tasklist_ItemSelected" ItemTapped="Tasklist_ItemTapped" >
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <ViewCell.ContextActions>
-                                        <MenuItem Text="Delete"
+                    <VerticalStackLayout Spacing="5">
+                        <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
+                            <Label Text="Tasks" FontSize="25" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" TextColor="White"/>
+                            <ImageButton HeightRequest="5" WidthRequest="5"   x:Name="btnOpenDeatil" Background="Transparent" Clicked="btnOpenDeatil_Clicked" Source="eye.png" Grid.Column="1" Grid.Row="0"></ImageButton>
+                            <ImageButton HeightRequest="5" WidthRequest="5"    x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddAppointment_Clicked" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
+                        </Grid>
+                        <BoxView BackgroundColor="Black" HeightRequest="1"/>
+                        <ListView x:Name="Tasklist" ItemSelected="Tasklist_ItemSelected" ItemTapped="Tasklist_ItemTapped" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ViewCell.ContextActions>
+                                            <MenuItem Text="Delete"
                                                   Clicked="MenuItem_Clicked"
                                                   CommandParameter="{Binding .}"></MenuItem>
-                                    </ViewCell.ContextActions>
-                                    <Grid ColumnDefinitions="*,auto"
+                                        </ViewCell.ContextActions>
+                                        <Grid ColumnDefinitions="*,auto"
                                           RowDefinitions="*,*">
-                                        <Label Text="{Binding Name}"  TextColor="White" Grid.Column="0" Grid.Row="0"> </Label>
+                                            <Label Text="{Binding Name}"  TextColor="White" Grid.Column="0" Grid.Row="0"></Label>
                                             <Label Text="{Binding EventStart}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
-                                        <CheckBox IsChecked="False" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" CheckedChanged="CheckBox_CheckedChanged"/>
-                                    </Grid>
+                                            <CheckBox IsChecked="False" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" CheckedChanged="CheckBox_CheckedChanged"/>
+                                        </Grid>
 
 
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                        
-                        
-                    </ListView>
-                    
-                </VerticalStackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
 
-            </Frame>
-            <!--Pomobutton-->
-            <Button x:Name="WPPomoButton" 
+
+                        </ListView>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+                <!--Pomobutton-->
+                <Button x:Name="WPPomoButton" 
                     Text="Pomodoro" 
                     Style="{StaticResource pomoButton}"
                     VerticalOptions="End"
                     Clicked="OnPomoButtonClicked">
-                
-            </Button>
 
-        </StackLayout>
-       
+                </Button>
+
+            </StackLayout>
+        </Grid>
+
+
     </Grid>
 </ContentPage>

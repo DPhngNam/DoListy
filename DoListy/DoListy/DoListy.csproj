@@ -59,6 +59,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\eye.png" />
 	  <None Remove="Resources\Images\plus.png" />
+	  <None Remove="Resources\Images\settings.png" />
 	  <None Remove="Resources\Images\sunset_line.png" />
 	  <None Remove="Resources\Raw\tick.mp3" />
 	</ItemGroup>
