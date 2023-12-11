@@ -137,4 +137,8 @@ public partial class WeekPage : ContentPage
 
 
     }
+    void OnPomoButtonClicked(object sender, EventArgs e)
+    {
+        Navigation.PushModalAsync(new PomodoroPage());
+    }
 }

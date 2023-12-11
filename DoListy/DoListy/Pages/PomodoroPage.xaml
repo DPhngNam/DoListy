@@ -24,6 +24,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid ColumnDefinitions="2*,*" RowDefinitions="1*,Auto,1*" BackgroundColor="{StaticResource pomoBgColor}" Padding="10,10,15,10">
+        <ImageButton Grid.Row="0" 
+                     Scale="0.5"
+                     BackgroundColor="Transparent"
+                     Grid.Column="0" HorizontalOptions="Start" Source="leftarrowicon.png" Clicked="OnBackButtonClicked"/>
         <Label Grid.Row="0" Grid.Column="0" x:Name="pomoStateLabel" HorizontalOptions="Center" Text="FOCUSING" Style="{StaticResource pomoStateLabelStyle}"/> 
          <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="Transparent"
                 BorderColor="{StaticResource pomoFgColor}"

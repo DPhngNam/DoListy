@@ -102,7 +102,7 @@ public partial class MonthPage : ContentPage
 
     private void PomoButton_Clicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("Pomodoro");
+        Navigation.PushModalAsync(new PomodoroPage());
     }
     private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
