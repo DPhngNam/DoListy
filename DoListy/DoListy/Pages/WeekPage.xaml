@@ -5,6 +5,7 @@
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              xmlns:local="clr-namespace:DoListy.ViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="">
     <!--Page cua Huu Thinh-->
     <ContentPage.Resources>
@@ -21,10 +22,14 @@
 
 
     </ContentPage.Resources>
-    <Grid BackgroundColor="{StaticResource appBgColor}"
+    
+
+    
+        <Grid BackgroundColor="{StaticResource appBgColor}"
           RowDefinitions="*"
           ColumnDefinitions="3*,*" 
         >
+        <toolkit:MediaElement x:Name="MediaElement" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
 
         <!--scheduler week view-->
         <scheduler:SfScheduler

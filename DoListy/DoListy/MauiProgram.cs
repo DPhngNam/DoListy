@@ -16,6 +16,7 @@ namespace DoListy
             builder.ConfigureSyncfusionCore();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkitMediaElement()
                 .UseMauiCommunityToolkit()
                 .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
