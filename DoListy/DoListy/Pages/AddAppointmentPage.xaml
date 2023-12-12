@@ -59,7 +59,7 @@
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <Label   Text="Start Time: " Style="{StaticResource labelPage}" ></Label>
-                    <Button x:Name="entryStartTime" Style="{StaticResource btnDatetime}" Clicked="entryStartTime_Clicked" x:FieldModifier="public"></Button>
+                    <Button x:Name="entryStartTime" Style="{StaticResource btnDatetime}" Clicked="entryStartTime_Clicked" Pressed="entryStartTime_Pressed" x:FieldModifier="public"></Button>
                     <picker:SfDateTimePicker x:Name="pickerDateTime1"
                              Style="{StaticResource pickerDateTimeStyle}"
                              CancelButtonClicked="pickerDateTime1_CancelButtonClicked"
@@ -86,7 +86,7 @@
                 </HorizontalStackLayout>
                 <HorizontalStackLayout >
                     <Label   Text="End Time: " Style="{StaticResource labelPage}" ></Label>
-                    <Button x:Name="entryEndTime" Style="{StaticResource btnDatetime}" Clicked="entryEndTime_Clicked" x:FieldModifier="public"></Button>
+                    <Button x:Name="entryEndTime" Style="{StaticResource btnDatetime}" Clicked="entryEndTime_Clicked" Pressed="entryEndTime_Pressed" x:FieldModifier="public"></Button>
                     <picker:SfDateTimePicker x:Name="pickerDateTime2"
              Style="{StaticResource pickerDateTimeStyle}"
              CancelButtonClicked="pickerDateTime2_CancelButtonClicked"
@@ -125,7 +125,7 @@
                 </HorizontalStackLayout>
                 <HorizontalStackLayout >
                     <Label   Text="Until: " Style="{StaticResource labelPage}" ></Label>
-                    <Button x:Name="Until" Style="{StaticResource btnDatetime}" Clicked="Until_Clicked"  x:FieldModifier="public"></Button>
+                    <Button x:Name="Until" Style="{StaticResource btnDatetime}" Clicked="Until_Clicked" Pressed="Until_Pressed"  x:FieldModifier="public"></Button>
                     <picker:SfDateTimePicker x:Name="pickerDateTime3"
                                      Style="{StaticResource pickerDateTimeStyle}"
                                      CancelButtonClicked="pickerDateTime3_CancelButtonClicked"
@@ -156,8 +156,8 @@
                 
             </VerticalStackLayout>
             <HorizontalStackLayout Spacing="30" Margin="0,0,30,20" HorizontalOptions="End" Grid.Column="0" Grid.Row="1">
-                <Button  x:Name="buttonCancle" CornerRadius="25" WidthRequest="150" HeightRequest="10" BorderColor="#FFFFFF" TextColor="White" Text="Cancel" Background="#0C134F" Clicked="buttonCancle_Clicked"></Button>
-                <Button  x:Name="buttonCreate" CornerRadius="25" WidthRequest="150" HeightRequest="10" TextColor="black" Text="Create" Background="#8CABFF" Clicked="buttonCreate_Clicked"></Button>
+                <Button  x:Name="buttonCancle" CornerRadius="25" WidthRequest="150" HeightRequest="10" BorderColor="#FFFFFF" TextColor="White" Text="Cancel" Background="#0C134F" Pressed="buttonCancle_Pressed" Clicked="buttonCancle_Clicked"></Button>
+                <Button  x:Name="buttonCreate" CornerRadius="25" WidthRequest="150" HeightRequest="10" TextColor="black" Text="Create" Background="#8CABFF" Pressed="buttonCreate_Pressed" Clicked="buttonCreate_Clicked"></Button>
             </HorizontalStackLayout>
         </Grid>
     </ScrollView>

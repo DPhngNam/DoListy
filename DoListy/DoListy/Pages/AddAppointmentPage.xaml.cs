@@ -16,11 +16,17 @@ public partial class AddAppointmentPage : ContentPage
 
     private void buttonCancle_Clicked(object sender, EventArgs e)
     {
+        buttonCancle.Opacity = 1.0;
         Shell.Current.GoToAsync("..");
+    }
+    private void buttonCancle_Pressed(object sender, EventArgs e)
+    {
+        buttonCancle.Opacity = 0.5;
     }
 
     private void buttonCreate_Clicked(object sender, EventArgs e)
     {
+        buttonCreate.Opacity = 1.0;
         Appointment appointment = new Appointment()
         {
             Name = entrySubject.Text,
@@ -48,15 +54,29 @@ public partial class AddAppointmentPage : ContentPage
         //Added by Phuong Nam
         Shell.Current.GoToAsync("..");
     }
+    private void buttonCreate_Pressed(object sender, EventArgs e)
+    {
+        buttonCreate.Opacity = 0.5;
+    }
 
     private void entryStartTime_Clicked(object sender, EventArgs e)
     {
+        entryStartTime.Opacity = 1.0;
         pickerDateTime1.IsOpen = true;
+    }
+    private void entryStartTime_Pressed(object sender, EventArgs e)
+    {
+        entryStartTime.Opacity = 0.5;
     }
 
     private void entryEndTime_Clicked(object sender, EventArgs e)
     {
+        entryEndTime.Opacity = 1.0;
         pickerDateTime2.IsOpen = true;
+    }
+    private void entryEndTime_Pressed(object sender, EventArgs e)
+    {
+        entryEndTime.Opacity = 0.5;
     }
 
     private void pickerDateTime1_CancelButtonClicked(object sender, EventArgs e)
@@ -94,7 +114,12 @@ public partial class AddAppointmentPage : ContentPage
 
     private void Until_Clicked(object sender, EventArgs e)
     {
+        Until.Opacity = 1.0;
         pickerDateTime3.IsOpen = true;
+    }
+    private void Until_Pressed(object sender, EventArgs e)
+    {
+        Until.Opacity = 0.5;
     }
 }
 

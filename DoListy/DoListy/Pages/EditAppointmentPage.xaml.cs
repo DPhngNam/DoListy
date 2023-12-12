@@ -45,7 +45,12 @@ public partial class EditAppointmentPage : ContentPage
 
     private void eidtStartTime_Clicked(object sender, EventArgs e)
     {
+        eidtStartTime.Opacity = 1.0;
         pickerDateTime1.IsOpen = true;
+    }
+    private void eidtStartTime_Pressed(object sender, EventArgs e)
+    {
+        eidtStartTime.Opacity = 0.5;
     }
 
     private void pickerDateTime1_CancelButtonClicked(object sender, EventArgs e)
@@ -61,7 +66,12 @@ public partial class EditAppointmentPage : ContentPage
 
     private void editEndTime_Clicked(object sender, EventArgs e)
     {
+        editEndTime.Opacity = 1.0;
         pickerDateTime2.IsOpen = true;
+    }
+    private void editEndTime_Pressed(object sender, EventArgs e)
+    {
+        editEndTime.Opacity = 0.5;
     }
 
     private void pickerDateTime2_CancelButtonClicked(object sender, EventArgs e)
@@ -82,6 +92,7 @@ public partial class EditAppointmentPage : ContentPage
 
     private void buttonSave_Clicked(object sender, EventArgs e)
     {
+        buttonSave.Opacity = 1.0;
         appointment.Name = editSubject.Text;
         appointment.EventStart = pickerDateTime1.SelectedDate;
         appointment.EventEnd = pickerDateTime2.SelectedDate;
@@ -98,10 +109,19 @@ public partial class EditAppointmentPage : ContentPage
         Application.Current.MainPage.DisplayAlert("Success", "Save successfully", "OK");
         Shell.Current.GoToAsync("..");
     }
+    private void buttonSave_Pressed(object sender, EventArgs e)
+    {
+        buttonSave.Opacity = 0.5;
+    }
 
     private void pickerDateTime3_CancelButtonClicked(object sender, EventArgs e)
     {
+        buttonCancle1.Opacity = 1.0;
         pickerDateTime3.IsOpen = false;
+    }
+    private void buttonCancle1_Pressed(object sender, EventArgs e)
+    {
+        buttonCancle1.Opacity = 0.5;
     }
 
     private void pickerDateTime3_OkButtonClicked(object sender, EventArgs e)
@@ -113,5 +133,11 @@ public partial class EditAppointmentPage : ContentPage
     private void UntilEdit_Clicked(object sender, EventArgs e)
     {
         pickerDateTime3.IsOpen = true;
+        UntilEdit.Opacity = 1.0;
+    }
+
+    private void UntilEdit_Pressed(object sender, EventArgs e)
+    {
+        UntilEdit.Opacity = 0.5;
     }
 }

@@ -148,7 +148,6 @@ public partial class DayPage : ContentPage
             Label nameLabel = CreateLabel(app.Name, blackColor);
             CheckBox ckbox = CreateCheckBox();
             Label dateLabel = CreateDateLabel(app.EventStart, app.EventEnd, blackColor);
-
             ckbox.CheckedChanged += CheckBox_CheckedChanged;
 
             grid.Children.Add(nameLabel);

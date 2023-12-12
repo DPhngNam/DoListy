@@ -112,7 +112,8 @@
             Text="Pomodoro" 
             Style="{StaticResource pomoButton}"
             VerticalOptions="End"
-            Grid.Column="1" Clicked="PomoButton_Clicked">
+            Grid.Column="1" Clicked="PomoButton_Clicked"
+            Pressed="PomoButton_Pressed">
         </Button>
     </Grid>
 </ContentPage>

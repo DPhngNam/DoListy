@@ -80,18 +80,13 @@ public partial class WeekPage : ContentPage
 
     private void WeekPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
     {
-        loadAppointments();
         if (e.Element is SchedulerElement.ViewHeader)
         {
             Tasklist.ItemsSource = null;
-            //if (e.Appointments == null)
-            //    return;
-            //Tasklist.ItemsSource = e.Appointments;
-            //loadAppointments();
 
             var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
             List<Appointment> appointmennts = new List<Appointment>();
-        
+
             foreach (Appointment app in CurrentAppointment)
             {
                 if (app.EventStart.Day <= e.Date.Value.Day && e.Date.Value.Day <= app.EventEnd.Day)
@@ -99,9 +94,18 @@ public partial class WeekPage : ContentPage
                     appointmennts.Add(app);
                 }
             }
-            Tasklist.ItemsSource = appointmennts;
-            loadAppointments();
+            if(appointmennts.Count > 0)
+            {
+                Tasklist.ItemsSource = appointmennts;
+                loadAppointments();
+            }
         }
+        else if(e.Appointments.Count == 1)    
+        {
+            Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)e.Appointments[0]).Id}");
+        } 
+            
+            
     }
 
     private async void Tasklist_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -117,7 +121,6 @@ public partial class WeekPage : ContentPage
     private void Tasklist_ItemTapped(object sender, ItemTappedEventArgs e)
     {
         Tasklist.SelectedItem = null;
-
     }
 
     private void MenuItem_Clicked(object sender, EventArgs e)
@@ -132,8 +135,8 @@ public partial class WeekPage : ContentPage
 
     private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
-        player.Play();
+            var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
+            player.Play();
     }
     void OnPomoButtonClicked(object sender, EventArgs e)
     {

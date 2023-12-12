@@ -56,15 +56,15 @@ namespace DoListy.ViewModel
         [Ignore]
         public bool isDone
         {
-            get { return IsDone; }
+            get
+            {
+                Appointment temp = App.appointmentRepo.GetAppointmentByID(Id);
+                return temp.IsDone;
+            }
             set
             {
-                if (IsDone != value)
-                {
-                    IsDone = value;
                     OnPropertyChanged(nameof(IsDone));
                     UpdateDatabase(value);
-                }
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -73,10 +73,8 @@ namespace DoListy.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private async void UpdateDatabase(bool a)
+        private void UpdateDatabase(bool a)
         {
-            await Task.Run(() =>
-            {
                 Appointment temp = App.appointmentRepo.GetAppointmentByID(Id);
 
                 if (temp != null)
@@ -84,7 +82,6 @@ namespace DoListy.ViewModel
                     temp.IsDone = a;
                     App.appointmentRepo.Update(temp);
                 }
-            });
         }
 
     }

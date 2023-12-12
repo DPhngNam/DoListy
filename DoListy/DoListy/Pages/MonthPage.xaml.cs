@@ -31,10 +31,10 @@ public partial class MonthPage : ContentPage
     }
 
     private async void buttonAddAppointment_Clicked(object sender, EventArgs e)
-    {
+    {      
+        buttonAddAppointment.Opacity = 1.0;
         //await Navigation.PushModalAsync(new AddAppointmentPage());
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
-        buttonAddAppointment.Opacity = 1.0;
     }
     private void buttonAddAppointment_Pressed(object sender, EventArgs e)
     {
@@ -42,9 +42,9 @@ public partial class MonthPage : ContentPage
     }
     private async void btnOpenDeatil_Clicked(object sender, EventArgs e)
     {
+        btnOpenDeatil.Opacity = 1.0;
         await Shell.Current.GoToAsync("//Day");
         var daypage = (DayPage)Shell.Current.CurrentPage;
-        btnOpenDeatil.Opacity = 1.0;
     }
     private void btnOpenDeatil_Pressed(object sender, EventArgs e)
     {
@@ -112,7 +112,13 @@ public partial class MonthPage : ContentPage
 
     private void PomoButton_Clicked(object sender, EventArgs e)
     {
+        PomoButton.Opacity = 1.0;
         Navigation.PushModalAsync(new PomodoroPage());
+    }
+
+    private void PomoButton_Pressed(object sender, EventArgs e)
+    {
+        PomoButton.Opacity = 0.5;
     }
 
     private async void checkState_CheckedChanged(object sender, CheckedChangedEventArgs e)

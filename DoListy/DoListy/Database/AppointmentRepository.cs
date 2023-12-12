@@ -25,6 +25,13 @@ namespace DoListy.Database
             Init();
             return conn.Table<Appointment>().ToList();
         }
+
+        public List <Appointment> GetAppointmentsByDay(DateTime date) 
+        {
+            Init();
+            var res = conn.Query<Appointment>("SELECT * FROM Appointment WHERE DATE(EventStart) = DATE(?) AND DATE(EventEnd) = DATE(?)", date.Date, date.Date);
+            return res.ToList();
+        }
         public void AddAppointment(Appointment app)
         {
             int result = 0;
