@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Plugin.Maui.Audio;
 
+
 namespace DoListy.ViewModel
 {
     [Table("Appointment")]
@@ -49,7 +50,6 @@ namespace DoListy.ViewModel
             set { colorbgString = value.ToString(); }
         }
         public string Until { get; set; }
-        public bool IsDisMissed { get; set; }
         public string Recurrencerule { get; set; }
         public string Note { get; set; }
         public bool IsDone { get; set; }

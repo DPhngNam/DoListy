@@ -119,10 +119,7 @@ public partial class WeekPage : ContentPage
         }
     }
 
-    private void Tasklist_ItemTapped(object sender, ItemTappedEventArgs e)
-    {
-        Tasklist.SelectedItem = null;
-    }
+
 
     private void MenuItem_Clicked(object sender, EventArgs e)
     {
@@ -135,8 +132,11 @@ public partial class WeekPage : ContentPage
     }
 
     private  void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
-    { 
-        Play_Sound(sender, e);
+    {
+        if(e.Value)
+        {
+            Play_Sound(sender, e);
+        }    
     }
     void OnPomoButtonClicked(object sender, EventArgs e)
     {

@@ -165,6 +165,7 @@ public partial class DayPage : ContentPage
             //    return;
             //Tasklist.ItemsSource = e.Appointments;
             //loadAppointments();
+
             var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
             List<Appointment> appointmennts = new List<Appointment>();
 
@@ -177,7 +178,7 @@ public partial class DayPage : ContentPage
             }
             TaskDaily.ItemsSource = appointmennts;
             loadAppointments();
-        }
+        }   
     }
 
 
