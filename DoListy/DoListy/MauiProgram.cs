@@ -29,6 +29,7 @@ namespace DoListy
             builder.Services.AddTransient<WeekPage>();
             builder.Services.AddTransient<MonthPage>();
             builder.Services.AddTransient<DayPage>();
+            builder.Services.AddTransient<YearPage>();
 #if WINDOWS
     builder.ConfigureLifecycleEvents(events =>
     {

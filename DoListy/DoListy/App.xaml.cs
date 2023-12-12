@@ -23,8 +23,8 @@ namespace DoListy
             double screenWidth = displayInfo.Width;
             double screenHeight = displayInfo.Height;
             */
-            double newWidth = 1300;
-            double newHeight = 650;
+            double newWidth = 1100;
+            double newHeight = 600;
            
             window.Width = newWidth;
             window.Height = newHeight;

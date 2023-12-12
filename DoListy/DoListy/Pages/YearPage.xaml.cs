@@ -4,21 +4,34 @@ using CommunityToolkit.Maui.Views;
 using DoListy.ViewModel;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
+using Plugin.Maui.Audio;
+
 public partial class YearPage : ContentPage
 {
     Dictionary<DateTime, List<IView>> goalsList;
     List<Goal> realGoalsList;
+    private readonly IAudioManager audioManager;
+    IAudioPlayer naviPlayer {  get; set; }
+    IAudioPlayer clickPlayer {  get; set; }
+    
+    IAudioPlayer doneGoalPlayer {  get; set; }
     public DateTime CurrentDate { get; set; }
-    public YearPage()
+    public YearPage(IAudioManager audioManager)
     {
         InitializeComponent();
         CurrentDate = DateTime.Now;
         yearLabel.Text = CurrentDate.Year.ToString();
         SetIniDisplayDate(CurrentDate);
         goalsList = new Dictionary<DateTime, List<IView>>();
+        loadGoals();
+        this.audioManager = audioManager;
+        createPlayers();
+    }
 
-        loadGoals();        
-        
+    async void createPlayers()
+    {
+        doneGoalPlayer = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("check.mp3"));
+        clickPlayer = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("click.mp3"));
     }
     void loadGoals()
     {
@@ -62,12 +75,13 @@ public partial class YearPage : ContentPage
             //DisplayAlert("Hello", newCB.StyleId, "OK");
             newCB.CheckedChanged += (sender, e) =>
             {
+
+
                 if (int.TryParse(newCB.StyleId, out int iTemp))
                 {
-
-
                     if (newCB.IsChecked)
                     {
+                        doneGoalPlayer.Play();
                         newButton.BorderColor = Color.FromArgb("#ff081b25");
                         tempColor = Color.FromArgb("#ff081b25");
                         newButton.TextColor = Colors.Gray;
@@ -119,8 +133,8 @@ public partial class YearPage : ContentPage
             }
             newButton.Clicked += (sender, e) =>
             {
-
-                if(int.TryParse(newButton.StyleId, out int value)) {
+                clickPlayer.Play();
+                if (int.TryParse(newButton.StyleId, out int value)) {
                     newButton.BorderColor = tempColor;
                     SetGoals viewGoal = new SetGoals();
 
@@ -199,6 +213,7 @@ public partial class YearPage : ContentPage
     }
     private void OnLeftArrowButtonClicked(object sender, EventArgs e)
     {
+        clickPlayer.Play();
         leftArrowButton.Opacity = 1.0;
         yearLabel.Text = Convert.ToString(Convert.ToInt32(yearLabel.Text) - 1);
         ChangeYearOfDisplayDate(false);
@@ -220,7 +235,7 @@ public partial class YearPage : ContentPage
     }
     private void OnRightArrowButtonClicked(object sender, EventArgs e)
     {
-
+        clickPlayer.Play();
         rightArrowButton.Opacity = 1.0;
         yearLabel.Text = Convert.ToString(Convert.ToInt32(yearLabel.Text) + 1);
         ChangeYearOfDisplayDate(true);
@@ -333,6 +348,7 @@ public partial class YearPage : ContentPage
     }
     private void OnGoalsPlusButtonClicked(object sender, EventArgs e)
     {
+        clickPlayer.Play();
         goalsPlusButton.Opacity = 1.0;
         SetGoals setGoalsPage = new SetGoals();
         setGoalsPage.IniYearNumericEntry(CurrentDate.Year);
@@ -406,8 +422,11 @@ public partial class YearPage : ContentPage
     };
         newCB.CheckedChanged += (sender, e) =>
         {
+          
+
             if (newCB.IsChecked)
             {
+                doneGoalPlayer.Play();
                 newButton.BorderColor = Color.FromArgb("#ff081b25");
                 tempColor = Color.FromArgb("#ff081b25");
                 newButton.TextColor = Colors.Gray;
@@ -457,7 +476,7 @@ public partial class YearPage : ContentPage
         }
         newButton.Clicked += (sender, e) =>
         {
-
+            clickPlayer.Play();
             newButton.BorderColor = tempColor;
             SetGoals viewGoal = new SetGoals();
             
