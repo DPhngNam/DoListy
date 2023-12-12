@@ -91,8 +91,10 @@ namespace DoListy.ViewModel
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Title { get; set; }
+        
         public int Year { get; set; }
         public string Notes { get; set; }
 
+        public bool isDone {  get; set; }
     }
 }

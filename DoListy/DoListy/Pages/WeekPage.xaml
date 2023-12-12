@@ -5,6 +5,7 @@
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              xmlns:local="clr-namespace:DoListy.ViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="">
     <!--Page cua Huu Thinh-->
     <ContentPage.Resources>
@@ -16,20 +17,21 @@
             <Setter Property="TextColor" Value="Black"></Setter>
         </Style>
         <scheduler:SchedulerTextStyle x:Key="HeaderTextStyle" FontSize="30" FontAttributes="Bold" TextColor="White">
-           
+
         </scheduler:SchedulerTextStyle>
-  
+
 
     </ContentPage.Resources>
-    <Grid BackgroundColor="{StaticResource appBgColor}"
-          RowDefinitions="*"
-          ColumnDefinitions="3*,*"
-           
     
-        
+
+    
+        <Grid BackgroundColor="{StaticResource appBgColor}"
+          RowDefinitions="*"
+          ColumnDefinitions="3*,*" 
         >
-       
-        <!--scheduler week view--> 
+        <toolkit:MediaElement x:Name="MediaElement" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
+
+        <!--scheduler week view-->
         <scheduler:SfScheduler
             Grid.Column="0"
             Grid.Row="0"
@@ -42,8 +44,8 @@
             AllowViewNavigation="True"
             Tapped="WeekPageScheduler_Tapped"
             >
-          
-            
+
+
             <!--appoinment mapping-->
             <scheduler:SfScheduler.AppointmentMapping>
                 <!--tham chiếu tới task người dùng-->
@@ -79,18 +81,37 @@
                         </scheduler:SchedulerViewHeaderSettings>
                     </scheduler:SchedulerDaysView.ViewHeaderSettings>
                 </scheduler:SchedulerDaysView>
+
             </scheduler:SfScheduler.DaysView>
         </scheduler:SfScheduler>
         <!--stack layout for Pomo anh TaskFrame-->
-        <StackLayout Grid.Column="2" Spacing="10" Margin="10">
-            
-            <Label x:Name= "WPdateLabel"
+        <Grid Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ImageButton HeightRequest="2" WidthRequest="2" 
+                 x:Name="Settingbtn"
+                         Background="Transparent"
+                    Source="settings.png"
+                         HorizontalOptions="End"
+                         VerticalOptions="Start"
+                         Margin="0,0,20,100"
+                        
+         />
+
+
+
+            <StackLayout Spacing="10" Margin="10"  >
+                <Label x:Name= "WPdateLabel"
                    Style="{StaticResource dateLabelStyle}"
                     >
-                
-            </Label>
-            <!--taskframe-->
-            <Frame x:Name="WPTaskFrame"
+
+                </Label>
+                <!--taskframe-->
+                <Frame x:Name="WPTaskFrame"
                    Style="{StaticResource taskFrameStyle}"
                    Grid.Column="2"
                    VerticalOptions="FillAndExpand"
@@ -111,35 +132,36 @@
                                         <MenuItem Text="Delete"
                                                   Clicked="MenuItem_Clicked"
                                                   CommandParameter="{Binding .}"></MenuItem>
-                                    </ViewCell.ContextActions>
-                                    <Grid ColumnDefinitions="*,auto"
+                                        </ViewCell.ContextActions>
+                                        <Grid ColumnDefinitions="*,auto"
                                           RowDefinitions="*,*">
-                                        <Label Text="{Binding Name}"  TextColor="White" Grid.Column="0" Grid.Row="0"> </Label>
+                                            <Label Text="{Binding Name}"  TextColor="White" Grid.Column="0" Grid.Row="0"></Label>
                                             <Label Text="{Binding EventStart}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
-                                        <CheckBox IsChecked="{Binding isDone}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" CheckedChanged="CheckBox_CheckedChanged"/>
-                                    </Grid>
+                                            <CheckBox IsChecked="{Binding isDone}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" CheckedChanged="CheckBox_CheckedChanged"/>
+                                        </Grid>
+
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
 
 
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                        
-                        
-                    </ListView>
-                    
-                </VerticalStackLayout>
+                        </ListView>
 
-            </Frame>
-            <!--Pomobutton-->
-            <Button x:Name="WPPomoButton" 
+                    </VerticalStackLayout>
+
+                </Frame>
+                <!--Pomobutton-->
+                <Button x:Name="WPPomoButton" 
                     Text="Pomodoro" 
                     Style="{StaticResource pomoButton}"
                     VerticalOptions="End"
                     Clicked="OnPomoButtonClicked">
-                
-            </Button>
 
-        </StackLayout>
-       
+                </Button>
+
+            </StackLayout>
+        </Grid>
+
+
     </Grid>
 </ContentPage>

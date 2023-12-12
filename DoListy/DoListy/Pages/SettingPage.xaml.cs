@@ -18,6 +18,13 @@ public partial class SettingPage : ContentPage
         this.ShowPopup(fb);
     }
 
-   
+    private void SoundSwitch_Toggled(object sender, ToggledEventArgs e)
+    {
+        bool isSwitchOn = e.Value;
+        
+
+
+    }
+
 
 }

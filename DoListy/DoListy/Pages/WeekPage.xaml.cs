@@ -5,6 +5,7 @@ using Appointment = DoListy.ViewModel.Appointment;
 using Syncfusion.Maui.Scheduler;
 using System.Runtime.CompilerServices;
 using Plugin.Maui.Audio;
+using CommunityToolkit.Maui.Views;
 //using AndroidX.Core.View.Accessibility;
 //using Foundation;
 
@@ -133,13 +134,17 @@ public partial class WeekPage : ContentPage
         }
     }
 
-    private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
-    {
-            var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
-            player.Play();
+    private  void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    { 
+        Play_Sound(sender, e);
     }
     void OnPomoButtonClicked(object sender, EventArgs e)
     {
         Navigation.PushModalAsync(new PomodoroPage());
+    }
+    private  void Play_Sound(object sender, EventArgs e)
+    {
+        MediaElement me = MediaElement;
+        me.Play();
     }
 }
