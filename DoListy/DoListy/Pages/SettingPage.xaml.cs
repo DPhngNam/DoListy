@@ -27,4 +27,24 @@ public partial class SettingPage : ContentPage
     }
 
 
+
+    private void Darkmode_Toggled(Object sender, ToggledEventArgs e)
+    {
+        bool isDarkMode = e.Value;
+        if (isDarkMode)
+        {
+            Application.Current.UserAppTheme = AppTheme.Dark;
+            
+            Shell.SetTabBarBackgroundColor(Shell.Current, Color.FromArgb("#ff081b25"));
+            Shell.SetTabBarForegroundColor(Shell.Current, Colors.White);
+        }
+        else
+        {
+            Application.Current.UserAppTheme = AppTheme.Light;
+            Shell.SetTabBarBackgroundColor(Shell.Current, Color.FromArgb("#ffcdf5fd"));
+            Shell.SetTabBarForegroundColor(Shell.Current, Colors.Black);
+        }
+
+    }
+
 }

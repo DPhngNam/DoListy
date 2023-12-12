@@ -42,7 +42,7 @@
                 <Setter Property="HeaderView">
                     <control:CalendarHeaderView ShowNavigationArrows="False" Height="20" TextFormat="MMMMM">
                         <control:CalendarHeaderView.TextStyle>
-                            <control:CalendarTextStyle FontAttributes="Bold" FontFamily="OpenSansRegular" FontSize="15" TextColor="White"/>
+                            <control:CalendarTextStyle FontAttributes="Bold" FontFamily="OpenSansRegular" FontSize="15" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
                         </control:CalendarHeaderView.TextStyle>
                     </control:CalendarHeaderView>
 
@@ -50,20 +50,20 @@
                 <Setter Property="AllowViewNavigation" Value="False"/>
                 <Setter Property="View" Value="Month"/>
                 <Setter Property="BackgroundColor" Value="Transparent"/>
-                <Setter Property="TodayHighlightBrush" Value="#8CABFF"/>
+                <Setter Property="TodayHighlightBrush" Value="{AppThemeBinding Light={StaticResource appBgColor}, Dark={StaticResource pomoButtonBgColor}}"/>
                 <Setter Property="MonthView">
                     <control:CalendarMonthView>
                         <control:CalendarMonthView.TextStyle>
-                            <control:CalendarTextStyle FontFamily="OpenSansRegular" FontSize="11" TextColor="White"/>
+                            <control:CalendarTextStyle FontFamily="OpenSansRegular" FontSize="11" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
                         </control:CalendarMonthView.TextStyle>
                         <control:CalendarMonthView.TrailingLeadingDatesTextStyle>
-                            <control:CalendarTextStyle FontFamily="OpenSansRegular" FontSize="11" TextColor="DimGray"/>
+                            <control:CalendarTextStyle FontFamily="OpenSansRegular" FontSize="11" TextColor="Gray"/>
 
                         </control:CalendarMonthView.TrailingLeadingDatesTextStyle>
                         <control:CalendarMonthView.HeaderView >
                             <control:CalendarMonthHeaderView>
                                 <control:CalendarMonthHeaderView.TextStyle>
-                                    <control:CalendarTextStyle FontFamily="OpenSansRegular" FontSize="12" TextColor="#8CABFF" FontAttributes="Bold"/>
+                                    <control:CalendarTextStyle FontFamily="OpenSansRegular" FontSize="12" TextColor="{AppThemeBinding Dark=White, Light=Black}" FontAttributes="Bold"/>
 
                                 </control:CalendarMonthHeaderView.TextStyle>
                             </control:CalendarMonthHeaderView>
@@ -73,9 +73,9 @@
 
             </Style>
             <Style x:Key="monthViewCalendarFrameStyle" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}"/>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource dayFrameBgColorLight}, Dark={StaticResource dayFrameBgColor} }"/>
                 <Setter Property="Padding" Value="10"/>
-                <Setter Property="BorderColor" Value="{StaticResource pomoButtonBgColor}"/>
+                <Setter Property="BorderColor" Value="{AppThemeBinding Light=Black, Dark={StaticResource pomoButtonBgColor}}"/>
                 <Setter Property="CornerRadius" Value="10"/>
                 <Setter Property="HeightRequest" Value="155"/>
                
@@ -84,7 +84,7 @@
     </ContentPage.Resources>
 
 
-    <Grid RowDefinitions="1*,1*,1*" ColumnDefinitions="1*,1*,1*,1*,1*" ColumnSpacing="10" Padding="20,0,10,20" RowSpacing="10" BackgroundColor="{StaticResource appBgColor}">
+    <Grid RowDefinitions="1*,1*,1*" ColumnDefinitions="1*,1*,1*,1*,1*" ColumnSpacing="10" Padding="20,0,10,20" RowSpacing="10" BackgroundColor="{AppThemeBinding Dark={StaticResource appBgColor}, Light={StaticResource appBgColorLight}}">
         <Frame Grid.Column="0" Grid.Row="0" Style="{StaticResource monthViewCalendarFrameStyle}">
             
             <control:SfCalendar x:Name="janMonthViewCalendar" 
@@ -219,13 +219,13 @@ Scale="1.3"
             </StackLayout>
 
 
-            <Frame Grid.Column="0"  Grid.Row="1" BackgroundColor="{StaticResource taskFrameBgColor}"
+            <Frame Grid.Column="0"  Grid.Row="1" BackgroundColor="{AppThemeBinding Light={StaticResource taskFrameBgColorLight}, Dark={StaticResource taskFrameBgColor}}"
                    CornerRadius="30"
                    BorderColor="Transparent"
                    Padding="10">
                 <StackLayout Orientation="Vertical" >
                     <Grid ColumnDefinitions="Auto,*" RowDefinitions="*">
-                        <Label Grid.Column="0" Grid.Row="0" Text="Goals" Style="{StaticResource taskFrameHeaderLabelStyle}" FontSize="28" TextColor="White"
+                        <Label Grid.Column="0" Grid.Row="0" Text="Goals" Style="{StaticResource taskFrameHeaderLabelStyle}" FontSize="28" TextColor="{AppThemeBinding Light=Black, Dark=White}"
                                Margin="15,0,0,0"
                               />
                         <ImageButton Grid.Column="1" Grid.Row="0" 
@@ -235,7 +235,7 @@ Scale="1.3"
                                      Scale="0.7"
                                      HorizontalOptions="End" 
                                      WidthRequest="9" HeightRequest="9" 
-                                     BackgroundColor="{StaticResource taskFrameBgColor}"
+                                     BackgroundColor="Transparent"
                                      Clicked="OnGoalsPlusButtonClicked"
                                      Pressed="OnGoalsPlusButtonPressed"/>
                     </Grid>

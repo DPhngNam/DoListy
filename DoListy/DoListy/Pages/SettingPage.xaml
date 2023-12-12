@@ -24,7 +24,9 @@
             </HorizontalStackLayout >
             <HorizontalStackLayout Spacing="1">
                 <Label Text="Darkmode"/>
-                <Switch IsToggled="True"/>
+                <Switch IsToggled="True"
+                        Toggled="Darkmode_Toggled"
+                        />
             </HorizontalStackLayout>
             <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
                 <Label Text="Remind"/>

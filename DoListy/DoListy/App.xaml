@@ -12,13 +12,18 @@
             
             <!-- Color Definations-->
             <Color x:Key="appBgColor">#081B25</Color>
+            <Color x:Key="appBgColorLight">#CDF5FD</Color>
             <Color x:Key="navButtonBgColor">#424874</Color>
             <Color x:Key="selectedNavButtonBgColor">#3176F4</Color>
             <Color x:Key="navSearchBarBgColor">#081B25</Color>
             <Color x:Key="dayFrameBgColor">#152C39</Color>
+            <Color x:Key="dayFrameBgColorLight">#89CFF3</Color>
             <Color x:Key="todayButtonBgColor">#424874</Color>
+            <Color x:Key="todayButtonBgColorLight">#8CABFF</Color>
+
             <Color x:Key="pomoButtonBgColor">#8CABFF</Color>
             <Color x:Key="taskFrameBgColor">#152C39</Color>
+            <Color x:Key="taskFrameBgColorLight">#89CFF3</Color>
             <Color x:Key="taskItemButtonBgColor">#424874</Color>
             <!-- Font Definations-->
             <OnPlatform x:TypeArguments="x:String" x:Key="mainFontfamily">
@@ -105,7 +110,7 @@
             <Style x:Key="taskDateLabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontSize" Value="{StaticResource taskDateLabelFontSize}"/>
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
             </Style>
             <Style x:Key="taskDetailsNameLabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
@@ -162,7 +167,7 @@
             <Style x:Key="dateLabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontSize" Value="{StaticResource dateLabelFontSize}"/>
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
 
             </Style>

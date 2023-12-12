@@ -1,7 +1,6 @@
 ﻿
 
 using CommunityToolkit.Mvvm.ComponentModel;
-using Java.Util;
 using System.Collections.Specialized;
 
 namespace DoListy.ViewModel
