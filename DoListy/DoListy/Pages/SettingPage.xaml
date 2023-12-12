@@ -20,7 +20,7 @@
         <VerticalStackLayout Grid.Column="1">
             <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
                 <Label Text="Sounds"/>
-                <Switch x:Name="SoundSwitch" IsToggled="True"/>
+                <Switch x:Name="SoundSwitch" IsToggled="True" Toggled="SoundSwitch_Toggled"/>
             </HorizontalStackLayout >
             <HorizontalStackLayout Spacing="1">
                 <Label Text="Darkmode"/>
