@@ -95,16 +95,19 @@ public partial class WeekPage : ContentPage
                     appointmennts.Add(app);
                 }
             }
-            if(appointmennts.Count > 0)
+            if (appointmennts.Count > 0)
             {
                 Tasklist.ItemsSource = appointmennts;
                 loadAppointments();
             }
         }
-        else if(e.Appointments.Count == 1)    
+        else if (e.Appointments != null)
         {
-            Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)e.Appointments[0]).Id}");
-        } 
+            if (e.Appointments.Count == 1)
+            {
+                Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)e.Appointments[0]).Id}");
+            }
+        }
             
             
     }
@@ -130,13 +133,15 @@ public partial class WeekPage : ContentPage
             Tasklist.ItemsSource = null;
         }
     }
-
+    private bool ShouldPlaySound = true;
     private  void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        if(e.Value)
+        if(e.Value&&ShouldPlaySound)
         {
             Play_Sound(sender, e);
+            ShouldPlaySound = false;
         }    
+
     }
     void OnPomoButtonClicked(object sender, EventArgs e)
     {
