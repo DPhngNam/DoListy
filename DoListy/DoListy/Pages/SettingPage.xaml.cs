@@ -21,9 +21,6 @@ public partial class SettingPage : ContentPage
     private void SoundSwitch_Toggled(object sender, ToggledEventArgs e)
     {
         bool isSwitchOn = e.Value;
-        
-
-
     }
 
 

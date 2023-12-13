@@ -32,6 +32,7 @@
                 <Setter Property="HeightRequest" Value="30"/>
                 <Setter Property="WidthRequest" Value="200"/>
                 <Setter Property="BackgroundColor" Value="#1D267D"/>
+                <Setter Property="TextColor" Value="White"/>
             </Style>
             <Style x:Key="pickerDateTimeStyle" TargetType="picker:SfDateTimePicker">
                 <Setter Property="HeightRequest" Value="250"/>

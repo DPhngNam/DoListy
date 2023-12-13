@@ -25,7 +25,9 @@
     <Grid 
         RowDefinitions="*"
         ColumnDefinitions="3*,*">
-        <toolkit:MediaElement x:Name="Mediaelement" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
+        <toolkit:MediaElement x:Name="Mediaelement1" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
+        <toolkit:MediaElement x:Name="Mediaelement2" Source="embed://click.mp3" IsVisible="False" ></toolkit:MediaElement>
+        <toolkit:MediaElement x:Name="Mediaelement3" Source="embed://check.mp3" IsVisible="False" ></toolkit:MediaElement>
         <Frame BackgroundColor="{StaticResource appBgColor}" Padding="0" Margin="20,0,15,25" BorderColor="Black" CornerRadius="1">
             <scheduler:SfScheduler CellBorderBrush="black"  Background="{StaticResource dayFrameBgColor}"
                 x:Name="Scheduler"

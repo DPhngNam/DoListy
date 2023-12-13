@@ -4,6 +4,7 @@ using Appointment = DoListy.ViewModel.Appointment;
 using System.Xml;
 using CommunityToolkit.Maui.Core;
 using Plugin.Maui.Audio;
+using Syncfusion.Maui.Scheduler;
 
 namespace DoListy.Pages;
 public partial class MonthPage : ContentPage
@@ -33,7 +34,8 @@ public partial class MonthPage : ContentPage
     }
 
     private async void buttonAddAppointment_Clicked(object sender, EventArgs e)
-    {      
+    {
+        Mediaelement2.Play();
         buttonAddAppointment.Opacity = 1.0;
         //await Navigation.PushModalAsync(new AddAppointmentPage());
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
@@ -44,6 +46,7 @@ public partial class MonthPage : ContentPage
     }
     private async void btnOpenDeatil_Clicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         btnOpenDeatil.Opacity = 1.0;
         await Shell.Current.GoToAsync("//Day");
         var daypage = (DayPage)Shell.Current.CurrentPage;
@@ -88,6 +91,7 @@ public partial class MonthPage : ContentPage
 
     private void MenuItem_Clicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
         {
             App.appointmentRepo.DeleteAppointment(appointment);
@@ -114,6 +118,7 @@ public partial class MonthPage : ContentPage
 
     private void PomoButton_Clicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         PomoButton.Opacity = 1.0;
         Navigation.PushModalAsync(new PomodoroPage());
     }
@@ -131,7 +136,7 @@ public partial class MonthPage : ContentPage
         {
             if (checkbox.IsChecked)
             {
-                Mediaelement.Play();
+                Mediaelement3.Play();
             }
         }
     }

@@ -31,6 +31,7 @@
                 <Setter Property="HeightRequest" Value="30"/>
                 <Setter Property="WidthRequest" Value="200"/>
                 <Setter Property="BackgroundColor" Value="#1D267D"/>
+                <Setter Property="TextColor" Value="White"/>
             </Style>
             <Style x:Key="pickerDateTimeStyle" TargetType="picker:SfDateTimePicker">
                 <Setter Property="HeightRequest" Value="250"/>
@@ -113,11 +114,11 @@
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <Label   Text="Color: " Style="{StaticResource labelPage}" ></Label>
-                    <Picker x:Name="ColorEntry" Style="{StaticResource pickerStyle}"></Picker>
+                    <Picker x:Name="ColorEntry" Style="{StaticResource pickerStyle}"  TextColor="White"></Picker>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout >
                     <Label   Text="Frequency: " Style="{StaticResource labelPage}" ></Label>
-                    <Picker x:Name="Freg" Style="{StaticResource pickerStyle}"></Picker>
+                    <Picker x:Name="Freg" Style="{StaticResource pickerStyle}" TextColor="White"></Picker>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <Label   Text="Interval: " Style="{StaticResource labelPage}" ></Label>

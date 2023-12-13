@@ -96,16 +96,19 @@ public partial class WeekPage : ContentPage
                     appointmennts.Add(app);
                 }
             }
-            if(appointmennts.Count > 0)
+            if (appointmennts.Count > 0)
             {
                 Tasklist.ItemsSource = appointmennts;
                 loadAppointments();
             }
         }
-        else if(e.Appointments.Count == 1)    
+        else if (e.Appointments != null)
         {
-            Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)e.Appointments[0]).Id}");
-        } 
+            if (e.Appointments.Count == 1)
+            {
+                Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)e.Appointments[0]).Id}");
+            }
+        }
             
             
     }
@@ -131,6 +134,7 @@ public partial class WeekPage : ContentPage
             Tasklist.ItemsSource = null;
         }
     }
+
     void OnPomoButtonClicked(object sender, EventArgs e)
     {
         Navigation.PushModalAsync(new PomodoroPage());
