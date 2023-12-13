@@ -6,6 +6,7 @@ using Syncfusion.Maui.Scheduler;
 using System.Runtime.CompilerServices;
 using Plugin.Maui.Audio;
 using CommunityToolkit.Maui.Views;
+using CommunityToolkit.Maui.Core;
 //using AndroidX.Core.View.Accessibility;
 //using Foundation;
 
@@ -130,14 +131,6 @@ public partial class WeekPage : ContentPage
             Tasklist.ItemsSource = null;
         }
     }
-
-    private  void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
-    {
-        if(e.Value)
-        {
-            Play_Sound(sender, e);
-        }    
-    }
     void OnPomoButtonClicked(object sender, EventArgs e)
     {
         Navigation.PushModalAsync(new PomodoroPage());
@@ -146,5 +139,17 @@ public partial class WeekPage : ContentPage
     {
         MediaElement me = MediaElement;
         me.Play();
+    }
+
+    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+        CheckBox checkbox = (CheckBox)sender;
+        if (checkbox != null)
+        {
+            if (checkbox.IsChecked)
+            {
+                MediaElement.Play();
+            }
+        }
     }
 }

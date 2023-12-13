@@ -4,7 +4,9 @@ using SQLite;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Plugin.Maui.Audio;
-
+using CommunityToolkit.Maui.Views;
+using DoListy.Pages;
+using Windows.Security.Cryptography.Core;
 
 namespace DoListy.ViewModel
 {
@@ -63,8 +65,8 @@ namespace DoListy.ViewModel
             }
             set
             {
-                    OnPropertyChanged(nameof(IsDone));
-                    UpdateDatabase(value);
+                OnPropertyChanged(nameof(IsDone));
+                UpdateDatabase(value);
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;

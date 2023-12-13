@@ -8,6 +8,7 @@ using Plugin.Maui.Audio;
 namespace DoListy.Pages;
 public partial class MonthPage : ContentPage
 {
+    private bool checkboz;
     public Brush ColorBG;
     private DateTime pickedDate = DateTime.Now;
     private readonly IAudioManager audioManager;
@@ -17,6 +18,7 @@ public partial class MonthPage : ContentPage
 		InitializeComponent();
         TasksList.ItemsSource = null;
         this.audioManager=audioManager;
+        checkboz = false;
 	}
     protected override void OnAppearing()
     {
@@ -121,9 +123,16 @@ public partial class MonthPage : ContentPage
         PomoButton.Opacity = 0.5;
     }
 
-    private async void checkState_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
-        var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
-        player.Play();
+        CheckBox checkbox = (CheckBox)sender;
+
+        if (checkbox != null)
+        {
+            if (checkbox.IsChecked)
+            {
+                Mediaelement.Play();
+            }
+        }
     }
 }
