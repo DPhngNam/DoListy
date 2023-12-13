@@ -6,6 +6,7 @@ using DoListy.Weather;
 using System.Xml;
 using Syncfusion.Maui.Scheduler;
 using System.Diagnostics;
+using CommunityToolkit.Maui.Views;
 
 namespace DoListy.Pages;
 public partial class DayPage : ContentPage
@@ -70,23 +71,6 @@ public partial class DayPage : ContentPage
         fri.DisplayDate = fri.DisplayDate.AddDays(7);
         sat.DisplayDate = sat.DisplayDate.AddDays(7);
         sun.DisplayDate = sun.DisplayDate.AddDays(7);
-    }
-
-    private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
-    {
-        if (sender is CheckBox checkBox && checkBox.BindingContext is int appId)
-        {
-            Appointment temp = App.appointmentRepo.GetAppointmentByID(appId);
-            if (temp != null)
-            {
-                temp.IsDone = !temp.IsDone;
-                checkBox.IsChecked = temp.IsDone;
-                App.appointmentRepo.Update(temp);
-                var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
-                player.Play();
-                return;
-            }
-        }
     }
 
 
@@ -373,5 +357,18 @@ public partial class DayPage : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(WeatherPage));
 
+    }
+
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+        CheckBox checkbox = (CheckBox)sender;
+        if (checkbox != null)
+        {
+            if (checkbox.IsChecked)
+            {
+                var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
+                player.Play();
+            }
+        }
     }
 }

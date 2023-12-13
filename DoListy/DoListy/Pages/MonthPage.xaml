@@ -5,17 +5,18 @@
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              xmlns:local1="clr-namespace:DoListy.ViewModel"
-             BackgroundColor="{StaticResource appBgColor}"
+             BackgroundColor="{AppThemeBinding Light = {StaticResource appBgColorLight}, Dark = {StaticResource appBgColor}}"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title=""
              >
     <!--Page cua Vinh Thinh-->
     <ContentPage.Resources>
-        <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold" TextColor="White"/>
-        <scheduler:SchedulerTextStyle x:Key="textStyle3" FontSize="30" FontAttributes="Bold" TextColor="White"/>
-        <scheduler:SchedulerTextStyle x:Key="textStyle2" FontSize="14" FontAttributes="Bold" TextColor="#0047AB"/>
-        <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="White"/>
-        <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="White"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle3" FontSize="30" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle4" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle2" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark=#0047AB , Light= Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
         <scheduler:SchedulerMonthCellStyle x:Key="monthCellStyle"
                                            TextStyle="{StaticResource textStyle}"
                                            TrailingMonthTextStyle="{StaticResource trailingTextStyle}"
@@ -28,8 +29,8 @@
         <toolkit:MediaElement x:Name="Mediaelement1" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
         <toolkit:MediaElement x:Name="Mediaelement2" Source="embed://click.mp3" IsVisible="False" ></toolkit:MediaElement>
         <toolkit:MediaElement x:Name="Mediaelement3" Source="embed://check.mp3" IsVisible="False" ></toolkit:MediaElement>
-        <Frame BackgroundColor="{StaticResource appBgColor}" Padding="0" Margin="20,0,15,25" BorderColor="Black" CornerRadius="1">
-            <scheduler:SfScheduler CellBorderBrush="black"  Background="{StaticResource dayFrameBgColor}"
+        <Frame Padding="0" Margin="20,0,15,25" BorderColor="Transparent" CornerRadius="1">
+            <scheduler:SfScheduler CellBorderBrush="black"  Background="{AppThemeBinding Dark={StaticResource dayFrameBgColor}, Light={StaticResource dayFrameBgColorLight}}"
                 x:Name="Scheduler"
                 Grid.Column="0" Grid.Row="0"
                 ShowWeekNumber="True"
@@ -40,7 +41,7 @@
                 SelectionChanged="Scheduler_SelectionChanged"
                 EnableReminder="True"
                 ReminderAlertOpening="Scheduler_ReminderAlertOpening"
-                TodayHighlightBrush="#8C52FF"
+                TodayHighlightBrush="{AppThemeBinding Dark= #8C52FF, Light= #152C39}"
                 >
                 <scheduler:SfScheduler.AppointmentMapping>
                     <!--tham chiếu tới task người dùng-->
@@ -58,7 +59,7 @@
                     </scheduler:SchedulerAppointmentMapping>
                 </scheduler:SfScheduler.AppointmentMapping>
                 <scheduler:SfScheduler.HeaderView>
-                    <scheduler:SchedulerHeaderView TextStyle="{StaticResource textStyle3}"  />
+                    <scheduler:SchedulerHeaderView Background="{AppThemeBinding Dark=#081B25, Light=#CDF5FD}" TextStyle="{StaticResource textStyle3}" />
                 </scheduler:SfScheduler.HeaderView>
                 <scheduler:SfScheduler.DragDropSettings> 
                     <scheduler:DragDropSettings ShowTimeIndicator="true"/>
@@ -66,62 +67,63 @@
                 <scheduler:SfScheduler.MonthView>
                     <scheduler:SchedulerMonthView  ShowLeadingAndTrailingDates="True" CellStyle="{StaticResource monthCellStyle}"  AppointmentDisplayMode="Indicator">
                         <scheduler:SchedulerMonthView.ViewHeaderSettings>
-                            <scheduler:SchedulerViewHeaderSettings Height="20" DayFormat="ddd" DayTextStyle="{StaticResource textStyle}"/>
+                            <scheduler:SchedulerViewHeaderSettings Background="{AppThemeBinding Dark=#081B25, Light=#CDF5FD}"  Height="20" DayFormat="ddd" DayTextStyle="{StaticResource textStyle4}"/>
                         </scheduler:SchedulerMonthView.ViewHeaderSettings>
                     </scheduler:SchedulerMonthView>
                 </scheduler:SfScheduler.MonthView>
                 <scheduler:SfScheduler.WeekNumberStyle>
-                    <scheduler:SchedulerWeekNumberStyle Background="#8CABFF" TextStyle="{StaticResource textStyle2}"/>
+                    <scheduler:SchedulerWeekNumberStyle Background="{AppThemeBinding Dark=#8CABFF, Light=#00A9FF}" TextStyle="{StaticResource textStyle2}"/>
                 </scheduler:SfScheduler.WeekNumberStyle>
             </scheduler:SfScheduler>
             </Frame>
-        <Frame  x:Name="frame1"
-                Style="{StaticResource taskFrameStyle}"
-                Margin="15,0,15,55"
-                Grid.Row="0"
-                Grid.Column="1"
-                BorderColor="#8CABFF"
-                CornerRadius="25"
-                >
-            <VerticalStackLayout Spacing="5">
-                <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
-                    <Label TextColor="White" Text="Tasks" FontSize="30" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
-                    <ImageButton HeightRequest="5" WidthRequest="5"  x:Name="btnOpenDeatil" Background="Transparent" Clicked="btnOpenDeatil_Clicked" Pressed="btnOpenDeatil_Pressed" Source="eye.png" Grid.Column="1" Grid.Row="0"></ImageButton>
-                    <ImageButton HeightRequest="5" WidthRequest="5"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddAppointment_Clicked" Pressed="buttonAddAppointment_Pressed" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
-                </Grid>
-                <BoxView Color="White" HeightRequest="1"/>
-                <ListView x:Name="TasksList" BackgroundColor="Transparent" ItemSelected="TasksList_ItemSelected">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <ViewCell.ContextActions>
-                                    <MenuItem Text="Delete"
-                                              Clicked="MenuItem_Clicked"
-                                              CommandParameter="{Binding .}"></MenuItem>
-                                </ViewCell.ContextActions>
-                                
-                                <Grid ColumnDefinitions="*,auto" RowDefinitions="*,*" >
-                                    <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="0"></Label>
-                                    <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
-                                    <CheckBox x:Name="checkstate" Grid.Column="1"  Grid.Row="0" Grid.RowSpan="2" IsChecked="{Binding isDone}">
-                                        <CheckBox.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                                        </CheckBox.GestureRecognizers>
-                                    </CheckBox>
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </VerticalStackLayout>
-        </Frame>
-        <Button x:Name="PomoButton" 
-            Margin="10,0,10,5"
-            Text="Pomodoro" 
-            Style="{StaticResource pomoButton}"
-            VerticalOptions="End"
-            Grid.Column="1" Clicked="PomoButton_Clicked"
-            Pressed="PomoButton_Pressed">
-        </Button>
+        <Grid Grid.Column="1" RowDefinitions="auto,8*,auto">
+            <ImageButton HorizontalOptions="End" Margin="0,0,20,0" Grid.Row="0" Source="settings.png" Clicked= "btnSettings_Clicked_1"
+             HeightRequest="2" WidthRequest="2"  x:Name="btnSettings" Background="Transparent"/>
+            <Frame  Style="{StaticResource taskFrameStyle}"
+                    Margin="15,10,15,5"
+                    Grid.Row="1"
+                    CornerRadius="15"
+                    >
+                <VerticalStackLayout Spacing="5">
+                    <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
+                        <Label TextColor="{AppThemeBinding Dark=White, Light=Black}" Text="Tasks" FontSize="30" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
+                        <ImageButton HeightRequest="5" WidthRequest="5"  x:Name="btnOpenDeatil" Background="Transparent" Clicked="btnOpenDeatil_Clicked" Pressed="btnOpenDeatil_Pressed" Source="eye.png" Grid.Column="1" Grid.Row="0"></ImageButton>
+                        <ImageButton HeightRequest="5" WidthRequest="5"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddAppointment_Clicked" Pressed="buttonAddAppointment_Pressed" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
+                    </Grid>
+                    <BoxView Color="{AppThemeBinding Dark=White, Light=Black}" HeightRequest="1"/>
+                    <ListView x:Name="TasksList" BackgroundColor="Transparent" ItemSelected="TasksList_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="Delete"
+                                      Clicked="MenuItem_Clicked"
+                                      CommandParameter="{Binding .}"></MenuItem>
+                                    </ViewCell.ContextActions>
+
+                                    <Grid ColumnDefinitions="*,auto" RowDefinitions="*,*" >
+                                        <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="{AppThemeBinding Dark=White, Light=Black}" Grid.Column="0" Grid.Row="0"></Label>
+                                        <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="{AppThemeBinding Dark=White, Light=Black}" Grid.Column="0" Grid.Row="1"/>
+                                        <CheckBox x:Name="checkstate" Grid.Column="1"  Grid.Row="0" Grid.RowSpan="2" IsChecked="{Binding isDone}">
+                                            <CheckBox.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                            </CheckBox.GestureRecognizers>
+                                        </CheckBox>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </VerticalStackLayout>
+            </Frame>
+            <Button x:Name="PomoButton" 
+                    Margin="15,5,15,10"
+                    Text="Pomodoro" 
+                    Style="{StaticResource pomoButton}"
+                    VerticalOptions="End"
+                    Grid.Row="2" Clicked="PomoButton_Clicked"
+                    Pressed="PomoButton_Pressed">
+            </Button>
+        </Grid>
     </Grid>
 </ContentPage>

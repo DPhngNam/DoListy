@@ -138,7 +138,7 @@
                 <Setter Property="BackgroundColor" Value="White"/>
             </Style>
             <Style x:Key="taskFrameStyle" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="{StaticResource taskFrameBgColor}"/>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource taskFrameBgColor}, Light=#89CFF3}"/>
                 <!--<Setter Property="CornerRadius"-->
 
             </Style>

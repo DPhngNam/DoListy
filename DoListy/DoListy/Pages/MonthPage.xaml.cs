@@ -140,4 +140,8 @@ public partial class MonthPage : ContentPage
             }
         }
     }
+    private void btnSettings_Clicked_1(object sender, EventArgs e)
+    {
+        
+    }
 }
