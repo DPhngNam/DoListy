@@ -31,7 +31,8 @@
           RowDefinitions="*"
           ColumnDefinitions="3*,*" 
         >
-        <toolkit:MediaElement x:Name="MediaElement" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
+        <toolkit:MediaElement x:Name="CheckBox_Sound" Source="embed://check.mp3" IsVisible="False" ></toolkit:MediaElement>
+        <toolkit:MediaElement x:Name="Clicked_Sound" Source="embed://click.mp3" IsVisible="False"></toolkit:MediaElement>
 
         <!--scheduler week view-->
         <scheduler:SfScheduler
