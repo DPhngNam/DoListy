@@ -16,7 +16,7 @@
         <Style x:Key="HeaderLabel" TargetType="Label" BasedOn="{StaticResource taskFrameHeaderLabelStyle}">
             <Setter Property="TextColor" Value="Black"></Setter>
         </Style>
-        <scheduler:SchedulerTextStyle x:Key="HeaderTextStyle" FontSize="30" FontAttributes="Bold" TextColor="White">
+        <scheduler:SchedulerTextStyle x:Key="HeaderTextStyle" FontSize="25" FontAttributes="Bold" TextColor="White">
 
         </scheduler:SchedulerTextStyle>
 
@@ -49,24 +49,16 @@
         <!--Devide the page into two half-->
         <Grid.RowDefinitions>
             <!-- Header -->
-            <RowDefinition Height="0.75*"/>
+            <RowDefinition Height="0.7*"/>
 
             <RowDefinition Height="2*"/>
 
         </Grid.RowDefinitions>
 
         <!--Half 1-->
-        <ImageButton Grid.Row="0" 
-                     x:Name="Settingbtn"
-                    HeightRequest="5"
-                    WidthRequest="5"
-                    Margin="0,0,100,0"
-                    Background="Transparent"
-                    Source="settings.png"
-                    HorizontalOptions="End"
-                    VerticalOptions="Start"/>
+        
         <scheduler:SfScheduler
-                        Grid.Row="0"  Margin="20,10,15,25"
+                        Grid.Row="0"  Margin="20,20,15,10"
                         x:Name="DayPageScheduler"
                         View="Week"
                         ShowWeekNumber="False"
@@ -103,8 +95,19 @@
 
             </scheduler:SfScheduler.DaysView>
         </scheduler:SfScheduler>
+        <ImageButton Grid.Row="0" 
+             x:Name="Settingbtn"
+            HeightRequest="2"
+            WidthRequest="2"
+            Margin="0,0,100,0"
+            Background="Transparent"
+            Source="settings.png"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+             Clicked="Settingbtn_Clicked"
+             Pressed="Settingbtn_Pressed"/>
         <!--Half 2-->
-        <Grid Grid.Row="1" Grid.Column="0" >
+        <Grid Grid.Row="1" Grid.Column="0"  BackgroundColor="Transparent">
 
             <Grid.ColumnDefinitions >
                 <ColumnDefinition Width="*"/>
@@ -119,7 +122,7 @@
                     <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
                         <Label TextColor="White" Text="Tasks" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
 
-                        <ImageButton HeightRequest="2" WidthRequest="2"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddTask_Clicked" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
+                        <ImageButton HeightRequest="2" WidthRequest="2" Pressed="buttonAddAppointment_Pressed"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddTask_Clicked" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
                     </Grid>
                     <BoxView Color="White" HeightRequest="1"/>
 
@@ -226,12 +229,12 @@
 
                     <ImageButton x:Name="weatherImage" BackgroundColor="Transparent"
                                  HeightRequest="150" Clicked="weatherImage_Clicked"
-                                 
+                                 Pressed="weatherImage_Pressed"
                                  />
                 </StackLayout>
             </Frame>
 
-            <Button x:Name="Pomodoro" Text="Pomodoro" Clicked="Pomodoro_Clicked"
+            <Button x:Name="Pomodoro" Text="Pomodoro" Clicked="Pomodoro_Clicked" Pressed="Pomodoro_Pressed"
                     VerticalOptions="End" HorizontalOptions="End" MaximumHeightRequest="50" WidthRequest="150" Grid.Row="1" Grid.Column="2"
                     Margin="0,0,10,20"/>
 

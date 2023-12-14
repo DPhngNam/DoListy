@@ -4,11 +4,10 @@
              x:Class="DoListy.Weather.WeatherPage"
              xmlns:fontHelper="clr-namespace:WeatherAppClone.Helpers"
              xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
-             Title=""
-             
+             Title=""          
              x:Name="MyContent"
             >
-    <Frame CornerRadius="25" HorizontalOptions="End"  BackgroundColor="Transparent" BorderColor="Transparent">
+    <Frame CornerRadius="25" HorizontalOptions="Center"  BackgroundColor="Transparent" BorderColor="Transparent">
 
         <VerticalStackLayout Spacing="5" >
             <Label Text="Ho Chi Minh" TextColor="White" 
