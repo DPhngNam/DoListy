@@ -7,41 +7,47 @@
              Title=""          
              x:Name="MyContent"
             >
+    <ContentPage.Resources>
+        <Style x:Key="Textcol" TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=Black,Dark=White}"/>
+        </Style>
+    </ContentPage.Resources>
+    
     <Frame CornerRadius="25" HorizontalOptions="Center"  BackgroundColor="Transparent" BorderColor="Transparent">
 
         <VerticalStackLayout Spacing="5" >
-            <Label Text="Ho Chi Minh" TextColor="White" 
+            <Label Text="Ho Chi Minh" Style="{StaticResource Textcol}"
                                     FontSize="Default" 
                                     />  
             <HorizontalStackLayout Spacing="3">
                 <Image x:Name="weatherImage" WidthRequest="96" HeightRequest="96"/>
-                <Label x:Name="temperature"  TextColor="White" FontSize="96"/>
-                <Label Text="°C" TextColor="White" FontSize="Large"/>
+                <Label x:Name="temperature" Style="{StaticResource Textcol}" FontSize="96"/>
+                <Label Text="°C" Style="{StaticResource Textcol}" FontSize="Large"/>
             </HorizontalStackLayout>
 
-            <Label x:Name="weatherCode"  TextColor="White" 
-                                 FontSize="Title" />
+            <Label x:Name="weatherCode"  Style="{StaticResource Textcol}"
+                                            FontSize="Title" />
             <HorizontalStackLayout Spacing="20">
 
                 <HorizontalStackLayout>
                     <VerticalStackLayout>
                         <Image x:Name="drop"  BackgroundColor="Transparent"
-            MaximumHeightRequest="8"
-             MaximumWidthRequest="8" />
-                        <Label Text="Humidity" TextColor="White" FontSize="8"/>
+                                                MaximumHeightRequest="8"
+                                                    MaximumWidthRequest="8" />
+                        <Label Text="Humidity" Style="{StaticResource Textcol}" FontSize="8"/>
                     </VerticalStackLayout>
-                    <Label x:Name="Humidity"  TextColor="White" FontSize="8"/>
+                    <Label x:Name="Humidity"  Style="{StaticResource Textcol}" FontSize="8"/>
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout>
                     <VerticalStackLayout>
                         <Image x:Name="windPic" BackgroundColor="Transparent" 
-            MaximumHeightRequest="8"
-            MaximumWidthRequest="8"/>
-                        <Label Text="Humidity" TextColor="White" FontSize="8"/>
+                                                MaximumHeightRequest="8"
+                                                MaximumWidthRequest="8"/>
+                        <Label Text="Humidity" Style="{StaticResource Textcol}" FontSize="8"/>
                     </VerticalStackLayout>
-                    <Label x:Name="wind"  TextColor="White" 
-                                 FontSize="8"/>
+                    <Label x:Name="wind"  Style="{StaticResource Textcol}"
+                                            FontSize="8"/>
                 </HorizontalStackLayout>
             </HorizontalStackLayout>
         </VerticalStackLayout>

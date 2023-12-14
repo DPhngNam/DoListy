@@ -10,7 +10,7 @@
     <FlyoutItem>
         
         <ShellContent Title="Day" Route="Day" ContentTemplate="{DataTemplate local:Pages.DayPage}"/>
-        <ShellContent Title="Setting" Route="Setting" ContentTemplate="{DataTemplate local:Pages.SettingPage}"/>
+        
         <ShellContent Title="Week" Route="Week" ContentTemplate="{DataTemplate local:Pages.WeekPage}"/>
         <ShellContent Title="Month" Route="Month" ContentTemplate="{DataTemplate local:Pages.MonthPage}"/>
         <ShellContent Title="Year" Route="Year" ContentTemplate="{DataTemplate local:Pages.YearPage}"/>

@@ -343,6 +343,8 @@ public partial class DayPage : ContentPage
     {
         Settingbtn.Opacity = 1.0;
         Mediaelement2.Play();
+        SettingPage st = new SettingPage();
+        this.ShowPopup(st);
     }
 
     private void Settingbtn_Pressed(object sender, EventArgs e)
