@@ -144,7 +144,7 @@ public partial class WeekPage : ContentPage
     void OnPomoButtonClicked(object sender, EventArgs e)
     {
         Clicked_Sound.Play();
-        Navigation.PushModalAsync(new PomodoroPage());
+        Navigation.PushModalAsync(new PomodoroPage(audioManager));
     }
 
 
@@ -160,5 +160,16 @@ public partial class WeekPage : ContentPage
         }
     }
 
+    private void OnSettingsButtonPressed(object sender, EventArgs e)
+    {
+        Settingbtn.Opacity = 0.5;
+    }
 
+    private void OnSettingsButtonClicked(object sender, EventArgs e)
+    {
+        Clicked_Sound.Play();
+        Settingbtn.Opacity = 1.0;
+        SettingPage newSettingPage = new SettingPage();
+        this.ShowPopup(newSettingPage);
+    }
 }
