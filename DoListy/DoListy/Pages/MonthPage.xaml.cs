@@ -5,11 +5,11 @@ using System.Xml;
 using CommunityToolkit.Maui.Core;
 using Plugin.Maui.Audio;
 using Syncfusion.Maui.Scheduler;
+using CommunityToolkit.Maui.Views;
 
 namespace DoListy.Pages;
 public partial class MonthPage : ContentPage
 {
-    private bool checkboz;
     public Brush ColorBG;
     private DateTime pickedDate = DateTime.Now;
     private readonly IAudioManager audioManager;
@@ -19,7 +19,6 @@ public partial class MonthPage : ContentPage
 		InitializeComponent();
         TasksList.ItemsSource = null;
         this.audioManager=audioManager;
-        checkboz = false;
 	}
     protected override void OnAppearing()
     {
@@ -105,6 +104,7 @@ public partial class MonthPage : ContentPage
         
         if(TasksList.SelectedItem != null)
         {
+            Mediaelement1.Play();
             int temp = ((Appointment)e.SelectedItem).Id;
             await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)TasksList.SelectedItem).Id}");
             TasksList.ItemsSource = null;
@@ -120,7 +120,7 @@ public partial class MonthPage : ContentPage
     {
         Mediaelement2.Play();
         PomoButton.Opacity = 1.0;
-        Navigation.PushModalAsync(new PomodoroPage());
+        Navigation.PushModalAsync(new PomodoroPage(audioManager));
     }
 
     private void PomoButton_Pressed(object sender, EventArgs e)
@@ -131,17 +131,21 @@ public partial class MonthPage : ContentPage
     private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
         CheckBox checkbox = (CheckBox)sender;
-
-        if (checkbox != null)
-        {
             if (checkbox.IsChecked)
             {
                 Mediaelement3.Play();
             }
-        }
     }
-    private void btnSettings_Clicked_1(object sender, EventArgs e)
+    private void OnSettingsButtonPressed(object sender, EventArgs e)
     {
-        
+        btnSettings.Opacity = 0.5;
+    }
+
+    private void OnSettingsButtonClicked(object sender, EventArgs e)
+    {
+        Mediaelement2.Play();
+        btnSettings.Opacity = 1.0;
+        SettingPage newSettingPage = new SettingPage();
+        this.ShowPopup(newSettingPage);
     }
 }

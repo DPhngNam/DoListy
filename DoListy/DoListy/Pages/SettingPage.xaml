@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           
+           xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
              xmlns:rating="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              x:Class="DoListy.Pages.SettingPage"
-             Title=""
+             
              >
-    <ContentPage.Resources>
+    <mct:Popup.Resources>
         <ResourceDictionary>
             <Style x:Key="CommonHorizon" TargetType="HorizontalStackLayout">
                 <Setter Property="Spacing" Value="20" />
-                
+
             </Style>
         </ResourceDictionary>
-
-        
-    </ContentPage.Resources>
-    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="30">
+    </mct:Popup.Resources>
+    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="30"
+          WidthRequest="1000" HeightRequest="1000">
         <Label Grid.Column="0" Text="General" FontSize="Large"/>
         <VerticalStackLayout Grid.Column="1">
             <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
@@ -49,15 +50,33 @@
             </HorizontalStackLayout>
             <HorizontalStackLayout Spacing="10">
                 <Label Text="Feedback" FontSize="Medium"/>
-                <ImageButton Source="gmail.png" Clicked="ImageButton_Clicked"/>
+                <ImageButton Source="gmail.png"  BackgroundColor="Transparent"/>
+                <Label Text="DoListy@gmail.com" TextColor="Blue" TextDecorations="Underline"/>
             </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Website" FontSize="Medium"/>
+                <ImageButton Source="link.png"
+                                MaximumHeightRequest="48"
+                                MaximumWidthRequest="48"
+                                BackgroundColor="Transparent"
+                                BorderColor="Transparent" >
+                    <ImageButton.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}"
+                                CommandParameter="https://learn.microsoft.com/dotnet/maui/" />
+                    </ImageButton.GestureRecognizers>
+                </ImageButton>
+
+            </HorizontalStackLayout>
+            
+            
             <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
                 <Label Text="Version" FontSize="Medium"/>
                 <Label Text="1.0" FontSize="Large"/>
             </HorizontalStackLayout>
             <HorizontalStackLayout Spacing="10">
                 <Label Text="Rate us" FontSize="Medium"/>
-                <rating:SfRating x:Name="rating" ItemCount="5" ItemSize="30" >
+                <rating:SfRating x:Name="rating" ItemCount="5" ItemSize="30" BackgroundColor="Transparent">
                     <rating:SfRating.RatingSettings>
                         <rating:RatingSettings RatedFill="Yellow" />
                     </rating:SfRating.RatingSettings>
@@ -66,4 +85,4 @@
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>
-</ContentPage>
+</mct:Popup>

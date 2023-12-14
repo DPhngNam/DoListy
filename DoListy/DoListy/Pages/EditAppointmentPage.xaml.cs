@@ -29,9 +29,10 @@ public partial class EditAppointmentPage : ContentPage
                 {
                     NoteEdit.Text = appointment.Note.ToString();
                 }
-                if(pickerDateTime3.SelectedDate != null)
+                if(!string.IsNullOrEmpty(appointment.Until.ToString()))
                 {
-                    UntilEdit.Text = pickerDateTime3.SelectedDate.ToString();
+                    UntilEdit.Text = appointment.Until.ToString("d");
+                    pickerDateTime3.SelectedDate = appointment.Until;
                 }    
             }
         }
@@ -96,14 +97,29 @@ public partial class EditAppointmentPage : ContentPage
         appointment.Name = editSubject.Text;
         appointment.EventStart = pickerDateTime1.SelectedDate;
         appointment.EventEnd = pickerDateTime2.SelectedDate;
+        string until = appointment.Until.ToString("yyyyMMddTHHmmssZ");
+        string freq = appointment.Frequency;
+        string inter = appointment.Interval;
         if (ColorEdit.SelectedItem != null)
         {
             appointment.colorbgString = ColorEdit.ToString();
         }
-        if(pickerDateTime3.SelectedDate.ToString() != null && IntervalEdit.Text != null)
+        if(pickerDateTime3.SelectedDate.ToString() != null)
         {
-           appointment.Recurrencerule = "FREQ=" + FreqEdit.SelectedItem.ToString() + ";INTERVAL=" + IntervalEdit.Text + ";UNTIL=" + pickerDateTime3.SelectedDate.ToString("yyyyMMddTHHmmssZ");
+            appointment.Until = pickerDateTime3.SelectedDate;
+            until = pickerDateTime3.SelectedDate.ToString("yyyyMMddTHHmmssZ");
         }
+        if(IntervalEdit.Text != null)
+        {
+            appointment.Interval = IntervalEdit.Text;
+            inter = IntervalEdit.Text;
+        }
+        if(FreqEdit.SelectedItem != null)
+        {
+            freq = FreqEdit.SelectedItem.ToString();
+            appointment.Frequency = FreqEdit.SelectedItem.ToString();
+        }
+        appointment.Recurrencerule = "FREQ=" + freq + ";INTERVAL=" + inter + ";UNTIL=" + until;
         App.appointmentRepo.Update(appointment);
         
         Application.Current.MainPage.DisplayAlert("Success", "Save successfully", "OK");

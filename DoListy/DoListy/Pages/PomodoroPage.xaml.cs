@@ -5,12 +5,15 @@ using System.Timers;
 using System.Windows.Input;
 
 using Microsoft.Maui.Controls;
-
+using Plugin.Maui.Audio;
 namespace DoListy.Pages;
 
 public partial class PomodoroPage : ContentPage
 {
     System.Timers.Timer countdownTimer;
+    private readonly IAudioManager audioManager;
+    IAudioPlayer clickPlayer { get; set; }
+
     TimeSpan totalTime;
     int minutes;
     bool focus;
@@ -20,10 +23,12 @@ public partial class PomodoroPage : ContentPage
     int shortbreak;
     int longbreak;
     int longbreakafter;
-    public PomodoroPage()
+    public PomodoroPage(IAudioManager audioManager)
 	{
 		InitializeComponent();
 		InitializeTimer();
+        this.audioManager = audioManager;
+        createPlayers();
         focus = true;
         countPomo = 0;
         pomolength = (int)pomoLengthEntry.Value;
@@ -35,6 +40,11 @@ public partial class PomodoroPage : ContentPage
         totalTime =TimeSpan.FromMinutes(minutes);
         UpdateTimerLabel(totalTime);
 
+    }
+
+    private async void createPlayers()
+    {
+        clickPlayer = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("click.mp3"));
     }
     void changeState()
     {
@@ -68,11 +78,13 @@ public partial class PomodoroPage : ContentPage
         pauseButton.IsVisible = true;
         stopButton.IsVisible = true;
         countdownTimer.Start();
+        clickPlayer.Play();
 
     }
     private void OnPauseClicked(object sender, EventArgs e)
     {
         countdownTimer.Stop();
+        clickPlayer.Play();
         pauseButton.IsVisible = false;
         stopButton.IsVisible = false;
         startButton.IsVisible = true;
@@ -80,6 +92,7 @@ public partial class PomodoroPage : ContentPage
     private void OnStopClicked(object sender, EventArgs e)
     {
         countdownTimer.Stop();
+        clickPlayer.Play();
         progressBar.Progress = 0;
         pauseButton.IsVisible = false;
         stopButton.IsVisible = false;
@@ -91,6 +104,7 @@ public partial class PomodoroPage : ContentPage
     private void OnApplyPomoSettingClicked(object sender, EventArgs e)
     {
         countdownTimer.Stop();
+        clickPlayer.Play();
         pauseButton.IsVisible = false;
         stopButton.IsVisible = false;
         startButton.IsVisible = true;
@@ -107,6 +121,8 @@ public partial class PomodoroPage : ContentPage
     }
     private void OnCancelPomoSettingClicked(Object sender, EventArgs e)
     {
+        clickPlayer.Play();
+
 
     }
     private void OnTimerElapsed(object sender, ElapsedEventArgs e)

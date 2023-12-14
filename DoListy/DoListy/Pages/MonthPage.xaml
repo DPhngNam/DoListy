@@ -77,7 +77,7 @@
             </scheduler:SfScheduler>
             </Frame>
         <Grid Grid.Column="1" RowDefinitions="auto,8*,auto">
-            <ImageButton HorizontalOptions="End" Margin="0,0,20,0" Grid.Row="0" Source="settings.png" Clicked= "btnSettings_Clicked_1"
+            <ImageButton HorizontalOptions="End" Margin="0,0,20,0" Grid.Row="0" Source="settings.png" Pressed="OnSettingsButtonPressed" Clicked="OnSettingsButtonClicked"
              HeightRequest="2" WidthRequest="2"  x:Name="btnSettings" Background="Transparent"/>
             <Frame  Style="{StaticResource taskFrameStyle}"
                     Margin="15,10,15,5"

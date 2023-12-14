@@ -38,8 +38,11 @@ public partial class AddAppointmentPage : ContentPage
         {
             appointment.colorbgString = ColorEntry.SelectedItem.ToString();
         }
-        if (Interval.Text != null && pickerDateTime3.SelectedDate.ToString() != null)
+        if (Interval.Text != null && pickerDateTime3.SelectedDate.ToString() != null && Freg.SelectedItem.ToString() != null)
         {
+            appointment.Frequency = Freg.SelectedItem.ToString();
+            appointment.Interval = Interval.Text;
+            appointment.Until = pickerDateTime3.SelectedDate;
             string until = pickerDateTime3.SelectedDate.ToString("yyyyMMddTHHmmssZ");
             appointment.Recurrencerule = "FREQ=" + Freg.SelectedItem.ToString() + ";INTERVAL=" + Interval.Text + ";UNTIL=" + until;
         }
@@ -109,7 +112,7 @@ public partial class AddAppointmentPage : ContentPage
     private void pickerDateTime3_OkButtonClicked(object sender, EventArgs e)
     {
         pickerDateTime3.IsOpen = false;
-        Until.Text = pickerDateTime3.SelectedDate.ToString();
+        Until.Text = pickerDateTime3.SelectedDate.ToString("d");
     }
 
     private void Until_Clicked(object sender, EventArgs e)

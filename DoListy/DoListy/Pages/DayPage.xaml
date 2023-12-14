@@ -3,15 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DoListy.Pages.DayPage"  
              xmlns:local1="clr-namespace:DoListy.ViewModel"
+              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title=""
           >
-
+    <!--"{ AppThemeBinding Light=Pink Dark=Blue } "-->
     <ContentPage.Resources>
         <Color x:Key="HeaderColor">#8cabff</Color>
         <Color x:Key="Textcolor" >white</Color>
         <Color x:Key="TimeIntervalTextColor">#8cabff</Color>
+        
+        
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
         <Style x:Key="HeaderLabel" TargetType="Label" BasedOn="{StaticResource taskFrameHeaderLabelStyle}">
             <Setter Property="TextColor" Value="Black"></Setter>
@@ -115,7 +118,12 @@
                 <ColumnDefinition Width="0.7*"/>
 
             </Grid.ColumnDefinitions>
-
+            <toolkit:MediaElement x:Name="Mediaelement1" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
+            
+            <toolkit:MediaElement x:Name="Mediaelement2" Source="embed://click.mp3" IsVisible="False" ></toolkit:MediaElement>
+            <!--buttonn-->
+            <toolkit:MediaElement x:Name="Mediaelement3" Source="embed://check.mp3" IsVisible="False" ></toolkit:MediaElement>
+            <!--checkbox-->
             <!--Task frame-->
             <Frame Style="{StaticResource CommonFrame}" x:Name="frame_A"  Grid.Column="0" Margin="30,0,0,10" >
                 <VerticalStackLayout Spacing="5">
@@ -146,7 +154,7 @@
                                     <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
                                         <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="0"/>
                                         <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
-                                        <CheckBox Grid.Column="1" IsChecked="{Binding IsDone}"   Grid.Row="0" Grid.RowSpan="2" >
+                                        <CheckBox Grid.Column="1" IsChecked="{Binding isDone}"   Grid.Row="0" Grid.RowSpan="2" >
                                             <CheckBox.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
                                             </CheckBox.GestureRecognizers>

@@ -77,7 +77,7 @@
                 <Setter Property="Padding" Value="10"/>
                 <Setter Property="BorderColor" Value="{AppThemeBinding Light=Black, Dark={StaticResource pomoButtonBgColor}}"/>
                 <Setter Property="CornerRadius" Value="10"/>
-                <Setter Property="HeightRequest" Value="155"/>
+                <Setter Property="HeightRequest" Value="170"/>
                
             </Style>
         </ResourceDictionary>
