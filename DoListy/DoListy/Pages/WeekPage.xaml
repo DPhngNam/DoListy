@@ -6,26 +6,28 @@
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              xmlns:local="clr-namespace:DoListy.ViewModel"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             BackgroundColor="{AppThemeBinding Light = {StaticResource appBgColorLight}, Dark = {StaticResource appBgColor}}"
              Title="">
     <!--Page cua Huu Thinh-->
     <ContentPage.Resources>
-        <Color x:Key="HeaderColor">#8cabff</Color>
-        <Color x:Key="Textcolor" >white</Color>
-        <Color x:Key="TimeIntervalTextColor">#8cabff</Color>
-        <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
-        <Style x:Key="HeaderLabel" TargetType="Label" BasedOn="{StaticResource taskFrameHeaderLabelStyle}">
-            <Setter Property="TextColor" Value="Black"></Setter>
-        </Style>
-        <scheduler:SchedulerTextStyle x:Key="HeaderTextStyle" FontSize="30" FontAttributes="Bold" TextColor="White">
-
-        </scheduler:SchedulerTextStyle>
+        <Color x:Key="HeaderLight">#00a9ff</Color>
+        <Color x:Key="HeaderDark">#8cabff</Color>
+        <Color x:Key="SchedulerBackgroundDark">#152c39</Color>
+        <Color x:Key="SchedulerBackgroundLight">#89cff3</Color>
+ 
+        <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle3" FontSize="30" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle4" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle2" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark=#0047AB , Light= Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
 
 
     </ContentPage.Resources>
     
 
     
-        <Grid BackgroundColor="{StaticResource appBgColor}"
+        <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource appBgColor},Light={StaticResource appBgColorLight}}"
           RowDefinitions="*"
           ColumnDefinitions="3*,*" 
         >
@@ -43,6 +45,7 @@
              x:FieldModifier="public"
             AllowViewNavigation="True"
             Tapped="WeekPageScheduler_Tapped"
+            Background="{AppThemeBinding Dark={StaticResource SchedulerBackgroundDark},Light={StaticResource SchedulerBackgroundLight}}"
             >
 
 
@@ -59,19 +62,19 @@
             </scheduler:SfScheduler.AppointmentMapping>
             <!--Headerview-->
             <scheduler:SfScheduler.HeaderView>
-                <scheduler:SchedulerHeaderView TextStyle="{StaticResource HeaderTextStyle}">
+                <scheduler:SchedulerHeaderView TextStyle="{StaticResource textStyle3}" Background="{AppThemeBinding Dark=#081B25, Light=#CDF5FD}">
 
                 </scheduler:SchedulerHeaderView>
             </scheduler:SfScheduler.HeaderView>
             
             <scheduler:SfScheduler.DaysView >
-                <scheduler:SchedulerDaysView TimeIntervalHeight="50" TimeInterval="0:30:0" CurrentTimeIndicatorBrush="{StaticResource TimeIntervalTextColor}" >
+                <scheduler:SchedulerDaysView TimeIntervalHeight="50" TimeInterval="0:30:0" CurrentTimeIndicatorBrush="Purple" >
 
                     <scheduler:SchedulerDaysView.ViewHeaderSettings>
                         <!--custom header style-->
-                        <scheduler:SchedulerViewHeaderSettings DateFormat="dd" Background="{StaticResource HeaderColor}"
+                        <scheduler:SchedulerViewHeaderSettings DateFormat="dd" Background="{AppThemeBinding Dark={StaticResource HeaderDark},Light={StaticResource HeaderLight}}"
                                                                DateTextStyle="{StaticResource  textStyle}"
-                                                               DayTextStyle ="{StaticResource textStyle}"
+                                                               DayTextStyle ="{StaticResource textStyle4}"
                                                                Height="60"
                                                                DayFormat="ddd"
                                                                >
@@ -114,11 +117,12 @@
                    Style="{StaticResource taskFrameStyle}"
                    Grid.Column="2"
                    VerticalOptions="FillAndExpand"
-                   CornerRadius="25"
+                   CornerRadius="15"
+                     
                   >
                 <VerticalStackLayout Spacing="5">
                     <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
-                        <Label Text="Tasks" FontSize="25" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" TextColor="White"/>
+                            <Label Text="Tasks" FontSize="25" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" TextColor="{AppThemeBinding Dark=White, Light=Black}"/>
                         <ImageButton HeightRequest="5" WidthRequest="5"   x:Name="btnOpenDeatil" Background="Transparent" Clicked="btnOpenDeatil_Clicked" Source="eye.png" Grid.Column="1" Grid.Row="0"></ImageButton>
                         <ImageButton HeightRequest="5" WidthRequest="5"    x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddAppointment_Clicked" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
                     </Grid>
@@ -133,7 +137,9 @@
                                                   CommandParameter="{Binding .}"></MenuItem>
                                         </ViewCell.ContextActions>
                                         <Grid ColumnDefinitions="*,auto"
-                                          RowDefinitions="*,*">
+                                                RowDefinitions="*,*"
+                                               VerticalOptions="Fill"
+                                               >
                                             <Label Text="{Binding Name}"  TextColor="White" Grid.Column="0" Grid.Row="0"></Label>
                                             <Label Text="{Binding EventStart}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
                                             <CheckBox IsChecked="{Binding isDone}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
