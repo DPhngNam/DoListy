@@ -19,10 +19,7 @@ public partial class DayPage : ContentPage
 
     public DayPage(IAudioManager audioManager)
     {
-
         InitializeComponent();
-
-
         this.audioManager = audioManager;
     }
 
@@ -201,6 +198,7 @@ public partial class DayPage : ContentPage
 
     private async void weatherImage_Clicked(object sender, EventArgs e)
     {
+        weatherImage.Opacity = 1.0;
         await Shell.Current.GoToAsync(nameof(WeatherPage));
 
     }
@@ -211,6 +209,7 @@ public partial class DayPage : ContentPage
 
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
+        buttonAddAppointment.Opacity = 1.0;
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
         var add = (AddAppointmentPage)Shell.Current.CurrentPage;
         add.entryStartTime.Text = temp.ToString();
@@ -308,7 +307,7 @@ public partial class DayPage : ContentPage
 
     private void Pomodoro_Clicked(object sender, EventArgs e)
     {
-
+        Pomodoro.Opacity = 1.0;
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
@@ -322,5 +321,30 @@ public partial class DayPage : ContentPage
                 player.Play();
             }
         }
+    }
+
+    private void Pomodoro_Pressed(object sender, EventArgs e)
+    {
+        Pomodoro.Opacity = 0.5;
+    }
+
+    private void weatherImage_Pressed(object sender, EventArgs e)
+    {
+        weatherImage.Opacity = 0.5;
+    }
+
+    private void buttonAddAppointment_Pressed(object sender, EventArgs e)
+    {
+        buttonAddAppointment.Opacity = 0.5;
+    }
+
+    private void Settingbtn_Clicked(object sender, EventArgs e)
+    {
+        Settingbtn.Opacity = 1.0;
+    }
+
+    private void Settingbtn_Pressed(object sender, EventArgs e)
+    {
+        Settingbtn.Opacity = 0.5;
     }
 }
