@@ -67,10 +67,12 @@ public partial class WeekPage : ContentPage
     }
     private async void buttonAddAppointment_Clicked(object sender, EventArgs e)
     {
+        Clicked_Sound.Play();
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
     }
     private async void btnOpenDeatil_Clicked(object sender, EventArgs e)
     {
+        Clicked_Sound.Play();
         await Shell.Current.GoToAsync("//Day");
         var daypage = (DayPage)Shell.Current.CurrentPage;
     } 
@@ -101,11 +103,14 @@ public partial class WeekPage : ContentPage
                 Tasklist.ItemsSource = appointmennts;
                 loadAppointments();
             }
+            Clicked_Sound.Play();
+            
         }
         else if (e.Appointments != null)
         {
             if (e.Appointments.Count == 1)
             {
+                Clicked_Sound.Play();
                 Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)e.Appointments[0]).Id}");
             }
         }
@@ -129,6 +134,7 @@ public partial class WeekPage : ContentPage
     {
         if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
         {
+            Clicked_Sound.Play();
             App.appointmentRepo.DeleteAppointment(appointment);
             loadAppointments();
             Tasklist.ItemsSource = null;
@@ -137,13 +143,10 @@ public partial class WeekPage : ContentPage
 
     void OnPomoButtonClicked(object sender, EventArgs e)
     {
+        Clicked_Sound.Play();
         Navigation.PushModalAsync(new PomodoroPage());
     }
-    private  void Play_Sound(object sender, EventArgs e)
-    {
-        MediaElement me = MediaElement;
-        me.Play();
-    }
+
 
     private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
@@ -152,8 +155,10 @@ public partial class WeekPage : ContentPage
         {
             if (checkbox.IsChecked)
             {
-                MediaElement.Play();
+                CheckBox_Sound.Play();
             }
         }
     }
+
+
 }
