@@ -41,9 +41,6 @@ public partial class YearPage : ContentPage
         DateTime goalInYear = CurrentDate;
         DateTime goalInYear1 = CurrentDate;
         int flag1 = 0;
-        Color colorByTheme, colorByThemeForBorder;
-        if (Application.Current.UserAppTheme == AppTheme.Dark) { colorByTheme = Colors.White; colorByThemeForBorder = Colors.Black; }
-        else { colorByTheme = Colors.Black; colorByThemeForBorder = Colors.Black; }
         for (int i=0; i<countGoal; i++)
         {
             
@@ -57,14 +54,14 @@ public partial class YearPage : ContentPage
                 Text = goalName,
                 StyleId = i.ToString(),
                 WidthRequest = 175,
-                BorderColor = colorByThemeForBorder,
+                BorderColor = Colors.Black,
                 BackgroundColor = Color.FromRgba(0, 0, 0, 0),
                 HeightRequest = 40,
-                TextColor = colorByTheme,
                 HorizontalOptions = LayoutOptions.Start,
                 Padding = new Thickness(10, 0, 50, 0)
 
             }; var tempColor = newButton.BorderColor;
+            newButton.SetAppThemeColor(Button.TextColorProperty, Colors.Black, Colors.White);
           
 
 
@@ -133,7 +130,7 @@ public partial class YearPage : ContentPage
             {
                 clickPlayer.Play();
                 if (int.TryParse(newButton.StyleId, out int value)) {
-                    newButton.BorderColor = colorByThemeForBorder;
+                    newButton.BorderColor = Colors.Black;
                     SetGoals viewGoal = new SetGoals();
 
                     viewGoal.goalTitleEntry.Text = realGoalsList[value].Title;
@@ -399,28 +396,27 @@ public partial class YearPage : ContentPage
         {
             goalName = goalName.Substring(0, 13) + "...";
         }
-        Color colorByTheme,colorByThemeForBorder;
-        if (Application.Current.UserAppTheme == AppTheme.Dark) { colorByTheme = Colors.White; colorByThemeForBorder = Colors.Black; }
-        else { colorByTheme = Colors.Black; colorByThemeForBorder = Colors.White; }
+       
         var newButton = new Button
         {
             Text = goalName,
 
             WidthRequest = 175,
-            BorderColor = colorByThemeForBorder,
+            BorderColor = Colors.Black,
             BackgroundColor = Color.FromRgba(0, 0, 0, 0),
             HeightRequest = 40,
-            TextColor = colorByTheme,
             HorizontalOptions = LayoutOptions.Start,
             Padding = new Thickness(10,0,50,0)
            
-        }; 
+        }; newButton.SetAppThemeColor(Button.TextColorProperty, Colors.Black, Colors.White);
+
 
 
 
         var newCB = new CheckBox {
             IsChecked = false,
-            BackgroundColor = Colors.Navy
+            BackgroundColor = Colors.Blue,
+            Color = Colors.Blue
     };
         newCB.CheckedChanged += (sender, e) =>
         {
@@ -472,7 +468,7 @@ public partial class YearPage : ContentPage
         newButton.Clicked += (sender, e) =>
         {
             clickPlayer.Play();
-            newButton.BorderColor = colorByThemeForBorder;
+            newButton.BorderColor = Colors.Black;
             SetGoals viewGoal = new SetGoals();
             
             viewGoal.goalTitleEntry.Text = goalName;
