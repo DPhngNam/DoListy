@@ -150,12 +150,17 @@
                         </picker:SfDateTimePicker.FooterView>
                     </picker:SfDateTimePicker>
                 </HorizontalStackLayout>
-                
-                <HorizontalStackLayout>
+
+                <!--<HorizontalStackLayout>
+                    <Label   Text="Reminder: " Style="{StaticResource labelPage}" ></Label>
+                    <picker:SfTimePicker/>
+                </HorizontalStackLayout>-->
+
+                        <HorizontalStackLayout>
                     <Label   Text="Notes: " Style="{StaticResource labelPage}" ></Label>
                     <Entry x:Name="Note" Style="{StaticResource entryPage}" HeightRequest="80"  WidthRequest="800"></Entry>
                 </HorizontalStackLayout>
-                
+
             </VerticalStackLayout>
             <HorizontalStackLayout Spacing="30" Margin="0,0,30,20" HorizontalOptions="End" Grid.Column="0" Grid.Row="1">
                 <Button  x:Name="buttonCancle" CornerRadius="25" WidthRequest="150" HeightRequest="10" BorderColor="#FFFFFF" TextColor="White" Text="Cancel" Background="#0C134F" Pressed="buttonCancle_Pressed" Clicked="buttonCancle_Clicked"></Button>

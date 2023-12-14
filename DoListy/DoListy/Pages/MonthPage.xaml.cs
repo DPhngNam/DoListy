@@ -9,7 +9,6 @@ using Syncfusion.Maui.Scheduler;
 namespace DoListy.Pages;
 public partial class MonthPage : ContentPage
 {
-    private bool checkboz;
     public Brush ColorBG;
     private DateTime pickedDate = DateTime.Now;
     private readonly IAudioManager audioManager;
@@ -19,7 +18,6 @@ public partial class MonthPage : ContentPage
 		InitializeComponent();
         TasksList.ItemsSource = null;
         this.audioManager=audioManager;
-        checkboz = false;
 	}
     protected override void OnAppearing()
     {
@@ -105,6 +103,7 @@ public partial class MonthPage : ContentPage
         
         if(TasksList.SelectedItem != null)
         {
+            Mediaelement1.Play();
             int temp = ((Appointment)e.SelectedItem).Id;
             await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)TasksList.SelectedItem).Id}");
             TasksList.ItemsSource = null;
@@ -131,17 +130,13 @@ public partial class MonthPage : ContentPage
     private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
         CheckBox checkbox = (CheckBox)sender;
-
-        if (checkbox != null)
-        {
             if (checkbox.IsChecked)
             {
                 Mediaelement3.Play();
             }
-        }
     }
     private void btnSettings_Clicked_1(object sender, EventArgs e)
     {
-        
+        Mediaelement2.Play();
     }
 }

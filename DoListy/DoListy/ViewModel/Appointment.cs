@@ -6,7 +6,6 @@ using System.ComponentModel;
 using Plugin.Maui.Audio;
 using CommunityToolkit.Maui.Views;
 using DoListy.Pages;
-using Windows.Security.Cryptography.Core;
 
 namespace DoListy.ViewModel
 {
@@ -51,7 +50,9 @@ namespace DoListy.ViewModel
             }
             set { colorbgString = value.ToString(); }
         }
-        public string Until { get; set; }
+        public DateTime Until { get; set; }
+        public string Frequency { get; set; }
+        public string Interval { get; set; }
         public string Recurrencerule { get; set; }
         public string Note { get; set; }
         public bool IsDone { get; set; }
@@ -98,5 +99,14 @@ namespace DoListy.ViewModel
         public string Notes { get; set; }
 
         public bool isDone {  get; set; }
+    }
+    [Table("Reminder")]
+    public class Reminder
+    {
+        [PrimaryKey, AutoIncrement]
+        int idRe {  get; set; }
+        public int IdAppointment { get; set; }
+        public bool IsDismissed { get; set; }
+        public TimeSpan TimeBeforeStart { get; set; }
     }
 }
