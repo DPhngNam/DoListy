@@ -7,11 +7,13 @@
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title=""
           >
-
+    <!--"{ AppThemeBinding Light=Pink Dark=Blue } "-->
     <ContentPage.Resources>
         <Color x:Key="HeaderColor">#8cabff</Color>
         <Color x:Key="Textcolor" >white</Color>
         <Color x:Key="TimeIntervalTextColor">#8cabff</Color>
+        
+        
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
         <Style x:Key="HeaderLabel" TargetType="Label" BasedOn="{StaticResource taskFrameHeaderLabelStyle}">
             <Setter Property="TextColor" Value="Black"></Setter>
@@ -146,7 +148,7 @@
                                     <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
                                         <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="0"/>
                                         <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
-                                        <CheckBox Grid.Column="1" IsChecked="{Binding IsDone}"   Grid.Row="0" Grid.RowSpan="2" >
+                                        <CheckBox Grid.Column="1" IsChecked="{Binding isDone}"   Grid.Row="0" Grid.RowSpan="2" >
                                             <CheckBox.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
                                             </CheckBox.GestureRecognizers>
