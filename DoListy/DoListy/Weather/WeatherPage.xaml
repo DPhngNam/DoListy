@@ -5,35 +5,48 @@
              xmlns:fontHelper="clr-namespace:WeatherAppClone.Helpers"
              xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              Title=""
-             BackgroundImageSource="sunshine.gif"
+             
              x:Name="MyContent"
             >
+    <Frame CornerRadius="25" HorizontalOptions="End"  BackgroundColor="Transparent" BorderColor="Transparent">
 
+        <VerticalStackLayout Spacing="5" >
+            <Label Text="Ho Chi Minh" TextColor="White" 
+                                    FontSize="Default" 
+                                    />  
+            <HorizontalStackLayout Spacing="3">
+                <Image x:Name="weatherImage" WidthRequest="96" HeightRequest="96"/>
+                <Label x:Name="temperature"  TextColor="White" FontSize="96"/>
+                <Label Text="°C" TextColor="White" FontSize="Large"/>
+            </HorizontalStackLayout>
 
+            <Label x:Name="weatherCode"  TextColor="White" 
+                                 FontSize="Title" />
+            <HorizontalStackLayout Spacing="20">
 
-    <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="20" >
-        
-        <StackLayout Grid.Row="0"
-                     Orientation="Vertical">
-            
-            <Label x:Name="City" FontSize="40" HorizontalOptions="Center" TextColor="White" Text="Ho Chi Minh"/>
+                <HorizontalStackLayout>
+                    <VerticalStackLayout>
+                        <Image x:Name="drop"  BackgroundColor="Transparent"
+            MaximumHeightRequest="8"
+             MaximumWidthRequest="8" />
+                        <Label Text="Humidity" TextColor="White" FontSize="8"/>
+                    </VerticalStackLayout>
+                    <Label x:Name="Humidity"  TextColor="White" FontSize="8"/>
+                </HorizontalStackLayout>
 
-            <Label x:Name="weatherCode"  FontSize="20" HorizontalOptions="Center" TextColor="White" />
-        </StackLayout>
-        <core:SfBusyIndicator x:Name="busyIndicator"
-                  IsRunning="True"
-                      ScaleX="2"
-               ScaleY="2"
-                  AnimationType="CircularMaterial" />
-        <Image x:Name="weatherImage"  Grid.Row="1"  MaximumWidthRequest="100" MaximumHeightRequest="100"/>
+                <HorizontalStackLayout>
+                    <VerticalStackLayout>
+                        <Image x:Name="windPic" BackgroundColor="Transparent" 
+            MaximumHeightRequest="8"
+            MaximumWidthRequest="8"/>
+                        <Label Text="Humidity" TextColor="White" FontSize="8"/>
+                    </VerticalStackLayout>
+                    <Label x:Name="wind"  TextColor="White" 
+                                 FontSize="8"/>
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Frame>
 
-        <Grid Grid.Row="2"  Margin="20" ColumnDefinitions="0.33*,0.33*,0.33*" RowDefinitions="Auto,Auto">
-            <Image x:Name="drop" Grid.Column="0" Grid.Row="0"  HeightRequest="50"/>
-            <Label Grid.Column="0" Grid.Row="1"  x:Name="Humidity" TextColor="White" HorizontalOptions="Center"/>
-
-            <Label Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" x:Name="temperature" TextColor="White"  FontSize="40" HorizontalOptions="Center" FontAttributes="Bold"/>
-            <Image x:Name="windPic" Grid.Column="2" Grid.Row="0"  HeightRequest="50"/>
-            <Label Grid.Column="2" Grid.Row="1"  x:Name="wind" TextColor="White" HorizontalOptions="Center"/>
-        </Grid>
-    </Grid>
+    
 </ContentPage>

@@ -7,113 +7,40 @@
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title=""
           >
-    <!-- Page cua Nam-->
+
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <!--Half 1-->
-            <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold" TextColor="White"/>
-            <scheduler:SchedulerTextStyle x:Key="textStyle3" FontSize="30" FontAttributes="Bold" TextColor="White"/>
-            <scheduler:SchedulerTextStyle x:Key="textStyle2" FontSize="14" FontAttributes="Bold" TextColor="#0047AB"/>
-            <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="White"/>
-            <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="White"/>
-            <scheduler:SchedulerMonthCellStyle x:Key="monthCellStyle"
-                                    TextStyle="{StaticResource textStyle}"
-                                    TrailingMonthTextStyle="{StaticResource trailingTextStyle}"
-                                    LeadingMonthTextStyle="{StaticResource leadingTextStyle}"/>
-            <scheduler:SchedulerAppointmentMapping x:Key="MyAppointmentMapping"
-                                           Id="Id"
-                                           Subject="Name"
-                                           StartTime="EventStart"
-                                           Background="Colorbg"
-                                           EndTime="EventEnd"
-                                           RecurrenceRule="Recurrencerule"
-                                           Reminders="Reminders">
-                <scheduler:SchedulerAppointmentMapping.ReminderMapping>
-                    <scheduler:SchedulerReminderMapping IsDismissed="IsDismissed"
-                                                TimeBeforeStart="TimeBeforeStart"/>
-                </scheduler:SchedulerAppointmentMapping.ReminderMapping>
-            </scheduler:SchedulerAppointmentMapping>
+        <Color x:Key="HeaderColor">#8cabff</Color>
+        <Color x:Key="Textcolor" >white</Color>
+        <Color x:Key="TimeIntervalTextColor">#8cabff</Color>
+        <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
+        <Style x:Key="HeaderLabel" TargetType="Label" BasedOn="{StaticResource taskFrameHeaderLabelStyle}">
+            <Setter Property="TextColor" Value="Black"></Setter>
+        </Style>
+        <scheduler:SchedulerTextStyle x:Key="HeaderTextStyle" FontSize="30" FontAttributes="Bold" TextColor="White">
 
-            <Color x:Key="HeaderColor">#424874</Color>
+        </scheduler:SchedulerTextStyle>
 
-            <Style  x:Key="dayViewSchedulerStyle" TargetType="scheduler:SfScheduler">
-                <Setter Property="AppointmentMapping" Value="{StaticResource MyAppointmentMapping}" />
-                <Setter Property="View" Value="Day" />
+        <!--Half 2-->
+        <Style x:Key="CommonFrame" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}" />
+            <Setter Property="CornerRadius" Value="30" />
+            <Setter Property="BorderColor" Value="Transparent"/>
 
-                <Setter Property="HeaderView">
-                    <Setter.Value>
-                        <scheduler:SchedulerHeaderView Height="0"/>
-                    </Setter.Value>
-                </Setter>
-
-                <Setter Property="DaysView">
-                    <Setter.Value>
-                        <scheduler:SchedulerDaysView NumberOfVisibleDays="1" StartHour="0" EndHour="0"/>
-                    </Setter.Value>
-                </Setter>
-
-                <Setter Property="DaysView">
-                    <Setter.Value>
-                        <scheduler:SchedulerDaysView>
-                            <scheduler:SchedulerDaysView.ViewHeaderSettings>
-                                <scheduler:SchedulerViewHeaderSettings DayTextStyle="{StaticResource textStyle}" 
-                                                                       DateTextStyle="{StaticResource textStyle}"/>
-                            </scheduler:SchedulerDaysView.ViewHeaderSettings>
-                        </scheduler:SchedulerDaysView>
-                    </Setter.Value>
-                </Setter>
-
-                <Setter Property="ShowNavigationArrows" Value="False" />
-                <Setter Property="TranslationY" Value="0" />
-                <Setter Property="TranslationX" Value="31" />
-                <Setter Property="WidthRequest" Value="110" />
-                <Setter Property="HeightRequest" Value="110" />
+            <Setter Property="VerticalOptions" Value="FillAndExpand"/>
 
 
-            </Style>
+        </Style>
 
-            <Style x:Key="CommonFrameStyle" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="BorderColor" Value="Transparent" />
-                <Setter Property="Margin" Value="5" />
-                <Setter Property="WidthRequest" Value="68" />
-                <Setter Property="HeightRequest" Value="68" />
-            </Style>
+        <Style x:Key="CommonFrameC" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}" />
+            <Setter Property="CornerRadius" Value="30" />
+            <Setter Property="BorderColor" Value="Transparent"/>
 
-            <Style x:Key="CommonStackLayoutStyle" TargetType="StackLayout">
-                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-            </Style>
+            <Setter Property="HeightRequest" Value="250" />
+            <Setter Property="MaximumWidthRequest" Value="250" />
 
-            <Style x:Key="CommonButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="WidthRequest" Value="70" />
-                <Setter Property="Opacity" Value="0"/>
-                <Setter Property="HeightRequest" Value="70" />
-            </Style>
+        </Style>
 
-
-            <!--Half 2-->
-            <Style x:Key="CommonFrame" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}" />
-                <Setter Property="CornerRadius" Value="30" />
-                <Setter Property="BorderColor" Value="Transparent"/>
-                <Setter Property="Margin" Value="10" />
-                <Setter Property="MaximumHeightRequest" Value="1000" />
-                <Setter Property="WidthRequest" Value="440" />
-
-            </Style>
-
-            <Style x:Key="CommonFrameC" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}" />
-                <Setter Property="CornerRadius" Value="30" />
-                <Setter Property="BorderColor" Value="Transparent"/>
-
-                <Setter Property="HeightRequest" Value="250" />
-                <Setter Property="MaximumWidthRequest" Value="400" />
-
-            </Style>
-        </ResourceDictionary>
 
 
     </ContentPage.Resources>
@@ -122,132 +49,81 @@
         <!--Devide the page into two half-->
         <Grid.RowDefinitions>
             <!-- Header -->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.75*"/>
 
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
 
         </Grid.RowDefinitions>
 
         <!--Half 1-->
-        <Grid Grid.Row="0"  Padding="10" TranslationY="-50">
+        <ImageButton Grid.Row="0" 
+                     x:Name="Settingbtn"
+                    HeightRequest="5"
+                    WidthRequest="5"
+                    Margin="0,0,100,0"
+                    Background="Transparent"
+                    Source="settings.png"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"/>
+        <scheduler:SfScheduler
+                        Grid.Row="0"  Margin="20,10,15,25"
+                        x:Name="DayPageScheduler"
+                        View="Week"
+                        ShowWeekNumber="False"
+                         x:FieldModifier="public"                                
+                        Tapped="Scheduler_Tapped"
+                       AllowViewNavigation="True"
+                        >
+
+            <!--Headerview-->
+            <scheduler:SfScheduler.HeaderView>
+                <scheduler:SchedulerHeaderView TextStyle="{StaticResource HeaderTextStyle}" Background="Transparent">
+
+                </scheduler:SchedulerHeaderView>
+            </scheduler:SfScheduler.HeaderView>
+
+            <scheduler:SfScheduler.DaysView >
+                <scheduler:SchedulerDaysView StartHour="0" EndHour="0" NumberOfVisibleDays="7" >
+
+                    <scheduler:SchedulerDaysView.ViewHeaderSettings>
+                        <!--custom header style-->
+                        <scheduler:SchedulerViewHeaderSettings DateFormat="dd" Background="Transparent"
+                                               DateTextStyle="{StaticResource  textStyle}"
+                                               DayTextStyle ="{StaticResource textStyle}"
+                                               Height="50"
+                                               DayFormat="ddd"
+                                              
+                                               >
 
 
-            <Grid.ColumnDefinitions>
-                <!-- Divide the grid into 9 equal columns -->
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
 
-            </Grid.ColumnDefinitions>
+                        </scheduler:SchedulerViewHeaderSettings>
+                    </scheduler:SchedulerDaysView.ViewHeaderSettings>
+                </scheduler:SchedulerDaysView>
 
-
-            <!-- Frames corresponding to each column, each containing a Button -->
-
-            <!--Monday-->
-            <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="0">
-                <StackLayout Style="{StaticResource CommonStackLayoutStyle}" >
-                    <scheduler:SfScheduler x:Name="mon" x:FieldModifier="public" Style="{StaticResource dayViewSchedulerStyle}" 
-                                            Tapped="Scheduler_Tapped"  />
-                </StackLayout>
-            </Frame>
-
-            <!--Monday-->
-
-            <!--Tuesday-->
-            <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="1" >
-                <StackLayout Style="{StaticResource CommonStackLayoutStyle}"    >
-                    <scheduler:SfScheduler  x:Name="tue" Style="{StaticResource dayViewSchedulerStyle}"
-                                             Tapped="Scheduler_Tapped"/>
-                </StackLayout>
-            </Frame>
-
-            <!--Tuesday-->
-
-            <!--Wednesday-->
-            <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="2">
-                <StackLayout Style="{StaticResource CommonStackLayoutStyle}" >
-                    <scheduler:SfScheduler x:Name="wed" Style="{StaticResource dayViewSchedulerStyle}"
-                                            Tapped="Scheduler_Tapped"/>
-                </StackLayout>
-            </Frame>
-
-            <!--Wednesday-->
-
-            <!--Thusday-->
-            <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="3">
-                <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
-                    <scheduler:SfScheduler x:Name="thus" Style="{StaticResource dayViewSchedulerStyle}"
-                                           Tapped="Scheduler_Tapped" />
-                </StackLayout>
-            </Frame>
-
-            <!--Thusday-->
-
-            <!--Friday-->
-            <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="4">
-                <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
-                    <scheduler:SfScheduler x:Name="fri"  Style="{StaticResource dayViewSchedulerStyle}"
-                                            Tapped="Scheduler_Tapped"/>
-                </StackLayout>
-            </Frame>
-
-            <!--Friday-->
-
-            <!--Saturday-->
-            <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="5">
-                <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
-                    <scheduler:SfScheduler x:Name="sat" Style="{StaticResource dayViewSchedulerStyle}"
-                                            Tapped="Scheduler_Tapped"/>
-                </StackLayout>
-            </Frame>
-
-            <!--Saturday-->
-
-            <!--Sunday-->
-            <Frame Style="{StaticResource CommonFrameStyle}" Grid.Column="6">
-                <StackLayout Style="{StaticResource CommonStackLayoutStyle}">
-                    <scheduler:SfScheduler x:Name="sun" Style="{StaticResource dayViewSchedulerStyle}"
-                                            Tapped="Scheduler_Tapped"/>
-                </StackLayout>
-            </Frame>
-
-            <!--Sunday-->
-
-            <HorizontalStackLayout Grid.Column="7" Spacing="20">
-                <ImageButton x:Name="LeftimaBut" HeightRequest="10" WidthRequest="10" Source="leftarrowicon.png"  Clicked="LeftimaBut_Clicked" BackgroundColor="Transparent"/>
-                <ImageButton x:Name="RightimaBut" HeightRequest="10" WidthRequest="10" Source="rightarrowicon.png"  Clicked="RightimaBut_Clicked" BackgroundColor="Transparent"/>
-            </HorizontalStackLayout>
-
-        </Grid>
-
-
+            </scheduler:SfScheduler.DaysView>
+        </scheduler:SfScheduler>
         <!--Half 2-->
-        <Grid Grid.Row="1" Grid.Column="0" TranslationY="-40">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-            </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="0" >
 
-            <Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions >
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.7*"/>
+
             </Grid.ColumnDefinitions>
 
             <!--Task frame-->
-            <Frame Style="{StaticResource CommonFrame}" x:Name="frame_A" Grid.Row="1" Grid.Column="0" Margin="10" Grid.ColumnSpan="2" WidthRequest="700">
+            <Frame Style="{StaticResource CommonFrame}" x:Name="frame_A"  Grid.Column="0" Margin="30,0,0,10" >
                 <VerticalStackLayout Spacing="5">
                     <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
-                        <Label TextColor="White" Text="Tasks" FontSize="30" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
+                        <Label TextColor="White" Text="Tasks" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
 
-                        <ImageButton HeightRequest="5" WidthRequest="5"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddTask_Clicked" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
+                        <ImageButton HeightRequest="2" WidthRequest="2"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddTask_Clicked" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
                     </Grid>
                     <BoxView Color="White" HeightRequest="1"/>
-                    <ListView x:Name="TaskDaily" BackgroundColor="Transparent" ItemSelected="TasksList_ItemSelected" ItemTapped="TasksList_ItemTapped">
+
+                    <ListView x:Name="TaskDaily" BackgroundColor="Transparent" ItemSelected="TasksList_ItemSelected" ItemTapped="TasksList_ItemTapped" Margin="20,0,0,0">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -257,28 +133,33 @@
                                           CommandParameter="{Binding .}">
 
                                         </MenuItem>
+                                        <MenuItem Text="Change"
+                                                  Clicked="MenuItem_Clicked_1"
+                                                  CommandParameter="{Binding .}">
+
+                                        </MenuItem>
                                     </ViewCell.ContextActions>
 
-                                    <Grid ColumnDefinitions="*,auto" RowDefinitions="*,*">
-                                        <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="0"></Label>
+                                    <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+                                        <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="0"/>
                                         <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
-                                        <CheckBox Grid.Column="1" IsChecked="{Binding isDone}" Grid.Row="0" Grid.RowSpan="2">
+                                        <CheckBox Grid.Column="1" IsChecked="{Binding IsDone}"   Grid.Row="0" Grid.RowSpan="2" >
                                             <CheckBox.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
                                             </CheckBox.GestureRecognizers>
                                         </CheckBox>
-                                        
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
+
                 </VerticalStackLayout>
             </Frame>
             <!--Details frame-->
-            <Frame Style="{StaticResource CommonFrame}" x:Name="frame_B" Grid.Row="1" Grid.Column="1" IsVisible="False">
+            <Frame Style="{StaticResource CommonFrame}" x:Name="frame_B"  Grid.Column="1" Margin="45,0,0,10">
                 <VerticalStackLayout x:Name="st">
-                    <Label Text="Task details" TextColor="White" FontSize="30" FontAttributes="Bold" Margin="20,0,0,0"/>
+                    <Label Text="Task details" TextColor="White" FontSize="20" FontAttributes="Bold" Margin="20,0,0,0"/>
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" Margin="0,0,0,10"/>
                     <VerticalStackLayout  x:Name="DetailTaskStack" Spacing="30" Margin="20,20,0,0">
 
@@ -312,26 +193,23 @@
                         </HorizontalStackLayout >
 
                         <HorizontalStackLayout Spacing="30">
-                            <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" Text="Notes" TextColor="White"/>
+                            <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" Text="Note" TextColor="White"/>
                             <Label x:Name="Notes" FontAttributes="Bold"
                                    Grid.Row="4" Grid.Column="1" FontSize="Medium"
                                    TextColor="White"/>
                         </HorizontalStackLayout>
-
-
-
                     </VerticalStackLayout>
 
                 </VerticalStackLayout>
 
             </Frame>
             <!--Weather frame-->
-            <Frame Style="{StaticResource CommonFrameC}" x:Name="frame_C" Grid.Row="1" Grid.Column="2" VerticalOptions="Start">
+            <Frame Style="{StaticResource CommonFrameC}" x:Name="frame_C" Grid.Column="2" VerticalOptions="Start">
 
                 <StackLayout>
 
                     <HorizontalStackLayout Spacing="100">
-                        <Label Text="Weather" TextColor="White" FontSize="40" FontAttributes="Bold" />
+                        <Label Text="Weather" TextColor="White" FontSize="20" FontAttributes="Bold" />
                         <ImageButton Source="information.png" 
                                      HeightRequest="10" 
                                      WidthRequest="10"
@@ -341,9 +219,9 @@
                     </HorizontalStackLayout>
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" />
 
-                    <HorizontalStackLayout Spacing="70">
-                        <Label Text="Location:" TextColor="White" FontSize="20" Margin="0,10,0,0" />
-                        <Label Text="Ho Chi Minh" TextColor="White" FontSize="30" FontAttributes="Bold" />
+                    <HorizontalStackLayout Spacing="30">
+                        <Label Text="Location:" TextColor="White" FontSize="15" Margin="0,5,0,0" />
+                        <Label Text="Ho Chi Minh" TextColor="White" FontSize="20" FontAttributes="Bold" />
                     </HorizontalStackLayout>
 
                     <ImageButton x:Name="weatherImage" BackgroundColor="Transparent"
@@ -352,6 +230,13 @@
                                  />
                 </StackLayout>
             </Frame>
+
+            <Button x:Name="Pomodoro" Text="Pomodoro" Clicked="Pomodoro_Clicked"
+                    VerticalOptions="End" HorizontalOptions="End" MaximumHeightRequest="50" WidthRequest="150" Grid.Row="1" Grid.Column="2"
+                    Margin="0,0,10,20"/>
+
         </Grid>
+
+
     </Grid>
 </ContentPage>

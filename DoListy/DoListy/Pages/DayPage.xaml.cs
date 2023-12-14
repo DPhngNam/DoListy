@@ -21,164 +21,9 @@ public partial class DayPage : ContentPage
     {
 
         InitializeComponent();
-        SetIniDisplayDate();
-        TaskDaily.ItemsSource = null;
+
+
         this.audioManager = audioManager;
-    }
-
-    private void SetIniDisplayDate()
-    {
-        DateTime today = DateTime.Today;
-        int delta = DayOfWeek.Monday - today.DayOfWeek; // Calculate the offset to Monday
-
-        if (delta > 0)
-            delta -= 7; // Adjust if today is later in the week than Monday
-
-        // Adjust the condition to handle Monday separately
-        if (delta == 0)
-        {
-            mon.DisplayDate = today;
-        }
-        else
-        {
-            mon.DisplayDate = today.AddDays(delta);
-        }
-
-        tue.DisplayDate = mon.DisplayDate.AddDays(1);
-        wed.DisplayDate = mon.DisplayDate.AddDays(2);
-        thus.DisplayDate = mon.DisplayDate.AddDays(3);
-        fri.DisplayDate = mon.DisplayDate.AddDays(4);
-        sat.DisplayDate = mon.DisplayDate.AddDays(5);
-        sun.DisplayDate = mon.DisplayDate.AddDays(6);
-    }
-    private void LeftimaBut_Clicked(object sender, EventArgs e)
-    {
-        mon.DisplayDate = mon.DisplayDate.AddDays(-7);
-        tue.DisplayDate = tue.DisplayDate.AddDays(-7);
-        wed.DisplayDate = wed.DisplayDate.AddDays(-7);
-        thus.DisplayDate = thus.DisplayDate.AddDays(-7);
-        fri.DisplayDate = fri.DisplayDate.AddDays(-7);
-        sat.DisplayDate = sat.DisplayDate.AddDays(-7);
-        sun.DisplayDate = sun.DisplayDate.AddDays(-7);
-    }
-
-    private void RightimaBut_Clicked(object sender, EventArgs e)
-    {
-        mon.DisplayDate = mon.DisplayDate.AddDays(7);
-        tue.DisplayDate = tue.DisplayDate.AddDays(7);
-        wed.DisplayDate = wed.DisplayDate.AddDays(7);
-        thus.DisplayDate = thus.DisplayDate.AddDays(7);
-        fri.DisplayDate = fri.DisplayDate.AddDays(7);
-        sat.DisplayDate = sat.DisplayDate.AddDays(7);
-        sun.DisplayDate = sun.DisplayDate.AddDays(7);
-    }
-
-
-    private async void buttonAddTask_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
-        var add = (AddAppointmentPage)Shell.Current.CurrentPage;
-        add.entryStartTime.Text = temp.ToString();
-        add.pickerDateTime1.SelectedDate = temp;
-
-        add.Disappearing += OnAddAppointmentPageDisappearing;
-    }
-    private void OnAddAppointmentPageDisappearing(object sender, EventArgs e)
-    {
-        RefreshCurrentFrame();
-
-    }
-    private async Task AnimateFrames()
-    {
-
-        frame_A.WidthRequest = 350;
-        await frame_A.TranslateTo(-220, 0, 250, Easing.Linear);
-        Grid.SetColumn(frame_A, 0);
-        Grid.SetRow(frame_A, 1);
-
-        frame_B.IsVisible = true;
-
-        await frame_B.FadeTo(1, 500, Easing.SinInOut); // Fade in
-
-    }
-
-    //Reset position
-    private async void RefreshCurrentFrame()
-    {
-        // Reverse the visibility change for frame_B
-        await frame_B.FadeTo(0, 500, Easing.SinInOut); // Fade out
-        frame_B.IsVisible = false;
-        // Move frame_A back to its original position
-        frame_A.WidthRequest = 700;
-        await frame_A.TranslateTo(0, 0, 250, Easing.Linear);
-        Grid.SetColumn(frame_A, 0);
-        Grid.SetRow(frame_A, 1);
-
-    }
-
-
-    public void loadAppointments()
-    {
-        List<Appointment> appointments = App.appointmentRepo.GetAppointments();
-        var AppointmentEvents = new ObservableCollection<Appointment>(appointments);
-        mon.AppointmentsSource = AppointmentEvents;
-        tue.AppointmentsSource = AppointmentEvents;
-        wed.AppointmentsSource = AppointmentEvents;
-        thus.AppointmentsSource = AppointmentEvents;
-        fri.AppointmentsSource = AppointmentEvents;
-        sat.AppointmentsSource = AppointmentEvents;
-        sun.AppointmentsSource = AppointmentEvents;
-    }
-    private void MenuItem_Clicked(object sender, EventArgs e)
-    {
-        if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
-        {
-            App.appointmentRepo.DeleteAppointment(appointment);
-            loadAppointments();
-            TaskDaily.ItemsSource = null;
-        }
-    }
-
-    private void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)
-    {
-        loadAppointments();
-        if (e.Element is SchedulerElement.ViewHeader)
-        {
-            TaskDaily.ItemsSource = null;
-            //if (e.Appointments == null)
-            //    return;
-            //Tasklist.ItemsSource = e.Appointments;
-            //loadAppointments();
-
-            var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
-            List<Appointment> appointmennts = new List<Appointment>();
-
-            foreach (Appointment app in CurrentAppointment)
-            {
-                if (app.EventStart.Day <= e.Date.Value.Day && e.Date.Value.Day <= app.EventEnd.Day)
-                {
-                    appointmennts.Add(app);
-                }
-            }
-            TaskDaily.ItemsSource = appointmennts;
-            loadAppointments();
-        }   
-    }
-
-
-    private async void TasksList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-    {
-
-        if (TaskDaily.SelectedItem != null)
-        {
-            int temp = ((Appointment)e.SelectedItem).Id;
-            await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)TaskDaily.SelectedItem).Id}");
-            TaskDaily.ItemsSource = null;
-        }
-    }
-    private void TasksList_ItemTapped(object sender, ItemTappedEventArgs e)
-    {
-        TaskDaily.SelectedItem = null;
     }
 
     //Weather
@@ -187,6 +32,7 @@ public partial class DayPage : ContentPage
     {
         base.OnAppearing();
         loadAppointments();
+        TaskDaily.ItemsSource = null;
         var result = await ApiService.getWeather(10.823, 106.6296);
 
 
@@ -356,6 +202,112 @@ public partial class DayPage : ContentPage
     private async void weatherImage_Clicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(WeatherPage));
+
+    }
+    //Weather
+
+    
+
+
+    private async void buttonAddTask_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
+        var add = (AddAppointmentPage)Shell.Current.CurrentPage;
+        add.entryStartTime.Text = temp.ToString();
+        add.pickerDateTime1.SelectedDate = temp;
+
+        loadAppointments();
+    }
+
+
+    public void loadAppointments()
+    {
+        List<Appointment> appointments = App.appointmentRepo.GetAppointments();
+        var AppointmentEvents = new ObservableCollection<Appointment>(appointments);
+        DayPageScheduler.AppointmentsSource = AppointmentEvents;
+
+    }
+
+
+    private void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)
+    {
+        loadAppointments();
+        if (e.Element is SchedulerElement.ViewHeader)
+        {
+            TaskDaily.ItemsSource = null;
+            var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
+            List<Appointment> appointmennts = new List<Appointment>();
+
+            foreach (Appointment app in CurrentAppointment)
+            {
+                if (app.EventStart.Day <= e.Date.Value.Day && e.Date.Value.Day <= app.EventEnd.Day)
+                {
+                    appointmennts.Add(app);
+                }
+            }
+            TaskDaily.ItemsSource = appointmennts;
+            loadAppointments();
+        }
+        loadAppointments();
+    }
+
+
+    private void TasksList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+
+        if (TaskDaily.SelectedItem != null)
+        {
+            int tempo = ((Appointment)e.SelectedItem).Id;
+            Appointment Current = App.appointmentRepo.GetAppointmentByID(tempo);
+
+            frame_B.FindByName<Label>("TaskTitle").Text = Current.Name;
+            frame_B.FindByName<Label>("StartTime").Text = Current.EventStart.ToString();
+            frame_B.FindByName<Label>("EndTime").Text = Current.EventEnd.ToString();
+
+            if (!Current.IsDone)
+            {
+                frame_B.FindByName<Label>("State").Text = "Working on it";
+            }
+            else
+            {
+                frame_B.FindByName<Label>("State").Text = "Done";
+            }
+
+            frame_B.FindByName<Label>("Notes").Text = Current.Note;
+        }
+
+    }
+    private void TasksList_ItemTapped(object sender, ItemTappedEventArgs e)
+    {
+        TaskDaily.SelectedItem = null;
+    }
+
+
+
+
+    private void MenuItem_Clicked(object sender, EventArgs e)
+    {
+        if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
+        {
+            App.appointmentRepo.DeleteAppointment(appointment);
+            loadAppointments();
+            TaskDaily.ItemsSource = null;
+        }
+    }
+    private async void MenuItem_Clicked_1(object sender, EventArgs e)
+    {
+
+        if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
+        {
+            int temp = appointment.Id;
+            await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={temp}");
+            TaskDaily.ItemsSource = null;
+        }
+        loadAppointments();
+    }
+
+    private void Pomodoro_Clicked(object sender, EventArgs e)
+    {
 
     }
 
