@@ -144,6 +144,7 @@ public partial class WeekPage : ContentPage
     void OnPomoButtonClicked(object sender, EventArgs e)
     {
         Clicked_Sound.Play();
+         WPPomoButton.Opacity = 1;
         Navigation.PushModalAsync(new PomodoroPage());
     }
 
@@ -159,6 +160,12 @@ public partial class WeekPage : ContentPage
             }
         }
     }
+    //press handlers
+    private void Pomodoro_Pressed(object sender, EventArgs e)
+    {
+        WPPomoButton.Opacity = 0.5;
+    }
+
 
 
 }
