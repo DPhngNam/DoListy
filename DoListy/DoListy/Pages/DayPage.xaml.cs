@@ -209,6 +209,7 @@ public partial class DayPage : ContentPage
 
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         buttonAddAppointment.Opacity = 1.0;
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
         var add = (AddAppointmentPage)Shell.Current.CurrentPage;
@@ -341,6 +342,9 @@ public partial class DayPage : ContentPage
     private void Settingbtn_Clicked(object sender, EventArgs e)
     {
         Settingbtn.Opacity = 1.0;
+        Mediaelement2.Play();
+        SettingPage st = new SettingPage();
+        this.ShowPopup(st);
     }
 
     private void Settingbtn_Pressed(object sender, EventArgs e)
