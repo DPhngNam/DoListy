@@ -10,22 +10,24 @@
           >
     <!--"{ AppThemeBinding Light=Pink Dark=Blue } "-->
     <ContentPage.Resources>
-        <Color x:Key="HeaderColor">#8cabff</Color>
-        <Color x:Key="Textcolor" >white</Color>
-        <Color x:Key="TimeIntervalTextColor">#8cabff</Color>
-        
-        
-        <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="15" FontAttributes="Bold" TextColor="White" />
-        <Style x:Key="HeaderLabel" TargetType="Label" BasedOn="{StaticResource taskFrameHeaderLabelStyle}">
-            <Setter Property="TextColor" Value="Black"></Setter>
+        <Color x:Key="HeaderLight">#00a9ff</Color>
+        <Color x:Key="HeaderDark">#8cabff</Color>
+        <Color x:Key="SchedulerBackgroundDark">#152c39</Color>
+        <Color x:Key="SchedulerBackgroundLight">#89cff3</Color>
+
+        <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle3" FontSize="30" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle4" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle2" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark=White , Light= Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
+
+        <Style x:Key="textColor" TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=Black,Dark=White}"/>
         </Style>
-        <scheduler:SchedulerTextStyle x:Key="HeaderTextStyle" FontSize="25" FontAttributes="Bold" TextColor="White">
-
-        </scheduler:SchedulerTextStyle>
-
         <!--Half 2-->
         <Style x:Key="CommonFrame" TargetType="Frame">
-            <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}" />
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource dayFrameBgColor},Light={StaticResource dayFrameBgColorLight}}" />
             <Setter Property="CornerRadius" Value="30" />
             <Setter Property="BorderColor" Value="Transparent"/>
 
@@ -35,7 +37,7 @@
         </Style>
 
         <Style x:Key="CommonFrameC" TargetType="Frame">
-            <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}" />
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource dayFrameBgColor},Light={StaticResource dayFrameBgColorLight}}" />
             <Setter Property="CornerRadius" Value="30" />
             <Setter Property="BorderColor" Value="Transparent"/>
 
@@ -43,38 +45,41 @@
             <Setter Property="MaximumWidthRequest" Value="250" />
 
         </Style>
-
-
-
     </ContentPage.Resources>
 
-    <Grid Background="{StaticResource appBgColor}">
+    <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource appBgColor},Light={StaticResource appBgColorLight}}">
         <!--Devide the page into two half-->
         <Grid.RowDefinitions>
             <!-- Header -->
+            <RowDefinition Height="0.2*"/>
             <RowDefinition Height="0.7*"/>
-
             <RowDefinition Height="2*"/>
 
         </Grid.RowDefinitions>
+        <toolkit:MediaElement x:Name="Mediaelement1" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
 
+        <toolkit:MediaElement x:Name="Mediaelement2" Source="embed://click.mp3" IsVisible="False" ></toolkit:MediaElement>
+        <!--buttonn-->
+        <toolkit:MediaElement x:Name="Mediaelement3" Source="embed://check.mp3" IsVisible="False" ></toolkit:MediaElement>
+        <!--checkbox-->
         <!--Half 1-->
         
         <scheduler:SfScheduler
-                        Grid.Row="0"  Margin="20,20,15,10"
-                        x:Name="DayPageScheduler"
-                        View="Week"
-                        ShowWeekNumber="False"
-                         x:FieldModifier="public"                                
-                        Tapped="Scheduler_Tapped"
-                       AllowViewNavigation="True"
+                       Grid.Row="1"  Margin="20,0,15,50"
+                       x:Name="DayPageScheduler"
+                       View="Day"
+                       
+                       ShowWeekNumber="True"
+                       x:FieldModifier="public"                                
+                       Tapped="Scheduler_Tapped"
+                       AllowViewNavigation="True"       
+                       TodayTextStyle="{StaticResource textStyle2}"
+                       Background="{AppThemeBinding Dark={StaticResource SchedulerBackgroundDark},Light={StaticResource SchedulerBackgroundLight}}"
                         >
 
             <!--Headerview-->
             <scheduler:SfScheduler.HeaderView>
-                <scheduler:SchedulerHeaderView TextStyle="{StaticResource HeaderTextStyle}" Background="Transparent">
-
-                </scheduler:SchedulerHeaderView>
+                <scheduler:SchedulerHeaderView TextStyle="{StaticResource textStyle3}" />
             </scheduler:SfScheduler.HeaderView>
 
             <scheduler:SfScheduler.DaysView >
@@ -82,9 +87,9 @@
 
                     <scheduler:SchedulerDaysView.ViewHeaderSettings>
                         <!--custom header style-->
-                        <scheduler:SchedulerViewHeaderSettings DateFormat="dd" Background="Transparent"
+                        <scheduler:SchedulerViewHeaderSettings DateFormat="dd" 
                                                DateTextStyle="{StaticResource  textStyle}"
-                                               DayTextStyle ="{StaticResource textStyle}"
+                                                DayTextStyle ="{StaticResource textStyle4}"
                                                Height="50"
                                                DayFormat="ddd"
                                               
@@ -102,7 +107,7 @@
              x:Name="Settingbtn"
             HeightRequest="2"
             WidthRequest="2"
-            Margin="0,0,100,0"
+            Margin="0,0,10,0"
             Background="Transparent"
             Source="settings.png"
             HorizontalOptions="End"
@@ -110,7 +115,7 @@
              Clicked="Settingbtn_Clicked"
              Pressed="Settingbtn_Pressed"/>
         <!--Half 2-->
-        <Grid Grid.Row="1" Grid.Column="0"  BackgroundColor="Transparent">
+        <Grid Grid.Row="2" Grid.Column="0"  BackgroundColor="Transparent">
 
             <Grid.ColumnDefinitions >
                 <ColumnDefinition Width="*"/>
@@ -118,17 +123,12 @@
                 <ColumnDefinition Width="0.7*"/>
 
             </Grid.ColumnDefinitions>
-            <toolkit:MediaElement x:Name="Mediaelement1" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
             
-            <toolkit:MediaElement x:Name="Mediaelement2" Source="embed://click.mp3" IsVisible="False" ></toolkit:MediaElement>
-            <!--buttonn-->
-            <toolkit:MediaElement x:Name="Mediaelement3" Source="embed://check.mp3" IsVisible="False" ></toolkit:MediaElement>
-            <!--checkbox-->
             <!--Task frame-->
-            <Frame Style="{StaticResource CommonFrame}" x:Name="frame_A"  Grid.Column="0" Margin="30,0,0,10" >
+            <Frame Style="{StaticResource CommonFrame}" x:Name="frame_A" Grid.Row="2"  Grid.Column="0" Margin="30,0,0,10" >
                 <VerticalStackLayout Spacing="5">
                     <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
-                        <Label TextColor="White" Text="Tasks" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
+                        <Label Style="{StaticResource textColor}" Text="Tasks" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
 
                         <ImageButton HeightRequest="2" WidthRequest="2" Pressed="buttonAddAppointment_Pressed"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddTask_Clicked" Source="plus.png" Grid.Column="2" Grid.Row="0"></ImageButton>
                     </Grid>
@@ -152,8 +152,8 @@
                                     </ViewCell.ContextActions>
 
                                     <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
-                                        <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="0"/>
-                                        <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
+                                        <Label Text="{Binding Name}" Style="{StaticResource textColor}" Grid.Column="0" Grid.Row="0"/>
+                                        <Label Text="{Binding EventStart}" Style="{StaticResource textColor}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
                                         <CheckBox Grid.Column="1" IsChecked="{Binding isDone}"   Grid.Row="0" Grid.RowSpan="2" >
                                             <CheckBox.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
@@ -170,44 +170,44 @@
             <!--Details frame-->
             <Frame Style="{StaticResource CommonFrame}" x:Name="frame_B"  Grid.Column="1" Margin="45,0,0,10">
                 <VerticalStackLayout x:Name="st">
-                    <Label Text="Task details" TextColor="White" FontSize="20" FontAttributes="Bold" Margin="20,0,0,0"/>
+                    <Label Text="Task details" Style="{StaticResource textColor}" FontSize="20" FontAttributes="Bold" Margin="20,0,0,0"/>
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" Margin="0,0,0,10"/>
                     <VerticalStackLayout  x:Name="DetailTaskStack" Spacing="30" Margin="20,20,0,0">
 
-                        <HorizontalStackLayout  Spacing="30">
-                            <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" Text="Title" TextColor="White"/>
-                            <Label Grid.Row="0" Grid.Column="1" FontSize="Large"  FontAttributes="Bold" x:Name="TaskTitle" TextColor="white" />
+                        <HorizontalStackLayout  Spacing="100">
+                            <Label  FontSize="Medium" Text="Title" Style="{StaticResource textColor}"/>
+                            <Label  FontSize="Large"  FontAttributes="Bold" x:Name="TaskTitle" Style="{StaticResource textColor}" />
                         </HorizontalStackLayout>
 
-                        <HorizontalStackLayout Spacing="30">
-                            <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" Text="Start Time" TextColor="White"/>
+                        <HorizontalStackLayout Spacing="40">
+                            <Label  FontSize="Medium" Text="Start Time" Style="{StaticResource textColor}"/>
                             <Label x:Name="StartTime" 
                                    FontAttributes="Bold" 
-                                   Grid.Row="1" Grid.Column="1" FontSize="Medium"
-                                   TextColor="White"/>
+                                    FontSize="Medium"
+                                   Style="{StaticResource textColor}"/>
                         </HorizontalStackLayout>
 
-                        <HorizontalStackLayout Spacing="30">
-                            <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" Text="End Time" TextColor="White"/>
+                        <HorizontalStackLayout Spacing="50">
+                            <Label  FontSize="Medium" Text="End Time" Style="{StaticResource textColor}"/>
                             <Label x:Name="EndTime"
                                    FontAttributes="Bold"
-                                   Grid.Row="2" Grid.Column="1" FontSize="Medium"
-                                    TextColor="White"/>
+                                    FontSize="Medium"
+                                    Style="{StaticResource textColor}"/>
                         </HorizontalStackLayout>
 
-                        <HorizontalStackLayout Spacing="30">
-                            <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" Text="State" TextColor="White"/>
+                        <HorizontalStackLayout Spacing="60">
+                            <Label  FontSize="Medium" Text="State" Style="{StaticResource textColor}"/>
                             <Label x:Name="State" 
                                    FontAttributes="Bold"
-                                   Grid.Row="3" Grid.Column="1" FontSize="Medium"
-                                   TextColor="White"/>
+                                    FontSize="Medium"
+                                   Style="{StaticResource textColor}"/>
                         </HorizontalStackLayout >
 
-                        <HorizontalStackLayout Spacing="30">
-                            <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" Text="Note" TextColor="White"/>
+                        <HorizontalStackLayout Spacing="40">
+                            <Label  FontSize="Medium" Text="Note" Style="{StaticResource textColor}"/>
                             <Label x:Name="Notes" FontAttributes="Bold"
-                                   Grid.Row="4" Grid.Column="1" FontSize="Medium"
-                                   TextColor="White"/>
+                                    FontSize="Medium"
+                                   Style="{StaticResource textColor}"/>
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
 
@@ -220,7 +220,7 @@
                 <StackLayout>
 
                     <HorizontalStackLayout Spacing="100">
-                        <Label Text="Weather" TextColor="White" FontSize="20" FontAttributes="Bold" />
+                        <Label Text="Weather" Style="{StaticResource textColor}" FontSize="20" FontAttributes="Bold" />
                         <ImageButton Source="information.png" 
                                      HeightRequest="10" 
                                      WidthRequest="10"
@@ -231,8 +231,8 @@
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" />
 
                     <HorizontalStackLayout Spacing="30">
-                        <Label Text="Location:" TextColor="White" FontSize="15" Margin="0,5,0,0" />
-                        <Label Text="Ho Chi Minh" TextColor="White" FontSize="20" FontAttributes="Bold" />
+                        <Label Text="Location:" Style="{StaticResource textColor}" FontSize="15" Margin="0,5,0,0" />
+                        <Label Text="Ho Chi Minh" Style="{StaticResource textColor}" FontSize="20" FontAttributes="Bold" />
                     </HorizontalStackLayout>
 
                     <ImageButton x:Name="weatherImage" BackgroundColor="Transparent"
@@ -242,7 +242,7 @@
                 </StackLayout>
             </Frame>
 
-            <Button x:Name="Pomodoro" Text="Pomodoro" Clicked="Pomodoro_Clicked" Pressed="Pomodoro_Pressed"
+            <Button x:Name="Pomodoro" Text="Pomodoro" TextColor="{AppThemeBinding Light=Black,Dark=White}" Clicked="Pomodoro_Clicked" Pressed="Pomodoro_Pressed"
                     VerticalOptions="End" HorizontalOptions="End" MaximumHeightRequest="50" WidthRequest="150" Grid.Row="1" Grid.Column="2"
                     Margin="0,0,10,20"/>
 
