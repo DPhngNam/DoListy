@@ -51,7 +51,7 @@ public partial class PomodoroPage : ContentPage
         
         if (focus)
         {
-            if (countPomo == (int)longBreakAfterEntry.Value)
+            if (countPomo == longbreakafter)
             {
                 minutes = longbreak;
 
@@ -72,22 +72,36 @@ public partial class PomodoroPage : ContentPage
         countdownTimer = new System.Timers.Timer(1000); // Use fully qualified name
         countdownTimer.Elapsed += OnTimerElapsed;
     }
+    private void OnStartPressed(object sender, EventArgs e)
+    {
+        startButton.Opacity = 0.5;
+    }
     private void OnStartClicked(object sender, EventArgs e)
     {
+        clickPlayer.Play();
+        startButton.Opacity = 1.0;
         startButton.IsVisible = false;
         pauseButton.IsVisible = true;
         stopButton.IsVisible = true;
         countdownTimer.Start();
-        clickPlayer.Play();
 
+    }
+    private void OnPausePressed(object sender, EventArgs e)
+    {
+        pauseButton.Opacity = 0.5;
     }
     private void OnPauseClicked(object sender, EventArgs e)
     {
         countdownTimer.Stop();
         clickPlayer.Play();
+        pauseButton.Opacity = 1.0;
         pauseButton.IsVisible = false;
         stopButton.IsVisible = false;
         startButton.IsVisible = true;
+    }
+    private void OnStopPressed(object sender, EventArgs e)
+    {
+        pauseButton.Opacity = 0.5;
     }
     private void OnStopClicked(object sender, EventArgs e)
     {
@@ -101,10 +115,15 @@ public partial class PomodoroPage : ContentPage
         totalTime = TimeSpan.FromMinutes(minutes);
         UpdateTimerLabel(totalTime);
     }
+    private void OnApplyPomoSettingPressed(object sender, EventArgs e)
+    {
+        applyPomoSettingsButton.Opacity = 0.5;
+    }
     private void OnApplyPomoSettingClicked(object sender, EventArgs e)
     {
         countdownTimer.Stop();
         clickPlayer.Play();
+        applyPomoSettingsButton.Opacity = 1.0;
         pauseButton.IsVisible = false;
         stopButton.IsVisible = false;
         startButton.IsVisible = true;
@@ -119,11 +138,17 @@ public partial class PomodoroPage : ContentPage
         totalTime = TimeSpan.FromMinutes(minutes);
         UpdateTimerLabel(totalTime);
     }
+    private void OnCancelPomoSettingPressed(Object sender, EventArgs e)
+    {
+        cancelPomoSettingsButton.Opacity = 0.5;
+    }
     private void OnCancelPomoSettingClicked(Object sender, EventArgs e)
     {
         clickPlayer.Play();
-
-
+        cancelPomoSettingsButton.Opacity = 1.0;
+        pomoLengthEntry.Value = pomolength;
+        shortBreakLengthEntry.Value = shortbreak;
+        longBreakAfterEntry.Value = longbreakafter;
     }
     private void OnTimerElapsed(object sender, ElapsedEventArgs e)
     {
