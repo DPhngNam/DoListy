@@ -4,11 +4,12 @@
              x:Class="DoListy.Pages.PomodoroPage"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:control="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
+             BackgroundImageSource="pomobgimage2.jpg"
     Title="">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="pomoFgColor">#0197F6</Color>
-            <Color x:Key="pomoBgColor">#000509</Color>
+            <Color x:Key="pomoFgColor">#8CABFF</Color>
+            <Color x:Key="pomoBgColor">#081B25</Color>
             <Color x:Key="pomoTextColor">#DCD6F7</Color>
             <Style x:Key="pomoStateLabelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="40"/>
@@ -23,14 +24,15 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid ColumnDefinitions="2*,*" RowDefinitions="1*,Auto,1*" BackgroundColor="{StaticResource pomoBgColor}" Padding="10,10,15,10">
+    <Grid ColumnDefinitions="2*,*" RowDefinitions="1*,Auto,1*" Padding="10,10,15,10">
         <ImageButton Grid.Row="0" 
                      Scale="0.5"
                      BackgroundColor="Transparent"
-                     Grid.Column="0" HorizontalOptions="Start" Source="leftarrowicon.png" Clicked="OnBackButtonClicked"/>
-        <Label Grid.Row="0" Grid.Column="0" x:Name="pomoStateLabel" HorizontalOptions="Center" Text="FOCUSING" Style="{StaticResource pomoStateLabelStyle}"/> 
-         <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="Transparent"
-                BorderColor="{StaticResource pomoFgColor}"
+                     Grid.Column="0" HorizontalOptions="Start" Source="back.png" Clicked="OnBackButtonClicked"/>
+        <Label Grid.Row="0" Grid.Column="0" x:Name="pomoStateLabel" HorizontalOptions="Center" Text="FOCUSING" Style="{StaticResource pomoStateLabelStyle}"/>
+        <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="#081B25"
+               Opacity="0.7"
+                BorderColor="Transparent"
                 CornerRadius="20" Margin="10,10,0,10"
                 HeightRequest="350">
             <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,0.1*,*,*,*,*,2*" RowSpacing="10">
@@ -84,6 +86,7 @@
 
                 <Button Grid.Row="6" Grid.Column="0" Text="Cancel"
                         x:Name="cancelPomoSettingsButton"
+                        Pressed="OnCancelPomoSettingPressed"
                         Clicked="OnCancelPomoSettingClicked"
                         BackgroundColor="Transparent"
                         BorderColor="#0197F6"
@@ -94,6 +97,7 @@
                         CornerRadius="20"/>
                 <Button Grid.Row="6" Grid.Column="1" Text="Apply"
                         x:Name="applyPomoSettingsButton"
+                        Pressed="OnApplyPomoSettingPressed"
                         Clicked="OnApplyPomoSettingClicked"
                         BackgroundColor="{StaticResource pomoFgColor}"
                         HeightRequest="25"
@@ -104,13 +108,14 @@
                 
             </Grid>
         </Frame>
-        <Label Grid.Row="1" Grid.Column="0"  x:Name="timerLabel" TextColor="White" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center"/>
-        <control:SfCircularProgressBar Grid.Row="1" Grid.Column="0"  x:Name="progressBar" Progress="0" BackgroundColor="Transparent" VerticalOptions="Start" HeightRequest="350" WidthRequest="350"/>
+        <Label Grid.Row="1" Grid.Column="0"  x:Name="timerLabel" TextColor="White" FontSize="40" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <control:SfCircularProgressBar Grid.Row="1" Grid.Column="0"  x:Name="progressBar" Progress="0" BackgroundColor="Transparent" VerticalOptions="Start" HeightRequest="475" WidthRequest="475"/>
  
         <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="*"  Grid.Row="2" Grid.Column="0" >
             <ImageButton Grid.Column="1" Grid.Row="0" Source="playicon.png"
                          BackgroundColor="Transparent"
                          VerticalOptions="Start"
+                         Pressed="OnStartPressed"
                          Clicked="OnStartClicked"
                          x:Name="startButton"
                          HeightRequest="32"
@@ -121,6 +126,7 @@
                          HorizontalOptions="End"
                          VerticalOptions="Start"
                          IsVisible="False"
+                         Pressed="OnPausePressed"
                          Clicked="OnPauseClicked"
                          HeightRequest="32"
                          WidthRequest="32"
@@ -130,6 +136,7 @@
                          HorizontalOptions="Start"
                          VerticalOptions="Start"
                          IsVisible="False"
+                         Pressed="OnStopPressed"
                          Clicked="OnStopClicked"
                          HeightRequest="32"
                          WidthRequest="32"

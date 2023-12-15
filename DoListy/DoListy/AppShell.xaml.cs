@@ -11,7 +11,7 @@ namespace DoListy
             Routing.RegisterRoute(nameof(PomodoroPage), typeof(PomodoroPage));
             Routing.RegisterRoute(nameof(WeatherPage), typeof(WeatherPage));
             Routing.RegisterRoute(nameof(EditAppointmentPage), typeof(EditAppointmentPage));
-            SetTabBarBackgroundColor(this, Color.FromHex("#081B25"));
+            SetTabBarBackgroundColor(this, Color.FromArgb("#ffcdf5fd"));
             SetTabBarForegroundColor(this, Colors.White);
         }
     }
