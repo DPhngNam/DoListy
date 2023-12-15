@@ -10,7 +10,7 @@ namespace DoListy
         public App(AppointmentRepository AppRepo)
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjgxOTEzMUAzMjMzMmUzMDJlMzBFdGVwOEhQTGxVdXZrMmxxYlNjUGZKM1NTSUNZYWNsam5DYTdVOHp2SXNRPQ==");
-            Current.UserAppTheme = AppTheme.Dark;
+            Current.UserAppTheme = AppTheme.Light;
 
             InitializeComponent();
             appointmentRepo = AppRepo;  
