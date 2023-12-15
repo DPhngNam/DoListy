@@ -5,6 +5,7 @@ using System.Xml;
 using CommunityToolkit.Maui.Core;
 using Plugin.Maui.Audio;
 using Syncfusion.Maui.Scheduler;
+using CommunityToolkit.Maui.Views;
 
 namespace DoListy.Pages;
 public partial class MonthPage : ContentPage
@@ -37,6 +38,7 @@ public partial class MonthPage : ContentPage
         buttonAddAppointment.Opacity = 1.0;
         //await Navigation.PushModalAsync(new AddAppointmentPage());
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
+        TasksList.ItemsSource = null;
     }
     private void buttonAddAppointment_Pressed(object sender, EventArgs e)
     {
@@ -138,5 +140,7 @@ public partial class MonthPage : ContentPage
     private void btnSettings_Clicked_1(object sender, EventArgs e)
     {
         Mediaelement2.Play();
+        SettingPage st = new SettingPage();
+        this.ShowPopup(st);
     }
 }
