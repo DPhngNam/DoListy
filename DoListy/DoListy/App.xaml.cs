@@ -30,8 +30,9 @@ namespace DoListy
            
             window.Width = newWidth;
             window.Height = newHeight;
-
-            
+            window.MinimumHeight = newHeight * 0.85;
+            window.MinimumWidth = newWidth * 0.85;
+          
 
             return window;
         }
