@@ -14,40 +14,40 @@
     </ContentPage.Resources>
     
     <Frame CornerRadius="25" HorizontalOptions="Center"  BackgroundColor="Transparent" BorderColor="Transparent">
-
+        
         <VerticalStackLayout Spacing="5" >
             <Label Text="Ho Chi Minh" Style="{StaticResource Textcol}"
-                                    FontSize="Default" 
+                    HorizontalOptions="CenterAndExpand"  FontSize="Medium" 
                                     />  
             <HorizontalStackLayout Spacing="3">
                 <Image x:Name="weatherImage" WidthRequest="96" HeightRequest="96"/>
                 <Label x:Name="temperature" Style="{StaticResource Textcol}" FontSize="96"/>
-                <Label Text="°C" Style="{StaticResource Textcol}" FontSize="Large"/>
+                <Label Text="°C" Style="{StaticResource Textcol}" FontSize="50" Margin="0,20,0,0"/>
             </HorizontalStackLayout>
-
+            
             <Label x:Name="weatherCode"  Style="{StaticResource Textcol}"
-                                            FontSize="Title" />
-            <HorizontalStackLayout Spacing="20">
+                                            FontSize="30" HorizontalOptions="CenterAndExpand"/>
+            <HorizontalStackLayout Spacing="50" Margin="0,20,0,0">
 
                 <HorizontalStackLayout>
-                    <VerticalStackLayout>
+                    <VerticalStackLayout >
                         <Image x:Name="drop"  BackgroundColor="Transparent"
-                                                MaximumHeightRequest="8"
-                                                    MaximumWidthRequest="8" />
-                        <Label Text="Humidity" Style="{StaticResource Textcol}" FontSize="8"/>
+                                                MaximumHeightRequest="36"
+                                                    MaximumWidthRequest="36" />
+                        <Label Text="Humidity" Style="{StaticResource Textcol}" FontSize="20"/>
                     </VerticalStackLayout>
-                    <Label x:Name="Humidity"  Style="{StaticResource Textcol}" FontSize="8"/>
+                    <Label x:Name="Humidity"  Style="{StaticResource Textcol}" FontSize="36"/>
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout>
                     <VerticalStackLayout>
                         <Image x:Name="windPic" BackgroundColor="Transparent" 
-                                                MaximumHeightRequest="8"
-                                                MaximumWidthRequest="8"/>
-                        <Label Text="Humidity" Style="{StaticResource Textcol}" FontSize="8"/>
+                                                MaximumHeightRequest="36"
+                                                MaximumWidthRequest="36"/>
+                        <Label Text="Humidity" Style="{StaticResource Textcol}" FontSize="20"/>
                     </VerticalStackLayout>
                     <Label x:Name="wind"  Style="{StaticResource Textcol}"
-                                            FontSize="8"/>
+                                            FontSize="36"/>
                 </HorizontalStackLayout>
             </HorizontalStackLayout>
         </VerticalStackLayout>
