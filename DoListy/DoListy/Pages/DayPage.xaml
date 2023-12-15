@@ -8,7 +8,6 @@
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title=""
           >
-    <!--"{ AppThemeBinding Light=Pink Dark=Blue } "-->
     <ContentPage.Resources>
         <Color x:Key="HeaderLight">#00a9ff</Color>
         <Color x:Key="HeaderDark">#8cabff</Color>

@@ -21,7 +21,6 @@ public partial class SettingPage : Popup
     }
 
 
-
     private void Darkmode_Toggled(Object sender, ToggledEventArgs e)
     {
         bool isDarkMode = e.Value;

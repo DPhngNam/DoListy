@@ -202,7 +202,9 @@ public partial class WeatherPage : ContentPage
         temperature.Text = result.current.temperature_2m.ToString();
         windPic.Source = "wind.png";
         wind.Text = result.current.wind_speed_10m.ToString();
-       
+        
+
+
     }
-    
+
 }
