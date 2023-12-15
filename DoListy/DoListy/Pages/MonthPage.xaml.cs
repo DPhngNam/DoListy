@@ -121,7 +121,7 @@ public partial class MonthPage : ContentPage
     {
         Mediaelement2.Play();
         PomoButton.Opacity = 1.0;
-        Navigation.PushModalAsync(new PomodoroPage());
+        Navigation.PushModalAsync(new PomodoroPage(audioManager));
     }
 
     private void PomoButton_Pressed(object sender, EventArgs e)
@@ -137,10 +137,16 @@ public partial class MonthPage : ContentPage
                 Mediaelement3.Play();
             }
     }
-    private void btnSettings_Clicked_1(object sender, EventArgs e)
+    private void OnSettingsButtonPressed(object sender, EventArgs e)
+    {
+        btnSettings.Opacity = 0.5;
+    }
+
+    private void OnSettingsButtonClicked(object sender, EventArgs e)
     {
         Mediaelement2.Play();
-        SettingPage st = new SettingPage();
-        this.ShowPopup(st);
+        btnSettings.Opacity = 1.0;
+        SettingPage newSettingPage = new SettingPage();
+        this.ShowPopup(newSettingPage);
     }
 }

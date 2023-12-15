@@ -78,6 +78,7 @@
                                                                DayTextStyle ="{StaticResource textStyle4}"
                                                                Height="60"
                                                                DayFormat="ddd"
+                                                               
                                                                >
 
 
@@ -102,7 +103,8 @@
                     Source="settings.png"
                          HorizontalOptions="End"
                          VerticalOptions="Start"
- 
+                         Pressed="OnSettingsButtonPressed"
+                         Clicked="Settingbtn_Clicked"
                         />
 
 

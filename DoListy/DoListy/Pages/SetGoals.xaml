@@ -84,6 +84,15 @@
                 
             </Button>
         </StackLayout>
-       
+        <Button Grid.Row="4" Grid.Column="0" 
+                x:FieldModifier="public" x:Name="setGoalsDeleteButton"
+                BackgroundColor="#ed0716"
+                TextColor="Black"
+                Text="Delete"
+                FontSize="12"
+                WidthRequest="160" HeightRequest="20" CornerRadius="20"
+                Margin="40,0,0,5"
+                IsVisible="false"/>
+
     </Grid>
 </mct:Popup>

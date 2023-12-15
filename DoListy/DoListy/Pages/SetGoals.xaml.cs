@@ -1,13 +1,24 @@
 using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
+using Plugin.Maui.Audio;
+
 namespace DoListy.Pages;
 
 public partial class SetGoals : Popup
 {
+    private readonly IAudioManager audioManager;
+    IAudioPlayer clickPlayer { get; set; }
 
-    public SetGoals()
+    public SetGoals(IAudioManager audioManager)
     {
         InitializeComponent();
+        this.audioManager = audioManager;
+        createPlayers();
+    }
+    private async void createPlayers()
+    {
+        clickPlayer = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("click.mp3"));
+
     }
     public void IniYearNumericEntry(int num)
     {
@@ -20,7 +31,7 @@ public partial class SetGoals : Popup
     void OnSetGoalsCancelButtonClicked(object sender, EventArgs e)
     {
         setGoalsCancelButton.Opacity = 1.0;
-
+        clickPlayer.Play();
         Close();
     }
     void OnSetGoalsCreateButtonPressed(object sender, EventArgs e)
@@ -29,6 +40,7 @@ public partial class SetGoals : Popup
     }
     void OnSetGoalsCreatelButtonClicked(object sender, EventArgs e)
     {
+        clickPlayer.Play();
         setGoalsCreateButton.Opacity = 1.0;
         Close();
         if (string.IsNullOrEmpty(goalTitleEntry.Text)) { goalTitleEntry.Text = ""; }
@@ -40,6 +52,7 @@ public partial class SetGoals : Popup
     }
     void OnEditGoalButtonClicked(object sender, EventArgs e)
     {
+        clickPlayer.Play();
         editGoalButton.Opacity = 1.0;
         goalTitleEntry.IsEnabled = true;
         yearNumericEntry.IsEnabled = true;

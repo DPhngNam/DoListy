@@ -10,16 +10,13 @@ public partial class SettingPage : Popup
     public SettingPage()
 	{
 		InitializeComponent();
-        BindingContext = this;
+        this.BindingContext = new ViewModel.Settings();
     }
-
-    
 
     private void SoundSwitch_Toggled(object sender, ToggledEventArgs e)
     {
         bool isSwitchOn = e.Value;
     }
-
 
 
     private void Darkmode_Toggled(Object sender, ToggledEventArgs e)

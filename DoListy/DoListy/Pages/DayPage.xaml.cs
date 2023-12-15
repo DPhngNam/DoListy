@@ -260,6 +260,9 @@ public partial class DayPage : ContentPage
             int tempo = ((Appointment)e.SelectedItem).Id;
             Appointment Current = App.appointmentRepo.GetAppointmentByID(tempo);
 
+
+
+
             frame_B.FindByName<Label>("TaskTitle").Text = Current.Name;
             frame_B.FindByName<Label>("StartTime").Text = Current.EventStart.ToString();
             frame_B.FindByName<Label>("EndTime").Text = Current.EventEnd.ToString();
@@ -267,7 +270,7 @@ public partial class DayPage : ContentPage
             if (!Current.IsDone)
             {
                 frame_B.FindByName<Label>("State").Text = "Working on it";
-            }
+            } 
             else
             {
                 frame_B.FindByName<Label>("State").Text = "Done";

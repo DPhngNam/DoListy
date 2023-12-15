@@ -10,7 +10,7 @@ namespace DoListy
         public App(AppointmentRepository AppRepo)
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjgxOTEzMUAzMjMzMmUzMDJlMzBFdGVwOEhQTGxVdXZrMmxxYlNjUGZKM1NTSUNZYWNsam5DYTdVOHp2SXNRPQ==");
-            Current.UserAppTheme = AppTheme.Dark;
+            Current.UserAppTheme = AppTheme.Light;
 
             InitializeComponent();
             appointmentRepo = AppRepo;  
@@ -25,13 +25,14 @@ namespace DoListy
             double screenWidth = displayInfo.Width;
             double screenHeight = displayInfo.Height;
             */
-            double newWidth = 1100;
-            double newHeight = 600;
+            double newWidth = 1200;
+            double newHeight = 650;
            
             window.Width = newWidth;
             window.Height = newHeight;
-
-            
+            window.MinimumHeight = newHeight * 0.85;
+            window.MinimumWidth = newWidth * 0.85;
+          
 
             return window;
         }

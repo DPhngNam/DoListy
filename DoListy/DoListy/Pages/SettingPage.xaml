@@ -1,88 +1,107 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-           
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
            xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
-             xmlns:rating="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
-             x:Class="DoListy.Pages.SettingPage"
-             
-             >
+           xmlns:rating="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+           x:Class="DoListy.Pages.SettingPage"
+           xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit" Color="{AppThemeBinding Dark={StaticResource appBgColor},Light={StaticResource appBgColorLight}}"
+           >
     <mct:Popup.Resources>
         <ResourceDictionary>
             <Style x:Key="CommonHorizon" TargetType="HorizontalStackLayout">
                 <Setter Property="Spacing" Value="20" />
+            </Style>
 
+            <Style x:Key="CommonSwitch" TargetType="Switch">
+                <Setter Property="Margin" Value="0,-8,0,0"/>
+                <Setter Property="IsToggled" Value="False"/>
+               
+            </Style>
+
+            <Style x:Key="commonIma" TargetType="Image">
+                <Setter Property="MaximumHeightRequest" Value="36"/>
+                <Setter Property="MaximumWidthRequest" Value="36"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
             </Style>
         </ResourceDictionary>
     </mct:Popup.Resources>
-    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="30"
-          WidthRequest="1000" HeightRequest="1000">
-        <Label Grid.Column="0" Text="General" FontSize="Large"/>
-        <VerticalStackLayout Grid.Column="1">
-            <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
-                <Label Text="Sounds"/>
-                <Switch x:Name="SoundSwitch" IsToggled="True" Toggled="SoundSwitch_Toggled"/>
-            </HorizontalStackLayout >
-            <HorizontalStackLayout Spacing="1">
-                <Label Text="Darkmode"/>
-                <Switch IsToggled="True"
-                        Toggled="Darkmode_Toggled"
-                        />
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
-                <Label Text="Remind"/>
-                <Switch IsToggled="True"/>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
-                <Label Text="Startup"/>
-                <Switch IsToggled="True"/>
-            </HorizontalStackLayout>
+    
+    <Grid ColumnDefinitions="*,1.5*"
+          RowDefinitions="0.05*,*"
+          ColumnSpacing="50"          
+          WidthRequest="900" HeightRequest="500" >
+        <Grid Grid.Row="1" Grid.Column="0" Margin="20,0,0,0">
+            <VerticalStackLayout Spacing="20" Margin="20,0,0,0">
+                <Label  Text="General" FontSize="Large" VerticalOptions="Start"/>
+                <VerticalStackLayout HorizontalOptions="EndAndExpand">
+                    <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
+                        <Label Text="Sounds"/>
+                        <Switch IsToggled="{Binding sound}" x:Name="SoundSwitch" Style="{StaticResource CommonSwitch}"
+                                Toggled="SoundSwitch_Toggled"/>
+                    </HorizontalStackLayout >
+                    <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
+                        <Label Text="Darkmode"/>
+                        <Switch IsToggled="{Binding mode}" Toggled="Darkmode_Toggled" Style="{StaticResource CommonSwitch}"
+                                />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
+                        <Label Text="Remind"/>
+                        <Switch IsToggled="{Binding remind}" Style="{StaticResource CommonSwitch}"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </Grid>
+        
+        <Grid Grid.Row="1" Grid.Column="1">
+            <VerticalStackLayout Spacing="20">
+                <Label Text="About" FontSize="Large" VerticalOptions="Start"/>
+                <VerticalStackLayout VerticalOptions="EndAndExpand" Spacing="15"
+                                     Margin="50,0,0,0">
+                    <HorizontalStackLayout Spacing="20">
+                        <Label Text="Supported Platforms" FontSize="Medium"/>
+                        <Image Source="windows.png" Style="{StaticResource commonIma}"/>
+                        <Image Source="apple.png" Style="{StaticResource commonIma}"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Feedback" FontSize="Medium"/>
+                        <Label Text="DoListy@gmail.com" TextColor="Blue"
+                                Margin="0,10,0,0" TextDecorations="Underline"/>
+                        <ImageButton Source="gmail.png" Margin="0,-5,0,0" BackgroundColor="Transparent"/>
+                        
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Website" FontSize="Medium"/>
+                        <ImageButton Source="link.png" Margin="0,-5,0,0"
+                                        MaximumHeightRequest="42"
+                                        MaximumWidthRequest="44"
+                                        BackgroundColor="Transparent"
+                                         >
+                            <ImageButton.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapCommand}"
+                                        CommandParameter="https://learn.microsoft.com/dotnet/maui/" />
+                            </ImageButton.GestureRecognizers>
+                        </ImageButton>
+
+                    </HorizontalStackLayout>
 
 
-            
-        </VerticalStackLayout>
-        <Label Grid.Column="2" Text="About" FontSize="Large"/>
-        <VerticalStackLayout Grid.Column="3" Spacing="15">
-            <HorizontalStackLayout Spacing="20">
-                <Label Text="Supported Platforms"/>
-                <Image Source="windows.png"/>
-                <Image Source="apple.png"/>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Spacing="10">
-                <Label Text="Feedback" FontSize="Medium"/>
-                <ImageButton Source="gmail.png"  BackgroundColor="Transparent"/>
-                <Label Text="DoListy@gmail.com" TextColor="Blue" TextDecorations="Underline"/>
-            </HorizontalStackLayout>
+                    <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
+                        <Label Text="Version" FontSize="Medium"/>
+                        <Label Text="1.0" FontSize="Large"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="Rate us" FontSize="Medium"/>
+                        <rating:SfRating x:Name="rating" ItemCount="5" ItemSize="30" BackgroundColor="Transparent">
+                            <rating:SfRating.RatingSettings>
+                                <rating:RatingSettings RatedFill="Yellow" />
+                            </rating:SfRating.RatingSettings>
+                        </rating:SfRating>
 
-            <HorizontalStackLayout Spacing="10">
-                <Label Text="Website" FontSize="Medium"/>
-                <ImageButton Source="link.png"
-                                MaximumHeightRequest="48"
-                                MaximumWidthRequest="48"
-                                BackgroundColor="Transparent"
-                                BorderColor="Transparent" >
-                    <ImageButton.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding TapCommand}"
-                                CommandParameter="https://learn.microsoft.com/dotnet/maui/" />
-                    </ImageButton.GestureRecognizers>
-                </ImageButton>
-
-            </HorizontalStackLayout>
-            
-            
-            <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
-                <Label Text="Version" FontSize="Medium"/>
-                <Label Text="1.0" FontSize="Large"/>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Spacing="10">
-                <Label Text="Rate us" FontSize="Medium"/>
-                <rating:SfRating x:Name="rating" ItemCount="5" ItemSize="30" BackgroundColor="Transparent">
-                    <rating:SfRating.RatingSettings>
-                        <rating:RatingSettings RatedFill="Yellow" />
-                    </rating:SfRating.RatingSettings>
-                </rating:SfRating>
-                
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
     </Grid>
 </mct:Popup>

@@ -8,7 +8,8 @@ using Plugin.Maui.Audio;
 
 public partial class YearPage : ContentPage
 {
-    Dictionary<DateTime, List<IView>> goalsList;
+    Dictionary<DateTime, Dictionary<int,IView>> goalsList;
+    int globalCount {  get; set; }
     List<Goal> realGoalsList;
     private readonly IAudioManager audioManager;
     IAudioPlayer naviPlayer {  get; set; }
@@ -19,10 +20,12 @@ public partial class YearPage : ContentPage
     public YearPage(IAudioManager audioManager)
     {
         InitializeComponent();
+        
         CurrentDate = DateTime.Now;
         yearLabel.Text = CurrentDate.Year.ToString();
         SetIniDisplayDate(CurrentDate);
-        goalsList = new Dictionary<DateTime, List<IView>>();
+        goalsList = new Dictionary<DateTime, Dictionary<int,IView>>();
+        globalCount = 0;
         loadGoals();
         this.audioManager = audioManager;
         createPlayers();
@@ -36,6 +39,7 @@ public partial class YearPage : ContentPage
     void loadGoals()
     {
         realGoalsList = App.appointmentRepo.GetGoals();
+   
         int countGoal = realGoalsList.Count;
         string goalName="";
         DateTime goalInYear = CurrentDate;
@@ -98,6 +102,13 @@ public partial class YearPage : ContentPage
             };
 
             var newGrid = new Grid();
+            newGrid.StyleId = (globalCount).ToString();
+            globalCount += 1;
+            int styleID_Int = -1;
+            if (int.TryParse(newGrid.StyleId, out int val))
+            {
+                styleID_Int = val;
+            }
             newGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             newGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
             newGrid.Children.Add(newButton);
@@ -110,68 +121,85 @@ public partial class YearPage : ContentPage
             goalInYear = new DateTime(realGoalsList[i].Year, 1, 1);
             if (goalsList.ContainsKey(goalInYear))
             {
-                goalsList[goalInYear].Add(newGrid);
+
+                goalsList[goalInYear].Add(styleID_Int, newGrid);
             }
             else
             {
-                var newGoalList = new List<IView>();
-                newGoalList.Add(newGrid);
+                var newGoalList = new Dictionary<int, IView>();
+                newGoalList.Add(styleID_Int, newGrid);
                 goalsList.Add(goalInYear, newGoalList);
             }
-            flag1 = goalsList[goalInYear].Count - 1;
             if (realGoalsList[i].Year == CurrentDate.Year)
             {
-                goalsListGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
                 goalsListGrid.Children.Add(newGrid);
-                goalsListGrid.SetRow(newGrid, goalsListGrid.RowDefinitions.Count - 1);
-                goalsListGrid.SetColumn(newGrid, 0);
             }
             newButton.Clicked += (sender, e) =>
             {
                 clickPlayer.Play();
                 if (int.TryParse(newButton.StyleId, out int value)) {
                     newButton.BorderColor = Colors.Black;
-                    SetGoals viewGoal = new SetGoals();
-
+                    SetGoals viewGoal = new SetGoals(audioManager);
+                   
                     viewGoal.goalTitleEntry.Text = realGoalsList[value].Title;
                     viewGoal.goalTitleEntry.IsEnabled = false;
                     viewGoal.yearNumericEntry.Value = realGoalsList[value].Year;
+                    goalInYear = goalInYear.AddYears(realGoalsList[value].Year - goalInYear.Year);
                     viewGoal.yearNumericEntry.IsEnabled = false;
                     viewGoal.goalNoteEntry.Text = realGoalsList[value].Notes;
                     viewGoal.goalNoteEntry.IsEnabled = false;
                     viewGoal.setGoalsCancelButton.IsVisible = false;
                     viewGoal.setGoalsCreateButton.IsVisible = false;
                     viewGoal.editGoalButton.IsVisible = true;
+                    viewGoal.setGoalsDeleteButton.IsVisible =true;
                     this.ShowPopup(viewGoal);
-                    viewGoal.setGoalsSaveButton.Clicked += (sender, e) =>
+                    viewGoal.setGoalsSaveButton.Pressed += (sender, e) => { viewGoal.setGoalsSaveButton.Opacity = 0.5; };
+                   viewGoal.setGoalsSaveButton.Clicked += (sender, e) =>
                     {
-                        ((Button)((Grid)goalsList[goalInYear][flag1]).Children[0]).Text = viewGoal.goalTitleEntry.Text;
-                        ((Button)(((Grid)(goalsListGrid.Children[flag1])).Children[0])).Text = viewGoal.goalTitleEntry.Text;
-                        goalName = viewGoal.goalTitleEntry.Text;
-                        realGoalsList[value].Title = goalName;
-                        realGoalsList[value].Notes = viewGoal.goalNoteEntry.Text;
-                        if ((int)viewGoal.yearNumericEntry.Value != realGoalsList[i].Year)
-                        {
-                            goalInYear1 = new DateTime((int)viewGoal.yearNumericEntry.Value, 1, 1);
-                            IView temp = goalsList[goalInYear][flag1];
-                            goalsList[goalInYear].RemoveAt(flag1);
-                            if (goalsList.ContainsKey(goalInYear1))
+                        clickPlayer.Play();
+                        viewGoal.setGoalsSaveButton.Opacity = 1.0;
+                        if (int.TryParse(newGrid.StyleId, out int value1)) {
+                            ((Button)((Grid)goalsList[goalInYear][value1]).Children[0]).Text = viewGoal.goalTitleEntry.Text;
+                            newButton.Text = viewGoal.goalTitleEntry.Text;
+                            goalName = viewGoal.goalTitleEntry.Text;
+                            realGoalsList[value].Title = goalName;
+                            realGoalsList[value].Notes = viewGoal.goalNoteEntry.Text;
+                            if ((int)viewGoal.yearNumericEntry.Value != realGoalsList[value].Year)
                             {
-                                goalsList[goalInYear1].Add(temp);
+                                goalInYear1 = new DateTime((int)viewGoal.yearNumericEntry.Value, 1, 1);
+                                IView temp = goalsList[goalInYear][value1];
+                                goalsList[goalInYear].Remove(value1);
+                                if (goalsList.ContainsKey(goalInYear1))
+                                {
+                                    goalsList[goalInYear1].Add(value1,temp);
+                                }
+                                else
+                                {
+                                    var newGoalList = new Dictionary<int, IView>();
+                                    newGoalList.Add(value1,temp);
+                                    goalsList.Add(goalInYear1, newGoalList);
+                                }
+                                goalsListGrid.Remove(newGrid);
+                                realGoalsList[value].Year = goalInYear1.Year;
                             }
-                            else
-                            {
-                                var newGoalList = new List<IView>();
-                                newGoalList.Add(temp);
-                                goalsList.Add(goalInYear1, newGoalList);
-                            }
-                            goalsListGrid.RemoveAt(flag1);
-                            realGoalsList[value].Year = goalInYear1.Year;
+                            viewGoal.Close();
                         }
+                        App.appointmentRepo.UpdateGoal(realGoalsList[value]);
+                    };
+                    viewGoal.setGoalsDeleteButton.Pressed += (sender, e) => { viewGoal.setGoalsDeleteButton.Opacity = 1.0; };
+
+
+                    viewGoal.setGoalsDeleteButton.Clicked += (sender, e) =>
+                    {
+                        clickPlayer.Play();
+                        viewGoal.setGoalsDeleteButton.Opacity = 1.0;
+                        if (int.TryParse(newGrid.StyleId, out int value2)) goalsList[goalInYear].Remove(value2);
+                        goalsListGrid.Remove(newGrid);
+                        App.appointmentRepo.DeleteGoal(realGoalsList[value]);
+                        realGoalsList.RemoveAt(value);
                         viewGoal.Close();
 
                     };
-                    App.appointmentRepo.UpdateGoal(realGoalsList[value]);
 
                 }
 
@@ -214,16 +242,12 @@ public partial class YearPage : ContentPage
         ChangeYearOfDisplayDate(false);
         CurrentDate = janMonthViewCalendar.DisplayDate;
         goalsListGrid.Children.Clear();
-        goalsListGrid.RowDefinitions.Clear();
         if (goalsList.ContainsKey(CurrentDate))
         {
             var numOfGoals = goalsList[CurrentDate].Count;
             for (int i = 0; i < numOfGoals; i++)
             {
-                goalsListGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
-                goalsListGrid.Children.Add(goalsList[CurrentDate][i]);
-                goalsListGrid.SetColumn(goalsList[CurrentDate][i], 0);
-                goalsListGrid.SetRow(goalsList[CurrentDate][i], goalsListGrid.RowDefinitions.Count - 1);
+                goalsListGrid.Children.Add(goalsList[CurrentDate].ElementAt(i).Value);
             }
         }
 
@@ -236,16 +260,12 @@ public partial class YearPage : ContentPage
         ChangeYearOfDisplayDate(true);
         CurrentDate = janMonthViewCalendar.DisplayDate;
         goalsListGrid.Children.Clear();
-        goalsListGrid.RowDefinitions.Clear();
         if (goalsList.ContainsKey(CurrentDate))
         {
             var numOfGoals = goalsList[CurrentDate].Count;
             for (int i = 0; i < numOfGoals; i++)
             {
-                goalsListGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
-                goalsListGrid.Children.Add(goalsList[CurrentDate][i]);
-                goalsListGrid.SetColumn(goalsList[CurrentDate][i], 0);
-                goalsListGrid.SetRow(goalsList[CurrentDate][i], goalsListGrid.RowDefinitions.Count - 1);
+                goalsListGrid.Children.Add(goalsList[CurrentDate].ElementAt(i).Value);
             }
         }
 
@@ -345,7 +365,7 @@ public partial class YearPage : ContentPage
     {
         clickPlayer.Play();
         goalsPlusButton.Opacity = 1.0;
-        SetGoals setGoalsPage = new SetGoals();
+        SetGoals setGoalsPage = new SetGoals(audioManager);
         setGoalsPage.IniYearNumericEntry(CurrentDate.Year);
         setGoalsPage.editGoalButton.IsVisible = false;
 
@@ -391,16 +411,14 @@ public partial class YearPage : ContentPage
         };
         App.appointmentRepo.AddGoal(tempGoal) ; 
         realGoalsList.Add(tempGoal);
-        goalsListGrid.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
         if (goalName.Length > 15)
         {
             goalName = goalName.Substring(0, 13) + "...";
         }
-       
+        
         var newButton = new Button
         {
             Text = goalName,
-
             WidthRequest = 175,
             BorderColor = Colors.Black,
             BackgroundColor = Color.FromRgba(0, 0, 0, 0),
@@ -431,6 +449,7 @@ public partial class YearPage : ContentPage
             {
                 realGoalsList[realGoalsList.Count - 1].isDone = false;
             }
+            App.appointmentRepo.UpdateGoal(realGoalsList[realGoalsList.Count - 1]);
         };
         newButton.Pressed += (sender, e) =>
         {   
@@ -438,6 +457,9 @@ public partial class YearPage : ContentPage
         }; 
        
         var newGrid = new Grid();
+        newGrid.StyleId = (globalCount++).ToString();
+        int styleID_Int = -1;
+        if (int.TryParse(newGrid.StyleId, out int valueID)) styleID_Int = valueID;
         newGrid.RowDefinitions.Add(new RowDefinition { Height=GridLength.Auto });
         newGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
         newGrid.Children.Add(newButton);
@@ -450,68 +472,85 @@ public partial class YearPage : ContentPage
         DateTime goalInYear = new DateTime(year, 1, 1);
         if (goalsList.ContainsKey(goalInYear))
         {
-            goalsList[goalInYear].Add(newGrid);
+            goalsList[goalInYear][styleID_Int] = newGrid;
         }
         else
         {
-            var newGoalList = new List<IView>();
-            newGoalList.Add(newGrid);
+            var newGoalList = new Dictionary<int, IView>();
+            newGoalList.Add(styleID_Int, newGrid);
             goalsList.Add(goalInYear, newGoalList);
         }
-        int flag1 = goalsList[goalInYear].Count-1;
+        newButton.StyleId = (goalsList[goalInYear].Count-1).ToString();
         if (goalInYear.Year == CurrentDate.Year)
         {
             goalsListGrid.Children.Add(newGrid);
-            goalsListGrid.SetRow(newGrid, goalsListGrid.RowDefinitions.Count - 1);
-            goalsListGrid.SetColumn(newGrid, 0);
         }
         newButton.Clicked += (sender, e) =>
         {
-            clickPlayer.Play();
-            newButton.BorderColor = Colors.Black;
-            SetGoals viewGoal = new SetGoals();
-            
-            viewGoal.goalTitleEntry.Text = goalName;
-            viewGoal.goalTitleEntry.IsEnabled = false;
-            viewGoal.yearNumericEntry.Value = year;
-            viewGoal.yearNumericEntry.IsEnabled = false;
-            viewGoal.goalNoteEntry.Text = note;
-            viewGoal.goalNoteEntry.IsEnabled = false;
-            viewGoal.setGoalsCancelButton.IsVisible = false;
-            viewGoal.setGoalsCreateButton.IsVisible = false;
-            viewGoal.editGoalButton.IsVisible = true;
-            this.ShowPopup(viewGoal);
-            viewGoal.setGoalsSaveButton.Clicked += (sender, e) =>
+            if(int.TryParse(newButton.StyleId, out int flag))
             {
-                ((Button)((Grid)goalsList[goalInYear][flag1]).Children[0]).Text = viewGoal.goalTitleEntry.Text;
-                ((Button)(((Grid)(goalsListGrid.Children[flag1])).Children[0])).Text = viewGoal.goalTitleEntry.Text;
-                goalName = viewGoal.goalTitleEntry.Text;
-                realGoalsList[realGoalsList.Count - 1].Title = goalName;
-                note = viewGoal.goalNoteEntry.Text;
-                realGoalsList[realGoalsList.Count - 1].Notes = note;
-                if ((int)viewGoal.yearNumericEntry.Value != year)
+                clickPlayer.Play();
+                newButton.BorderColor = Colors.Black;
+                SetGoals viewGoal = new SetGoals(audioManager);
+                viewGoal.goalTitleEntry.Text = goalName;
+                viewGoal.goalTitleEntry.IsEnabled = false;
+                viewGoal.yearNumericEntry.Value = year;
+                viewGoal.yearNumericEntry.IsEnabled = false;
+                viewGoal.goalNoteEntry.Text = note;
+                viewGoal.goalNoteEntry.IsEnabled = false;
+                viewGoal.setGoalsCancelButton.IsVisible = false;
+                viewGoal.setGoalsCreateButton.IsVisible = false;
+                viewGoal.editGoalButton.IsVisible = true;
+                viewGoal.setGoalsDeleteButton.IsVisible = true;
+                this.ShowPopup(viewGoal);
+                viewGoal.setGoalsSaveButton.Pressed += (sender, e) => { viewGoal.setGoalsSaveButton.Opacity = 0.5; };
+                viewGoal.setGoalsSaveButton.Clicked += (sender, e) =>
                 {
-                    DateTime goalInYear1 = new DateTime((int)viewGoal.yearNumericEntry.Value, 1, 1);
-                    IView temp = goalsList[goalInYear][flag1];
-                    goalsList[goalInYear].RemoveAt(flag1);
-                    if (goalsList.ContainsKey(goalInYear1))
+                    
+                    ((Button)((Grid)goalsList[goalInYear][styleID_Int]).Children[0]).Text = viewGoal.goalTitleEntry.Text;
+                    newButton.Text = viewGoal.goalTitleEntry.Text;
+                    goalName = viewGoal.goalTitleEntry.Text;
+                    realGoalsList[realGoalsList.Count - 1].Title = goalName;
+                    note = viewGoal.goalNoteEntry.Text;
+                    realGoalsList[realGoalsList.Count - 1].Notes = note;
+                    if ((int)viewGoal.yearNumericEntry.Value != year)
                     {
-                        goalsList[goalInYear1].Add(temp);
-                    }
-                    else
-                    {
-                        var newGoalList = new List<IView>();
-                        newGoalList.Add(temp);
-                        goalsList.Add(goalInYear1, newGoalList);
-                    }
-                    goalsListGrid.RemoveAt(flag1);
-                    realGoalsList[realGoalsList.Count - 1].Year = goalInYear1.Year;
+                        DateTime goalInYear1 = new DateTime((int)viewGoal.yearNumericEntry.Value, 1, 1);
+                        IView temp = goalsList[goalInYear][styleID_Int];
+                        goalsList[goalInYear].Remove(styleID_Int);
+                        if (goalsList.ContainsKey(goalInYear1))
+                        {
+                            goalsList[goalInYear1].Add(styleID_Int, temp);
+                        }
+                        else
+                        {
+                            var newGoalList = new Dictionary<int, IView>();
+                            newGoalList.Add(styleID_Int, temp);
+                            goalsList.Add(goalInYear1, newGoalList);
+                        }
+                        goalsListGrid.Remove(newGrid);
+                        realGoalsList[realGoalsList.Count - 1].Year = goalInYear1.Year;
 
-                }
-                viewGoal.Close();
-            };
+                    }
+                    viewGoal.Close();
+                    App.appointmentRepo.UpdateGoal(realGoalsList[realGoalsList.Count - 1]);
+                };
+                viewGoal.setGoalsDeleteButton.Pressed += (sender, e) =>
+                {
+                    viewGoal.setGoalsDeleteButton.Opacity = 0.5;
+                };
+                viewGoal.setGoalsDeleteButton.Clicked += (sender, e) =>
+                {
+                    clickPlayer.Play();
+                    viewGoal.setGoalsDeleteButton.Opacity = 1.0;
+                    goalsList[goalInYear].Remove(styleID_Int);
+                    goalsListGrid.Remove(newGrid);
+                    App.appointmentRepo.DeleteGoal(realGoalsList[realGoalsList.Count - 1]);
+                    realGoalsList.RemoveAt(realGoalsList.Count - 1);
+                    viewGoal.Close();
+                };
+            }
         };
-        App.appointmentRepo.UpdateGoal(realGoalsList[realGoalsList.Count - 1]);
     }
 }
 

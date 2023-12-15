@@ -18,7 +18,7 @@ namespace DoListy.Database
             conn = new SQLiteConnection(_dbpath);
             conn.CreateTable<Appointment>();
             conn.CreateTable<Goal>();
-        
+            conn.CreateTable<Settings>();
         }
         public List<Appointment> GetAppointments()
         {
@@ -80,6 +80,26 @@ namespace DoListy.Database
             Init();
             int result = 0;
             result = conn.Update(temp);
+        }
+
+        public Settings GetSettings()
+        {
+            Init();
+            Settings set = conn.Table<Settings>().FirstOrDefault();
+
+            if (set == null)
+            {
+                set = new Settings();
+                conn.Insert(set);
+            }
+
+            return set;
+        }
+
+        public void UpdateSettings(Settings settings)
+        {
+            Init();
+            conn.Update(settings);
         }
     }
 }
