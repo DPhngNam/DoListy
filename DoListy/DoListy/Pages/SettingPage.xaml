@@ -4,6 +4,7 @@
            xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
            xmlns:rating="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
            x:Class="DoListy.Pages.SettingPage"
+           xmlns:local="clr-namespace:DoListy.ViewModel"
            xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit" Color="{AppThemeBinding Dark={StaticResource appBgColor},Light={StaticResource appBgColorLight}}"
            >
     <mct:Popup.Resources>
@@ -46,7 +47,7 @@
                     </HorizontalStackLayout>
                     <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
                         <Label Text="Remind"/>
-                        <Switch IsToggled="{Binding remind}" Style="{StaticResource CommonSwitch}"/>
+                        <Switch Toggled="Switch_Toggled" IsToggled="{Binding remind}" Style="{StaticResource CommonSwitch}"/>
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
 
