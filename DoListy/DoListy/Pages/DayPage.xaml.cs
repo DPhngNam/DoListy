@@ -3,9 +3,7 @@ using System.Collections.ObjectModel;
 using DoListy.Services;
 using Appointment = DoListy.ViewModel.Appointment;
 using DoListy.Weather;
-using System.Xml;
 using Syncfusion.Maui.Scheduler;
-using System.Diagnostics;
 using CommunityToolkit.Maui.Views;
 
 namespace DoListy.Pages;
@@ -31,7 +29,6 @@ public partial class DayPage : ContentPage
         loadAppointments();
         TaskDaily.ItemsSource = null;
         var result = await ApiService.getWeather(10.823, 106.6296);
-
 
         switch (result.current.weather_code)
         {
@@ -231,6 +228,7 @@ public partial class DayPage : ContentPage
 
     private void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)
     {
+        Mediaelement2.Play();
         loadAppointments();
         if (e.Element is SchedulerElement.ViewHeader)
         {
@@ -247,8 +245,9 @@ public partial class DayPage : ContentPage
             }
             TaskDaily.ItemsSource = appointmennts;
             loadAppointments();
+            
         }
-        loadAppointments();
+        
     }
 
 
@@ -259,8 +258,6 @@ public partial class DayPage : ContentPage
         {
             int tempo = ((Appointment)e.SelectedItem).Id;
             Appointment Current = App.appointmentRepo.GetAppointmentByID(tempo);
-
-
 
 
             frame_B.FindByName<Label>("TaskTitle").Text = Current.Name;
@@ -284,9 +281,6 @@ public partial class DayPage : ContentPage
     {
         TaskDaily.SelectedItem = null;
     }
-
-
-
 
     private void MenuItem_Clicked(object sender, EventArgs e)
     {

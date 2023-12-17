@@ -42,7 +42,7 @@
             <x:Double x:Key="taskDateLabelFontSize">14</x:Double>
             <x:Double x:Key="taskDetailsNameLabelFontSize">17</x:Double>
             <x:Double x:Key="taskDetailsInfoLabelFontSize">17</x:Double>
-            <x:Double x:Key="weatherNameLabelFontSize">17</x:Double>
+            <x:Double x:Key="weatherNameLabelFontSize">22</x:Double>
             <x:Double x:Key="weatherInfoLabelFontSize">17</x:Double>
             <x:Double x:Key="taskFrameHeaderLabelFontSize">18</x:Double>
             <x:Double x:Key="taskItemButtonFontSize">17</x:Double>
@@ -89,7 +89,9 @@
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="FontSize" Value="17"/>
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="CornerRadius" Value="15"/>
+                
             </Style>
             <Style x:Key="dayFrameStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{StaticResource dayFrameBgColor}"/>
@@ -99,12 +101,12 @@
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontSize" Value="{StaticResource dayFrameHeaderLabelFontSize}"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
             </Style>
             <Style x:Key="taskTitleLabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontSize" Value="{StaticResource taskTitleLabelFontSize}"/>
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
 
             </Style>
             <Style x:Key="taskDateLabelStyle" TargetType="Label">
@@ -115,24 +117,24 @@
             <Style x:Key="taskDetailsNameLabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontSize" Value="{StaticResource taskDetailsNameLabelFontSize}"/>
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
             </Style>
             <Style x:Key="taskDetailsInfoLabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontSize" Value="{StaticResource taskDetailsInfoLabelFontSize}"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
             </Style>
             <Style x:Key="weatherNameLabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontSize" Value="{StaticResource weatherNameLabelFontSize}"/>
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
             </Style>
             <Style x:Key="weatherInfoLabelStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
-                <Setter Property="FontSize" Value="{StaticResource weatherInfoLabelFontSize}"/>
+                
                 <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
             </Style>
             <Style x:Key="dayFrameSliderStyle" TargetType="Slider">
                 <Setter Property="BackgroundColor" Value="White"/>
@@ -146,7 +148,7 @@
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
                 <Setter Property="FontSize" Value="{StaticResource taskFrameHeaderLabelFontSize}"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
             </Style>
             <Style x:Key="taskFrameSliderStyle" TargetType="Slider">
                 <Setter Property="BackgroundColor" Value="DarkGray"/>
@@ -155,7 +157,7 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource taskItemButtonBgColor}"/>
                 <Setter Property="FontSize" Value="{StaticResource taskItemButtonFontSize}"/>
                 <Setter Property="FontFamily" Value="{StaticResource mainFontfamily}"/>
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
             </Style>
             <!-- cai nay cung tuong tu dayP1, keo len tren de coi comment tren dayP1 nha
             <Style x:Key="dayP3LabelStyle" TargetType="Label">

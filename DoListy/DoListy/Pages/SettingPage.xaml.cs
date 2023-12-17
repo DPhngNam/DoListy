@@ -10,6 +10,7 @@ public partial class SettingPage : Popup
     public SettingPage()
 	{
 		InitializeComponent();
+        
         this.BindingContext = new ViewModel.Settings();
     }
 
