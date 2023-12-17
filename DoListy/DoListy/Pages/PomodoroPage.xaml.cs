@@ -23,6 +23,7 @@ public partial class PomodoroPage : ContentPage
     int shortbreak;
     int longbreak;
     int longbreakafter;
+    bool settingsFrameIsPulled { get; set; }
     public PomodoroPage(IAudioManager audioManager)
 	{
 		InitializeComponent();
@@ -39,6 +40,9 @@ public partial class PomodoroPage : ContentPage
         minutes = pomolength;
         totalTime =TimeSpan.FromMinutes(minutes);
         UpdateTimerLabel(totalTime);
+        pomoSettingFrame.BackgroundColor = Color.FromRgba(21, 44, 57,160);
+        settingsFrameIsPulled = true;
+        pullSettingsButton.RotateYTo(180);
 
     }
 
@@ -101,11 +105,12 @@ public partial class PomodoroPage : ContentPage
     }
     private void OnStopPressed(object sender, EventArgs e)
     {
-        pauseButton.Opacity = 0.5;
+        stopButton.Opacity = 0.5;
     }
     private void OnStopClicked(object sender, EventArgs e)
     {
         countdownTimer.Stop();
+        stopButton.Opacity = 1.0;
         clickPlayer.Play();
         progressBar.Progress = 0;
         pauseButton.IsVisible = false;
@@ -148,6 +153,7 @@ public partial class PomodoroPage : ContentPage
         cancelPomoSettingsButton.Opacity = 1.0;
         pomoLengthEntry.Value = pomolength;
         shortBreakLengthEntry.Value = shortbreak;
+        longBreakLengthEntry.Value = longbreak;
         longBreakAfterEntry.Value = longbreakafter;
     }
     private void OnTimerElapsed(object sender, ElapsedEventArgs e)
@@ -184,5 +190,25 @@ public partial class PomodoroPage : ContentPage
     void OnBackButtonClicked(object sender, EventArgs e)
     {
         Navigation.PopModalAsync();
+    }
+
+    void OnPullSettingsPressed(object sender, EventArgs e)
+    {
+        pullSettingsButton.Opacity = 0.5;
+    }
+    void OnPullSettingsClicked(object sender, EventArgs e)
+    {
+        pullSettingsButton.Opacity = 1.0;
+        clickPlayer.Play();
+        if (settingsFrameIsPulled) {
+            pomoSettingFrame.TranslateTo(335, 0);
+            pullSettingsButton.RotateYTo(0);
+            settingsFrameIsPulled = false; 
+        }
+        else {
+            pomoSettingFrame.TranslateTo(0, 0);
+            pullSettingsButton.RotateYTo(180);
+            settingsFrameIsPulled = true; 
+        }
     }
 }
