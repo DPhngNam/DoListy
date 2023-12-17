@@ -1,5 +1,5 @@
 using CommunityToolkit.Maui.Views;
-
+using DoListy.ViewModel;
 using System.Windows.Input;
 
 namespace DoListy.Pages;
@@ -16,13 +16,18 @@ public partial class SettingPage : Popup
 
     private void SoundSwitch_Toggled(object sender, ToggledEventArgs e)
     {
-        bool isSwitchOn = e.Value;
+        Settings temp = App.appointmentRepo.GetSettings();
+        temp.Sound = e.Value;
+        App.appointmentRepo.UpdateSettings(temp);
     }
 
 
     private void Darkmode_Toggled(Object sender, ToggledEventArgs e)
     {
-        bool isDarkMode = e.Value;
+        Settings temp = App.appointmentRepo.GetSettings();
+        temp.Mode = e.Value;
+        App.appointmentRepo.UpdateSettings(temp);
+        bool isDarkMode = temp.mode;
         if (isDarkMode)
         {
             Application.Current.UserAppTheme = AppTheme.Dark;
@@ -38,5 +43,11 @@ public partial class SettingPage : Popup
         }
 
     }
-    
+
+    private void Switch_Toggled(object sender, ToggledEventArgs e)
+    {
+        Settings temp = App.appointmentRepo.GetSettings();
+        temp.Remind = e.Value;
+        App.appointmentRepo.UpdateSettings(temp);
+    }
 }

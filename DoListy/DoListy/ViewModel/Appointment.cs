@@ -126,25 +126,7 @@ namespace DoListy.ViewModel
                 Settings set = App.appointmentRepo.GetSettings();
                 return set.Sound;
             }
-            set
-            {
-                if (Sound != value)
-                {
-                    Sound = value;
-                    OnPropertyChanged(nameof(Sound));
-                    UpdateSound(value);
-                }
-            }
-        }
-
-        void UpdateSound(bool a)
-        {
-            Settings set = App.appointmentRepo.GetSettings();
-            if (set != null)
-            {
-                set.Sound = a;
-                App.appointmentRepo.UpdateSettings(set);
-            }
+            set { }
         }
 
         public bool Mode { get; set; }
@@ -157,21 +139,7 @@ namespace DoListy.ViewModel
                 Settings set = App.appointmentRepo.GetSettings();
                 return set.Mode;
             }
-            set
-            {
-                    OnPropertyChanged(nameof(Mode));
-                    UpdateMode(value);
-            }
-        }
-
-        void UpdateMode(bool a)
-        {
-            Settings set = App.appointmentRepo.GetSettings();
-            if (set != null)
-            {
-                set.Mode = a;
-                App.appointmentRepo.UpdateSettings(set);
-            }
+            set {   }
         }
 
         public bool Remind { get; set; }
@@ -184,32 +152,7 @@ namespace DoListy.ViewModel
                 Settings set = App.appointmentRepo.GetSettings();
                 return set.Remind;
             }
-            set
-            {
-                if (Remind != value)
-                {
-                    Remind = value;
-                    OnPropertyChanged(nameof(Remind));
-                    UpdateRemind(value);
-                }
-            }
-        }
-
-        void UpdateRemind(bool a)
-        {
-            Settings set = App.appointmentRepo.GetSettings();
-            if (set != null)
-            {
-                set.Remind = a;
-                App.appointmentRepo.UpdateSettings(set);
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            set {   }
         }
     }
 }
