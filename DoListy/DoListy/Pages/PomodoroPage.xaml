@@ -4,7 +4,8 @@
              x:Class="DoListy.Pages.PomodoroPage"
              xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:control="clr-namespace:Syncfusion.Maui.ProgressBar;assembly=Syncfusion.Maui.ProgressBar"
-             BackgroundImageSource="pomobgimage2.jpg"
+             BackgroundColor="{StaticResource appBgColor}"
+             BackgroundImageSource="nycview_pomo.jpg"
     Title="">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -31,15 +32,86 @@
                 <Setter Property="UpDownPlacementMode" Value="Inline"/>
                 <Setter Property="VerticalOptions" Value="Start"/>
                 <Setter Property="HorizontalOptions" Value="Start"/>
-                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource appBgColor}"/>
+               
+            </Style>
+            <Style x:Key="workspacePickerStyle" TargetType="Picker">
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="WidthRequest" Value="200"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource appBgColor}"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid ColumnDefinitions="*,*,*" RowDefinitions="1*,Auto,1*" Padding="10,10,0,10">
         <ImageButton Grid.Row="0" 
-                 Scale="0.5"
+                 x:Name="backButton"
+                 Scale="0.3"
                  BackgroundColor="Transparent"
-                 Grid.Column="0" HorizontalOptions="Start" Source="back.png" Clicked="OnBackButtonClicked"/>
+                 Grid.Column="0" HorizontalOptions="Start" Source="back1.png" 
+                 Pressed="OnBackButtonPressed" Clicked="OnBackButtonClicked"/>
+        <Frame Grid.Column="0" Grid.Row="1" 
+   x:Name="pomoWorkspaceFrame"
+   HorizontalOptions="Start"
+    BorderColor="Transparent"
+    CornerRadius="20" Margin="10,10,15,10"
+   WidthRequest="335"
+    HeightRequest="280">
+            <Grid ColumnDefinitions="1*,2*" RowDefinitions="0.8*,*,*,*" RowSpacing="10" Padding="0,0,0,0">
+                <AbsoluteLayout Grid.Row="0" Grid.Column="1" Margin="0" Padding="0">
+                    <ImageButton Source="leftarrowicon2.png" AbsoluteLayout.LayoutBounds="180,-10,50,50" 
+                         x:Name="pullWorkspaceSettingsButton"
+                                 Pressed="OnPullWorkplacePressed" Clicked="OnPullWorkplaceClicked"
+                         WidthRequest="0" HeightRequest="0"
+                         Scale="0.4"
+                         BackgroundColor="Transparent"
+                         />
+                </AbsoluteLayout>
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="Workspace" VerticalOptions="Start" Margin="0,0,0,0" Padding="0,0,0,0" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource pomoTextColor}"/>
+                <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="End" HorizontalOptions="Start"
+             HeightRequest="1" WidthRequest="320"
+             Margin="0,15,3,0" Color="{StaticResource pomoFgColor}" BackgroundColor="{StaticResource pomoFgColor}"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="Background" Style="{StaticResource pomoSettingsLabelStyle}"/>
+                <Label Grid.Row="2" Grid.Column="0" Text="Music" Style="{StaticResource pomoSettingsLabelStyle}"/>
+                <Picker Grid.Row="1" Grid.Column="1"
+                        Style="{StaticResource workspacePickerStyle}"
+                        SelectedIndex="1"
+                        x:Name="backgroundPicker">
+                    
+                </Picker>
+                <Picker Grid.Row="2" Grid.Column="1"
+                        Style="{StaticResource workspacePickerStyle}"
+                        SelectedIndex="0"
+                        x:Name="musicPicker">
+                    
+                </Picker> 
+                <Button Grid.Row="3" Grid.Column="0" Text="Cancel"
+            x:Name="cancelPomoWorkspaceSettingsButton"
+            Pressed="OnCancelPomoWorkspacePressed"
+            Clicked="OnCancelPomoWorkspaceClicked"
+            BackgroundColor="Transparent"
+            BorderColor="#0197F6"
+            HeightRequest="20"
+            WidthRequest="130"
+            VerticalOptions="Start"
+            HorizontalOptions="Start"
+            CornerRadius="20"/>
+                <Button Grid.Row="3" Grid.Column="1" Text="Apply"
+            x:Name="applyPomoWorkspaceSettingsButton"
+            Pressed="OnApplyPomoWorkspacePressed"
+            Clicked="OnApplyPomoWorkspaceClicked"       
+            BackgroundColor="{StaticResource pomoFgColor}"
+            HeightRequest="20"
+            CornerRadius="20"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+             Padding="0,0,0,0"
+                Margin="0,0,0,0"
+            WidthRequest="130"/>
+
+            </Grid>
+        </Frame>
         <Label Grid.Row="0" Grid.Column="1" x:Name="pomoStateLabel" HorizontalOptions="Center" Text="FOCUSING" Style="{StaticResource pomoStateLabelStyle}"/>
         <Frame Grid.Column="2" Grid.Row="1" 
            x:Name="pomoSettingFrame"
