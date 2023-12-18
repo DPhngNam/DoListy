@@ -68,8 +68,10 @@ public partial class WeekPage : ContentPage
     private async void buttonAddAppointment_Clicked(object sender, EventArgs e)
     {
         Clicked_Sound.Play();
+        Opacity = 1;
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
     }
+    
     private async void btnOpenDeatil_Clicked(object sender, EventArgs e)
     {
         Clicked_Sound.Play();
@@ -166,12 +168,31 @@ public partial class WeekPage : ContentPage
         WPPomoButton.Opacity = 0.5;
     }
 
-    private void OnSettingsButtonPressed(object sender, EventArgs e)
+ 
+
+    private void btnOpenDeatil_Pressed(object sender, EventArgs e)
     {
-        Settingbtn.Opacity = 0.5555;
+        btnOpenDeatil.Opacity = 0.5;
+    }
+
+    private void buttonAddAppointment_Pressed(object sender, EventArgs e)
+    {
+        buttonAddAppointment.Opacity = 0.5;
+    }
+
+ 
+
+    private void WPPomoButton_Pressed(object sender, EventArgs e)
+    {
+        WPPomoButton.Opacity= 0.5;
     }
 
     private void Settingbtn_Clicked(object sender, EventArgs e)
+    {
+        Clicked_Sound.Play();
+    }
+
+    private void Settingbtn_Pressed(object sender, EventArgs e)
     {
 
     }

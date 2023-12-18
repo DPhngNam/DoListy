@@ -13,22 +13,30 @@ public partial class PomodoroPage : ContentPage
     System.Timers.Timer countdownTimer;
     private readonly IAudioManager audioManager;
     IAudioPlayer clickPlayer { get; set; }
+    List<IAudioPlayer> musics {  get; set; }
+    List<string> backgrounds {  get; set; }
+    List<string> musicPickerList { get; set; }
 
-    TimeSpan totalTime;
-    int minutes;
-    bool focus;
-    int countPomo;
-
-    int pomolength;
-    int shortbreak;
-    int longbreak;
-    int longbreakafter;
+    int musicSelectedIndex {  get; set; }
+    List<string> backgroundPickerList {  get; set; }
+    int backgroundSelectedIndex {  get; set; }
+    TimeSpan totalTime { get; set; }
+    int minutes { get; set; }
+    bool focus {  get; set; }
+    int countPomo { get; set; }
+    int pomolength { get; set; }
+    int shortbreak { get; set; }
+    int longbreak { get; set; }
+    int longbreakafter { get; set; }
+    bool settingsFrameIsPulled { get; set; }
+    bool workspaceFrameIsPulled { get; set; }
     public PomodoroPage(IAudioManager audioManager)
 	{
 		InitializeComponent();
 		InitializeTimer();
         this.audioManager = audioManager;
         createPlayers();
+        iniPicker();
         focus = true;
         countPomo = 0;
         pomolength = (int)pomoLengthEntry.Value;
@@ -39,12 +47,39 @@ public partial class PomodoroPage : ContentPage
         minutes = pomolength;
         totalTime =TimeSpan.FromMinutes(minutes);
         UpdateTimerLabel(totalTime);
+        pomoSettingFrame.BackgroundColor = Color.FromRgba(21, 44, 57,190);
+        pomoWorkspaceFrame.BackgroundColor = Color.FromRgba(21, 44, 57, 190);
+        settingsFrameIsPulled = true;
+        workspaceFrameIsPulled = true;
+        pullSettingsButton.RotateYTo(180);
 
     }
-
+    private void iniPicker()
+    {
+        musicPickerList = new List<string>() {"None", "Jazz", "Raining", "Nature", "Binaural Beats", "Lofi" };
+        backgroundPickerList = new List<string>() { "None", "Morning Brew", "New York City", "Cozy Coffee Shop", "Ho Chi Minh City" };
+        musicPicker.ItemsSource = musicPickerList; musicPicker.SelectedIndex = 0;
+        musicSelectedIndex = 0;
+        backgroundPicker.ItemsSource = backgroundPickerList; backgroundPicker.SelectedIndex = 2;
+        backgroundSelectedIndex = 2;
+        backgrounds = new List<string>() { "morningbrew_pomo.jpg", "nycview_pomo.jpg", "cozycoffeeshop_pomo.jpg", "hcmcity_pomo.jpg" };
+    }
     private async void createPlayers()
     {
         clickPlayer = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("click.mp3"));
+        musics = new List<IAudioPlayer>();
+        IAudioPlayer item = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("jazz_pomo.mp3"));
+        musics.Add(item);   
+        item = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("rain_pomo.mp3"));
+        musics.Add(item);
+        item = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("nature_pomo.mp3"));
+        musics.Add(item);
+        item = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("binauralbeats_pomo.mp3"));
+        musics.Add(item);
+        item = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("lofi_pomo.mp3"));
+        musics.Add(item);
+        musics[0].Loop = musics[1].Loop = musics[2].Loop = musics[3].Loop = musics[4].Loop = true;
+       
     }
     void changeState()
     {
@@ -79,6 +114,7 @@ public partial class PomodoroPage : ContentPage
     private void OnStartClicked(object sender, EventArgs e)
     {
         clickPlayer.Play();
+        if (musicSelectedIndex > 0) musics[musicSelectedIndex - 1].Play();
         startButton.Opacity = 1.0;
         startButton.IsVisible = false;
         pauseButton.IsVisible = true;
@@ -94,6 +130,7 @@ public partial class PomodoroPage : ContentPage
     {
         countdownTimer.Stop();
         clickPlayer.Play();
+        if (musicSelectedIndex > 0 && musics[musicSelectedIndex-1].IsPlaying) musics[musicSelectedIndex - 1].Pause();
         pauseButton.Opacity = 1.0;
         pauseButton.IsVisible = false;
         stopButton.IsVisible = false;
@@ -101,12 +138,14 @@ public partial class PomodoroPage : ContentPage
     }
     private void OnStopPressed(object sender, EventArgs e)
     {
-        pauseButton.Opacity = 0.5;
+        stopButton.Opacity = 0.5;
     }
     private void OnStopClicked(object sender, EventArgs e)
     {
         countdownTimer.Stop();
+        stopButton.Opacity = 1.0;
         clickPlayer.Play();
+        if (musicSelectedIndex > 0 && musics[musicSelectedIndex - 1].IsPlaying) musics[musicSelectedIndex - 1].Stop();
         progressBar.Progress = 0;
         pauseButton.IsVisible = false;
         stopButton.IsVisible = false;
@@ -148,6 +187,7 @@ public partial class PomodoroPage : ContentPage
         cancelPomoSettingsButton.Opacity = 1.0;
         pomoLengthEntry.Value = pomolength;
         shortBreakLengthEntry.Value = shortbreak;
+        longBreakLengthEntry.Value = longbreak;
         longBreakAfterEntry.Value = longbreakafter;
     }
     private void OnTimerElapsed(object sender, ElapsedEventArgs e)
@@ -181,8 +221,92 @@ public partial class PomodoroPage : ContentPage
     {
         timerLabel.Text = $"{(int)time.TotalMinutes:D2}:{time.Seconds:D2}";
     }
-    void OnBackButtonClicked(object sender, EventArgs e)
+
+    void OnBackButtonPressed(object sender, EventArgs e)
     {
-        Navigation.PopModalAsync();
+        backButton.Opacity = 0.5;
+    }
+    async void OnBackButtonClicked(object sender, EventArgs e)
+    {
+        backButton.Opacity = 1.0;
+        clickPlayer.Play();
+        await Navigation.PopModalAsync();
+        countdownTimer.Stop();
+        if (musicSelectedIndex > 0 && musics[musicSelectedIndex - 1].IsPlaying) musics[musicSelectedIndex - 1].Stop();
+    }
+
+    void OnPullSettingsPressed(object sender, EventArgs e)
+    {
+        pullSettingsButton.Opacity = 0.5;
+    }
+    void OnPullSettingsClicked(object sender, EventArgs e)
+    {
+        pullSettingsButton.Opacity = 1.0;
+        clickPlayer.Play();
+        if (settingsFrameIsPulled) {
+            pomoSettingFrame.TranslateTo(335, 0);
+            pullSettingsButton.RotateYTo(0);
+            settingsFrameIsPulled = false; 
+        }
+        else {
+            pomoSettingFrame.TranslateTo(0, 0);
+            pullSettingsButton.RotateYTo(180);
+            settingsFrameIsPulled = true; 
+        }
+    }
+
+    void OnCancelPomoWorkspacePressed(object sender, EventArgs e)
+    {
+        cancelPomoWorkspaceSettingsButton.Opacity = 0.5;
+    }
+    void OnCancelPomoWorkspaceClicked(object sender, EventArgs e)
+    {
+        cancelPomoWorkspaceSettingsButton.Opacity = 1.0;
+        clickPlayer.Play();
+        musicPicker.SelectedIndex = musicSelectedIndex;
+        backgroundPicker.SelectedIndex = backgroundSelectedIndex;
+    }
+
+    void OnApplyPomoWorkspacePressed(object sender, EventArgs e)
+    {
+        applyPomoWorkspaceSettingsButton.Opacity = 0.5;
+    }
+
+    void OnApplyPomoWorkspaceClicked(Object sender, EventArgs e)
+    {
+        applyPomoWorkspaceSettingsButton.Opacity = 1.0;
+        clickPlayer.Play();
+        countdownTimer.Stop();
+        if (musicSelectedIndex > 0 && musics[musicSelectedIndex - 1].IsPlaying) musics[musicSelectedIndex - 1].Stop();
+        musicSelectedIndex = musicPicker.SelectedIndex;
+        backgroundSelectedIndex = backgroundPicker.SelectedIndex;
+        if (backgroundSelectedIndex == 0) this.BackgroundImageSource = "";
+         else   this.BackgroundImageSource = backgrounds[backgroundSelectedIndex-1];
+        totalTime = TimeSpan.FromMinutes(minutes);
+        UpdateTimerLabel(totalTime);
+
+    }
+
+    void OnPullWorkplacePressed(object sender, EventArgs e)
+    {
+        pullWorkspaceSettingsButton.Opacity = 0.5;
+    }
+
+    void OnPullWorkplaceClicked(object sender, EventArgs e)
+    {
+        pullWorkspaceSettingsButton.Opacity = 1.0;
+        clickPlayer.Play();
+        if (workspaceFrameIsPulled)
+        {
+            pomoWorkspaceFrame.TranslateTo(-335, 0);
+            pullWorkspaceSettingsButton.RotateYTo(180);
+            workspaceFrameIsPulled = false;
+        }
+        else
+        {
+            pomoWorkspaceFrame.TranslateTo(0, 0);
+            pullWorkspaceSettingsButton.RotateYTo(0);
+            workspaceFrameIsPulled = true;
+        }
     }
 }
