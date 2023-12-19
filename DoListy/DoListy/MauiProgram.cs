@@ -5,6 +5,7 @@ using DoListy.Database;
 using Microsoft.Maui.LifecycleEvents;
 using Plugin.Maui.Audio;
 using DoListy.Pages;
+using MetroLog.MicrosoftExtensions;
 
 namespace DoListy
 {
@@ -26,6 +27,8 @@ namespace DoListy
                     fonts.AddFont("MaterialIcons-Regular.ttf", "IconFontTypes");
                 });
             builder.Services.AddSingleton(AudioManager.Current);
+            builder.Logging.AddTraceLogger(_ => { });
+            builder.Logging.AddInMemoryLogger(_ => { });
             builder.Services.AddTransient<WeekPage>();
             builder.Services.AddTransient<MonthPage>();
             builder.Services.AddTransient<DayPage>();
