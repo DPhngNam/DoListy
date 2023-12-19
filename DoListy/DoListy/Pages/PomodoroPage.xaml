@@ -196,7 +196,7 @@
             </Grid>
         </Frame>
         <Label Grid.Row="1" Grid.Column="1"  x:Name="timerLabel" TextColor="White" FontSize="36" HorizontalOptions="Center" VerticalOptions="Center"/>
-        <control:SfCircularProgressBar Grid.Row="1" Grid.Column="1"  x:Name="progressBar" Progress="0" BackgroundColor="Transparent" VerticalOptions="Start" HeightRequest="450" WidthRequest="450"/>
+        <control:SfCircularProgressBar Grid.Row="1" Grid.Column="1" ProgressThickness="5" TrackThickness="5" x:Name="progressBar" Progress="0" BackgroundColor="Transparent" VerticalOptions="Start" HeightRequest="450" WidthRequest="450"/>
         
         <Grid ColumnDefinitions="3*,*,3*" RowDefinitions="*"  Grid.Row="2" Grid.Column="1" >
             <ImageButton Grid.Column="1" Grid.Row="0" Source="playicon.png"

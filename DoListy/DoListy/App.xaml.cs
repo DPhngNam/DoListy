@@ -9,7 +9,7 @@ namespace DoListy
         public static AppointmentRepository appointmentRepo { get; private set; }
         public App(AppointmentRepository AppRepo)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjgxOTEzMUAzMjMzMmUzMDJlMzBFdGVwOEhQTGxVdXZrMmxxYlNjUGZKM1NTSUNZYWNsam5DYTdVOHp2SXNRPQ==");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF1cWGhIYVJxWmFZfVpgdVdMYF1bQHVPMyBoS35RdURhWHdcc3RQRmZcWUVy");
             Current.UserAppTheme = AppTheme.Light;
 
             InitializeComponent();
