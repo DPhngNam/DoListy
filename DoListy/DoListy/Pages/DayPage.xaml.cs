@@ -305,7 +305,9 @@ public partial class DayPage : ContentPage
 
     private void Pomodoro_Clicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         Pomodoro.Opacity = 1.0;
+        Navigation.PushModalAsync(new PomodoroPage(audioManager));
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
