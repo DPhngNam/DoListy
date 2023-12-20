@@ -44,7 +44,7 @@
                         <Image x:Name="windPic" BackgroundColor="Transparent" 
                                                 MaximumHeightRequest="36"
                                                 MaximumWidthRequest="36"/>
-                        <Label Text="Humidity" Style="{StaticResource Textcol}" FontSize="20"/>
+                        <Label Text="Wind speed" Style="{StaticResource Textcol}" FontSize="20"/>
                     </VerticalStackLayout>
                     <Label x:Name="wind"  Style="{StaticResource Textcol}"
                                             FontSize="36"/>
