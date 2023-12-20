@@ -54,7 +54,7 @@
                                                            Reminders="Reminders">
                         <scheduler:SchedulerAppointmentMapping.ReminderMapping>
                             <scheduler:SchedulerReminderMapping IsDismissed="IsDismissed"
-                                                                TimeBeforeStart="TimeBeforeStart"/>
+                                                                TimeBeforeStart="timeBeforeStart"/>
                         </scheduler:SchedulerAppointmentMapping.ReminderMapping> 
                     </scheduler:SchedulerAppointmentMapping>
                 </scheduler:SfScheduler.AppointmentMapping>
