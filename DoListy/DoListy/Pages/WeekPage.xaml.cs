@@ -7,6 +7,8 @@ using System.Runtime.CompilerServices;
 using Plugin.Maui.Audio;
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Maui.Core;
+using MetroLog;
+using Microsoft.Extensions.Logging;
 //using AndroidX.Core.View.Accessibility;
 //using Foundation;
 
@@ -16,11 +18,13 @@ namespace DoListy.Pages;
 public partial class WeekPage : ContentPage
 {
     private readonly IAudioManager audioManager;
+    ILogger<WeekPage> _logger;
 
-    public WeekPage(IAudioManager audioManager)
+    public WeekPage(IAudioManager audioManager,ILogger<WeekPage> logger)
     {
         InitializeComponent();
         TimeRulerTextStyle();
+        _logger= logger;
         this.audioManager= audioManager;
         
     }
