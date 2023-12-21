@@ -82,6 +82,7 @@
                                                                >
 
 
+                            
 
                         </scheduler:SchedulerViewHeaderSettings>
                     </scheduler:SchedulerDaysView.ViewHeaderSettings>
@@ -91,31 +92,29 @@
         </scheduler:SfScheduler>
         <!--stack layout for Pomo anh TaskFrame-->
         <Grid Grid.Column="1"
-             
+              RowDefinitions="auto,*"
              >
-        
-            <ImageButton Grid.Row="0" 
+            <ImageButton 
                  x:Name="Settingbtn"
-                         HeightRequest="5"
-                         WidthRequest="5"
-                         Margin="0,0,50,0"
+                Grid.Row="0"
+            
+                         HeightRequest="2"
+                         WidthRequest="2"
+                         Margin="0,0,10,0"
+                          VerticalOptions="Start"
+                      
                          Background="Transparent"
-                    Source="settings.png"
+                        Source="settings.png"
                          HorizontalOptions="End"
-                         VerticalOptions="Start"
                          Clicked="Settingbtn_Clicked"
                          Pressed="Settingbtn_Pressed"
                         
-                        />
+              />
 
 
 
             <StackLayout Spacing="10" Margin="10"  Grid.Row="1" >
-                <Label x:Name= "WPdateLabel"
-                   Style="{StaticResource dateLabelStyle}"
-                    >
 
-                </Label>
                 <!--taskframe-->
                 <Frame x:Name="WPTaskFrame"
                    Style="{StaticResource taskFrameStyle}"

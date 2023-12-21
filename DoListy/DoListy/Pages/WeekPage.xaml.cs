@@ -9,6 +9,7 @@ using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Maui.Core;
 using MetroLog;
 using Microsoft.Extensions.Logging;
+using DoListy.WinUI;
 //using AndroidX.Core.View.Accessibility;
 //using Foundation;
 
@@ -53,6 +54,7 @@ public partial class WeekPage : ContentPage
     {
         var AppointmentEvents = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
         WeekPageScheduler.AppointmentsSource = AppointmentEvents;
+        
     }
 
     private void WeekPageScheduler_AppointmentDrop(object sender, AppointmentDropEventArgs e)
@@ -128,6 +130,7 @@ public partial class WeekPage : ContentPage
     {
         if (Tasklist.SelectedItem != null)
         {
+         
             int temp = ((Appointment)e.SelectedItem).Id;
             await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={((Appointment)Tasklist.SelectedItem).Id}");
             Tasklist.ItemsSource = null;
@@ -143,7 +146,8 @@ public partial class WeekPage : ContentPage
             Clicked_Sound.Play();
             App.appointmentRepo.DeleteAppointment(appointment);
             loadAppointments();
-            Tasklist.ItemsSource = null;
+            List<Appointment> postDeleteAppointment = App.appointmentRepo.GetAppointments(); 
+            Tasklist.ItemsSource = postDeleteAppointment ;
         }
     }
 
@@ -171,33 +175,28 @@ public partial class WeekPage : ContentPage
     {
         WPPomoButton.Opacity = 0.5;
     }
-
- 
-
     private void btnOpenDeatil_Pressed(object sender, EventArgs e)
     {
         btnOpenDeatil.Opacity = 0.5;
     }
-
     private void buttonAddAppointment_Pressed(object sender, EventArgs e)
     {
         buttonAddAppointment.Opacity = 0.5;
     }
-
- 
-
     private void WPPomoButton_Pressed(object sender, EventArgs e)
     {
         WPPomoButton.Opacity= 0.5;
     }
-
     private void Settingbtn_Clicked(object sender, EventArgs e)
     {
+        Settingbtn.Opacity = 1;
         Clicked_Sound.Play();
+        SettingPage newSettingPage = new SettingPage();
+        this.ShowPopup(newSettingPage);
     }
-
     private void Settingbtn_Pressed(object sender, EventArgs e)
     {
+        Settingbtn.Opacity = 0.5;
 
     }
 }
