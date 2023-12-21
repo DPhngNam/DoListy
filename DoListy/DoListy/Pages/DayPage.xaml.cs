@@ -19,6 +19,8 @@ public partial class DayPage : ContentPage
     {
         InitializeComponent();
         this.audioManager = audioManager;
+        loadAppointments();
+        Load(temp);
     }
 
     //Weather
@@ -26,7 +28,7 @@ public partial class DayPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        loadAppointments();
+        
         TaskDaily.ItemsSource = null;
         var result = await ApiService.getWeather(10.823, 106.6296);
 
@@ -225,7 +227,21 @@ public partial class DayPage : ContentPage
 
     }
 
+    private void Load(DateTime current)
+    {
+        var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
+        List<Appointment> appointmennts = new List<Appointment>();
 
+        foreach (Appointment app in CurrentAppointment)
+        {
+            if (app.EventStart.Day <= current.Day && current.Day <= app.EventEnd.Day)
+            {
+                appointmennts.Add(app);
+            }
+        }
+        TaskDaily.ItemsSource = appointmennts;
+    }
+    private DateTime xxx;
     private void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)
     {
         Mediaelement2.Play();
@@ -233,17 +249,8 @@ public partial class DayPage : ContentPage
         if (e.Element is SchedulerElement.ViewHeader)
         {
             TaskDaily.ItemsSource = null;
-            var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
-            List<Appointment> appointmennts = new List<Appointment>();
-
-            foreach (Appointment app in CurrentAppointment)
-            {
-                if (app.EventStart.Day <= e.Date.Value.Day && e.Date.Value.Day <= app.EventEnd.Day)
-                {
-                    appointmennts.Add(app);
-                }
-            }
-            TaskDaily.ItemsSource = appointmennts;
+            xxx = e.Date.Value;
+            Load(xxx);
             loadAppointments();
             
         }
@@ -286,9 +293,11 @@ public partial class DayPage : ContentPage
     {
         if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
         {
+
             App.appointmentRepo.DeleteAppointment(appointment);
             loadAppointments();
-            TaskDaily.ItemsSource = null;
+            Load(xxx);   
+            
         }
     }
     private async void MenuItem_Clicked_1(object sender, EventArgs e)
@@ -298,7 +307,7 @@ public partial class DayPage : ContentPage
         {
             int temp = appointment.Id;
             await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={temp}");
-            TaskDaily.ItemsSource = null;
+            Load(xxx);
         }
         loadAppointments();
     }
