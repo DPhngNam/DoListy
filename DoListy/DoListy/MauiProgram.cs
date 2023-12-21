@@ -33,6 +33,7 @@ namespace DoListy
             builder.Services.AddTransient<MonthPage>();
             builder.Services.AddTransient<DayPage>();
             builder.Services.AddTransient<YearPage>();
+            
 #if WINDOWS
     builder.ConfigureLifecycleEvents(events =>
     {
@@ -60,6 +61,7 @@ namespace DoListy
 
 #if DEBUG
             builder.Logging.AddDebug();
+                    
 #endif
 
             return builder.Build();

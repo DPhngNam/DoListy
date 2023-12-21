@@ -53,6 +53,7 @@ public partial class WeekPage : ContentPage
     {
         var AppointmentEvents = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
         WeekPageScheduler.AppointmentsSource = AppointmentEvents;
+        
     }
 
     private void WeekPageScheduler_AppointmentDrop(object sender, AppointmentDropEventArgs e)
@@ -193,11 +194,15 @@ public partial class WeekPage : ContentPage
 
     private void Settingbtn_Clicked(object sender, EventArgs e)
     {
+        Settingbtn.Opacity = 1;
         Clicked_Sound.Play();
+        SettingPage newSettingPage = new SettingPage();
+        this.ShowPopup(newSettingPage);
     }
 
     private void Settingbtn_Pressed(object sender, EventArgs e)
     {
+        Settingbtn.Opacity = 0.5;
 
     }
 }

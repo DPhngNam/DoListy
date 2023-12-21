@@ -81,7 +81,8 @@
                                                                
                                                                >
 
-
+\
+                            
 
                         </scheduler:SchedulerViewHeaderSettings>
                     </scheduler:SchedulerDaysView.ViewHeaderSettings>
@@ -93,16 +94,17 @@
         <Grid Grid.Column="1"
              
              >
-        
-            <ImageButton Grid.Row="0" 
+            <ImageButton 
                  x:Name="Settingbtn"
-                         HeightRequest="5"
-                         WidthRequest="5"
-                         Margin="0,0,50,0"
+            
+                         HeightRequest="2"
+                         WidthRequest="2"
+                         Margin="0,0,10,10"
+                VerticalOptions="Start"
+                Padding="1"
                          Background="Transparent"
-                    Source="settings.png"
+                        Source="settings.png"
                          HorizontalOptions="End"
-                         VerticalOptions="Start"
                          Clicked="Settingbtn_Clicked"
                          Pressed="Settingbtn_Pressed"
                         
