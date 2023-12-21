@@ -20,7 +20,7 @@ public partial class DayPage : ContentPage
         InitializeComponent();
         this.audioManager = audioManager;
         loadAppointments();
-        Load(temp);
+        Load(DateTime.Now);
     }
 
     //Weather
@@ -29,7 +29,7 @@ public partial class DayPage : ContentPage
     {
         base.OnAppearing();
         
-        TaskDaily.ItemsSource = null;
+        
         var result = await ApiService.getWeather(10.823, 106.6296);
 
         switch (result.current.weather_code)
