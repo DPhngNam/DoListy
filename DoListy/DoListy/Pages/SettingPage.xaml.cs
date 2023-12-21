@@ -6,13 +6,14 @@ namespace DoListy.Pages;
 
 public partial class SettingPage : Popup
 {
-    public ICommand TapCommand => new Command<string>(async (url) => await Launcher.OpenAsync("https://learn.microsoft.com/dotnet/maui/"));
+    
     public SettingPage()
 	{
 		InitializeComponent();
-        
+        linkwebsite.Command = new Command<string>(async (url) => await Launcher.OpenAsync("https://dttri.github.io/dolisty.github.io/?fbclid=IwAR2e2SJ9--e3iGSiCyrspXVBnzRs8_rRxB6sipfgb5PDj8lGl2ln6ozHzgM"));
         this.BindingContext = new ViewModel.Settings();
     }
+
 
     private void SoundSwitch_Toggled(object sender, ToggledEventArgs e)
     {

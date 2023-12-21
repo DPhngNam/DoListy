@@ -78,12 +78,7 @@
                                         MaximumHeightRequest="42"
                                         MaximumWidthRequest="44"
                                         BackgroundColor="Transparent"
-                                         >
-                            <ImageButton.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding TapCommand}"
-                                        CommandParameter="https://learn.microsoft.com/dotnet/maui/" />
-                            </ImageButton.GestureRecognizers>
-                        </ImageButton>
+                                        x:Name="linkwebsite"/>
 
                     </HorizontalStackLayout>
 
