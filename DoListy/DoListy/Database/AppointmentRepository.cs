@@ -19,6 +19,7 @@ namespace DoListy.Database
             conn.CreateTable<Appointment>();
             conn.CreateTable<Goal>();
             conn.CreateTable<Settings>();
+            conn.CreateTable<Reminder>();
         }
         public List<Appointment> GetAppointments()
         {
@@ -38,10 +39,17 @@ namespace DoListy.Database
         }
         public Appointment GetAppointmentByID(int AppointmentID)
         {
+            Init();
             var temp = from u in conn.Table<Appointment>()
                        where u.Id == AppointmentID
                        select u;
             return  temp.FirstOrDefault();
+        }
+
+        public Appointment GetLastAppointment()
+        {
+            Init();
+            return conn.Table<Appointment>().LastOrDefault();
         }
 
         public void Update(Appointment appointment)
@@ -65,14 +73,6 @@ namespace DoListy.Database
         {
             Init();
             conn.Delete(temp);
-        }
-        public List<Goal> GetGoalByYear(int YearInput)
-        {
-            var temp = from u in conn.Table<Goal>()
-                       where u.Year == YearInput
-                       select u;
-
-            return temp.ToList();
         }
 
         public void UpdateGoal(Goal temp)
@@ -100,6 +100,34 @@ namespace DoListy.Database
         {
             Init();
             conn.Update(settings);
+        }
+        public void AddReminder(Reminder reminder)
+        {
+            int result = 0;
+            Init();
+            result = conn.Insert(reminder);
+        }
+
+        public void UpdateReminder(Reminder reminder)
+        {
+            int result = 0;
+            Init();
+            result = conn.Update(reminder);
+        }
+
+        public Reminder GetReminderById(int id)
+        {
+            var temp = from u in conn.Table<Reminder>()
+                       where u.IdAppointment == id
+                       select u;
+
+            return temp.FirstOrDefault();
+        }
+
+        public List<Reminder> GetReminders()
+        {
+            Init();
+            return conn.Table<Reminder>().ToList();
         }
     }
 }

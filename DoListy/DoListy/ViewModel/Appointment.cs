@@ -86,6 +86,13 @@ namespace DoListy.ViewModel
                     App.appointmentRepo.Update(temp);
                 }
         }
+        [Ignore]
+        public List<Reminder> Reminders { 
+            get
+            {
+                return App.appointmentRepo.GetReminders();
+            }
+        }
 
     }
     [Table("Goal")]
@@ -100,14 +107,41 @@ namespace DoListy.ViewModel
 
         public bool isDone {  get; set; }
     }
+
     [Table("Reminder")]
     public class Reminder
     {
-        [PrimaryKey, AutoIncrement]
-        int idRe {  get; set; }
+        [PrimaryKey]
         public int IdAppointment { get; set; }
         public bool IsDismissed { get; set; }
-        public TimeSpan TimeBeforeStart { get; set; }
+        public int TimeBeforeStart {
+            get;
+            set; 
+        }
+        [Ignore]
+        public TimeSpan timeBeforeStart
+        {
+            get
+            {
+                if (TimeBeforeStart <= 60)
+                {
+                    return TimeSpan.FromMinutes(TimeBeforeStart);
+                }
+                else
+                {
+                    if (TimeBeforeStart % (24 * 60) == 0)
+                    {
+                        return TimeSpan.FromHours(TimeBeforeStart / (24 * 60));
+                    }
+                    else
+                    {
+                        int days = TimeBeforeStart / (24 * 60);
+                        int remainingMinutes = TimeBeforeStart % (24 * 60);
+                        return TimeSpan.FromDays(days) + TimeSpan.FromMinutes(remainingMinutes);
+                    }
+                }
+            }
+        }
     }
 
     [Table("Settings")]

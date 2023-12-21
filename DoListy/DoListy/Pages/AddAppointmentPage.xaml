@@ -43,6 +43,15 @@
                 <Setter Property="DateFormat" Value="dd_MM_yyyy"/>
                 <Setter Property="TimeFormat" Value="h_mm_ss_tt"/>
             </Style>
+            <Style x:Key="pickerTimeStyle" TargetType="picker:SfTimePicker">
+                <Setter Property="HeightRequest" Value="250"/>
+                <Setter Property="WidthRequest" Value ="300"/>
+                <Setter Property="ColumnDividerColor" Value="Black"/>
+                <Setter Property="Mode" Value="Dialog"/>
+                <Setter Property="IsOpen" Value="False"/>
+                <Setter Property="IsVisible" Value="False"/>
+                <Setter Property="Format" Value="h_mm_ss_tt"/>
+            </Style>
             <Style x:Key="pickerStyle" TargetType="Picker">
                 <Setter Property="BackgroundColor" Value="#1D267D"/>
                 <Setter Property="WidthRequest" Value="200"/>
@@ -151,10 +160,11 @@
                     </picker:SfDateTimePicker>
                 </HorizontalStackLayout>
 
-                <!--<HorizontalStackLayout>
+                <HorizontalStackLayout>
                     <Label   Text="Reminder: " Style="{StaticResource labelPage}" ></Label>
-                    <picker:SfTimePicker/>
-                </HorizontalStackLayout>-->
+                    <Entry  x:Name="entryReminder" Placeholder="Entry Number Content" Style="{StaticResource entryPage}" Margin="0,0,10,0"/>
+                    <Picker x:Name="pickerRemnder" Style="{StaticResource pickerStyle}" TextColor="White"/>
+                </HorizontalStackLayout>
 
                         <HorizontalStackLayout>
                     <Label   Text="Notes: " Style="{StaticResource labelPage}" ></Label>

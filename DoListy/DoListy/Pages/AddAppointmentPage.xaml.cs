@@ -5,6 +5,7 @@ namespace DoListy.Pages;
 public partial class AddAppointmentPage : ContentPage
 {
     List<string> freqs = new List<string>() { "DAILY", "WEEKLY", "MONTHLY", "YEARLY", "NONE" };
+    List<string> timeremind = new List<string>() { "MINUTES", "HOURS", "DAYS", "NONE" };
     List<string> Colors = new List<string>() { "Blue", "Red", "Green", "Orange", "Purple"};
 
     public AddAppointmentPage()
@@ -12,6 +13,7 @@ public partial class AddAppointmentPage : ContentPage
 		InitializeComponent();
         Freg.ItemsSource = freqs;
         ColorEntry.ItemsSource = Colors;
+        pickerRemnder.ItemsSource = timeremind;
 	}
 
     private void buttonCancle_Clicked(object sender, EventArgs e)
@@ -52,6 +54,38 @@ public partial class AddAppointmentPage : ContentPage
         }
         appointment.IsDone = false;
         App.appointmentRepo.AddAppointment(appointment);
+        if (pickerRemnder.SelectedItem != null && entryReminder.Text != null)
+        {
+
+            Appointment temp1 = App.appointmentRepo.GetLastAppointment();
+            if (temp1 != null)
+            {
+                int a;
+                if (int.TryParse(entryReminder.Text, out a))
+                {
+                    switch (pickerRemnder.SelectedItem.ToString())
+                    {
+                        case "MINUTES":
+                            break;
+                        case "HOURS":
+                            a = a * 60;
+                            break;
+                        case "DAYS":
+                            a = a * 60 * 24;
+                            break;
+                    }
+                    Reminder temp2 = new Reminder()
+                    {
+                        IdAppointment = temp1.Id,
+                        IsDismissed = false,
+                        TimeBeforeStart = a
+                    };
+                    //temp1.Reminders = new System.Collections.ObjectModel.ObservableCollection<Reminder>(){temp2};
+                    App.appointmentRepo.AddReminder(temp2);
+                }
+                App.appointmentRepo.Update(temp1);
+            }
+        }
         //Added by Phuong Nam
         Application.Current.MainPage.DisplayAlert("Success", "Created successfully", "OK");
         //Added by Phuong Nam

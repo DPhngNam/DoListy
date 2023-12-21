@@ -63,24 +63,30 @@ public partial class MonthPage : ContentPage
 
     private async void Scheduler_ReminderAlertOpening(object sender, Syncfusion.Maui.Scheduler.ReminderAlertOpeningEventArgs e)
     {
-        var currentTime = DateTime.Now;
-        var startTime = e.Reminders[0].Appointment.StartTime;
-
-        if (currentTime > startTime)
+        for(int i  = 0; i < e.Reminders.Count;  i++)
         {
-            return;
+            if (e.Reminders[i] != null && !e.Reminders[i].IsDismissed)
+            {
+                int id = int.Parse(e.Reminders[i].Appointment.Id.ToString());
+                Reminder reminder = App.appointmentRepo.GetReminderById(id);
+                if (reminder != null)
+                {
+                    if (!reminder.IsDismissed)
+                    {
+                        await DisplayAlert("Reminder", e.Reminders[0].Appointment.Subject + " - " + e.Reminders[0].Appointment.StartTime.ToString(" dddd, MMMM dd, yyyy, hh:mm tt"), "OK", "Dismiss");
+                        if (reminder != null)
+                        {
+                            reminder.IsDismissed = true;
+                        }
+                        App.appointmentRepo.UpdateReminder(reminder);
+                    }
+                }
+            }    
         }
+            
 
-        var reminderTime = startTime - e.Reminders[0].TimeBeforeStart;
-
-        if (currentTime >= reminderTime && currentTime < startTime && !e.Reminders[0].IsDismissed)//xet thoi gia reminder toi luc chua va current time phai be hon start time
-        {
-            bool snooze = await DisplayAlert("Reminder", e.Reminders[0].Appointment.Subject + " - " + startTime.ToString(), "Snooze", "Dismiss");
-
-            e.Reminders[0].IsDismissed = true;
-        }
     }
-    
+
     private void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)
     {
         TasksList.ItemsSource = null;
