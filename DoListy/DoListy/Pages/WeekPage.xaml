@@ -21,8 +21,6 @@
         <scheduler:SchedulerTextStyle x:Key="textStyle2" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark=#0047AB , Light= Black}"/>
         <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
         <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
-
-
     </ContentPage.Resources>
     
 
