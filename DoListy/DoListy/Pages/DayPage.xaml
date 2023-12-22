@@ -152,7 +152,7 @@
                                     <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
                                         <Label Text="{Binding Name}" Style="{StaticResource taskTitleLabelStyle}" Grid.Column="0" Grid.Row="0"/>
                                         <Label Text="{Binding EventStart}" Style="{StaticResource dateLabelStyle}" Grid.Column="0" Grid.Row="1"/>
-                                        <CheckBox Grid.Column="1" IsChecked="{Binding isDone}"   Grid.Row="0" Grid.RowSpan="2" >
+                                        <CheckBox Grid.Column="1" IsChecked="{Binding isDone}"   Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End">
                                             <CheckBox.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
                                             </CheckBox.GestureRecognizers>
