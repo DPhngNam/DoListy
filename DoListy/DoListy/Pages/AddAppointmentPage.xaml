@@ -4,6 +4,7 @@
              x:Class="DoListy.Pages.AddAppointmentPage"
              xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
              xmlns:picker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              Title=""
              Background="#0C134F">
@@ -176,6 +177,9 @@
                 <Button  x:Name="buttonCancle" CornerRadius="25" WidthRequest="150" HeightRequest="10" BorderColor="#FFFFFF" TextColor="White" Text="Cancel" Background="#0C134F" Pressed="buttonCancle_Pressed" Clicked="buttonCancle_Clicked"></Button>
                 <Button  x:Name="buttonCreate" CornerRadius="25" WidthRequest="150" HeightRequest="10" TextColor="black" Text="Create" Background="#8CABFF" Pressed="buttonCreate_Pressed" Clicked="buttonCreate_Clicked"></Button>
             </HorizontalStackLayout>
+            <toolkit:MediaElement x:Name="Mediaelement1" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
+            <toolkit:MediaElement x:Name="Mediaelement2" Source="embed://click.mp3" IsVisible="False" ></toolkit:MediaElement>
+            <toolkit:MediaElement x:Name="Mediaelement3" Source="embed://check.mp3" IsVisible="False" ></toolkit:MediaElement>
         </Grid>
     </ScrollView>
 </ContentPage>

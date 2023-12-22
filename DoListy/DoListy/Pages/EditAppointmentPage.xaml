@@ -6,6 +6,7 @@
              xmlns:picker="clr-namespace:Syncfusion.Maui.Picker;assembly=Syncfusion.Maui.Picker"
              xmlns:control="clr-namespace:Syncfusion.Maui.Calendar;assembly=Syncfusion.Maui.Calendar"
              xmlns:local="clr-namespace:DoListy.ViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Background="#0C134F"
              Title="">
     <ContentPage.Resources>
@@ -149,7 +150,14 @@
                         </picker:SfDateTimePicker.FooterView>
                     </picker:SfDateTimePicker>
                 </HorizontalStackLayout>
-                <HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label   Text="Reminder: " Style="{StaticResource labelPage}" ></Label>
+                <Entry  x:Name="EditReminder" Placeholder="Entry Number Content" Style="{StaticResource entryPage}" Margin="0,0,10,0"/>
+                <Picker x:Name="EditPickerRemnder" Style="{StaticResource pickerStyle}" TextColor="White"/>
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout>
                     <Label   Text="Notes: " Style="{StaticResource labelPage}" ></Label>
                     <Entry x:Name="NoteEdit" Style="{StaticResource entryPage}" HeightRequest="80"  WidthRequest="800"></Entry>
                 </HorizontalStackLayout>
@@ -159,5 +167,8 @@
             <Button x:Name="buttonCancle1" CornerRadius="25" WidthRequest="150" HeightRequest="10" BorderColor="#FFFFFF" TextColor="White" Text="Cancel" Background="#0C134F" Pressed="buttonCancle1_Pressed" Clicked="buttonCancle1_Clicked"></Button>
             <Button x:Name="buttonSave"  CornerRadius="25" WidthRequest="150" HeightRequest="10" TextColor="black" Text="Save" Background="#8CABFF" Pressed="buttonSave_Pressed" Clicked="buttonSave_Clicked"></Button>
         </HorizontalStackLayout>
+        <toolkit:MediaElement x:Name="Mediaelement1" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
+        <toolkit:MediaElement x:Name="Mediaelement2" Source="embed://click.mp3" IsVisible="False" ></toolkit:MediaElement>
+        <toolkit:MediaElement x:Name="Mediaelement3" Source="embed://check.mp3" IsVisible="False" ></toolkit:MediaElement>
     </Grid>
 </ContentPage>

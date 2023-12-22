@@ -18,6 +18,7 @@ public partial class AddAppointmentPage : ContentPage
 
     private void buttonCancle_Clicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         buttonCancle.Opacity = 1.0;
         Shell.Current.GoToAsync("..");
     }
@@ -29,6 +30,7 @@ public partial class AddAppointmentPage : ContentPage
     private void buttonCreate_Clicked(object sender, EventArgs e)
     {
         buttonCreate.Opacity = 1.0;
+        Mediaelement2.Play();
         Appointment appointment = new Appointment()
         {
             Name = entrySubject.Text,
@@ -80,7 +82,6 @@ public partial class AddAppointmentPage : ContentPage
                         IsDismissed = false,
                         TimeBeforeStart = a
                     };
-                    //temp1.Reminders = new System.Collections.ObjectModel.ObservableCollection<Reminder>(){temp2};
                     App.appointmentRepo.AddReminder(temp2);
                 }
                 App.appointmentRepo.Update(temp1);
@@ -98,6 +99,7 @@ public partial class AddAppointmentPage : ContentPage
 
     private void entryStartTime_Clicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         entryStartTime.Opacity = 1.0;
         pickerDateTime1.IsOpen = true;
     }
@@ -108,6 +110,7 @@ public partial class AddAppointmentPage : ContentPage
 
     private void entryEndTime_Clicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         entryEndTime.Opacity = 1.0;
         pickerDateTime2.IsOpen = true;
     }
@@ -118,39 +121,46 @@ public partial class AddAppointmentPage : ContentPage
 
     private void pickerDateTime1_CancelButtonClicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         pickerDateTime1.IsOpen = false;
     }
 
     private void pickerDateTime2_CancelButtonClicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         pickerDateTime2.IsOpen = false;
     }
 
     private void pickerDateTime2_OkButtonClicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         pickerDateTime2.IsOpen = false;
         entryEndTime.Text = pickerDateTime2.SelectedDate.ToString();
     }
 
     private void pickerDateTime1_OkButtonClicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         pickerDateTime1.IsOpen = false;
         entryStartTime.Text = pickerDateTime1.SelectedDate.ToString();
     }
 
     private void pickerDateTime3_CancelButtonClicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         pickerDateTime3.IsOpen = false;
     }
 
     private void pickerDateTime3_OkButtonClicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         pickerDateTime3.IsOpen = false;
         Until.Text = pickerDateTime3.SelectedDate.ToString("d");
     }
 
     private void Until_Clicked(object sender, EventArgs e)
     {
+        Mediaelement2.Play();
         Until.Opacity = 1.0;
         pickerDateTime3.IsOpen = true;
     }
