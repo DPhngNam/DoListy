@@ -29,6 +29,7 @@
         <toolkit:MediaElement x:Name="Mediaelement1" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
         <toolkit:MediaElement x:Name="Mediaelement2" Source="embed://click.mp3" IsVisible="False" ></toolkit:MediaElement>
         <toolkit:MediaElement x:Name="Mediaelement3" Source="embed://check.mp3" IsVisible="False" ></toolkit:MediaElement>
+        <toolkit:MediaElement x:Name="Mediaelement4" Source="embed://reminder.mp3" IsVisible="False" ></toolkit:MediaElement>
         <Frame Padding="0" Margin="20,0,15,25" BorderColor="Transparent" CornerRadius="1">
             <scheduler:SfScheduler CellBorderBrush="black"  Background="{AppThemeBinding Dark={StaticResource dayFrameBgColor}, Light={StaticResource dayFrameBgColorLight}}"
                 x:Name="Scheduler"

@@ -63,28 +63,21 @@ public partial class MonthPage : ContentPage
 
     private async void Scheduler_ReminderAlertOpening(object sender, Syncfusion.Maui.Scheduler.ReminderAlertOpeningEventArgs e)
     {
-        for(int i  = 0; i < e.Reminders.Count;  i++)
+        for (int i = 0; i < e.Reminders.Count; i++)
         {
-            if (e.Reminders[i] != null && !e.Reminders[i].IsDismissed)
+            if (!e.Reminders[i].IsDismissed)
             {
                 int id = int.Parse(e.Reminders[i].Appointment.Id.ToString());
-                Reminder reminder = App.appointmentRepo.GetReminderById(id);
-                if (reminder != null)
+                Reminder reminder = App.appointmentRepo.GetReminderByBeforeStartTime(e.Reminders[i].AlertTime, id);
+                if (reminder != null && !reminder.IsDismissed)
                 {
-                    if (!reminder.IsDismissed)
-                    {
-                        await DisplayAlert("Reminder", e.Reminders[0].Appointment.Subject + " - " + e.Reminders[0].Appointment.StartTime.ToString(" dddd, MMMM dd, yyyy, hh:mm tt"), "OK", "Dismiss");
-                        if (reminder != null)
-                        {
-                            reminder.IsDismissed = true;
-                        }
-                        App.appointmentRepo.UpdateReminder(reminder);
-                    }
+                    await DisplayAlert("Reminder", e.Reminders[i].Appointment.Subject + " - " + e.Reminders[i].Appointment.StartTime.ToString(" dddd, MMMM dd, yyyy, hh:mm tt"), "OK");
+                    Mediaelement4.Play();
+                    reminder.IsDismissed = true;
+                    App.appointmentRepo.UpdateReminder(reminder);
                 }
-            }    
+            }
         }
-            
-
     }
 
     private void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)

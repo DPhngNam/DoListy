@@ -124,6 +124,26 @@ namespace DoListy.Database
             return temp.FirstOrDefault();
         }
 
+        public Reminder GetReminderByBeforeStartTime(DateTime a, int id)
+        {
+            Appointment appointment = App.appointmentRepo.GetAppointmentByID(id);
+            
+            List<Reminder> reminders = new List<Reminder>(App.appointmentRepo.GetReminders());
+
+            foreach(Reminder reminder in reminders) 
+            {
+                if(reminder != null)
+                {
+                    if(appointment.EventStart - reminder.timeBeforeStart == a && reminder.IdAppointment == id)
+                    {
+                        return reminder;
+                    }    
+                }    
+            }
+            
+            return null;
+        }
+
         public List<Reminder> GetReminders()
         {
             Init();
