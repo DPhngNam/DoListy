@@ -6,6 +6,7 @@ using Microsoft.Maui.LifecycleEvents;
 using Plugin.Maui.Audio;
 using DoListy.Pages;
 using MetroLog.MicrosoftExtensions;
+using MetroLog.Operators;
 
 namespace DoListy
 {
@@ -33,7 +34,7 @@ namespace DoListy
             builder.Services.AddTransient<MonthPage>();
             builder.Services.AddTransient<DayPage>();
             builder.Services.AddTransient<YearPage>();
-            
+
 #if WINDOWS
     builder.ConfigureLifecycleEvents(events =>
     {
@@ -56,13 +57,46 @@ namespace DoListy
 #endif
             string dbpath = Path.Combine(FileSystem.AppDataDirectory, "Appointment.db");
             builder.Services.AddSingleton<AppointmentRepository>(s =>
-            ActivatorUtilities.CreateInstance<AppointmentRepository>(s,dbpath));
+            ActivatorUtilities.CreateInstance<AppointmentRepository>(s, dbpath));
 
 
 #if DEBUG
-            builder.Logging.AddDebug();
-                    
+            builder.Logging.AddTraceLogger(s =>
+            {
+                s.MinLevel = LogLevel.Trace;
+                s.MaxLevel = LogLevel.Critical;
+            })
 #endif
+            .AddInMemoryLogger(
+                options =>
+                {
+                    options.MaxLines = 1024;
+                    options.MinLevel = LogLevel.Debug;
+                    options.MaxLevel = LogLevel.Critical;
+                })
+
+
+#if RELEASE
+  .AddStreamingFileLogger(
+                options =>
+                {
+                    options.RetainDays = 2;
+                    options.FolderPath = Path.Combine(
+                        FileSystem.CacheDirectory,
+                        "MetroLogs");
+                })
+
+               
+#endif
+            .AddConsoleLogger(
+                options =>
+                {
+                    options.MinLevel = LogLevel.Information;
+                    options.MaxLevel = LogLevel.Critical;
+                }); // Will write to the Console Output (logcat for android)
+
+            builder.Services.AddSingleton(LogOperatorRetriever.Instance);
+            builder.Services.AddSingleton<MainPage>();
 
             return builder.Build();
         }
