@@ -6,6 +6,7 @@ using Microsoft.Maui.LifecycleEvents;
 using Plugin.Maui.Audio;
 using DoListy.Pages;
 using MetroLog.MicrosoftExtensions;
+using MetroLog.Operators;
 
 namespace DoListy
 {
@@ -61,10 +62,43 @@ namespace DoListy
 
 #if DEBUG
             builder.Logging.AddDebug();
-                    
+            builder.Logging.AddTraceLogger(
+                options =>
+                {
+                    options.MinLevel = LogLevel.Trace;
+                    options.MaxLevel = LogLevel.Critical;
+                });
+
 #endif
+            builder.Logging.AddInMemoryLogger(
+                options =>
+                {
+                    options.MaxLines = 1024;
+                    options.MinLevel = LogLevel.Debug;
+                    options.MaxLevel = LogLevel.Critical;
+                });
+#if RELEASE
+            builder.Logging.AddStreamingFileLogger(
+                options =>
+                {
+                    options.RetainDays = 2;
+                    options.FolderPath = Path.Combine(
+                        FileSystem.CacheDirectory,
+                        "MetroLogs");
+                });
+#endif
+            builder.Logging.AddConsoleLogger(
+                options =>
+                {
+                    options.MinLevel = LogLevel.Information;
+                    options.MaxLevel = LogLevel.Critical;
+                }); // Will write to the Console Output (logcat for android)
+
+            builder.Services.AddSingleton(LogOperatorRetriever.Instance);
+            builder.Services.AddSingleton<MainPage>();
 
             return builder.Build();
         }
     }
+ 
 }
