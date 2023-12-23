@@ -30,7 +30,7 @@ public partial class EditAppointmentPage : ContentPage
                 {
                     NoteEdit.Text = appointment.Note.ToString();
                 }
-                if(!string.IsNullOrEmpty(appointment.Until.ToString()))
+                if (!appointment.Until.Day.Equals(1/1/0001))
                 {
                     UntilEdit.Text = appointment.Until.ToString("d");
                     pickerDateTime3.SelectedDate = appointment.Until;
@@ -107,29 +107,20 @@ public partial class EditAppointmentPage : ContentPage
         appointment.Name = editSubject.Text;
         appointment.EventStart = pickerDateTime1.SelectedDate;
         appointment.EventEnd = pickerDateTime2.SelectedDate;
-        string until = appointment.Until.ToString("yyyyMMddTHHmmssZ");
-        string freq = appointment.Frequency;
-        string inter = appointment.Interval;
         if (ColorEdit.SelectedItem != null)
         {
             appointment.colorbgString = ColorEdit.ToString();
         }
-        if(pickerDateTime3.SelectedDate.ToString() != null)
+        if(pickerDateTime3.SelectedDate.ToString() != null && IntervalEdit.Text != null && FreqEdit.SelectedItem != null)
         {
             appointment.Until = pickerDateTime3.SelectedDate;
-            until = pickerDateTime3.SelectedDate.ToString("yyyyMMddTHHmmssZ");
-        }
-        if(IntervalEdit.Text != null)
-        {
+            string until = pickerDateTime3.SelectedDate.ToString("yyyyMMddTHHmmssZ");
             appointment.Interval = IntervalEdit.Text;
-            inter = IntervalEdit.Text;
-        }
-        if(FreqEdit.SelectedItem != null)
-        {
-            freq = FreqEdit.SelectedItem.ToString();
+            string inter = IntervalEdit.Text;
+            string freq = FreqEdit.SelectedItem.ToString();
             appointment.Frequency = FreqEdit.SelectedItem.ToString();
+            appointment.Recurrencerule = "FREQ=" + freq + ";INTERVAL=" + inter + ";UNTIL=" + until;
         }
-        appointment.Recurrencerule = "FREQ=" + freq + ";INTERVAL=" + inter + ";UNTIL=" + until;
         App.appointmentRepo.Update(appointment);
         if(EditReminder.Text != null && EditPickerRemnder.SelectedItem != null)
         {
