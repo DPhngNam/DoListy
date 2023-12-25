@@ -171,7 +171,7 @@
 
                         <HorizontalStackLayout  Spacing="100">
                             <Label  FontSize="Medium" Text="Title" Style="{StaticResource textColor}"/>
-                            <Label  FontSize="Large"  FontAttributes="Bold" x:Name="TaskTitle" Style="{StaticResource textColor}" />
+                            <Label  FontSize="Medium"  FontAttributes="Bold" x:Name="TaskTitle" Style="{StaticResource textColor}" />
                         </HorizontalStackLayout>
 
                         <HorizontalStackLayout Spacing="40">
@@ -200,9 +200,13 @@
 
                         <HorizontalStackLayout Spacing="40">
                             <Label  FontSize="Medium" Text="Note" Style="{StaticResource textColor}"/>
+                            
+                               
                             <Label x:Name="Notes" FontAttributes="Bold"
                                     FontSize="Medium"
-                                   Style="{StaticResource textColor}"/>
+                                    Style="{StaticResource textColor}" LineBreakMode="CharacterWrap"/>
+                                
+                            
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
 
