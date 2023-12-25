@@ -20,18 +20,15 @@ public partial class DayPage : ContentPage
         InitializeComponent();
         this.audioManager = audioManager;
         loadAppointments();
-        Load(DateTime.Now);
+        Load(temp);
     }
 
     //Weather
     private string s = "";
     protected override async void OnAppearing()
     {
-        base.OnAppearing();
-        
-        
+        base.OnAppearing();              
         var result = await ApiService.getWeather(10.823, 106.6296);
-
         switch (result.current.weather_code)
         {
             //0
@@ -192,19 +189,14 @@ public partial class DayPage : ContentPage
 
         }
         weatherImage.Source = s;
-
     }
 
     private async void weatherImage_Clicked(object sender, EventArgs e)
     {
         weatherImage.Opacity = 1.0;
         await Shell.Current.GoToAsync(nameof(WeatherPage));
-
     }
     //Weather
-
-    
-
 
     private async void buttonAddTask_Clicked(object sender, EventArgs e)
     {
@@ -214,11 +206,17 @@ public partial class DayPage : ContentPage
         var add = (AddAppointmentPage)Shell.Current.CurrentPage;
         add.entryStartTime.Text = temp.ToString();
         add.pickerDateTime1.SelectedDate = temp;
-
-        loadAppointments();
+        
+        await Task.Delay(2);
+        
+        await LoadAsync(temp); // Assuming Load method is asynchronous
     }
 
-
+    private async Task LoadAsync(DateTime temp)
+    {
+        loadAppointments();
+        Load(temp);
+    }
     public void loadAppointments()
     {
         List<Appointment> appointments = App.appointmentRepo.GetAppointments();
@@ -250,11 +248,9 @@ public partial class DayPage : ContentPage
         {
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
-            Load(xxx);
             loadAppointments();
-            
-        }
-        
+            Load(xxx);   
+        }       
     }
 
 
