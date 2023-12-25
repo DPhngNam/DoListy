@@ -123,14 +123,13 @@
             </Grid.ColumnDefinitions>
             
             <!--Task frame-->
-            <Frame Style="{StaticResource CommonFrame}" x:Name="frame_A" Grid.Row="2"  Grid.Column="0" Margin="30,0,0,10" >
+            <Frame Style="{StaticResource taskFrameStyle}" x:Name="frame_A" Grid.Row="2"  Grid.Column="0" Margin="30,0,0,10" >
                 <VerticalStackLayout Spacing="5">
                     <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
-                        <Label Style="{StaticResource taskFrameHeaderLabelStyle}" Text="Tasks" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.Row="0"/>
-
-                        <ImageButton HeightRequest="2" WidthRequest="2" Pressed="buttonAddAppointment_Pressed"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddTask_Clicked" Source="plus.png" Grid.Column="2" Grid.Row="0"/>
+                        <Label Style="{StaticResource taskFrameHeaderLabelStyle}" Text="Tasks" FontSize="20" FontAttributes="Bold" Grid.Column="0" />
+                        <ImageButton HeightRequest="2" WidthRequest="2" Pressed="buttonAddAppointment_Pressed"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddTask_Clicked" Source="plus.png" Grid.Column="2" />
                     </Grid>
-                    <BoxView Color="White" HeightRequest="1"/>
+                    <BoxView Color="{AppThemeBinding Dark=White, Light=Black}" HeightRequest="1"/>
 
                     <ListView x:Name="TaskDaily" BackgroundColor="Transparent" ItemSelected="TasksList_ItemSelected" ItemTapped="TasksList_ItemTapped" Margin="20,0,0,0">
                         <ListView.ItemTemplate>
@@ -140,18 +139,16 @@
                                         <MenuItem Text="Delete"
                                           Clicked="MenuItem_Clicked"
                                           CommandParameter="{Binding .}">
-
                                         </MenuItem>
                                         <MenuItem Text="Change"
                                                   Clicked="MenuItem_Clicked_1"
                                                   CommandParameter="{Binding .}">
-
                                         </MenuItem>
                                     </ViewCell.ContextActions>
 
-                                    <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
-                                        <Label Text="{Binding Name}" Style="{StaticResource taskTitleLabelStyle}" Grid.Column="0" Grid.Row="0"/>
-                                        <Label Text="{Binding EventStart}" Style="{StaticResource dateLabelStyle}" Grid.Column="0" Grid.Row="1"/>
+                                    <Grid ColumnDefinitions="auto,*" RowDefinitions="*,*">
+                                        <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" Grid.Column="0" Grid.Row="0"/>
+                                        <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" Grid.Column="0" Grid.Row="1"/>
                                         <CheckBox Grid.Column="1" IsChecked="{Binding isDone}"   Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End">
                                             <CheckBox.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
@@ -166,7 +163,7 @@
                 </VerticalStackLayout>
             </Frame>
             <!--Details frame-->
-            <Frame Style="{StaticResource CommonFrame}" x:Name="frame_B"  Grid.Column="1" Margin="45,0,0,10">
+            <Frame Style="{StaticResource taskFrameStyle}" x:Name="frame_B"  Grid.Column="1" Margin="45,0,0,10">
                 <VerticalStackLayout x:Name="st">
                     <Label Text="Task details" Style="{StaticResource textColor}" FontSize="20" FontAttributes="Bold" Margin="20,0,0,0"/>
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" Margin="0,0,0,10"/>
@@ -174,7 +171,7 @@
 
                         <HorizontalStackLayout  Spacing="100">
                             <Label  FontSize="Medium" Text="Title" Style="{StaticResource textColor}"/>
-                            <Label  FontSize="Large"  FontAttributes="Bold" x:Name="TaskTitle" Style="{StaticResource textColor}" />
+                            <Label  FontSize="Medium"  FontAttributes="Bold" x:Name="TaskTitle" Style="{StaticResource textColor}" />
                         </HorizontalStackLayout>
 
                         <HorizontalStackLayout Spacing="40">
@@ -203,9 +200,13 @@
 
                         <HorizontalStackLayout Spacing="40">
                             <Label  FontSize="Medium" Text="Note" Style="{StaticResource textColor}"/>
+                            
+                               
                             <Label x:Name="Notes" FontAttributes="Bold"
                                     FontSize="Medium"
-                                   Style="{StaticResource textColor}"/>
+                                    Style="{StaticResource textColor}" LineBreakMode="CharacterWrap"/>
+                                
+                            
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
 
