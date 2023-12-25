@@ -74,7 +74,7 @@ public partial class MonthPage : ContentPage
                     await DisplayAlert("Reminder", e.Reminders[i].Appointment.Subject + " - " + e.Reminders[i].Appointment.StartTime.ToString(" dddd, MMMM dd, yyyy, hh:mm tt"), "OK");
                     Mediaelement4.Play();
                     reminder.IsDismissed = true;
-                    App.appointmentRepo.UpdateReminder(reminder);
+                    App.appointmentRepo.DeleteReminder(reminder);
                 }
             }
         }
@@ -94,6 +94,7 @@ public partial class MonthPage : ContentPage
         if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
         {
             App.appointmentRepo.DeleteAppointment(appointment);
+            App.appointmentRepo.DeleteReminder(App.appointmentRepo.GetReminderById(appointment.Id));
             loadAppointments();
             TasksList.ItemsSource = null;
         }

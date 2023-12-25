@@ -58,7 +58,6 @@ public partial class AddAppointmentPage : ContentPage
         App.appointmentRepo.AddAppointment(appointment);
         if (pickerRemnder.SelectedItem != null && entryReminder.Text != null)
         {
-
             Appointment temp1 = App.appointmentRepo.GetLastAppointment();
             if (temp1 != null)
             {

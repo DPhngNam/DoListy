@@ -144,6 +144,7 @@ public partial class WeekPage : ContentPage
         {
             Clicked_Sound.Play();
             App.appointmentRepo.DeleteAppointment(appointment);
+            App.appointmentRepo.DeleteReminder(App.appointmentRepo.GetReminderById(appointment.Id));
             loadAppointments();
             List<Appointment> postDeleteAppointment = App.appointmentRepo.GetAppointments(); 
             Tasklist.ItemsSource = postDeleteAppointment ;
@@ -212,7 +213,7 @@ public partial class WeekPage : ContentPage
                     await DisplayAlert("Reminder", e.Reminders[i].Appointment.Subject + " - " + e.Reminders[i].Appointment.StartTime.ToString(" dddd, MMMM dd, yyyy, hh:mm tt"), "OK");
                     Mediaelement4.Play();
                     reminder.IsDismissed = true;
-                    App.appointmentRepo.UpdateReminder(reminder);
+                    App.appointmentRepo.DeleteReminder(reminder);
                 }
             }
         }
