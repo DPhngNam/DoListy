@@ -6,13 +6,12 @@
     xmlns:local="clr-namespace:DoListy"
     Shell.FlyoutBehavior="Disabled"
     >
-
     <FlyoutItem>
 
-        <ShellContent Title="Day" Route="Day" ContentTemplate="{DataTemplate local:Pages.DayPage}"/>
-        <ShellContent Title="Week" Route="Week" ContentTemplate="{DataTemplate local:Pages.WeekPage}"/>
-        <ShellContent Title="Month" Route="Month" ContentTemplate="{DataTemplate local:Pages.MonthPage}"/>
-        <ShellContent Title="Year" Route="Year" ContentTemplate="{DataTemplate local:Pages.YearPage}"/>
+        <ShellContent Title="Day" Icon="dayicon.png" Route="Day" ContentTemplate="{DataTemplate local:Pages.DayPage}"/>
+        <ShellContent Title="Week" Icon="weekicon.png" Route="Week" ContentTemplate="{DataTemplate local:Pages.WeekPage}"/>
+        <ShellContent Title="Month" Icon="monthicon.png" Route="Month" ContentTemplate="{DataTemplate local:Pages.MonthPage}"/>
+        <ShellContent Title="Year" Icon="yearicon.png" Route="Year" ContentTemplate="{DataTemplate local:Pages.YearPage}"/>
     </FlyoutItem>
 
 </Shell>
