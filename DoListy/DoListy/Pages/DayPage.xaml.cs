@@ -13,7 +13,7 @@ public partial class DayPage : ContentPage
 
 
     //set the setting task's day is Now (for tempo)            
-    private DateTime temp = DateTime.Now;
+    public  DateTime temp = DateTime.Now;
 
     public DayPage(IAudioManager audioManager)
     {
@@ -27,7 +27,8 @@ public partial class DayPage : ContentPage
     private string s = "";
     protected override async void OnAppearing()
     {
-        base.OnAppearing();              
+        base.OnAppearing();
+        
         var result = await ApiService.getWeather(10.823, 106.6296);
         switch (result.current.weather_code)
         {
@@ -225,7 +226,7 @@ public partial class DayPage : ContentPage
 
     }
 
-    private void Load(DateTime current)
+    public void Load(DateTime current)
     {
         var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
         List<Appointment> appointmennts = new List<Appointment>();
