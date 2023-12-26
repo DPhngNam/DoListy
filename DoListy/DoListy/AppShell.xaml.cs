@@ -11,8 +11,20 @@ namespace DoListy
             Routing.RegisterRoute(nameof(PomodoroPage), typeof(PomodoroPage));
             Routing.RegisterRoute(nameof(WeatherPage), typeof(WeatherPage));
             Routing.RegisterRoute(nameof(EditAppointmentPage), typeof(EditAppointmentPage));
-            SetTabBarBackgroundColor(this, Color.FromArgb("#ffcdf5fd"));
-            SetTabBarForegroundColor(this, Colors.White);
+           
+            if (App.appointmentRepo.GetSettings().mode)
+            {
+                Application.Current.UserAppTheme = AppTheme.Dark;
+
+                SetTabBarBackgroundColor(this, Color.FromArgb("#ff081b25"));
+                SetTabBarForegroundColor(this, Colors.White);
+            }
+            else
+            {
+                Application.Current.UserAppTheme = AppTheme.Light;
+                SetTabBarBackgroundColor(this, Color.FromArgb("#ffcdf5fd"));
+                SetTabBarForegroundColor(this, Colors.Black);
+            }
         }
     }
 }
