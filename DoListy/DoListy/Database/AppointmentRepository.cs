@@ -143,6 +143,15 @@ namespace DoListy.Database
             
             return null;
         }
+        public void DeleteReminder(Reminder reminder)
+        {
+            Init();
+            if(reminder != null)
+            {
+                conn.Delete(reminder);
+            }
+            
+        }
 
         public List<Reminder> GetReminders()
         {

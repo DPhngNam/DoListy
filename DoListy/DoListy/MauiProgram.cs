@@ -7,7 +7,8 @@ using Plugin.Maui.Audio;
 using DoListy.Pages;
 using MetroLog.MicrosoftExtensions;
 using MetroLog.Operators;
-
+using Microsoft.Maui.Controls.Hosting;
+using Microsoft.Maui.Hosting;
 namespace DoListy
 {
     public static class MauiProgram
@@ -34,11 +35,10 @@ namespace DoListy
             builder.Services.AddTransient<MonthPage>();
             builder.Services.AddTransient<DayPage>();
             builder.Services.AddTransient<YearPage>();
-            
+
 #if WINDOWS
     builder.ConfigureLifecycleEvents(events =>
     {
-        // Make sure to add "using Microsoft.Maui.LifecycleEvents;" in the top of the file 
         events.AddWindows(windowsLifecycleBuilder =>
         {
             windowsLifecycleBuilder.OnWindowCreated(window =>
@@ -55,6 +55,7 @@ namespace DoListy
         });
     });
 #endif
+
             string dbpath = Path.Combine(FileSystem.AppDataDirectory, "Appointment.db");
             builder.Services.AddSingleton<AppointmentRepository>(s =>
             ActivatorUtilities.CreateInstance<AppointmentRepository>(s,dbpath));

@@ -31,7 +31,7 @@
         >
         <toolkit:MediaElement x:Name="CheckBox_Sound" Source="embed://check.mp3" IsVisible="False" ></toolkit:MediaElement>
         <toolkit:MediaElement x:Name="Clicked_Sound" Source="embed://click.mp3" IsVisible="False"></toolkit:MediaElement>
-
+        <toolkit:MediaElement x:Name="Mediaelement4" Source="embed://reminder.mp3" IsVisible="False" ></toolkit:MediaElement>
         <!--scheduler week view-->
         <scheduler:SfScheduler
             Grid.Column="0"
@@ -44,6 +44,8 @@
              x:FieldModifier="public"
             AllowViewNavigation="True"
             Tapped="WeekPageScheduler_Tapped"
+            EnableReminder="True"
+            ReminderAlertOpening="WeekPageScheduler_ReminderAlertOpening"
             Background="{AppThemeBinding Dark={StaticResource SchedulerBackgroundDark},Light={StaticResource SchedulerBackgroundLight}}"
             >
 
@@ -56,7 +58,12 @@
                                                            StartTime="EventStart"
                                                            Background="Colorbg"
                                                            EndTime="EventEnd"
+                                                           Reminders="Reminders"
                                                            RecurrenceRule="Recurrencerule">
+                    <scheduler:SchedulerAppointmentMapping.ReminderMapping>
+                        <scheduler:SchedulerReminderMapping IsDismissed="IsDismissed"
+                                                                TimeBeforeStart="timeBeforeStart"/>
+                    </scheduler:SchedulerAppointmentMapping.ReminderMapping>
                 </scheduler:SchedulerAppointmentMapping>
             </scheduler:SfScheduler.AppointmentMapping>
             <!--Headerview-->

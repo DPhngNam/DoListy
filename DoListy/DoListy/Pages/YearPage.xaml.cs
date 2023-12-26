@@ -44,7 +44,6 @@ public partial class YearPage : ContentPage
         string goalName="";
         DateTime goalInYear = CurrentDate;
         DateTime goalInYear1 = CurrentDate;
-        int flag1 = 0;
         for (int i=0; i<countGoal; i++)
         {
             
