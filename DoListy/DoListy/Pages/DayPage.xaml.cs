@@ -222,7 +222,6 @@ public partial class DayPage : ContentPage
         List<Appointment> appointments = App.appointmentRepo.GetAppointments();
         var AppointmentEvents = new ObservableCollection<Appointment>(appointments);
         DayPageScheduler.AppointmentsSource = AppointmentEvents;
-
     }
 
     private void Load(DateTime current)

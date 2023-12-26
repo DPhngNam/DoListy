@@ -24,6 +24,7 @@ public partial class MonthPage : ContentPage
     {
         base.OnAppearing();
         loadAppointments();
+        Load(DateTime.Now);
     }
     public void loadAppointments()
     {
@@ -71,8 +72,8 @@ public partial class MonthPage : ContentPage
                 Reminder reminder = App.appointmentRepo.GetReminderByBeforeStartTime(e.Reminders[i].AlertTime, id);
                 if (reminder != null && !reminder.IsDismissed)
                 {
-                    await DisplayAlert("Reminder", e.Reminders[i].Appointment.Subject + " - " + e.Reminders[i].Appointment.StartTime.ToString(" dddd, MMMM dd, yyyy, hh:mm tt"), "OK");
                     Mediaelement4.Play();
+                    await DisplayAlert("Reminder", e.Reminders[i].Appointment.Subject + " - " + e.Reminders[i].Appointment.StartTime.ToString(" dddd, MMMM dd, yyyy, hh:mm tt"), "OK");
                     reminder.IsDismissed = true;
                     App.appointmentRepo.DeleteReminder(reminder);
                 }
@@ -148,5 +149,20 @@ public partial class MonthPage : ContentPage
         btnSettings.Opacity = 1.0;
         SettingPage newSettingPage = new SettingPage();
         this.ShowPopup(newSettingPage);
+    }
+
+    private void Load(DateTime current)
+    {
+        var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
+        List<Appointment> appointmennts = new List<Appointment>();
+
+        foreach (Appointment app in CurrentAppointment)
+        {
+            if (app.EventStart.Day <= current.Day && current.Day <= app.EventEnd.Day)
+            {
+                appointmennts.Add(app);
+            }
+        }
+        TasksList.ItemsSource = appointmennts;
     }
 }

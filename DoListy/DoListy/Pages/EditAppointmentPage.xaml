@@ -159,7 +159,7 @@
             
             <HorizontalStackLayout>
                     <Label   Text="Notes: " Style="{StaticResource labelPage}" ></Label>
-                    <Entry x:Name="NoteEdit" Style="{StaticResource entryPage}" HeightRequest="80"  WidthRequest="800"></Entry>
+                    <Editor x:Name="NoteEdit" Style="{StaticResource entryPage}" HeightRequest="80"  WidthRequest="800"></Editor>
                 </HorizontalStackLayout>
             
         </VerticalStackLayout>

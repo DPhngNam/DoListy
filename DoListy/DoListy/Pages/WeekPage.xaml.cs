@@ -136,8 +136,6 @@ public partial class WeekPage : ContentPage
         }
     }
 
-
-
     private void MenuItem_Clicked(object sender, EventArgs e)
     {
         if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
