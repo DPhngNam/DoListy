@@ -200,13 +200,15 @@
 
                         <HorizontalStackLayout Spacing="40">
                             <Label  FontSize="Medium" Text="Note" Style="{StaticResource textColor}"/>
-                            
-                               
-                            <Label x:Name="Notes" FontAttributes="Bold"
+
+                            <ScrollView HeightRequest="50">
+                            <Editor x:Name="Notes" FontAttributes="Bold"
                                     FontSize="Medium"
-                                    Style="{StaticResource textColor}" LineBreakMode="CharacterWrap"/>
-                                
-                            
+                                    Style="{StaticResource textColor}" IsReadOnly="True" 
+                                WidthRequest="250"
+                                HeightRequest="50"/>
+                            </ScrollView>
+
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
 

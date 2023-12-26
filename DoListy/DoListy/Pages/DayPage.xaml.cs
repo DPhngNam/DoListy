@@ -276,7 +276,7 @@ public partial class DayPage : ContentPage
                 frame_B.FindByName<Label>("State").Text = "Done";
             }
 
-            frame_B.FindByName<Label>("Notes").Text = Current.Note;
+            frame_B.FindByName<Editor>("Notes").Text = Current.Note;
         }
 
     }
