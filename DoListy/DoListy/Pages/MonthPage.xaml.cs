@@ -51,6 +51,7 @@ public partial class MonthPage : ContentPage
         btnOpenDeatil.Opacity = 1.0;
         await Shell.Current.GoToAsync("//Day");
         var daypage = (DayPage)Shell.Current.CurrentPage;
+        daypage.Load(xxx);
     }
     private void btnOpenDeatil_Pressed(object sender, EventArgs e)
     {
@@ -86,7 +87,10 @@ public partial class MonthPage : ContentPage
         TasksList.ItemsSource = null;
         if (e.Appointments == null) return;
         TasksList.ItemsSource = e.Appointments;
+        
         loadAppointments();
+        xxx = e.Date.Value;
+        Load(e.Date.Value);
     }
 
     private void MenuItem_Clicked(object sender, EventArgs e)
@@ -150,12 +154,12 @@ public partial class MonthPage : ContentPage
         SettingPage newSettingPage = new SettingPage();
         this.ShowPopup(newSettingPage);
     }
-
+    private DateTime xxx;
     private void Load(DateTime current)
     {
         var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
         List<Appointment> appointmennts = new List<Appointment>();
-
+        
         foreach (Appointment app in CurrentAppointment)
         {
             if (app.EventStart.Day <= current.Day && current.Day <= app.EventEnd.Day)
