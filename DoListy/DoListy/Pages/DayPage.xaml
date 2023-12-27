@@ -171,41 +171,39 @@
                     <VerticalStackLayout  x:Name="DetailTaskStack" Spacing="30" Margin="20,20,0,0">
 
                         <HorizontalStackLayout  Spacing="100">
-                            <Label  FontSize="Medium" Text="Title" Style="{StaticResource textColor}"/>
-                            <Label  FontSize="Medium"  FontAttributes="Bold" x:Name="TaskTitle" Style="{StaticResource textColor}" />
+                            <Label  Text="Title" Style="{StaticResource taskDateLabelStyle}"/>
+                            <Label  FontAttributes="Bold" x:Name="TaskTitle" Style="{StaticResource taskDateLabelStyle}" />
                         </HorizontalStackLayout>
 
                         <HorizontalStackLayout Spacing="40">
-                            <Label  FontSize="Medium" Text="Start Time" Style="{StaticResource textColor}"/>
+                            <Label  Text="Start Time" Style="{StaticResource taskDateLabelStyle}"/>
                             <Label x:Name="StartTime" 
                                    FontAttributes="Bold" 
-                                    FontSize="Medium"
-                                   Style="{StaticResource textColor}"/>
+                                     Style="{StaticResource taskDateLabelStyle}"/>
                         </HorizontalStackLayout>
 
                         <HorizontalStackLayout Spacing="50">
-                            <Label  FontSize="Medium" Text="End Time" Style="{StaticResource textColor}"/>
+                            <Label Text="End Time" Style="{StaticResource taskDateLabelStyle}"/>
                             <Label x:Name="EndTime"
                                    FontAttributes="Bold"
-                                    FontSize="Medium"
-                                    Style="{StaticResource textColor}"/>
+                                   Style="{StaticResource taskDateLabelStyle}"/>
                         </HorizontalStackLayout>
 
                         <HorizontalStackLayout Spacing="60">
-                            <Label  FontSize="Medium" Text="State" Style="{StaticResource textColor}"/>
+                            <Label Text="State" Style="{StaticResource taskDateLabelStyle}"/>
                             <Label x:Name="State" 
                                    FontAttributes="Bold"
-                                    FontSize="Medium"
-                                   Style="{StaticResource textColor}"/>
+                                   
+                                   Style="{StaticResource taskDateLabelStyle}"/>
                         </HorizontalStackLayout >
 
                         <HorizontalStackLayout Spacing="40">
-                            <Label  FontSize="Medium" Text="Note" Style="{StaticResource textColor}"/>
+                            <Label  Text="Note" Style="{StaticResource taskDateLabelStyle}"/>
 
                             <ScrollView HeightRequest="50">
                             <Editor x:Name="Notes" FontAttributes="Bold"
-                                    FontSize="Medium"
-                                    Style="{StaticResource textColor}" IsReadOnly="True" 
+                                    
+                                    Style="{StaticResource taskDateLabelStyle}" IsReadOnly="True" 
                                 WidthRequest="250"
                                 HeightRequest="50"/>
                             </ScrollView>
