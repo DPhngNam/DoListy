@@ -11,6 +11,35 @@ namespace DoListy.Pages;
 public partial class DayPage : ContentPage
 {
     private readonly IAudioManager audioManager;
+    private void Pomodoro_Pressed(object sender, EventArgs e)
+    {
+        Pomodoro.Opacity = 0.5;
+    }
+    private void weatherImage_Pressed(object sender, EventArgs e)
+    {
+        weatherImage.Opacity = 0.5;
+    }
+    private void buttonAddAppointment_Pressed(object sender, EventArgs e)
+    {
+        buttonAddAppointment.Opacity = 0.5;
+    }
+    private void Settingbtn_Clicked(object sender, EventArgs e)
+    {
+        Settingbtn.Opacity = 1.0;
+        Mediaelement2.Play();
+        SettingPage st = new SettingPage();
+        this.ShowPopup(st);
+    }
+    private void Settingbtn_Pressed(object sender, EventArgs e)
+    {
+        Settingbtn.Opacity = 0.5;
+    }
+    private void Pomodoro_Clicked(object sender, EventArgs e)
+    {
+        Mediaelement2.Play();
+        Pomodoro.Opacity = 1.0;
+        Navigation.PushModalAsync(new PomodoroPage(audioManager));
+    }
     //set the setting task's day is Now (for tempo)            
     public  DateTime temp = DateTime.Now;
     public void loadAppointments()
@@ -210,7 +239,7 @@ public partial class DayPage : ContentPage
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
         
     }
-    
+    private DateTime xxx;
     public void Load(DateTime current)
     {
         var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
@@ -225,7 +254,7 @@ public partial class DayPage : ContentPage
         }
         TaskDaily.ItemsSource = appointmennts;
     }
-    private DateTime xxx;
+    
     private void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)
     {
         Mediaelement2.Play();
@@ -313,37 +342,5 @@ public partial class DayPage : ContentPage
         }
     }
 
-    private void Pomodoro_Pressed(object sender, EventArgs e)
-    {
-        Pomodoro.Opacity = 0.5;
-    }
-
-    private void weatherImage_Pressed(object sender, EventArgs e)
-    {
-        weatherImage.Opacity = 0.5;
-    }
-
-    private void buttonAddAppointment_Pressed(object sender, EventArgs e)
-    {
-        buttonAddAppointment.Opacity = 0.5;
-    }
-
-    private void Settingbtn_Clicked(object sender, EventArgs e)
-    {
-        Settingbtn.Opacity = 1.0;
-        Mediaelement2.Play();
-        SettingPage st = new SettingPage();
-        this.ShowPopup(st);
-    }
-
-    private void Settingbtn_Pressed(object sender, EventArgs e)
-    {
-        Settingbtn.Opacity = 0.5;
-    }
-    private void Pomodoro_Clicked(object sender, EventArgs e)
-    {
-        Mediaelement2.Play();
-        Pomodoro.Opacity = 1.0;
-        Navigation.PushModalAsync(new PomodoroPage(audioManager));
-    }
+    
 }
