@@ -147,8 +147,8 @@
                                     </ViewCell.ContextActions>
 
                                     <Grid ColumnDefinitions="auto,*" RowDefinitions="*,*">
-                                        <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" Grid.Column="0" Grid.Row="0"/>
-                                        <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" Grid.Column="0" Grid.Row="1"/>
+                                        <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+                                        <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"/>
                                         <CheckBox Grid.Column="1" IsChecked="{Binding isDone}"   Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End">
                                             <CheckBox.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
