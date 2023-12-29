@@ -127,7 +127,7 @@
                 <VerticalStackLayout Spacing="5">
                     <Grid ColumnDefinitions="0.45*,*,auto" >
                         <Label Style="{StaticResource taskFrameHeaderLabelStyle}" Text="Tasks for "  FontAttributes="Bold" Grid.Column="0" />
-                        <Label x:Name="whatDay" Style="{StaticResource taskFrameHeaderLabelStyle}" FontAttributes="Bold" Grid.Column="1"/>
+                        <Label x:Name="whatDay" Style="{StaticResource taskFrameHeaderLabelStyle}" FontAttributes="Bold" Grid.Column="1" />
                         <ImageButton HeightRequest="2" WidthRequest="2" Pressed="buttonAddAppointment_Pressed"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddTask_Clicked" Source="plus.png" Grid.Column="2" />
                     </Grid>
                     <BoxView Color="{AppThemeBinding Dark=White, Light=Black}" HeightRequest="1"/>
@@ -150,7 +150,7 @@
                                     <Grid ColumnDefinitions="auto,*" RowDefinitions="*,*">
                                         <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
                                         <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"/>
-                                        <CheckBox Grid.Column="1" IsChecked="{Binding isDone}"   Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End">
+                                        <CheckBox Grid.Column="1" Color="Blue" IsChecked="{Binding isDone}"   Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End">
                                             <CheckBox.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
                                             </CheckBox.GestureRecognizers>
@@ -186,7 +186,7 @@
                         <ScrollView HeightRequest="180" WidthRequest="200" Grid.Row="4" Grid.Column="1" HorizontalOptions="Center">
                             <Editor x:Name="Notes" FontAttributes="Bold"    
                                         IsReadOnly="True"   HeightRequest="180"    WidthRequest="200"       
-                                        VerticalOptions="StartAndExpand"/>
+                                        VerticalOptions="StartAndExpand" />
                         </ScrollView>
                     </Grid>
                 </VerticalStackLayout>

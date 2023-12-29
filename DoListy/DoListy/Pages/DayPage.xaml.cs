@@ -53,6 +53,7 @@ public partial class DayPage : ContentPage
         InitializeComponent();
         this.audioManager = audioManager;
         loadAppointments();
+        whatDay.Text = temp.Date.ToString(" dddd dd/MM/yyyy ");
         Load(temp);
     }
 
@@ -239,11 +240,13 @@ public partial class DayPage : ContentPage
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));       
     }
     private DateTime xxx;
+    private List<Appointment> appointmennts = new List<Appointment>();
     public void Load(DateTime current)
     {
         var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
-        List<Appointment> appointmennts = new List<Appointment>();
-        frame_A.FindByName<Label>("whatDay").Text = current.Date.ToString(" dddd dd/MM/yyyy ") ;
+        appointmennts.Clear();
+
+
         foreach (Appointment app in CurrentAppointment)
         {
             if (app.EventStart.Day <= current.Day && current.Day <= app.EventEnd.Day)
@@ -262,8 +265,10 @@ public partial class DayPage : ContentPage
         {
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
+            whatDay.Text = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
             
-            Load(xxx);   
+            loadAppointments();
+            Load(e.Date.Value);   
         }       
     }
 
@@ -333,7 +338,7 @@ public partial class DayPage : ContentPage
                 var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
                 player.Play();
 
-                if (!Current.IsDone)
+                if (!Current.IsDone && Current != null)
                 {
                     frame_B.FindByName<Label>("State").Text = "Done";
                 }
