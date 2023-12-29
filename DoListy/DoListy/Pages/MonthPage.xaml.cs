@@ -154,7 +154,7 @@ public partial class MonthPage : ContentPage
         SettingPage newSettingPage = new SettingPage();
         this.ShowPopup(newSettingPage);
     }
-    private DateTime xxx;
+    private DateTime xxx = DateTime.Now;
     private void Load(DateTime current)
     {
         var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());

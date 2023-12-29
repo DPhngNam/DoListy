@@ -243,7 +243,7 @@ public partial class DayPage : ContentPage
     {
         var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
         List<Appointment> appointmennts = new List<Appointment>();
-
+        frame_A.FindByName<Label>("whatDay").Text = current.Date.ToString(" dddd dd/MM/yyyy ") ;
         foreach (Appointment app in CurrentAppointment)
         {
             if (app.EventStart.Day <= current.Day && current.Day <= app.EventEnd.Day)
@@ -262,7 +262,7 @@ public partial class DayPage : ContentPage
         {
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
-            frame_A.FindByName<Label>("whatDay").Text = xxx.DayOfWeek.ToString();
+            
             Load(xxx);   
         }       
     }
