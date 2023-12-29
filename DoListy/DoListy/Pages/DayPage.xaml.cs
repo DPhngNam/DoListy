@@ -5,16 +5,49 @@ using Appointment = DoListy.ViewModel.Appointment;
 using DoListy.Weather;
 using Syncfusion.Maui.Scheduler;
 using CommunityToolkit.Maui.Views;
+using XCalendar.Core.Extensions;
 
 namespace DoListy.Pages;
 public partial class DayPage : ContentPage
 {
     private readonly IAudioManager audioManager;
-
-
+    private void Pomodoro_Pressed(object sender, EventArgs e)
+    {
+        Pomodoro.Opacity = 0.5;
+    }
+    private void weatherImage_Pressed(object sender, EventArgs e)
+    {
+        weatherImage.Opacity = 0.5;
+    }
+    private void buttonAddAppointment_Pressed(object sender, EventArgs e)
+    {
+        buttonAddAppointment.Opacity = 0.5;
+    }
+    private void Settingbtn_Clicked(object sender, EventArgs e)
+    {
+        Settingbtn.Opacity = 1.0;
+        Mediaelement2.Play();
+        SettingPage st = new SettingPage();
+        this.ShowPopup(st);
+    }
+    private void Settingbtn_Pressed(object sender, EventArgs e)
+    {
+        Settingbtn.Opacity = 0.5;
+    }
+    private void Pomodoro_Clicked(object sender, EventArgs e)
+    {
+        Mediaelement2.Play();
+        Pomodoro.Opacity = 1.0;
+        Navigation.PushModalAsync(new PomodoroPage(audioManager));
+    }
     //set the setting task's day is Now (for tempo)            
     public  DateTime temp = DateTime.Now;
-
+    public void loadAppointments()
+    {
+        List<Appointment> appointments = App.appointmentRepo.GetAppointments();
+        var AppointmentEvents = new ObservableCollection<Appointment>(appointments);
+        DayPageScheduler.AppointmentsSource = AppointmentEvents;
+    }
     public DayPage(IAudioManager audioManager)
     {
         InitializeComponent();
@@ -203,33 +236,14 @@ public partial class DayPage : ContentPage
     {
         Mediaelement2.Play();
         buttonAddAppointment.Opacity = 1.0;
-        await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
-        var add = (AddAppointmentPage)Shell.Current.CurrentPage;
-        add.entryStartTime.Text = temp.ToString();
-        add.pickerDateTime1.SelectedDate = temp;
-        
-        await Task.Delay(2);
-        
-        await LoadAsync(temp); // Assuming Load method is asynchronous
+        await Shell.Current.GoToAsync(nameof(AddAppointmentPage));       
     }
-
-    private async Task LoadAsync(DateTime temp)
-    {
-        loadAppointments();
-        Load(temp);
-    }
-    public void loadAppointments()
-    {
-        List<Appointment> appointments = App.appointmentRepo.GetAppointments();
-        var AppointmentEvents = new ObservableCollection<Appointment>(appointments);
-        DayPageScheduler.AppointmentsSource = AppointmentEvents;
-    }
-
+    private DateTime xxx;
     public void Load(DateTime current)
     {
         var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
         List<Appointment> appointmennts = new List<Appointment>();
-
+        frame_A.FindByName<Label>("whatDay").Text = current.Date.ToString(" dddd dd/MM/yyyy ") ;
         foreach (Appointment app in CurrentAppointment)
         {
             if (app.EventStart.Day <= current.Day && current.Day <= app.EventEnd.Day)
@@ -239,29 +253,28 @@ public partial class DayPage : ContentPage
         }
         TaskDaily.ItemsSource = appointmennts;
     }
-    private DateTime xxx;
+    
     private void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)
     {
         Mediaelement2.Play();
-        loadAppointments();
+        
         if (e.Element is SchedulerElement.ViewHeader)
         {
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
-            loadAppointments();
+            
             Load(xxx);   
         }       
     }
 
-
+    private Appointment Current;
     private void TasksList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
 
         if (TaskDaily.SelectedItem != null)
         {
             int tempo = ((Appointment)e.SelectedItem).Id;
-            Appointment Current = App.appointmentRepo.GetAppointmentByID(tempo);
-
+            Current = App.appointmentRepo.GetAppointmentByID(tempo);
 
             frame_B.FindByName<Label>("TaskTitle").Text = Current.Name;
             frame_B.FindByName<Label>("StartTime").Text = Current.EventStart.ToString();
@@ -276,7 +289,7 @@ public partial class DayPage : ContentPage
                 frame_B.FindByName<Label>("State").Text = "Done";
             }
 
-            frame_B.FindByName<Label>("Notes").Text = Current.Note;
+            frame_B.FindByName<Editor>("Notes").Text = Current.Note;
         }
 
     }
@@ -293,7 +306,6 @@ public partial class DayPage : ContentPage
             App.appointmentRepo.DeleteAppointment(appointment);
             loadAppointments();
             Load(xxx);   
-            
         }
     }
     private async void MenuItem_Clicked_1(object sender, EventArgs e)
@@ -303,17 +315,13 @@ public partial class DayPage : ContentPage
         {
             int temp = appointment.Id;
             await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={temp}");
+            loadAppointments();
             Load(xxx);
         }
-        loadAppointments();
+        
     }
 
-    private void Pomodoro_Clicked(object sender, EventArgs e)
-    {
-        Mediaelement2.Play();
-        Pomodoro.Opacity = 1.0;
-        Navigation.PushModalAsync(new PomodoroPage(audioManager));
-    }
+    
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
@@ -324,35 +332,14 @@ public partial class DayPage : ContentPage
             {
                 var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
                 player.Play();
+
+                if (!Current.IsDone)
+                {
+                    frame_B.FindByName<Label>("State").Text = "Done";
+                }
             }
         }
     }
 
-    private void Pomodoro_Pressed(object sender, EventArgs e)
-    {
-        Pomodoro.Opacity = 0.5;
-    }
-
-    private void weatherImage_Pressed(object sender, EventArgs e)
-    {
-        weatherImage.Opacity = 0.5;
-    }
-
-    private void buttonAddAppointment_Pressed(object sender, EventArgs e)
-    {
-        buttonAddAppointment.Opacity = 0.5;
-    }
-
-    private void Settingbtn_Clicked(object sender, EventArgs e)
-    {
-        Settingbtn.Opacity = 1.0;
-        Mediaelement2.Play();
-        SettingPage st = new SettingPage();
-        this.ShowPopup(st);
-    }
-
-    private void Settingbtn_Pressed(object sender, EventArgs e)
-    {
-        Settingbtn.Opacity = 0.5;
-    }
+    
 }

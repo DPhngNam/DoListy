@@ -125,8 +125,9 @@
             <!--Task frame-->
             <Frame Style="{StaticResource taskFrameStyle}" x:Name="frame_A" Grid.Row="2"  Grid.Column="0" Margin="30,0,0,10" >
                 <VerticalStackLayout Spacing="5">
-                    <Grid ColumnDefinitions="*,auto,auto" ColumnSpacing="5">
-                        <Label Style="{StaticResource taskFrameHeaderLabelStyle}" Text="Tasks" FontSize="20" FontAttributes="Bold" Grid.Column="0" />
+                    <Grid ColumnDefinitions="0.45*,*,auto" >
+                        <Label Style="{StaticResource taskFrameHeaderLabelStyle}" Text="Tasks for "  FontAttributes="Bold" Grid.Column="0" />
+                        <Label x:Name="whatDay" Style="{StaticResource taskFrameHeaderLabelStyle}" FontAttributes="Bold" Grid.Column="1"/>
                         <ImageButton HeightRequest="2" WidthRequest="2" Pressed="buttonAddAppointment_Pressed"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddTask_Clicked" Source="plus.png" Grid.Column="2" />
                     </Grid>
                     <BoxView Color="{AppThemeBinding Dark=White, Light=Black}" HeightRequest="1"/>
@@ -147,8 +148,8 @@
                                     </ViewCell.ContextActions>
 
                                     <Grid ColumnDefinitions="auto,*" RowDefinitions="*,*">
-                                        <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" Grid.Column="0" Grid.Row="0"/>
-                                        <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" Grid.Column="0" Grid.Row="1"/>
+                                        <Label Text="{Binding Name}" Style="{StaticResource taskDateLabelStyle}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+                                        <Label Text="{Binding EventStart}" Style="{StaticResource taskDateLabelStyle}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"/>
                                         <CheckBox Grid.Column="1" IsChecked="{Binding isDone}"   Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="End">
                                             <CheckBox.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
@@ -164,52 +165,30 @@
             </Frame>
             <!--Details frame-->
             <Frame Style="{StaticResource taskFrameStyle}" x:Name="frame_B"  Grid.Column="1" Margin="45,0,0,10">
-                <VerticalStackLayout x:Name="st">
+                <VerticalStackLayout >
                     <Label Text="Task details" Style="{StaticResource textColor}" FontSize="20" FontAttributes="Bold" Margin="20,0,0,0"/>
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" Margin="0,0,0,10"/>
-                    <VerticalStackLayout  x:Name="DetailTaskStack" Spacing="30" Margin="20,20,0,0">
-
-                        <HorizontalStackLayout  Spacing="100">
-                            <Label  FontSize="Medium" Text="Title" Style="{StaticResource textColor}"/>
-                            <Label  FontSize="Medium"  FontAttributes="Bold" x:Name="TaskTitle" Style="{StaticResource textColor}" />
-                        </HorizontalStackLayout>
-
-                        <HorizontalStackLayout Spacing="40">
-                            <Label  FontSize="Medium" Text="Start Time" Style="{StaticResource textColor}"/>
-                            <Label x:Name="StartTime" 
-                                   FontAttributes="Bold" 
-                                    FontSize="Medium"
-                                   Style="{StaticResource textColor}"/>
-                        </HorizontalStackLayout>
-
-                        <HorizontalStackLayout Spacing="50">
-                            <Label  FontSize="Medium" Text="End Time" Style="{StaticResource textColor}"/>
-                            <Label x:Name="EndTime"
-                                   FontAttributes="Bold"
-                                    FontSize="Medium"
-                                    Style="{StaticResource textColor}"/>
-                        </HorizontalStackLayout>
-
-                        <HorizontalStackLayout Spacing="60">
-                            <Label  FontSize="Medium" Text="State" Style="{StaticResource textColor}"/>
-                            <Label x:Name="State" 
-                                   FontAttributes="Bold"
-                                    FontSize="Medium"
-                                   Style="{StaticResource textColor}"/>
-                        </HorizontalStackLayout >
-
-                        <HorizontalStackLayout Spacing="40">
-                            <Label  FontSize="Medium" Text="Note" Style="{StaticResource textColor}"/>
-                            
-                               
-                            <Label x:Name="Notes" FontAttributes="Bold"
-                                    FontSize="Medium"
-                                    Style="{StaticResource textColor}" LineBreakMode="CharacterWrap"/>
-                                
-                            
-                        </HorizontalStackLayout>
-                    </VerticalStackLayout>
-
+                    <Grid ColumnDefinitions="auto,auto" RowDefinitions="*,*,*,*,auto" RowSpacing="10" ColumnSpacing="5">
+                        
+                        <Label  Text="Title" Style="{StaticResource taskDateLabelStyle}" Grid.Row="0" Grid.Column="0"/>
+                        <Label  FontAttributes="Bold" x:Name="TaskTitle" Style="{StaticResource taskDateLabelStyle}" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>
+                        
+                        <Label  Text="Start Time" Style="{StaticResource taskDateLabelStyle}" Grid.Row="1" Grid.Column="0"/>
+                        <Label x:Name="StartTime" FontAttributes="Bold" Style="{StaticResource taskDateLabelStyle}" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center"/>
+                        
+                        <Label Text="End Time" Style="{StaticResource taskDateLabelStyle}" Grid.Row="2" Grid.Column="0"/>
+                        <Label x:Name="EndTime" FontAttributes="Bold" Style="{StaticResource taskDateLabelStyle}" Grid.Row="2" Grid.Column="1" HorizontalOptions="Center"/>
+                        
+                        <Label Text="State" Style="{StaticResource taskDateLabelStyle}" Grid.Row="3" Grid.Column="0"/>
+                        <Label x:Name="State" FontAttributes="Bold" Style="{StaticResource taskDateLabelStyle}" Grid.Row="3" Grid.Column="1" HorizontalOptions="Center"/>
+                        
+                        <Label  Text="Note" Style="{StaticResource taskDateLabelStyle}" Grid.Row="4" Grid.Column="0"/>
+                        <ScrollView HeightRequest="180" WidthRequest="200" Grid.Row="4" Grid.Column="1" HorizontalOptions="Center">
+                            <Editor x:Name="Notes" FontAttributes="Bold"    
+                                        IsReadOnly="True"   HeightRequest="180"    WidthRequest="200"       
+                                        VerticalOptions="StartAndExpand"/>
+                        </ScrollView>
+                    </Grid>
                 </VerticalStackLayout>
 
             </Frame>
@@ -227,7 +206,7 @@
                                      
                                      />
                     </HorizontalStackLayout>
-                    <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" />
+                    <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill"/>
 
                     <HorizontalStackLayout Spacing="30">
                         <Label Text="Location:" Style="{StaticResource weatherInfoLabelStyle}" FontSize="15" Margin="0,5,0,0" />
