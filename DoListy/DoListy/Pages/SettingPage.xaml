@@ -64,15 +64,14 @@
                         <Image Source="windows.png" Style="{StaticResource commonIma}"/>
                         <Image Source="apple.png" Style="{StaticResource commonIma}"/>
                     </HorizontalStackLayout>
-                    <HorizontalStackLayout Spacing="10">
+                    <HorizontalStackLayout Spacing="20">
                         <Label Text="Feedback" FontSize="Medium"/>
-                        <Label Text="DoListy@gmail.com" TextColor="Blue"
-                                Margin="0,10,0,0" TextDecorations="Underline"/>
+                        
                         <ImageButton Source="gmail.png" Margin="0,-5,0,0" BackgroundColor="Transparent"/>
                         
                     </HorizontalStackLayout>
 
-                    <HorizontalStackLayout Spacing="10">
+                    <HorizontalStackLayout Spacing="20">
                         <Label Text="Website" FontSize="Medium"/>
                         <ImageButton Source="link.png" Margin="0,-5,0,0"
                                         MaximumHeightRequest="42"
@@ -81,13 +80,12 @@
                                         x:Name="linkwebsite"/>
 
                     </HorizontalStackLayout>
-
-
+                    
                     <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
                         <Label Text="Version" FontSize="Medium"/>
                         <Label Text="1.0" FontSize="Large"/>
                     </HorizontalStackLayout>
-                    <HorizontalStackLayout Spacing="10">
+                    <HorizontalStackLayout Spacing="20">
                         <Label Text="Rate us" FontSize="Medium"/>
                         <rating:SfRating x:Name="rating" ItemCount="5" ItemSize="30" BackgroundColor="Transparent">
                             <rating:SfRating.RatingSettings>
