@@ -35,20 +35,20 @@
             <VerticalStackLayout Spacing="20" Margin="20,0,0,0">
                 <Label  Text="General" FontSize="Large" VerticalOptions="Start"/>
                 <VerticalStackLayout HorizontalOptions="EndAndExpand">
-                    <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
+                    <!--<HorizontalStackLayout Style="{StaticResource CommonHorizon}">
                         <Label Text="Sounds"/>
                         <Switch IsToggled="{Binding sound}" x:Name="SoundSwitch" Style="{StaticResource CommonSwitch}"
                                 Toggled="SoundSwitch_Toggled"/>
-                    </HorizontalStackLayout >
+                    </HorizontalStackLayout >-->
                     <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
                         <Label Text="Darkmode"/>
                         <Switch IsToggled="{Binding mode}" Toggled="Darkmode_Toggled" Style="{StaticResource CommonSwitch}"
                                 />
                     </HorizontalStackLayout>
-                    <HorizontalStackLayout Style="{StaticResource CommonHorizon}">
+                    <!--<HorizontalStackLayout Style="{StaticResource CommonHorizon}">
                         <Label Text="Remind"/>
                         <Switch Toggled="Switch_Toggled" IsToggled="{Binding remind}" Style="{StaticResource CommonSwitch}"/>
-                    </HorizontalStackLayout>
+                    </HorizontalStackLayout>-->
                 </VerticalStackLayout>
 
             </VerticalStackLayout>

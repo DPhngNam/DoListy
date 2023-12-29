@@ -15,12 +15,7 @@ public partial class SettingPage : Popup
     }
 
 
-    private void SoundSwitch_Toggled(object sender, ToggledEventArgs e)
-    {
-        Settings temp = App.appointmentRepo.GetSettings();
-        temp.Sound = e.Value;
-        App.appointmentRepo.UpdateSettings(temp);
-    }
+    
 
 
     private void Darkmode_Toggled(Object sender, ToggledEventArgs e)
@@ -44,11 +39,18 @@ public partial class SettingPage : Popup
         }
 
     }
-
+    /*
     private void Switch_Toggled(object sender, ToggledEventArgs e)
     {
         Settings temp = App.appointmentRepo.GetSettings();
         temp.Remind = e.Value;
         App.appointmentRepo.UpdateSettings(temp);
     }
+    private void SoundSwitch_Toggled(object sender, ToggledEventArgs e)
+    {
+        Settings temp = App.appointmentRepo.GetSettings();
+        temp.Sound = e.Value;
+        App.appointmentRepo.UpdateSettings(temp);
+    }
+    */
 }
