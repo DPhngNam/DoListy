@@ -236,8 +236,7 @@ public partial class DayPage : ContentPage
     {
         Mediaelement2.Play();
         buttonAddAppointment.Opacity = 1.0;
-        await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
-        
+        await Shell.Current.GoToAsync(nameof(AddAppointmentPage));       
     }
     private DateTime xxx;
     public void Load(DateTime current)
