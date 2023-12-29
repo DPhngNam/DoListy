@@ -165,24 +165,28 @@
             </Frame>
             <!--Details frame-->
             <Frame Style="{StaticResource taskFrameStyle}" x:Name="frame_B"  Grid.Column="1" Margin="45,0,0,10">
-                <VerticalStackLayout x:Name="st">
+                <VerticalStackLayout >
                     <Label Text="Task details" Style="{StaticResource textColor}" FontSize="20" FontAttributes="Bold" Margin="20,0,0,0"/>
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" Margin="0,0,0,10"/>
-                    <Grid ColumnDefinitions="2*,auto" RowDefinitions="*,*,*,*,auto" RowSpacing="10" ColumnSpacing="5">
+                    <Grid ColumnDefinitions="auto,auto" RowDefinitions="*,*,*,*,auto" RowSpacing="10" ColumnSpacing="5">
+                        
                         <Label  Text="Title" Style="{StaticResource taskDateLabelStyle}" Grid.Row="0" Grid.Column="0"/>
                         <Label  FontAttributes="Bold" x:Name="TaskTitle" Style="{StaticResource taskDateLabelStyle}" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>
+                        
                         <Label  Text="Start Time" Style="{StaticResource taskDateLabelStyle}" Grid.Row="1" Grid.Column="0"/>
                         <Label x:Name="StartTime" FontAttributes="Bold" Style="{StaticResource taskDateLabelStyle}" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center"/>
+                        
                         <Label Text="End Time" Style="{StaticResource taskDateLabelStyle}" Grid.Row="2" Grid.Column="0"/>
                         <Label x:Name="EndTime" FontAttributes="Bold" Style="{StaticResource taskDateLabelStyle}" Grid.Row="2" Grid.Column="1" HorizontalOptions="Center"/>
+                        
                         <Label Text="State" Style="{StaticResource taskDateLabelStyle}" Grid.Row="3" Grid.Column="0"/>
                         <Label x:Name="State" FontAttributes="Bold" Style="{StaticResource taskDateLabelStyle}" Grid.Row="3" Grid.Column="1" HorizontalOptions="Center"/>
+                        
                         <Label  Text="Note" Style="{StaticResource taskDateLabelStyle}" Grid.Row="4" Grid.Column="0"/>
                         <ScrollView HeightRequest="180" WidthRequest="300" Grid.Row="4" Grid.Column="1" HorizontalOptions="Center">
                             <Editor x:Name="Notes" FontAttributes="Bold"       
                                         IsReadOnly="True"              
-                                        VerticalOptions="StartAndExpand"
-                                         HeightRequest="180"/>
+                                        VerticalOptions="StartAndExpand"/>
                         </ScrollView>
                     </Grid>
                 </VerticalStackLayout>
