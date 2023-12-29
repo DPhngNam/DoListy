@@ -14,7 +14,7 @@
             <Color x:Key="pomoTextColor">#DCD6F7</Color>
             <Style x:Key="pomoStateLabelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="40"/>
-                <Setter Property="TextColor" Value="{StaticResource pomoTextColor}"/>
+                <Setter Property="TextColor" Value="{StaticResource pomoButtonBgColor}"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
 
             </Style>
@@ -44,7 +44,7 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid ColumnDefinitions="*,*,*" RowDefinitions="1*,Auto,1*" Padding="10,10,0,10">
+    <Grid ColumnDefinitions="*,*,*" RowDefinitions="1*,5*,1*" Padding="10,10,0,10">
         <ImageButton Grid.Row="0" 
                  x:Name="backButton"
                  Scale="0.3"
@@ -112,7 +112,9 @@
 
             </Grid>
         </Frame>
-        <Label Grid.Row="0" Grid.Column="1" x:Name="pomoStateLabel" HorizontalOptions="Center" Text="FOCUSING" Style="{StaticResource pomoStateLabelStyle}"/>
+        <Label Grid.Row="0" Grid.Column="1" x:Name="pomoStateLabel" HorizontalOptions="Center" VerticalOptions="Center"
+               IsVisible="False"
+               Text="FOCUSING" Style="{StaticResource pomoStateLabelStyle}"/>
         <Frame Grid.Column="2" Grid.Row="1" 
            x:Name="pomoSettingFrame"
            HorizontalOptions="End"
@@ -196,7 +198,7 @@
             </Grid>
         </Frame>
         <Label Grid.Row="1" Grid.Column="1"  x:Name="timerLabel" TextColor="White" FontSize="36" HorizontalOptions="Center" VerticalOptions="Center"/>
-        <control:SfCircularProgressBar Grid.Row="1" Grid.Column="1" ProgressThickness="5" TrackThickness="5" x:Name="progressBar" Progress="0" BackgroundColor="Transparent" VerticalOptions="Start" HeightRequest="450" WidthRequest="450"/>
+        <control:SfCircularProgressBar Grid.Row="1" Grid.Column="1" ProgressThickness="5" TrackThickness="5" x:Name="progressBar" Progress="0" BackgroundColor="Transparent" VerticalOptions="Fill" HorizontalOptions="Fill"/>
         
         <Grid ColumnDefinitions="3*,*,3*" RowDefinitions="*"  Grid.Row="2" Grid.Column="1" >
             <ImageButton Grid.Column="1" Grid.Row="0" Source="playicon.png"
