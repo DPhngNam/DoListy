@@ -183,9 +183,10 @@
                         <Label x:Name="State" FontAttributes="Bold" Style="{StaticResource taskDateLabelStyle}" Grid.Row="3" Grid.Column="1" HorizontalOptions="Center"/>
                         
                         <Label  Text="Note" Style="{StaticResource taskDateLabelStyle}" Grid.Row="4" Grid.Column="0"/>
-                        <ScrollView HeightRequest="200" WidthRequest="300" Grid.Row="4" Grid.Column="1" HorizontalOptions="Center">
+                        <ScrollView HeightRequest="180" WidthRequest="300" Grid.Row="4" Grid.Column="1" HorizontalOptions="Center">
                             <Editor x:Name="Notes" FontAttributes="Bold"       
-                                    IsReadOnly="True" VerticalOptions="StartAndExpand"/>
+                                        IsReadOnly="True"              
+                                        VerticalOptions="StartAndExpand"/>
                         </ScrollView>
                     </Grid>
                 </VerticalStackLayout>
