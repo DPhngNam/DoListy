@@ -51,7 +51,7 @@ public partial class WeatherPage : ContentPage
                 }
                 else
                 {
-                    s = "https://img.icons8.com/color/96/night.png";
+                    s = "https://cdn-icons-png.flaticon.com/512/1809/1809597.png";
                     gif = "nightclearsky.gif";
                 }
                 break;

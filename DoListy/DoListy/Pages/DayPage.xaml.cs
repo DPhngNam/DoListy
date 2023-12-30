@@ -91,7 +91,7 @@ public partial class DayPage : ContentPage
                 }
                 else
                 {
-                    s = "https://img.icons8.com/color/96/night.png";
+                    s = "nighttt.png";
                 }
                 break;
             case 2:
