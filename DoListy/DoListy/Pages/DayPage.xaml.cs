@@ -4,6 +4,7 @@ using DoListy.Services;
 using Appointment = DoListy.ViewModel.Appointment;
 using DoListy.Weather;
 using Syncfusion.Maui.Scheduler;
+using DoListy.ViewModel;
 using CommunityToolkit.Maui.Views;
 using XCalendar.Core.Extensions;
 
@@ -53,7 +54,7 @@ public partial class DayPage : ContentPage
         InitializeComponent();
         this.audioManager = audioManager;
         loadAppointments();
-        //whatDay.Text = temp.Date.ToString(" dddd dd/MM/yyyy ");
+        frame_A.FindByName<Label>("whatDay").Text = temp.ToString(" dddd dd/MM/yyyy ");
         Load(temp);
     }
 
@@ -90,7 +91,7 @@ public partial class DayPage : ContentPage
                 }
                 else
                 {
-                    s = "https://img.icons8.com/color/96/night.png";
+                    s = "nighttt.png";
                 }
                 break;
             case 2:
@@ -261,10 +262,11 @@ public partial class DayPage : ContentPage
         Mediaelement2.Play();
         
         if (e.Element is SchedulerElement.ViewHeader)
-        {
-            
+        {           
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
+            //var yyy = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
+            frame_A.FindByName<Label>("whatDay").Text = e.Date.Value.ToString(" dddd ");
             Load(xxx);      
         }
         
