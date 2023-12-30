@@ -9,7 +9,7 @@
             >
     <ContentPage.Resources>
         <Style x:Key="Textcol" TargetType="Label">
-            <Setter Property="TextColor" Value="{AppThemeBinding Light=Black,Dark=White}"/>
+            <Setter Property="TextColor" Value="White"/>
         </Style>
     </ContentPage.Resources>
     

@@ -91,7 +91,7 @@ public partial class DayPage : ContentPage
                 }
                 else
                 {
-                    s = "https://img.icons8.com/color/96/night.png";
+                    s = "nighttt.png";
                 }
                 break;
             case 2:
@@ -266,7 +266,7 @@ public partial class DayPage : ContentPage
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
             //var yyy = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
-            frame_A.FindByName<Label>("whatDay").Text = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
+            frame_A.FindByName<Label>("whatDay").Text = e.Date.Value.ToString(" dddd ");
             Load(xxx);      
         }
         
