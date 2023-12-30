@@ -77,8 +77,7 @@
                         >
             <scheduler:SfScheduler.AppointmentMapping>
                 <!--tham chiếu tới task người dùng-->
-                <scheduler:SchedulerAppointmentMapping 
-                                           Reminders="Reminders">
+                <scheduler:SchedulerAppointmentMapping Reminders="Reminders">
                     <scheduler:SchedulerAppointmentMapping.ReminderMapping>
                         <scheduler:SchedulerReminderMapping IsDismissed="IsDismissed"
                                                 TimeBeforeStart="timeBeforeStart"/>

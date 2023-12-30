@@ -131,16 +131,19 @@ namespace DoListy.Database
             
             List<Reminder> reminders = new List<Reminder>(App.appointmentRepo.GetReminders());
 
-            foreach(Reminder reminder in reminders) 
+            if(appointment != null)
             {
-                if(reminder != null)
+                foreach (Reminder reminder in reminders)
                 {
-                    if(appointment.EventStart - reminder.timeBeforeStart == a && reminder.IdAppointment == id)
+                    if (reminder != null)
                     {
-                        return reminder;
-                    }    
-                }    
-            }
+                        if (appointment.EventStart - reminder.timeBeforeStart == a && reminder.IdAppointment == id)
+                        {
+                            return reminder;
+                        }
+                    }
+                }
+            }    
             
             return null;
         }
