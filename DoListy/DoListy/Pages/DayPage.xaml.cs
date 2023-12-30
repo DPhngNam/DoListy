@@ -246,7 +246,6 @@ public partial class DayPage : ContentPage
         var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
         appointmennts.Clear();
 
-
         foreach (Appointment app in CurrentAppointment)
         {
             if (app.EventStart.Day <= current.Day && current.Day <= app.EventEnd.Day)
@@ -263,12 +262,13 @@ public partial class DayPage : ContentPage
         
         if (e.Element is SchedulerElement.ViewHeader)
         {
+            var yyy = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
+            whatDay.Text = yyy;
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
-            whatDay.Text = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
+            Load(e.Date.Value);
+
             
-            loadAppointments();
-            Load(e.Date.Value);   
         }       
     }
 
