@@ -4,6 +4,7 @@ using DoListy.Services;
 using Appointment = DoListy.ViewModel.Appointment;
 using DoListy.Weather;
 using Syncfusion.Maui.Scheduler;
+using DoListy.ViewModel;
 using CommunityToolkit.Maui.Views;
 using XCalendar.Core.Extensions;
 
@@ -53,6 +54,7 @@ public partial class DayPage : ContentPage
         InitializeComponent();
         this.audioManager = audioManager;
         loadAppointments();
+        frame_A.FindByName<Label>("whatDay").Text = temp.ToString(" dddd dd/MM/yyyy ");
         Load(temp);
     }
 
@@ -239,11 +241,12 @@ public partial class DayPage : ContentPage
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));       
     }
     private DateTime xxx;
+    private List<Appointment> appointmennts = new List<Appointment>();
     public void Load(DateTime current)
     {
         var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
-        List<Appointment> appointmennts = new List<Appointment>();
-        frame_A.FindByName<Label>("whatDay").Text = current.Date.ToString(" dddd dd/MM/yyyy ") ;
+        appointmennts.Clear();
+
         foreach (Appointment app in CurrentAppointment)
         {
             if (app.EventStart.Day <= current.Day && current.Day <= app.EventEnd.Day)
@@ -260,11 +263,14 @@ public partial class DayPage : ContentPage
         
         if (e.Element is SchedulerElement.ViewHeader)
         {
+            
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
-            
-            Load(xxx);   
-        }       
+            //var yyy = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
+            frame_A.FindByName<Label>("whatDay").Text = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
+            Load(xxx);      
+        }
+        
     }
 
     private Appointment Current;
@@ -333,7 +339,7 @@ public partial class DayPage : ContentPage
                 var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
                 player.Play();
 
-                if (!Current.IsDone)
+                if (!Current.IsDone && Current != null)
                 {
                     frame_B.FindByName<Label>("State").Text = "Done";
                 }
@@ -341,5 +347,22 @@ public partial class DayPage : ContentPage
         }
     }
 
-    
+    private async void Scheduler_ReminderAlertOpening(object sender, Syncfusion.Maui.Scheduler.ReminderAlertOpeningEventArgs e)
+    {
+        for (int i = 0; i < e.Reminders.Count; i++)
+        {
+            if (!e.Reminders[i].IsDismissed)
+            {
+                int id = int.Parse(e.Reminders[i].Appointment.Id.ToString());
+                Reminder reminder = App.appointmentRepo.GetReminderByBeforeStartTime(e.Reminders[i].AlertTime, id);
+                if (reminder != null && !reminder.IsDismissed)
+                {
+                    Mediaelement3.Play();
+                    await DisplayAlert("Reminder", e.Reminders[i].Appointment.Subject + " - " + e.Reminders[i].Appointment.StartTime.ToString(" dddd, MMMM dd, yyyy, hh:mm tt"), "OK");
+                    reminder.IsDismissed = true;
+                    App.appointmentRepo.DeleteReminder(reminder);
+                }
+            }
+        }
+    }
 }
