@@ -53,7 +53,7 @@ public partial class DayPage : ContentPage
         InitializeComponent();
         this.audioManager = audioManager;
         loadAppointments();
-        whatDay.Text = temp.Date.ToString(" dddd dd/MM/yyyy ");
+        //whatDay.Text = temp.Date.ToString(" dddd dd/MM/yyyy ");
         Load(temp);
     }
 
@@ -262,12 +262,12 @@ public partial class DayPage : ContentPage
         
         if (e.Element is SchedulerElement.ViewHeader)
         {
-            var yyy = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
-            whatDay.Text = yyy;
+            
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
-            Load(e.Date.Value);      
-        }       
+            Load(xxx);      
+        }
+        
     }
 
     private Appointment Current;
