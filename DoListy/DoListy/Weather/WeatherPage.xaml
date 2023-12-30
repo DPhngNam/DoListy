@@ -12,46 +12,55 @@
             <Setter Property="TextColor" Value="{AppThemeBinding Light=Black,Dark=White}"/>
         </Style>
     </ContentPage.Resources>
-    
-    <Frame CornerRadius="25" HorizontalOptions="Center"  BackgroundColor="Transparent" BorderColor="Transparent">
-        
-        <VerticalStackLayout Spacing="5" >
-            <Label Text="Ho Chi Minh" Style="{StaticResource Textcol}"
-                    HorizontalOptions="CenterAndExpand"  FontSize="Medium" 
-                                    />  
-            <HorizontalStackLayout Spacing="3">
-                <Image x:Name="weatherImage" WidthRequest="96" HeightRequest="96"/>
-                <Label x:Name="temperature" Style="{StaticResource Textcol}" FontSize="96"/>
-                <Label Text="°C" Style="{StaticResource Textcol}" FontSize="50" Margin="0,20,0,0"/>
-            </HorizontalStackLayout>
-            
-            <Label x:Name="weatherCode"  Style="{StaticResource Textcol}"
-                                            FontSize="30" HorizontalOptions="CenterAndExpand"/>
-            <HorizontalStackLayout Spacing="50" Margin="0,20,0,0">
 
-                <HorizontalStackLayout>
-                    <VerticalStackLayout >
-                        <Image x:Name="drop"  BackgroundColor="Transparent"
-                                                MaximumHeightRequest="36"
-                                                    MaximumWidthRequest="36" />
-                        <Label Text="Humidity" Style="{StaticResource Textcol}" FontSize="20"/>
-                    </VerticalStackLayout>
-                    <Label x:Name="Humidity"  Style="{StaticResource Textcol}" FontSize="36"/>
+    <Grid ColumnDefinitions="*,10*">
+        <ImageButton Source="back1.png"
+         HorizontalOptions="Start" VerticalOptions="Start" 
+         BackgroundColor="Transparent"
+         Scale="0.2"
+         Clicked="OnBackButtonClicked" Grid.Column="0"
+              />
+        <Frame CornerRadius="25" HorizontalOptions="Center"  BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="2" BorderColor="Transparent">
+
+            <VerticalStackLayout Spacing="5" >
+
+                <Label Text="Ho Chi Minh" Style="{StaticResource Textcol}"
+                HorizontalOptions="CenterAndExpand"  FontSize="Medium" 
+                                />
+                <HorizontalStackLayout Spacing="3">
+                    <Image x:Name="weatherImage" WidthRequest="96" HeightRequest="96"/>
+                    <Label x:Name="temperature" Style="{StaticResource Textcol}" FontSize="96"/>
+                    <Label Text="°C" Style="{StaticResource Textcol}" FontSize="50" Margin="0,20,0,0"/>
                 </HorizontalStackLayout>
 
-                <HorizontalStackLayout>
-                    <VerticalStackLayout>
-                        <Image x:Name="windPic" BackgroundColor="Transparent" 
-                                                MaximumHeightRequest="36"
-                                                MaximumWidthRequest="36"/>
-                        <Label Text="Wind speed" Style="{StaticResource Textcol}" FontSize="20"/>
-                    </VerticalStackLayout>
-                    <Label x:Name="wind"  Style="{StaticResource Textcol}"
-                                            FontSize="36"/>
-                </HorizontalStackLayout>
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
-    </Frame>
+                <Label x:Name="weatherCode"  Style="{StaticResource Textcol}"
+                                        FontSize="30" HorizontalOptions="CenterAndExpand"/>
+                <HorizontalStackLayout Spacing="50" Margin="0,20,0,0">
 
+                    <HorizontalStackLayout>
+                        <VerticalStackLayout >
+                            <Image x:Name="drop"  BackgroundColor="Transparent"
+                                            MaximumHeightRequest="36"
+                                                MaximumWidthRequest="36" />
+                            <Label Text="Humidity" Style="{StaticResource Textcol}" FontSize="20"/>
+                        </VerticalStackLayout>
+                        <Label x:Name="Humidity"  Style="{StaticResource Textcol}" FontSize="36"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <VerticalStackLayout>
+                            <Image x:Name="windPic" BackgroundColor="Transparent" 
+                                            MaximumHeightRequest="36"
+                                            MaximumWidthRequest="36"/>
+                            <Label Text="Wind speed" Style="{StaticResource Textcol}" FontSize="20"/>
+                        </VerticalStackLayout>
+                        <Label x:Name="wind"  Style="{StaticResource Textcol}"
+                                        FontSize="36"/>
+                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
     
+
 </ContentPage>

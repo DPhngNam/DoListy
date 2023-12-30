@@ -207,4 +207,8 @@ public partial class WeatherPage : ContentPage
 
     }
 
+    async void OnBackButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopModalAsync();
+    }
 }

@@ -229,7 +229,7 @@ public partial class DayPage : ContentPage
     private async void weatherImage_Clicked(object sender, EventArgs e)
     {
         weatherImage.Opacity = 1.0;
-        await Shell.Current.GoToAsync(nameof(WeatherPage));
+        await Navigation.PushModalAsync(new WeatherPage());
     }
     //Weather
 
