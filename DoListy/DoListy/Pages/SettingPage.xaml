@@ -50,8 +50,8 @@
         <Grid VerticalOptions="Center" HorizontalOptions="Center" RowDefinitions="*,Auto">
             <HorizontalStackLayout Style="{StaticResource CommonHorizon}" Grid.Row="0">
                 <Label  Text="Customization" FontSize="Large" VerticalOptions="Start"/>
-                <Label Text="Darkmode"/>
-                <Switch IsToggled="{Binding mode}" Toggled="Darkmode_Toggled" Style="{StaticResource CommonSwitch}"/>
+                <Label Text="Darkmode" Style="{StaticResource taskTitleLabelStyle}" Margin="0,10,0,0"/>
+                <Switch IsToggled="{Binding mode}" Toggled="Darkmode_Toggled" Style="{StaticResource CommonSwitch}" Margin="0,10,0,0"/>
             </HorizontalStackLayout>
             <VerticalStackLayout Spacing="20" Grid.Row="1">
                     <Label Text="About" FontSize="Large" VerticalOptions="Start"/>
