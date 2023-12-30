@@ -91,7 +91,7 @@ public partial class DayPage : ContentPage
                 }
                 else
                 {
-                    s = "https://img.icons8.com/color/96/night.png";
+                    s = "nighttt.png";
                 }
                 break;
             case 2:
@@ -230,7 +230,7 @@ public partial class DayPage : ContentPage
     private async void weatherImage_Clicked(object sender, EventArgs e)
     {
         weatherImage.Opacity = 1.0;
-        await Shell.Current.GoToAsync(nameof(WeatherPage));
+        await Navigation.PushModalAsync(new WeatherPage());
     }
     //Weather
 
@@ -262,12 +262,11 @@ public partial class DayPage : ContentPage
         Mediaelement2.Play();
         
         if (e.Element is SchedulerElement.ViewHeader)
-        {
-            
+        {           
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
             //var yyy = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
-            frame_A.FindByName<Label>("whatDay").Text = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
+            frame_A.FindByName<Label>("whatDay").Text = e.Date.Value.ToString(" dddd ");
             Load(xxx);      
         }
         
@@ -347,22 +346,5 @@ public partial class DayPage : ContentPage
         }
     }
 
-    private async void Scheduler_ReminderAlertOpening(object sender, Syncfusion.Maui.Scheduler.ReminderAlertOpeningEventArgs e)
-    {
-        for (int i = 0; i < e.Reminders.Count; i++)
-        {
-            if (!e.Reminders[i].IsDismissed)
-            {
-                int id = int.Parse(e.Reminders[i].Appointment.Id.ToString());
-                Reminder reminder = App.appointmentRepo.GetReminderByBeforeStartTime(e.Reminders[i].AlertTime, id);
-                if (reminder != null && !reminder.IsDismissed)
-                {
-                    Mediaelement3.Play();
-                    await DisplayAlert("Reminder", e.Reminders[i].Appointment.Subject + " - " + e.Reminders[i].Appointment.StartTime.ToString(" dddd, MMMM dd, yyyy, hh:mm tt"), "OK");
-                    reminder.IsDismissed = true;
-                    App.appointmentRepo.DeleteReminder(reminder);
-                }
-            }
-        }
-    }
+    
 }

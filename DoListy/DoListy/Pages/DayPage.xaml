@@ -70,8 +70,7 @@
                        x:FieldModifier="public"                                
                        Tapped="Scheduler_Tapped"
                        AllowViewNavigation="True"   
-                       EnableReminder="True"
-                       ReminderAlertOpening="Scheduler_ReminderAlertOpening"
+                       
                        TodayTextStyle="{StaticResource textStyle2}"
                        BackgroundColor="Transparent"
                         >
@@ -84,6 +83,7 @@
                     </scheduler:SchedulerAppointmentMapping.ReminderMapping>
                 </scheduler:SchedulerAppointmentMapping>
             </scheduler:SfScheduler.AppointmentMapping>
+            
             <!--Headerview-->
             <scheduler:SfScheduler.HeaderView>
                 <scheduler:SchedulerHeaderView TextStyle="{StaticResource textStyle3}" />
@@ -210,8 +210,8 @@
                     <HorizontalStackLayout Spacing="80">
                         <Label Text="Weather" Style="{StaticResource weatherNameLabelStyle}"/>
                         <ImageButton Source="information.png" 
-                                     HeightRequest="10" 
-                                     WidthRequest="10"
+                                     MaximumHeightRequest="10" 
+                                     MaximumWidthRequest="10"
                                      BackgroundColor="Transparent"
                                      
                                      />
@@ -223,7 +223,7 @@
                         <Label Text="Ho Chi Minh" Style="{StaticResource weatherInfoLabelStyle}" FontSize="20" FontAttributes="Bold" />
                     </HorizontalStackLayout>
 
-                    <ImageButton x:Name="weatherImage" BackgroundColor="Transparent" ScaleX="2" ScaleY="2" Margin="0,35,0,0"
+                    <ImageButton x:Name="weatherImage" BackgroundColor="Transparent"  Margin="0,-10,0,0"
                                  Clicked="weatherImage_Clicked"
                                  Pressed="weatherImage_Pressed"
                                  />

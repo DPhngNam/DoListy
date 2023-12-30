@@ -20,12 +20,12 @@ public partial class WeekPage : ContentPage
     private readonly IAudioManager audioManager;
     ILogger<WeekPage> _logger;
     bool isToggled = App.appointmentRepo.GetSettings().Sound;
-    public void IntitializeSound()
+    public async void IntitializeSound()
     {
         if(!isToggled)
         {
-            Clicked_Sound.Volume = 0;
-            CheckBox_Sound.Volume = 0;
+             Clicked_Sound.Volume = 0;
+             CheckBox_Sound.Volume = 0;
         }
         else
         {
