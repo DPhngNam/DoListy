@@ -100,13 +100,14 @@ public partial class WeekPage : ContentPage
         Clicked_Sound.Play();
         await Shell.Current.GoToAsync("//Day");
         var daypage = (DayPage)Shell.Current.CurrentPage;
+        daypage.Load(xxx);
     } 
 
     private void TaskList_ChildAdded(object sender, ElementEventArgs e)
     {
         throw new NotImplementedException();
     }
-
+    private DateTime xxx;
     private void WeekPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
     {
         IntitializeSound();
@@ -116,7 +117,7 @@ public partial class WeekPage : ContentPage
 
             var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
             List<Appointment> appointmennts = new List<Appointment>();
-
+            xxx = e.Date.Value;
             foreach (Appointment app in CurrentAppointment)
             {
                 if (app.EventStart.Day <= e.Date.Value.Day && e.Date.Value.Day <= app.EventEnd.Day)
@@ -154,8 +155,6 @@ public partial class WeekPage : ContentPage
             Tasklist.ItemsSource = null;
         }
     }
-
-
 
     private void MenuItem_Clicked(object sender, EventArgs e)
     {

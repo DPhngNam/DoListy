@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System;
 using System.Timers;
-
 using System.Windows.Input;
 
 using Microsoft.Maui.Controls;
@@ -56,13 +55,13 @@ public partial class PomodoroPage : ContentPage
     }
     private void iniPicker()
     {
-        musicPickerList = new List<string>() {"None", "Jazz", "Raining", "Nature", "Binaural Beats", "Lofi" };
-        backgroundPickerList = new List<string>() { "None", "Morning Brew", "New York City", "Cozy Coffee Shop", "Ho Chi Minh City" };
+        musicPickerList = new List<string>() {"None", "Jazz", "Raining", "Nature", "Binaural Beats", "Lofi", "Ghibli Music","Classical" };
+        backgroundPickerList = new List<string>() { "None", "Morning Brew", "New York City", "Cozy Coffee Shop", "Ho Chi Minh City", "Cozy Library","Cozy Bedroom", "Galaxy", "Ghibli" };
         musicPicker.ItemsSource = musicPickerList; musicPicker.SelectedIndex = 0;
         musicSelectedIndex = 0;
         backgroundPicker.ItemsSource = backgroundPickerList; backgroundPicker.SelectedIndex = 2;
         backgroundSelectedIndex = 2;
-        backgrounds = new List<string>() { "morningbrew_pomo.jpg", "nycview_pomo.jpg", "cozycoffeeshop_pomo.jpg", "hcmcity_pomo.jpg" };
+        backgrounds = new List<string>() { "morningbrew_pomo.jpg", "nycview_pomo.jpg", "cozycoffeeshop_pomo.jpg", "hcmcity_pomo.jpg", "cozylibrary_pomo.jpg","cozybedroom_pomo.jpg","galaxy_pomo.jpg", "ghibli_pomo.jpg" };
     }
     private async void createPlayers()
     {
@@ -78,7 +77,11 @@ public partial class PomodoroPage : ContentPage
         musics.Add(item);
         item = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("lofi_pomo.mp3"));
         musics.Add(item);
-        musics[0].Loop = musics[1].Loop = musics[2].Loop = musics[3].Loop = musics[4].Loop = true;
+        item = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("ghibli_pomo.mp3"));
+        musics.Add(item);
+        item = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("classical_pomo.mp3"));
+        musics.Add(item);
+        musics[0].Loop = musics[1].Loop = musics[2].Loop = musics[3].Loop = musics[4].Loop = musics[5].Loop = musics[6].Loop = true;
        
     }
     void changeState()
@@ -115,6 +118,7 @@ public partial class PomodoroPage : ContentPage
     {
         clickPlayer.Play();
         if (musicSelectedIndex > 0) musics[musicSelectedIndex - 1].Play();
+        pomoStateLabel.IsVisible = true;
         startButton.Opacity = 1.0;
         startButton.IsVisible = false;
         pauseButton.IsVisible = true;
@@ -153,6 +157,8 @@ public partial class PomodoroPage : ContentPage
         changeState();
         totalTime = TimeSpan.FromMinutes(minutes);
         UpdateTimerLabel(totalTime);
+        pomoStateLabel.IsVisible = false;
+
     }
     private void OnApplyPomoSettingPressed(object sender, EventArgs e)
     {
@@ -166,7 +172,6 @@ public partial class PomodoroPage : ContentPage
         pauseButton.IsVisible = false;
         stopButton.IsVisible = false;
         startButton.IsVisible = true;
-        focus = true;
         countPomo = 0;
         pomolength = (int)pomoLengthEntry.Value;
         shortbreak = (int)shortBreakLengthEntry.Value;
@@ -176,6 +181,10 @@ public partial class PomodoroPage : ContentPage
         minutes = pomolength;
         totalTime = TimeSpan.FromMinutes(minutes);
         UpdateTimerLabel(totalTime);
+        focus = false;
+        pomoStateLabel.IsVisible = false;
+        changeState();
+
     }
     private void OnCancelPomoSettingPressed(Object sender, EventArgs e)
     {
@@ -210,6 +219,8 @@ public partial class PomodoroPage : ContentPage
                 countdownTimer.Stop();
                 ++countPomo;
                 changeState();
+                pomoStateLabel.IsVisible = false;
+
                 totalTime = TimeSpan.FromMinutes(minutes);
                 UpdateTimerLabel(totalTime);
                 // call a notification function
@@ -276,15 +287,15 @@ public partial class PomodoroPage : ContentPage
     {
         applyPomoWorkspaceSettingsButton.Opacity = 1.0;
         clickPlayer.Play();
-        countdownTimer.Stop();
-        if (musicSelectedIndex > 0 && musics[musicSelectedIndex - 1].IsPlaying) musics[musicSelectedIndex - 1].Stop();
+        if (!startButton.IsVisible && musicSelectedIndex > 0)
+        {
+            musics[musicSelectedIndex - 1].Stop();
+        }
         musicSelectedIndex = musicPicker.SelectedIndex;
+        if (musicSelectedIndex > 0 && !startButton.IsVisible) musics[musicSelectedIndex - 1].Play();
         backgroundSelectedIndex = backgroundPicker.SelectedIndex;
         if (backgroundSelectedIndex == 0) this.BackgroundImageSource = "";
          else   this.BackgroundImageSource = backgrounds[backgroundSelectedIndex-1];
-        totalTime = TimeSpan.FromMinutes(minutes);
-        UpdateTimerLabel(totalTime);
-
     }
 
     void OnPullWorkplacePressed(object sender, EventArgs e)
@@ -309,4 +320,5 @@ public partial class PomodoroPage : ContentPage
             workspaceFrameIsPulled = true;
         }
     }
+   
 }

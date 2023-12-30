@@ -197,7 +197,6 @@ public partial class YearPage : ContentPage
                         App.appointmentRepo.DeleteGoal(realGoalsList[value]);
                         realGoalsList.RemoveAt(value);
                         viewGoal.Close();
-
                     };
 
                 }
