@@ -69,11 +69,22 @@
                        ShowWeekNumber="True"
                        x:FieldModifier="public"                                
                        Tapped="Scheduler_Tapped"
-                       AllowViewNavigation="True"       
+                       AllowViewNavigation="True"   
+                       EnableReminder="True"
+                       ReminderAlertOpening="Scheduler_ReminderAlertOpening"
                        TodayTextStyle="{StaticResource textStyle2}"
                        BackgroundColor="Transparent"
                         >
-
+            <scheduler:SfScheduler.AppointmentMapping>
+                <!--tham chiếu tới task người dùng-->
+                <scheduler:SchedulerAppointmentMapping 
+                                           Reminders="Reminders">
+                    <scheduler:SchedulerAppointmentMapping.ReminderMapping>
+                        <scheduler:SchedulerReminderMapping IsDismissed="IsDismissed"
+                                                TimeBeforeStart="timeBeforeStart"/>
+                    </scheduler:SchedulerAppointmentMapping.ReminderMapping>
+                </scheduler:SchedulerAppointmentMapping>
+            </scheduler:SfScheduler.AppointmentMapping>
             <!--Headerview-->
             <scheduler:SfScheduler.HeaderView>
                 <scheduler:SchedulerHeaderView TextStyle="{StaticResource textStyle3}" />

@@ -4,6 +4,7 @@ using DoListy.Services;
 using Appointment = DoListy.ViewModel.Appointment;
 using DoListy.Weather;
 using Syncfusion.Maui.Scheduler;
+using DoListy.ViewModel;
 using CommunityToolkit.Maui.Views;
 using XCalendar.Core.Extensions;
 
@@ -53,7 +54,7 @@ public partial class DayPage : ContentPage
         InitializeComponent();
         this.audioManager = audioManager;
         loadAppointments();
-        //whatDay.Text = temp.Date.ToString(" dddd dd/MM/yyyy ");
+        frame_A.FindByName<Label>("whatDay").Text = temp.ToString(" dddd dd/MM/yyyy ");
         Load(temp);
     }
 
@@ -266,7 +267,7 @@ public partial class DayPage : ContentPage
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
             //var yyy = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
-            //whatDay.Text = yyy;
+            frame_A.FindByName<Label>("whatDay").Text = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
             Load(xxx);      
         }
         
@@ -346,5 +347,22 @@ public partial class DayPage : ContentPage
         }
     }
 
-    
+    private async void Scheduler_ReminderAlertOpening(object sender, Syncfusion.Maui.Scheduler.ReminderAlertOpeningEventArgs e)
+    {
+        for (int i = 0; i < e.Reminders.Count; i++)
+        {
+            if (!e.Reminders[i].IsDismissed)
+            {
+                int id = int.Parse(e.Reminders[i].Appointment.Id.ToString());
+                Reminder reminder = App.appointmentRepo.GetReminderByBeforeStartTime(e.Reminders[i].AlertTime, id);
+                if (reminder != null && !reminder.IsDismissed)
+                {
+                    Mediaelement3.Play();
+                    await DisplayAlert("Reminder", e.Reminders[i].Appointment.Subject + " - " + e.Reminders[i].Appointment.StartTime.ToString(" dddd, MMMM dd, yyyy, hh:mm tt"), "OK");
+                    reminder.IsDismissed = true;
+                    App.appointmentRepo.DeleteReminder(reminder);
+                }
+            }
+        }
+    }
 }
