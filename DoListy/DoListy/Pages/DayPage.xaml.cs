@@ -347,22 +347,5 @@ public partial class DayPage : ContentPage
         }
     }
 
-    private async void Scheduler_ReminderAlertOpening(object sender, Syncfusion.Maui.Scheduler.ReminderAlertOpeningEventArgs e)
-    {
-        for (int i = 0; i < e.Reminders.Count; i++)
-        {
-            if (!e.Reminders[i].IsDismissed)
-            {
-                int id = int.Parse(e.Reminders[i].Appointment.Id.ToString());
-                Reminder reminder = App.appointmentRepo.GetReminderByBeforeStartTime(e.Reminders[i].AlertTime, id);
-                if (reminder != null && !reminder.IsDismissed)
-                {
-                    Mediaelement3.Play();
-                    await DisplayAlert("Reminder", e.Reminders[i].Appointment.Subject + " - " + e.Reminders[i].Appointment.StartTime.ToString(" dddd, MMMM dd, yyyy, hh:mm tt"), "OK");
-                    reminder.IsDismissed = true;
-                    App.appointmentRepo.DeleteReminder(reminder);
-                }
-            }
-        }
-    }
+    
 }
