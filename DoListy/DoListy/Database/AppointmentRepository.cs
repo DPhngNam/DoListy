@@ -1,4 +1,5 @@
-﻿using DoListy.ViewModel;
+﻿using DoListy.Pages;
+using DoListy.ViewModel;
 using SQLite;
 
 namespace DoListy.Database
@@ -150,7 +151,6 @@ namespace DoListy.Database
             {
                 conn.Delete(reminder);
             }
-            
         }
 
         public List<Reminder> GetReminders()
