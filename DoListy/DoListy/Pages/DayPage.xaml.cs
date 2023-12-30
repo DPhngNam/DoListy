@@ -262,8 +262,7 @@ public partial class DayPage : ContentPage
         Mediaelement2.Play();
         
         if (e.Element is SchedulerElement.ViewHeader)
-        {
-            
+        {           
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
             //var yyy = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
