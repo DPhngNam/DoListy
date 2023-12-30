@@ -265,6 +265,8 @@ public partial class DayPage : ContentPage
             
             TaskDaily.ItemsSource = null;
             xxx = e.Date.Value;
+            //var yyy = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
+            //whatDay.Text = yyy;
             Load(xxx);      
         }
         
