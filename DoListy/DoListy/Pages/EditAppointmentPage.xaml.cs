@@ -130,23 +130,24 @@ public partial class EditAppointmentPage : ContentPage
         {
             Reminder reminder = App.appointmentRepo.GetReminderById(appointment.Id);
             int a = 1;
-            if (int.TryParse(EditReminder.Text, out a))
-            {
-                switch (EditPickerRemnder.SelectedItem.ToString())
-                {
-                    case "MINUTES":
-                        break;
-                    case "HOURS":
-                        a = a * 60;
-                        break;
-                    case "DAYS":
-                        a = a * 60 * 24;
-                        break;
-                }
-                reminder.TimeBeforeStart = a;
-            }
+
             if (reminder != null)
             {
+                if (int.TryParse(EditReminder.Text, out a))
+                {
+                    switch (EditPickerRemnder.SelectedItem.ToString())
+                    {
+                        case "MINUTES":
+                            break;
+                        case "HOURS":
+                            a = a * 60;
+                            break;
+                        case "DAYS":
+                            a = a * 60 * 24;
+                            break;
+                    }
+                    reminder.TimeBeforeStart = a;
+                }
                 App.appointmentRepo.UpdateReminder(reminder);
             }
             else
