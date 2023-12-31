@@ -125,7 +125,7 @@
             <Frame Style="{StaticResource taskFrameStyle}" x:Name="frame_A" Grid.Row="2"  Grid.Column="0" Margin="30,0,0,10" >
                 <VerticalStackLayout Spacing="5">
                     <Grid ColumnDefinitions="0.45*,*,auto" >
-                        <Label Style="{StaticResource taskFrameHeaderLabelStyle}" Text="Tasks for "  FontAttributes="Bold" Grid.Column="0" />
+                        <Label Style="{StaticResource taskFrameHeaderLabelStyle}" Text="Tasks "  FontAttributes="Bold" Grid.Column="0" />
                         <ImageButton HeightRequest="2" WidthRequest="2" Pressed="buttonAddAppointment_Pressed"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddTask_Clicked" Source="plus.png" Grid.Column="2" />
                     </Grid>
                     <BoxView Color="{AppThemeBinding Dark=White, Light=Black}" HeightRequest="1"/>
