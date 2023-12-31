@@ -261,11 +261,6 @@ public partial class DayPage : ContentPage
         
         TaskDaily.ItemsSource = appointmenntss;
         
-
-
-        whatDay.Text = current.ToString(" dddd dd/MM/yyyy ");
-
-
     }
 
    
@@ -278,30 +273,25 @@ public partial class DayPage : ContentPage
         
         if (e.Element is SchedulerElement.ViewHeader)
         {
-            
-            xxx = e.Date.Value;
-            
+            xxx = e.Date.Value;            
             whatDay.Text = xxx.ToString("dddd dd/MM/yyyy");            
             Load(xxx);
             frame_B.FindByName<Label>("TaskTitle").Text = "";
             frame_B.FindByName<Label>("StartTime").Text = "";
             frame_B.FindByName<Label>("EndTime").Text = "";
-
-            frame_B.FindByName<Label>("State").Text = "";
-            
-
+            frame_B.FindByName<Label>("State").Text = "";            
             frame_B.FindByName<Editor>("Notes").Text = "";
         }
-        
     }
 
     private Appointment Current;
+    int tempo;
     private void TasksList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
 
         if (TaskDaily.SelectedItem != null)
         {
-            int tempo = ((Appointment)e.SelectedItem).Id;
+            tempo = ((Appointment)e.SelectedItem).Id;
             Current = App.appointmentRepo.GetAppointmentByID(tempo);
 
             frame_B.FindByName<Label>("TaskTitle").Text = Current.Name;
@@ -325,27 +315,33 @@ public partial class DayPage : ContentPage
 
     private void MenuItem_Clicked(object sender, EventArgs e)
     {
-        if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
+        Mediaelement2.Play();
+        if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointments)
         {
-
-            App.appointmentRepo.DeleteAppointment(appointment);
+            
+            App.appointmentRepo.DeleteAppointment(appointments);
             TaskDaily.ItemsSource = null;
+
             loadAppointments();
             Load(xxx);   
+            
         }
     }
     private async void MenuItem_Clicked_1(object sender, EventArgs e)
     {
-
+        Mediaelement2.Play();
+        TaskDaily.ItemsSource = null;
         if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
         {
-            int temp = appointment.Id;
-            await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={temp}");
-            TaskDaily.ItemsSource = null;
-            loadAppointments();
-            Load(xxx);
+            
+            int tempx = appointment.Id;
+           
+            await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={tempx}");
+            
+
         }
-        
+        loadAppointments();
+        Load(xxx);
     }
 
     
@@ -367,6 +363,4 @@ public partial class DayPage : ContentPage
             }
         }
     }
-
-    
 }
