@@ -20,20 +20,7 @@ public partial class WeekPage : ContentPage
     private readonly IAudioManager audioManager;
     ILogger<WeekPage> _logger;
     bool isToggled = App.appointmentRepo.GetSettings().Sound;
-    public async void IntitializeSound()
-    {
-        if(!isToggled)
-        {
-             Clicked_Sound.Volume = 0;
-             CheckBox_Sound.Volume = 0;
-        }
-        else
-        {
-            Clicked_Sound.Volume = 1;
-            CheckBox_Sound.Volume = 1;
-        }
-
-    }
+ 
 
     public WeekPage(IAudioManager audioManager,ILogger<WeekPage> logger)
     {
@@ -89,7 +76,7 @@ public partial class WeekPage : ContentPage
     }
     private async void buttonAddAppointment_Clicked(object sender, EventArgs e)
     {
-        IntitializeSound();
+     
         Clicked_Sound.Play();
         Opacity = 1;
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
@@ -97,7 +84,7 @@ public partial class WeekPage : ContentPage
     
     private async void btnOpenDeatil_Clicked(object sender, EventArgs e)
     {
-        IntitializeSound();
+       
         Clicked_Sound.Play();
         await Shell.Current.GoToAsync("//Day");
         var daypage = (DayPage)Shell.Current.CurrentPage;
@@ -111,7 +98,7 @@ public partial class WeekPage : ContentPage
     private DateTime xxx;
     private void WeekPageScheduler_Tapped(object sender, SchedulerTappedEventArgs e)
     {
-        IntitializeSound();
+      
         if (e.Element is SchedulerElement.ViewHeader)
         {
             Tasklist.ItemsSource = null;
@@ -173,7 +160,7 @@ public partial class WeekPage : ContentPage
 
     void OnPomoButtonClicked(object sender, EventArgs e)
     {
-        IntitializeSound();
+        
         Clicked_Sound.Play();
         WPPomoButton.Opacity = 1;
         Navigation.PushModalAsync(new PomodoroPage(audioManager));
@@ -182,7 +169,7 @@ public partial class WeekPage : ContentPage
 
     private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
-        IntitializeSound();
+       
         CheckBox checkbox = (CheckBox)sender;
         if (checkbox != null)
         {

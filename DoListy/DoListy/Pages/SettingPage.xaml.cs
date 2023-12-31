@@ -12,6 +12,7 @@ public partial class SettingPage : Popup
 		InitializeComponent();
         linkwebsite.Command = new Command<string>(async (url) => await Launcher.OpenAsync("https://dttri.github.io/dolisty.github.io/?fbclid=IwAR2e2SJ9--e3iGSiCyrspXVBnzRs8_rRxB6sipfgb5PDj8lGl2ln6ozHzgM"));
         this.BindingContext = new ViewModel.Settings();
+        feed.Command = new Command<string>(async (url) => await Launcher.OpenAsync("https://dttri.github.io/dolisty.github.io/?fbclid=IwAR2e2SJ9--e3iGSiCyrspXVBnzRs8_rRxB6sipfgb5PDj8lGl2ln6ozHzgM#feedback"));
     }
 
 
