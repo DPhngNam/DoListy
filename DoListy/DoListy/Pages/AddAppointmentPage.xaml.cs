@@ -134,14 +134,14 @@ public partial class AddAppointmentPage : ContentPage
     {
         Mediaelement2.Play();
         pickerDateTime2.IsOpen = false;
-        entryEndTime.Text = pickerDateTime2.SelectedDate.ToString();
+        entryEndTime.Text = pickerDateTime2.SelectedDate.ToString("dd/MM/yyyy HH:mm:ss");
     }
 
     private void pickerDateTime1_OkButtonClicked(object sender, EventArgs e)
     {
         Mediaelement2.Play();
         pickerDateTime1.IsOpen = false;
-        entryStartTime.Text = pickerDateTime1.SelectedDate.ToString();
+        entryStartTime.Text = pickerDateTime1.SelectedDate.ToString("dd/MM/yyyy HH:mm:ss");
     }
 
     private void pickerDateTime3_CancelButtonClicked(object sender, EventArgs e)
@@ -154,7 +154,7 @@ public partial class AddAppointmentPage : ContentPage
     {
         Mediaelement2.Play();
         pickerDateTime3.IsOpen = false;
-        Until.Text = pickerDateTime3.SelectedDate.ToString("d");
+        Until.Text = pickerDateTime3.SelectedDate.ToString("dd/MM/yyyy HH:mm:ss");
     }
 
     private void Until_Clicked(object sender, EventArgs e)

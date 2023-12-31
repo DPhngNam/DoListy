@@ -102,6 +102,7 @@ public partial class MonthPage : ContentPage
             App.appointmentRepo.DeleteReminder(App.appointmentRepo.GetReminderById(appointment.Id));
             loadAppointments();
             TasksList.ItemsSource = null;
+            Load(appointment.EventStart.Date);
         }
     }
     

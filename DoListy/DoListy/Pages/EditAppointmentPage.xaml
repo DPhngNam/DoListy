@@ -89,9 +89,9 @@
                     <Label   Text="End Time: " Style="{StaticResource labelPage}" ></Label>
                     <Button x:Name="editEndTime" Style="{StaticResource btnDatetime}" Clicked="editEndTime_Clicked" Pressed="editEndTime_Pressed"></Button>
                     <picker:SfDateTimePicker x:Name="pickerDateTime2"
-             Style="{StaticResource pickerDateTimeStyle}"
-             CancelButtonClicked="pickerDateTime2_CancelButtonClicked"
-             OkButtonClicked="pickerDateTime2_OkButtonClicked">
+                                             Style="{StaticResource pickerDateTimeStyle}"
+                                             CancelButtonClicked="pickerDateTime2_CancelButtonClicked"
+                                             OkButtonClicked="pickerDateTime2_OkButtonClicked">
 
                         <picker:SfDateTimePicker.ColumnHeaderView>
                             <picker:DateTimePickerColumnHeaderView Background="#D3D3D3">
@@ -127,10 +127,10 @@
                     <Label   Text="Until: " Style="{StaticResource labelPage}" ></Label>
                     <Button x:Name="UntilEdit" Style="{StaticResource btnDatetime}" Clicked="UntilEdit_Clicked" Pressed="UntilEdit_Pressed" x:FieldModifier="public"></Button>
                     <picker:SfDateTimePicker x:Name="pickerDateTime3"
-             Style="{StaticResource pickerDateTimeStyle}"
-             CancelButtonClicked="pickerDateTime3_CancelButtonClicked"
-             OkButtonClicked="pickerDateTime3_OkButtonClicked"
-             x:FieldModifier="public">
+                                             Style="{StaticResource pickerDateTimeStyle}"
+                                             CancelButtonClicked="pickerDateTime3_CancelButtonClicked"
+                                             OkButtonClicked="pickerDateTime3_OkButtonClicked"
+                                             x:FieldModifier="public">
 
                         <picker:SfDateTimePicker.ColumnHeaderView>
                             <picker:DateTimePickerColumnHeaderView Background="#D3D3D3">

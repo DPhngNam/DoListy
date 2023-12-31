@@ -23,16 +23,16 @@ public partial class EditAppointmentPage : ContentPage
                 //temp = appointment.Colorbg;
                 editSubject.Text = appointment.Name;
                 pickerDateTime1.SelectedDate = appointment.EventStart;
-                eidtStartTime.Text = appointment.EventStart.ToString();
+                eidtStartTime.Text = appointment.EventStart.ToString("dd/MM/yyyy HH:mm:ss");
                 pickerDateTime2.SelectedDate = appointment.EventEnd;
-                editEndTime.Text = appointment.EventEnd.ToString();
+                editEndTime.Text = appointment.EventEnd.ToString("dd/MM/yyyy HH:mm:ss");
                 if(!string.IsNullOrEmpty(appointment.Note))
                 {
                     NoteEdit.Text = appointment.Note.ToString();
                 }
                 if (!appointment.Until.Day.Equals(1/1/0001))
                 {
-                    UntilEdit.Text = appointment.Until.ToString("d");
+                    UntilEdit.Text = appointment.Until.ToString("dd/MM/yyyy HH:mm:ss");
                     pickerDateTime3.SelectedDate = appointment.Until;
                 }
             }
@@ -67,7 +67,7 @@ public partial class EditAppointmentPage : ContentPage
     {
         Mediaelement2.Play();
         pickerDateTime1.IsOpen = false;
-        eidtStartTime.Text = pickerDateTime1.SelectedDate.ToString();
+        eidtStartTime.Text = pickerDateTime1.SelectedDate.ToString("dd/MM/yyyy HH:mm:ss");
     }
 
     private void editEndTime_Clicked(object sender, EventArgs e)
@@ -91,7 +91,7 @@ public partial class EditAppointmentPage : ContentPage
     {
         Mediaelement2.Play();
         pickerDateTime2.IsOpen = false;
-        editEndTime.Text = pickerDateTime2.SelectedDate.ToString();
+        editEndTime.Text = pickerDateTime2.SelectedDate.ToString("dd/MM/yyyy HH:mm:ss");
     }
 
     private  void buttonCancle1_Clicked(object sender, EventArgs e)
@@ -121,6 +121,10 @@ public partial class EditAppointmentPage : ContentPage
             appointment.Frequency = FreqEdit.SelectedItem.ToString();
             appointment.Recurrencerule = "FREQ=" + freq + ";INTERVAL=" + inter + ";UNTIL=" + until;
         }
+        if(!string.IsNullOrEmpty(NoteEdit.Text))
+        {
+            appointment.Note = NoteEdit.Text;
+        }    
         App.appointmentRepo.Update(appointment);
         if(EditReminder.Text != null && EditPickerRemnder.SelectedItem != null)
         {
@@ -179,7 +183,7 @@ public partial class EditAppointmentPage : ContentPage
     {
         Mediaelement2.Play();
         pickerDateTime3.IsOpen = false;
-        UntilEdit.Text = pickerDateTime3.SelectedDate.ToString();
+        UntilEdit.Text = pickerDateTime3.SelectedDate.ToString("dd/MM/yyyy HH:mm:ss");
     }
 
     private void UntilEdit_Clicked(object sender, EventArgs e)

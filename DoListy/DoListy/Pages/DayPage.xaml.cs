@@ -7,7 +7,6 @@ using Syncfusion.Maui.Scheduler;
 using DoListy.ViewModel;
 using CommunityToolkit.Maui.Views;
 using XCalendar.Core.Extensions;
-using Windows.ApplicationModel.Appointments;
 
 namespace DoListy.Pages;
 public partial class DayPage : ContentPage
@@ -69,6 +68,8 @@ public partial class DayPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
+        loadAppointments();
+        Load(DateTime.Now);
         var result = await ApiService.getWeather(10.823, 106.6296);
         switch (result.current.weather_code)
         {
@@ -331,7 +332,7 @@ public partial class DayPage : ContentPage
             }
             App.appointmentRepo.DeleteAppointment(appointmentt);
             TaskDaily.ItemsSource = null;
-
+            Load(appointmentt.EventStart.Date);
             loadAppointments();
             Load(xxx);   
             
@@ -367,7 +368,7 @@ public partial class DayPage : ContentPage
         {
             int temp = appointmenttt.Id;
             await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={appointmenttt.Id}");
-            
+            TaskDaily.ItemsSource = null;
         }
     }
 }
