@@ -64,6 +64,7 @@ public partial class WeekPage : ContentPage
         base.OnAppearing();
         loadAppointments();
         Tasklist.ItemsSource = null;
+        Load(DateTime.Now);
     }
     public void loadAppointments()
     {
@@ -164,8 +165,9 @@ public partial class WeekPage : ContentPage
             App.appointmentRepo.DeleteAppointment(appointment);
             App.appointmentRepo.DeleteReminder(App.appointmentRepo.GetReminderById(appointment.Id));
             loadAppointments();
-            List<Appointment> postDeleteAppointment = App.appointmentRepo.GetAppointments(); 
-            Tasklist.ItemsSource = postDeleteAppointment ;
+            List<Appointment> postDeleteAppointment = App.appointmentRepo.GetAppointments();
+            Tasklist.ItemsSource = null;
+            Load(appointment.EventStart.Date);
         }
     }
 
@@ -173,7 +175,7 @@ public partial class WeekPage : ContentPage
     {
         IntitializeSound();
         Clicked_Sound.Play();
-         WPPomoButton.Opacity = 1;
+        WPPomoButton.Opacity = 1;
         Navigation.PushModalAsync(new PomodoroPage(audioManager));
     }
 
@@ -237,5 +239,19 @@ public partial class WeekPage : ContentPage
                 }
             }
         }
+    }
+    private void Load(DateTime current)
+    {
+        var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
+        List<Appointment> appointmennts = new List<Appointment>();
+
+        foreach (Appointment app in CurrentAppointment)
+        {
+            if (app.EventStart.Day <= current.Day && current.Day <= app.EventEnd.Day)
+            {
+                appointmennts.Add(app);
+            }
+        }
+        Tasklist.ItemsSource = appointmennts;
     }
 }
