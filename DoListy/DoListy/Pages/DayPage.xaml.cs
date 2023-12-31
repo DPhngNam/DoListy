@@ -244,24 +244,23 @@ public partial class DayPage : ContentPage
     {
         Mediaelement2.Play();
         buttonAddAppointment.Opacity = 1.0;
-        await Shell.Current.GoToAsync(nameof(AddAppointmentPage));       
+        await Shell.Current.GoToAsync(nameof(AddAppointmentPage));
     }
     private DateTime xxx;
     private List<Appointment> appointmenntss = new List<Appointment>();
     public void Load(DateTime current)
     {
         var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
-        appointmenntss.Clear();
-        
+        List<Appointment> appointmennts = new List<Appointment>();
         foreach (Appointment app in CurrentAppointment)
         {
             if (app.EventStart.Day <= current.Day && current.Day <= app.EventEnd.Day)
             {
-                appointmenntss.Add(app);
+                appointmennts.Add(app);
             }
         }
         
-        TaskDaily.ItemsSource = appointmenntss;
+        TaskDaily.ItemsSource = appointmennts;
         
     }
 
