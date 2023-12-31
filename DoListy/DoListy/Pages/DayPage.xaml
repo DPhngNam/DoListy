@@ -49,7 +49,8 @@
             <!-- Header -->
             
             <RowDefinition Height="0.7*"/>
-            <RowDefinition Height="1.8*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="1.6*"/>
 
         </Grid.RowDefinitions>
         <toolkit:MediaElement x:Name="Mediaelement1" Source="embed://tick.mp3" IsVisible="False" ></toolkit:MediaElement>
@@ -106,6 +107,11 @@
             Pressed="Settingbtn_Pressed"/>
         <!--Checked-->
         <!--Half 2-->
+        <HorizontalStackLayout Grid.Row="1" Spacing="5" Margin="0,-5,0,0">
+            <Label Text="Chosen date: " Style="{StaticResource taskDateLabelStyle}"/>
+            <Label x:Name="whatDay" Style="{StaticResource taskDateLabelStyle}" FontAttributes="Bold" />
+        </HorizontalStackLayout>
+        
         <Grid Grid.Row="2" Grid.Column="0"  BackgroundColor="Transparent">
 
             <Grid.ColumnDefinitions >
@@ -158,8 +164,8 @@
             <!--Details frame-->
             <Frame Style="{StaticResource taskFrameStyle}" x:Name="frame_B"  Grid.Column="1" Margin="45,0,0,10">
                 <VerticalStackLayout >
-                    <Label Text="Task details" Style="{StaticResource textColor}" FontSize="20" FontAttributes="Bold" Margin="20,0,0,0"/>
-                    <Label x:Name="whatDay" Style="{StaticResource taskFrameHeaderLabelStyle}" FontAttributes="Bold"  />
+                    <Label Text="Task details" Style="{StaticResource taskFrameHeaderLabelStyle}" FontSize="20" FontAttributes="Bold" Margin="20,0,0,0"/>
+                    
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" Margin="0,0,0,10"/>
                     <Grid ColumnDefinitions="auto,auto" RowDefinitions="*,*,*,*,auto" RowSpacing="10" ColumnSpacing="5">
                         
@@ -206,9 +212,9 @@
                         <Label Text="Ho Chi Minh" Style="{StaticResource weatherInfoLabelStyle}" FontSize="20" FontAttributes="Bold" />
                     </HorizontalStackLayout>
 
-                    <ImageButton x:Name="weatherImage" BackgroundColor="Transparent"  Margin="0,-10,0,0"
+                    <ImageButton x:Name="weatherImage" BackgroundColor="Transparent"  Margin="0,35,0,0"
                                  Clicked="weatherImage_Clicked"
-                                 Pressed="weatherImage_Pressed"
+                                 Pressed="weatherImage_Pressed" ScaleX="2" ScaleY="2"
                                  />
                 </StackLayout>
             </Frame>

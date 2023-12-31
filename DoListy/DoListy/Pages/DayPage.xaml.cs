@@ -7,6 +7,7 @@ using Syncfusion.Maui.Scheduler;
 using DoListy.ViewModel;
 using CommunityToolkit.Maui.Views;
 using XCalendar.Core.Extensions;
+using Windows.ApplicationModel.Appointments;
 
 namespace DoListy.Pages;
 public partial class DayPage : ContentPage
@@ -56,9 +57,10 @@ public partial class DayPage : ContentPage
     public DayPage(IAudioManager audioManager)
     {
         InitializeComponent();
+        
         this.audioManager = audioManager;
-        loadAppointments();
         frame_A.FindByName<Label>("whatDay").Text = temp.ToString(" dddd dd/MM/yyyy ");
+        loadAppointments();
         Load(temp);
     }
 
@@ -67,7 +69,6 @@ public partial class DayPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        
         var result = await ApiService.getWeather(10.823, 106.6296);
         switch (result.current.weather_code)
         {
@@ -95,7 +96,7 @@ public partial class DayPage : ContentPage
                 }
                 else
                 {
-                    s = "nighttt.png";
+                    s = "https://img.icons8.com/fluency/96/partly-cloudy-night.png";
                 }
                 break;
             case 2:
@@ -103,7 +104,7 @@ public partial class DayPage : ContentPage
                 if (result.current.is_day == 1)
                 {
                     s = "https://img.icons8.com/fluency/96/partly-cloudy-day.png";
-
+                    //s = "nighttt.png";
                 }
                 else
                 {
@@ -316,10 +317,19 @@ public partial class DayPage : ContentPage
     private void MenuItem_Clicked(object sender, EventArgs e)
     {
         Mediaelement2.Play();
-        if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointments)
+        if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointmentt)
         {
-            
-            App.appointmentRepo.DeleteAppointment(appointments);
+            if(tempo == appointmentt.Id)
+            {
+                
+                    frame_B.FindByName<Label>("TaskTitle").Text = "";
+                    frame_B.FindByName<Label>("StartTime").Text = "";
+                    frame_B.FindByName<Label>("EndTime").Text = "";
+                    frame_B.FindByName<Label>("State").Text = "";
+                    frame_B.FindByName<Editor>("Notes").Text = "";
+                
+            }
+            App.appointmentRepo.DeleteAppointment(appointmentt);
             TaskDaily.ItemsSource = null;
 
             loadAppointments();
@@ -327,22 +337,8 @@ public partial class DayPage : ContentPage
             
         }
     }
-    private async void MenuItem_Clicked_1(object sender, EventArgs e)
-    {
-        Mediaelement2.Play();
-        TaskDaily.ItemsSource = null;
-        if (sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointment)
-        {
-            
-            int tempx = appointment.Id;
-           
-            await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={tempx}");
-            
-
-        }
-        loadAppointments();
-        Load(xxx);
-    }
+    
+   
 
     
 
@@ -361,6 +357,17 @@ public partial class DayPage : ContentPage
                     frame_B.FindByName<Label>("State").Text = "Done";
                 }
             }
+        }
+    }
+
+    private async void MenuItem_Clicked_1(object sender, EventArgs e)
+    {
+        Mediaelement2.Play();
+        if(sender is MenuItem menuItem && menuItem.CommandParameter is Appointment appointmenttt)
+        {
+            int temp = appointmenttt.Id;
+            await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={appointmenttt.Id}");
+            
         }
     }
 }
