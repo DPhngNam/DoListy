@@ -65,7 +65,7 @@
                         <HorizontalStackLayout Spacing="20">
                             <Label Text="Feedback" FontSize="Medium"/>
                         
-                            <ImageButton Source="gmail.png" Margin="0,-5,0,0" BackgroundColor="Transparent"/>
+                            <ImageButton x:Name="feed"  Source="gmail.png" Margin="0,-5,0,0" BackgroundColor="Transparent"/>
                         
                         </HorizontalStackLayout>
 
