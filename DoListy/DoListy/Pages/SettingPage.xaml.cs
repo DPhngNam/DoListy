@@ -15,10 +15,6 @@ public partial class SettingPage : Popup
         feed.Command = new Command<string>(async (url) => await Launcher.OpenAsync("https://dttri.github.io/dolisty.github.io/?fbclid=IwAR2e2SJ9--e3iGSiCyrspXVBnzRs8_rRxB6sipfgb5PDj8lGl2ln6ozHzgM#feedback"));
     }
 
-
-    
-
-
     private void Darkmode_Toggled(Object sender, ToggledEventArgs e)
     {
         Settings temp = App.appointmentRepo.GetSettings();
