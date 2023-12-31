@@ -38,10 +38,8 @@
             <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource dayFrameBgColor},Light={StaticResource dayFrameBgColorLight}}" />
             <Setter Property="CornerRadius" Value="30" />
             <Setter Property="BorderColor" Value="Transparent"/>
-
             <Setter Property="HeightRequest" Value="250" />
             <Setter Property="MaximumWidthRequest" Value="250" />
-
         </Style>
     </ContentPage.Resources>
 
@@ -69,13 +67,10 @@
                        ShowWeekNumber="True"
                        x:FieldModifier="public"                                
                        Tapped="Scheduler_Tapped"
-                       AllowViewNavigation="True"   
-                       
+                       AllowViewNavigation="True"                        
                        TodayTextStyle="{StaticResource textStyle2}"
                        BackgroundColor="Transparent"
                         >
-            
-            
             <!--Headerview-->
             <scheduler:SfScheduler.HeaderView>
                 <scheduler:SchedulerHeaderView TextStyle="{StaticResource textStyle3}" />
@@ -88,14 +83,10 @@
                         <!--custom header style-->
                         <scheduler:SchedulerViewHeaderSettings DateFormat="dd" 
                                                DateTextStyle="{StaticResource  textStyle}"
-                                                DayTextStyle ="{StaticResource textStyle4}"
+                                               DayTextStyle ="{StaticResource textStyle4}"
                                                Height="60"
-                                               DayFormat="ddd"
-                                              
+                                               DayFormat="ddd"                                             
                                                >
-
-
-
                         </scheduler:SchedulerViewHeaderSettings>
                     </scheduler:SchedulerDaysView.ViewHeaderSettings>
                 </scheduler:SchedulerDaysView>
