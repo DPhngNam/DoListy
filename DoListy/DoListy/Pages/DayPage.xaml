@@ -17,7 +17,7 @@
         <scheduler:SchedulerTextStyle x:Key="textStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
         <scheduler:SchedulerTextStyle x:Key="textStyle3" FontSize="30" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
         <scheduler:SchedulerTextStyle x:Key="textStyle4" FontSize="20" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
-        <scheduler:SchedulerTextStyle x:Key="textStyle2" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark=White , Light= Black}"/>
+        <scheduler:SchedulerTextStyle x:Key="textStyle2" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
         <scheduler:SchedulerTextStyle x:Key="leadingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
         <scheduler:SchedulerTextStyle x:Key="trailingTextStyle" FontSize="14" FontAttributes="Bold" TextColor="{AppThemeBinding Dark= White, Light = Black}"/>
 
@@ -74,15 +74,7 @@
                        TodayTextStyle="{StaticResource textStyle2}"
                        BackgroundColor="Transparent"
                         >
-            <scheduler:SfScheduler.AppointmentMapping>
-                <!--tham chiếu tới task người dùng-->
-                <scheduler:SchedulerAppointmentMapping Reminders="Reminders">
-                    <scheduler:SchedulerAppointmentMapping.ReminderMapping>
-                        <scheduler:SchedulerReminderMapping IsDismissed="IsDismissed"
-                                                TimeBeforeStart="timeBeforeStart"/>
-                    </scheduler:SchedulerAppointmentMapping.ReminderMapping>
-                </scheduler:SchedulerAppointmentMapping>
-            </scheduler:SfScheduler.AppointmentMapping>
+            
             
             <!--Headerview-->
             <scheduler:SfScheduler.HeaderView>
@@ -137,7 +129,7 @@
                 <VerticalStackLayout Spacing="5">
                     <Grid ColumnDefinitions="0.45*,*,auto" >
                         <Label Style="{StaticResource taskFrameHeaderLabelStyle}" Text="Tasks for "  FontAttributes="Bold" Grid.Column="0" />
-                        <Label x:Name="whatDay" Style="{StaticResource taskFrameHeaderLabelStyle}" FontAttributes="Bold" Grid.Column="1" />
+                        
                         <ImageButton HeightRequest="2" WidthRequest="2" Pressed="buttonAddAppointment_Pressed"  x:Name="buttonAddAppointment" Background="Transparent" Clicked="buttonAddTask_Clicked" Source="plus.png" Grid.Column="2" />
                     </Grid>
                     <BoxView Color="{AppThemeBinding Dark=White, Light=Black}" HeightRequest="1"/>
@@ -177,6 +169,7 @@
             <Frame Style="{StaticResource taskFrameStyle}" x:Name="frame_B"  Grid.Column="1" Margin="45,0,0,10">
                 <VerticalStackLayout >
                     <Label Text="Task details" Style="{StaticResource textColor}" FontSize="20" FontAttributes="Bold" Margin="20,0,0,0"/>
+                    <Label x:Name="whatDay" Style="{StaticResource taskFrameHeaderLabelStyle}" FontAttributes="Bold"  />
                     <BoxView Color="White" HeightRequest="1" HorizontalOptions="Fill" Margin="0,0,0,10"/>
                     <Grid ColumnDefinitions="auto,auto" RowDefinitions="*,*,*,*,auto" RowSpacing="10" ColumnSpacing="5">
                         
@@ -210,8 +203,8 @@
                     <HorizontalStackLayout Spacing="80">
                         <Label Text="Weather" Style="{StaticResource weatherNameLabelStyle}"/>
                         <ImageButton Source="information.png" 
-                                     MaximumHeightRequest="10" 
-                                     MaximumWidthRequest="10"
+                                     HeightRequest="10" 
+                                     WidthRequest="10"
                                      BackgroundColor="Transparent"
                                      
                                      />

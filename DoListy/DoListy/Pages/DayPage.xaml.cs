@@ -12,6 +12,10 @@ namespace DoListy.Pages;
 public partial class DayPage : ContentPage
 {
     private readonly IAudioManager audioManager;
+    private void TasksList_ItemTapped(object sender, ItemTappedEventArgs e)
+    {
+        TaskDaily.SelectedItem = null;
+    }
     private void Pomodoro_Pressed(object sender, EventArgs e)
     {
         Pomodoro.Opacity = 0.5;
@@ -241,33 +245,52 @@ public partial class DayPage : ContentPage
         await Shell.Current.GoToAsync(nameof(AddAppointmentPage));       
     }
     private DateTime xxx;
-    private List<Appointment> appointmennts = new List<Appointment>();
+    private List<Appointment> appointmenntss = new List<Appointment>();
     public void Load(DateTime current)
     {
         var CurrentAppointment = new ObservableCollection<Appointment>(App.appointmentRepo.GetAppointments());
-        appointmennts.Clear();
-
+        appointmenntss.Clear();
+        
         foreach (Appointment app in CurrentAppointment)
         {
             if (app.EventStart.Day <= current.Day && current.Day <= app.EventEnd.Day)
             {
-                appointmennts.Add(app);
+                appointmenntss.Add(app);
             }
         }
-        TaskDaily.ItemsSource = appointmennts;
+        
+        TaskDaily.ItemsSource = appointmenntss;
+        
+
+
+        whatDay.Text = current.ToString(" dddd dd/MM/yyyy ");
+
+
     }
-    
-    private void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)
+
+   
+
+    private  void Scheduler_Tapped(object sender, Syncfusion.Maui.Scheduler.SchedulerTappedEventArgs e)
     {
+        TaskDaily.ItemsSource = null;
         Mediaelement2.Play();
+        loadAppointments();
         
         if (e.Element is SchedulerElement.ViewHeader)
-        {           
-            TaskDaily.ItemsSource = null;
+        {
+            
             xxx = e.Date.Value;
-            //var yyy = e.Date.Value.ToString(" dddd dd/MM/yyyy ");
-            frame_A.FindByName<Label>("whatDay").Text = e.Date.Value.ToString(" dddd ");
-            Load(xxx);      
+            
+            whatDay.Text = xxx.ToString("dddd dd/MM/yyyy");            
+            Load(xxx);
+            frame_B.FindByName<Label>("TaskTitle").Text = "";
+            frame_B.FindByName<Label>("StartTime").Text = "";
+            frame_B.FindByName<Label>("EndTime").Text = "";
+
+            frame_B.FindByName<Label>("State").Text = "";
+            
+
+            frame_B.FindByName<Editor>("Notes").Text = "";
         }
         
     }
@@ -298,10 +321,7 @@ public partial class DayPage : ContentPage
         }
 
     }
-    private void TasksList_ItemTapped(object sender, ItemTappedEventArgs e)
-    {
-        TaskDaily.SelectedItem = null;
-    }
+   
 
     private void MenuItem_Clicked(object sender, EventArgs e)
     {
@@ -309,6 +329,7 @@ public partial class DayPage : ContentPage
         {
 
             App.appointmentRepo.DeleteAppointment(appointment);
+            TaskDaily.ItemsSource = null;
             loadAppointments();
             Load(xxx);   
         }
@@ -320,6 +341,7 @@ public partial class DayPage : ContentPage
         {
             int temp = appointment.Id;
             await Shell.Current.GoToAsync($"{nameof(EditAppointmentPage)}?AppId={temp}");
+            TaskDaily.ItemsSource = null;
             loadAppointments();
             Load(xxx);
         }
