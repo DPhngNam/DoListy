@@ -58,7 +58,7 @@ public partial class DayPage : ContentPage
         InitializeComponent();
         
         this.audioManager = audioManager;
-        frame_A.FindByName<Label>("whatDay").Text = temp.ToString(" dddd dd/MM/yyyy ");
+        
         loadAppointments();
         Load(temp);
     }
@@ -70,6 +70,7 @@ public partial class DayPage : ContentPage
         base.OnAppearing();
         loadAppointments();
         Load(DateTime.Now);
+        
         var result = await ApiService.getWeather(10.823, 106.6296);
         switch (result.current.weather_code)
         {
@@ -261,7 +262,7 @@ public partial class DayPage : ContentPage
         }
         
         TaskDaily.ItemsSource = appointmennts;
-        
+        whatDay.Text = current.ToString(" dddd dd/MM/yyyy ");
     }
 
    
