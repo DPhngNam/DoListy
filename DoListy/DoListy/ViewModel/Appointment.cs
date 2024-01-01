@@ -134,14 +134,6 @@ namespace DoListy.ViewModel
                 }
             }
         }
-        [Ignore]
-        public static List<Reminder> Reminders
-        {
-            get
-            {
-                return App.appointmentRepo.GetReminders();
-            }
-        }
     }
 
     [Table("Settings")]

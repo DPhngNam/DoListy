@@ -351,18 +351,16 @@ public partial class DayPage : ContentPage
             {
                 var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("tick.mp3"));
                 player.Play();
-                if(Current != null)
+
+                if (Current != null)
                 {
-                    if (!Current.IsDone)
+                    if(!Current.IsDone)
                     {
                         frame_B.FindByName<Label>("State").Text = "Done";
-                    }
+                    }    
                     
                 }
-                
-
             }
-            
         }
     }
 
