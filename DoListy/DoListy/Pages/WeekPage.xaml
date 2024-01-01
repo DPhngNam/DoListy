@@ -152,7 +152,7 @@
                                                >
                                             <Label Text="{Binding Name}"  TextColor="White" Grid.Column="0" Grid.Row="0"></Label>
                                             <Label Text="{Binding EventStart}" TextColor="White" Grid.Column="0" Grid.Row="1"/>
-                                            <CheckBox IsChecked="{Binding isDone}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+                                            <CheckBox IsChecked="{Binding isDone}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Color="Blue">
                                                 <CheckBox.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                                                 </CheckBox.GestureRecognizers>
