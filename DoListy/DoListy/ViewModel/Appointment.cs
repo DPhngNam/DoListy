@@ -3,7 +3,6 @@ using Plugin.Maui.Audio;
 using SQLite;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using Plugin.Maui.Audio;
 using CommunityToolkit.Maui.Views;
 using DoListy.Pages;
 
@@ -86,15 +85,8 @@ namespace DoListy.ViewModel
                     App.appointmentRepo.Update(temp);
                 }
         }
-        [Ignore]
-        public List<Reminder> Reminders { 
-            get
-            {
-                return App.appointmentRepo.GetReminders();
-            }
-        }
-
     }
+
     [Table("Goal")]
     public class Goal
     {
@@ -140,6 +132,14 @@ namespace DoListy.ViewModel
                         return TimeSpan.FromDays(days) + TimeSpan.FromMinutes(remainingMinutes);
                     }
                 }
+            }
+        }
+        [Ignore]
+        public static List<Reminder> Reminders
+        {
+            get
+            {
+                return App.appointmentRepo.GetReminders();
             }
         }
     }

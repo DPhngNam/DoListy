@@ -90,7 +90,6 @@ public partial class MonthPage : ContentPage
         
         loadAppointments();
         xxx = e.Date.Value;
-        Load(e.Date.Value);
     }
 
     private void MenuItem_Clicked(object sender, EventArgs e)
