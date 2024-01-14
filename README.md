@@ -13,7 +13,7 @@
       <li>Dương Thuận Trí (Leader)</li>
       <li>Nguyễn Trịnh Vĩnh Thịnh</li>
       <li>Huỳnh Hữu Thịnh</li>
-      <li>Đoàn Phương Nam</li>
+      <li><a href="https://github.com/DPhngNam">Đoàn Phương Nam</a></li>
     </ul>
     <p>Guided by the expertise of our mentor: Mr. Huỳnh Tuấn Anh</p>
 
