@@ -10,9 +10,9 @@
 <h2>Team</h2>
     <p>DoListy is developed by a team of four dedicated individuals:</p>
     <ul>
-      <li>Dương Thuận Trí (Leader)</li>
+      <li><a href="https://github.com/DTTri">Dương Thuận Trí (Leader)</a></li>
       <li><a href="https://github.com/VinhThinh0804">Nguyễn Trịnh Vĩnh Thịnh</a></li>
-      <li>Huỳnh Hữu Thịnh</li>
+      <li><a href="https://github.com/ThInhHuYnh04">Huỳnh Hữu Thịnh</a></li>
       <li><a href="https://github.com/DPhngNam">Đoàn Phương Nam</a></li>
     </ul>
     <p>Guided by the expertise of our mentor: Mr. Huỳnh Tuấn Anh</p>
